@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg26ahjkoli5k"]
+
+[ext_resource type="Texture2D" uid="uid://bosnkotrfix0u" path="res://sprites/arrow_tower.png" id="1_cfv10"]
+[ext_resource type="Script" path="res://towers/arrow_tower.gd" id="1_p52m0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr7tm"]
+size = Vector2(517, 461)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpxf8"]
+radius = 866.52
+
+[node name="ArrowTower" type="StaticBody2D"]
+collision_mask = 3
+script = ExtResource("1_p52m0")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_cfv10")
+
+[node name="BuildRadius" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, -7.5)
+shape = SubResource("RectangleShape2D_xr7tm")
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="TargetingRadius" type="Area2D" parent="Turret"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret/TargetingRadius"]
+shape = SubResource("CircleShape2D_mpxf8")
+
+[connection signal="body_entered" from="Turret/TargetingRadius" to="." method="_on_targeting_radius_entered"]
+[connection signal="body_exited" from="Turret/TargetingRadius" to="." method="_on_targeting_radius_exited"]
