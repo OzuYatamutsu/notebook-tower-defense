@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmvftpnl3dmue"]
 
-[ext_resource type="Texture2D" uid="uid://bqmx3udvicsbi" path="res://sprites/basic_enemy.png" id="1_opvds"]
-[ext_resource type="Texture2D" uid="uid://bosnkotrfix0u" path="res://sprites/arrow_tower.png" id="2_jumiw"]
+[ext_resource type="PackedScene" uid="uid://gqhmvpyej27v" path="res://mobs/Basic.tscn" id="1_uhqc2"]
+[ext_resource type="PackedScene" uid="uid://bg26ahjkoli5k" path="res://towers/ArrowTower.tscn" id="2_vsgju"]
 [ext_resource type="Texture2D" uid="uid://dgjv77wwdkbmh" path="res://sprites/arrow.png" id="3_05cqs"]
 
 [node name="test_level" type="Node2D"]
@@ -17,30 +17,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="mobs" type="Node2D" parent="viewport"]
+scale = Vector2(0.1, 0.1)
 
-[node name="basic_mob" type="Sprite2D" parent="viewport/mobs"]
-position = Vector2(40.5, 192.75)
-scale = Vector2(0.054, 0.054)
-texture = ExtResource("1_opvds")
+[node name="Basic" parent="viewport/mobs" instance=ExtResource("1_uhqc2")]
+position = Vector2(310, 1010)
 
 [node name="towers" type="Node2D" parent="viewport"]
+scale = Vector2(0.1, 0.1)
 
-[node name="arrow_tower" type="Sprite2D" parent="viewport/towers"]
-position = Vector2(206, 83)
-scale = Vector2(0.105, 0.105)
-texture = ExtResource("2_jumiw")
-
-[node name="arrow_tower2" type="Sprite2D" parent="viewport/towers"]
-position = Vector2(411, 80)
-scale = Vector2(0.105, 0.105)
-texture = ExtResource("2_jumiw")
-
-[node name="arrow_tower3" type="Sprite2D" parent="viewport/towers"]
-position = Vector2(311, 82)
-scale = Vector2(0.105, 0.105)
-texture = ExtResource("2_jumiw")
+[node name="ArrowTower" parent="viewport/towers" instance=ExtResource("2_vsgju")]
+position = Vector2(5330, 400)
 
 [node name="projectiles" type="Node2D" parent="viewport"]
+visible = false
 
 [node name="arrow" type="Sprite2D" parent="viewport/projectiles"]
 position = Vector2(127, 145)
