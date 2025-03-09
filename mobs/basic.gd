@@ -1,7 +1,8 @@
 class_name Basic
 extends CharacterBody2D
 
-@export var SPEED = 300.0
+@export var HP = 100.0
+@export var SPEED = 200.0
 
 func _physics_process(delta: float) -> void:
     velocity = get_next_direction() * SPEED
