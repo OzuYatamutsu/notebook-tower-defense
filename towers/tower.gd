@@ -17,22 +17,27 @@ func _init():
     # up on ready_tower()
     ShootTimer = Timer.new()
     ShootTimer.name = "ShootTimer"
-    ShootTimer.connect("timeout", _on_shoot_timer_timeout)
     
     # Create the targeting radius
     var radius_shape = CollisionShape2D.new()
     radius_shape.shape = CircleShape2D.new()
     TargetingRadius = Area2D.new()
     TargetingRadius.name = "TargetingRadius"
-    TargetingRadius.collision_mask = 0x2
+    TargetingRadius.collision_layer = 0x0  # no collision layer
+    TargetingRadius.collision_mask = 0x4  # target mobs
     TargetingRadius.add_child(radius_shape)
-    TargetingRadius.connect("body_entered", _on_targeting_radius_entered)
-    TargetingRadius.connect("body_exited", _on_targeting_radius_exited)
 
+    # Add the components we created
     add_child(ShootTimer)
     add_child(TargetingRadius)
 
+    # Hook up signals
+    ShootTimer.connect("timeout", _on_shoot_timer_timeout)
+    TargetingRadius.connect("body_entered", _on_targeting_radius_entered)
+    TargetingRadius.connect("body_exited", _on_targeting_radius_exited)
+
 func ready_tower(projectile: PackedScene, targeting_radius_px: float, rate_of_fire_secs: float) -> void:
+    # Call this when we're placing the tower
     PROJECTILE_REF = projectile
     TARGETING_RADIUS_PX = targeting_radius_px
     RATE_OF_FIRE_SECS = rate_of_fire_secs
