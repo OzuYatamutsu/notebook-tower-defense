@@ -40,6 +40,6 @@ func _on_shoot_timer_timeout() -> void:
 
     var new_projectile: Projectile = PROJECTILE_REF.instantiate()
     ProjectileRoot.add_child(new_projectile)
-    new_projectile.init(CURRENT_TARGET.global_position)
+    new_projectile.fire_at(CURRENT_TARGET)
 
     print(str(self) + ": Shooting an arrow, " + str(new_projectile))
