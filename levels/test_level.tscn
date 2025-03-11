@@ -19,13 +19,13 @@ grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 
 [node name="Basic" parent="viewport/mobs" instance=ExtResource("1_uhqc2")]
-position = Vector2(150, 2140)
+position = Vector2(4090, 2630)
 
 [node name="towers" type="Node2D" parent="viewport" groups=["towers"]]
 scale = Vector2(0.1, 0.1)
 
 [node name="ArrowTower" parent="viewport/towers" instance=ExtResource("2_vsgju")]
-position = Vector2(1910, 1090)
+position = Vector2(6260, 1490)
 
 [node name="projectiles" type="Node2D" parent="viewport" groups=["projectiles"]]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.07, 0.07)
