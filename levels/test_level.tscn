@@ -25,7 +25,7 @@ position = Vector2(150, 2140)
 scale = Vector2(0.1, 0.1)
 
 [node name="ArrowTower" parent="viewport/towers" instance=ExtResource("2_vsgju")]
-position = Vector2(5330, 400)
+position = Vector2(1910, 1090)
 
 [node name="projectiles" type="Node2D" parent="viewport" groups=["projectiles"]]
 scale = Vector2(0.1, 0.1)

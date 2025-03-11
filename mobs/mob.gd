@@ -1,11 +1,11 @@
 class_name Mob
 extends CharacterBody2D
 
-@export var HP = 100.0
-@export var SPEED = 200.0
+@export var HP: float
+@export var SPEED: float
 
 func _physics_process(delta: float) -> void:
-    velocity = get_next_direction() * SPEED
+    velocity = get_next_direction() * delta * SPEED
     move_and_slide()
 
 func get_next_direction() -> Vector2:
