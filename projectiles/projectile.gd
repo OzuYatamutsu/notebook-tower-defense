@@ -2,7 +2,7 @@ class_name Projectile
 extends StaticBody2D
 
 @export var DESPAWN_TIMER_SECS = 10.0
-@export var SPEED = 300.0
+@export var SPEED: float
 @export var TARGET: Mob
 @export var TARGET_LOCATION: Vector2
 @export var IS_ACTIVE = false
@@ -10,6 +10,8 @@ extends StaticBody2D
 @onready var DespawnTimer = $DespawnTimer
 
 func fire_at(target: Mob) -> void:
+    assert(SPEED != 0.0, "Projectiles must have a speed set!")
+
     TARGET = target
     update_target_position()
     DespawnTimer.wait_time = DESPAWN_TIMER_SECS
