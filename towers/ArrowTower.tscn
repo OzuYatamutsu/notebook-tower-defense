@@ -30,5 +30,8 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Turret/TargetingRadius"]
 shape = SubResource("CircleShape2D_mpxf8")
 
+[node name="ShootTimer" type="Timer" parent="Turret"]
+
 [connection signal="body_entered" from="Turret/TargetingRadius" to="." method="_on_targeting_radius_entered"]
 [connection signal="body_exited" from="Turret/TargetingRadius" to="." method="_on_targeting_radius_exited"]
+[connection signal="timeout" from="Turret/ShootTimer" to="." method="_on_shoot_timer_timeout"]
