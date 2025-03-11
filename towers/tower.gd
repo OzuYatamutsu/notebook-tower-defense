@@ -75,7 +75,8 @@ func _on_shoot_timer_timeout() -> void:
 
     # Spawn a new projectile
     var new_projectile: Projectile = PROJECTILE_REF.instantiate()
-    get_tree().get_first_node_in_group("projectiles").add_child(new_projectile)
+    ProjectileRoot.add_child(new_projectile)
+    new_projectile.global_position = global_position
 
     # ...and fire it at our target!
     new_projectile.fire_at(CURRENT_TARGET)

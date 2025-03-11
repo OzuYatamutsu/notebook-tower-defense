@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
         return
 
     global_position += Vector2(
-        move_toward(global_position.x, TARGET_LOCATION.x, SPEED * delta),
-        move_toward(global_position.y, TARGET_LOCATION.y, SPEED * delta),
+        move_toward(global_position.x, TARGET_LOCATION.x, delta),
+        move_toward(global_position.y, TARGET_LOCATION.y, delta),
     )
 
 func _on_despawn_timer_timeout() -> void:
