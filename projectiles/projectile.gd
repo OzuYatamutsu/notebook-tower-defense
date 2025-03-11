@@ -9,6 +9,10 @@ extends StaticBody2D
 
 @onready var DespawnTimer = $DespawnTimer
 
+func _init():
+    self.collision_layer = 0x8  # projectiles
+    self.collision_mask = 0x4  # mobs
+
 func fire_at(target: Mob) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")
 
@@ -27,9 +31,9 @@ func _process(delta: float) -> void:
     if !IS_ACTIVE:
         return
 
-    global_position += Vector2(
-        move_toward(global_position.x, TARGET_LOCATION.x, delta),
-        move_toward(global_position.y, TARGET_LOCATION.y, delta),
+    global_position = Vector2(
+        move_toward(global_position.x, TARGET_LOCATION.x, SPEED * delta),
+        move_toward(global_position.y, TARGET_LOCATION.y, SPEED * delta),
     )
 
 func _on_despawn_timer_timeout() -> void:
