@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://gqhmvpyej27v"]
+[gd_scene load_steps=5 format=3 uid="uid://gqhmvpyej27v"]
 
 [ext_resource type="Texture2D" uid="uid://bqmx3udvicsbi" path="res://sprites/basic_enemy.png" id="1_0bt6k"]
 [ext_resource type="Script" uid="uid://w0n3vxhpn1mv" path="res://mobs/basic.gd" id="1_gq4ol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6odd"]
 size = Vector2(412, 428)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we44h"]
+size = Vector2(566, 552)
 
 [node name="Basic" type="CharacterBody2D"]
 collision_layer = 4
@@ -14,6 +17,14 @@ script = ExtResource("1_gq4ol")
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_0bt6k")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -11)
 shape = SubResource("RectangleShape2D_g6odd")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(11, -7)
+shape = SubResource("RectangleShape2D_we44h")
