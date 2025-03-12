@@ -3,6 +3,7 @@ extends Projectile
 
 func _ready() -> void:
     self.SPEED = 100.0
+    self.DAMAGE = 50.0
 
 func _physics_process(delta: float) -> void:
     if !IS_ACTIVE:

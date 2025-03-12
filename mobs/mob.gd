@@ -13,3 +13,13 @@ func get_next_direction() -> Vector2:
     var direction = Vector2(1, 0)
 
     return direction
+
+func _on_hit(projectile: Projectile) -> void:
+    HP -= projectile.DAMAGE
+    projectile.queue_free()
+
+    if (HP <= 0.0):
+        _on_death()
+
+func _on_death():
+    queue_free()

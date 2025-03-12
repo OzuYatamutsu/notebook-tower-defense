@@ -6,6 +6,7 @@ extends StaticBody2D
 @export var TARGET: Mob
 @export var TARGET_LOCATION: Vector2
 @export var IS_ACTIVE = false
+@export var DAMAGE: float
 
 @onready var DespawnTimer = $DespawnTimer
 
