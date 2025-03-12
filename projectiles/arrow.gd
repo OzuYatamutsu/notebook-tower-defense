@@ -10,4 +10,6 @@ func _physics_process(delta: float) -> void:
     
     # We want to point the head of the arrow at
     # what we're firing
-    rotation = position.angle_to_point(TARGET_LOCATION)
+    rotation = global_position.angle_to_point(
+        TARGET_LOCATION
+    ) + (PI/2)
