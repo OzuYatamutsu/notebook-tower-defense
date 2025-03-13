@@ -5,10 +5,10 @@ func _ready() -> void:
     self.SPEED = 100.0
     self.DAMAGE = 50.0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
     if !IS_ACTIVE:
         return
     
     # We want to point the head of the arrow at
     # what we're firing
-    
+    look_at(TARGET.global_position)
