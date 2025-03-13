@@ -3,10 +3,9 @@ extends Area2D
 
 @export var HP: float
 @export var SPEED: float
-@onready var Hitbox = $Hitbox
 
 func _ready() -> void:
-    Hitbox.connect("body_entered", _on_hit)
+    connect("area_entered", _on_hit)
 
 func _physics_process(delta: float) -> void:
     position += get_next_direction() * delta * SPEED

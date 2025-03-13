@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr7tm"]
 size = Vector2(517, 461)
 
-[node name="ArrowTower" type="StaticBody2D"]
+[node name="ArrowTower" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_p52m0")
 

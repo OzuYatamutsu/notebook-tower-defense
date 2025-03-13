@@ -1,5 +1,5 @@
 class_name Tower
-extends StaticBody2D
+extends Area2D
 
 @export var PROJECTILE_REF: PackedScene
 @export var CURRENT_TARGET: Basic
@@ -33,8 +33,8 @@ func _init():
 
     # Hook up signals
     ShootTimer.connect("timeout", _on_shoot_timer_timeout)
-    TargetingRadius.connect("body_entered", _on_targeting_radius_entered)
-    TargetingRadius.connect("body_exited", _on_targeting_radius_exited)
+    TargetingRadius.connect("area_entered", _on_targeting_radius_entered)
+    TargetingRadius.connect("area_exited", _on_targeting_radius_exited)
 
 func ready_tower(projectile: PackedScene, targeting_radius_px: float, rate_of_fire_secs: float) -> void:
     # Call this when we're placing the tower
