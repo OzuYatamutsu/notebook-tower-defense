@@ -9,7 +9,7 @@ size = Vector2(412, 428)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we44h"]
 size = Vector2(566, 552)
 
-[node name="Basic" type="CharacterBody2D"]
+[node name="Basic" type="Area2D"]
 collision_layer = 4
 collision_mask = 14
 script = ExtResource("1_gq4ol")

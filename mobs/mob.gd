@@ -1,5 +1,5 @@
 class_name Mob
-extends CharacterBody2D
+extends Area2D
 
 @export var HP: float
 @export var SPEED: float
@@ -9,8 +9,7 @@ func _ready() -> void:
     Hitbox.connect("body_entered", _on_hit)
 
 func _physics_process(delta: float) -> void:
-    velocity = get_next_direction() * delta * SPEED
-    move_and_slide()
+    position += get_next_direction() * delta * SPEED
 
 func get_next_direction() -> Vector2:
     # TODO for now just goes from left to right

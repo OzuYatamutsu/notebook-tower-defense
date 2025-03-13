@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6doq"]
 size = Vector2(63, 489)
 
-[node name="Arrow" type="StaticBody2D"]
+[node name="Arrow" type="Area2D"]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_xhfri")

@@ -1,5 +1,5 @@
 class_name Projectile
-extends StaticBody2D
+extends Area2D
 
 @export var DESPAWN_TIMER_SECS = 10.0
 @export var SPEED: float
