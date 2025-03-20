@@ -1,11 +1,13 @@
 class_name Mob
 extends Area2D
 
-@export var HP: float
 @export var SPEED: float
+
+@onready var HEALTH_BAR: HpBar = $HpBar
 
 func _ready() -> void:
     connect("area_entered", _on_hit)
+    HEALTH_BAR.connect("no_hp", _on_death)
 
 func _physics_process(delta: float) -> void:
     position += get_next_direction() * delta * SPEED
@@ -17,11 +19,8 @@ func get_next_direction() -> Vector2:
     return direction
 
 func _on_hit(projectile: Projectile) -> void:
-    HP -= projectile.DAMAGE
+    HEALTH_BAR.damage_by(projectile.DAMAGE)
     projectile.queue_free()
-
-    if (HP <= 0.0):
-        _on_death()
 
 func _on_death():
     queue_free()
