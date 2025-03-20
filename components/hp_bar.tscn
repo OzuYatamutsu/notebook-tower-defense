@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://exhf822h2mmj"]
+
+[ext_resource type="Script" uid="uid://b4wd6aesab66n" path="res://components/hp_bar.gd" id="1_1hw36"]
+[ext_resource type="Texture2D" uid="uid://dv26n7yliswpf" path="res://sprites/hp_bar_full.png" id="1_4to1i"]
+[ext_resource type="Texture2D" uid="uid://bymp2t64a0wo" path="res://sprites/hp_bar_empty.png" id="2_1hw36"]
+
+[node name="HpBar" type="Node2D"]
+script = ExtResource("1_1hw36")
+
+[node name="HpBarFullSprite" type="Sprite2D" parent="."]
+position = Vector2(-184, -34)
+texture = ExtResource("1_4to1i")
+centered = false
+region_enabled = true
+region_rect = Rect2(63.5, 216.75, 400, 65)
+
+[node name="HpBarEmptySprite" type="Sprite2D" parent="."]
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_1hw36")
