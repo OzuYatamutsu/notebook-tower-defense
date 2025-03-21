@@ -15,6 +15,10 @@ run/main_scene="res://levels/test_level.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://components/game_state.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -26,6 +30,7 @@ window/size/viewport_height=720
 2d_physics/layer_2="walls"
 2d_physics/layer_3="mobs"
 2d_physics/layer_4="projectiles"
+2d_physics/layer_5="player_hitbox"
 
 [rendering]
 
