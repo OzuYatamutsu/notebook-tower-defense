@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=5 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="PackedScene" uid="uid://gqhmvpyej27v" path="res://mobs/Basic.tscn" id="1_uhqc2"]
+[ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://bg26ahjkoli5k" path="res://towers/ArrowTower.tscn" id="2_vsgju"]
 [ext_resource type="PackedScene" uid="uid://deg46c6o3hqg4" path="res://components/level_hitbox.tscn" id="3_gmgay"]
 
 [node name="test_level" type="Node2D"]
+script = ExtResource("1_w7r7j")
 
 [node name="viewport" type="CanvasLayer" parent="."]
 
