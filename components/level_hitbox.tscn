@@ -21,4 +21,4 @@ color = Color(1, 0, 0, 0.380392)
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_y6de8")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
