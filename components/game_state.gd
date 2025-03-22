@@ -30,5 +30,5 @@ func _on_mob_slipped_through() -> void:
     if PLAYER_LIVES_REMAINING <= 0:
         _on_no_lives_remaining()
 
-func _on_no_lives_remaining():
+func _on_no_lives_remaining() -> void:
     get_tree().quit()  # TODO

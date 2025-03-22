@@ -20,3 +20,7 @@ color = Color(0, 1, 0.368627, 0.380392)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_vqx3e")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
