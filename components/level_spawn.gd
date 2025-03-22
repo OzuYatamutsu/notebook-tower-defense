@@ -15,7 +15,9 @@ func _ready() -> void:
 
 func spawn(mob: Mob):
     mob.global_position = global_position
-    get_tree().get_first_node_in_group(GameState.MOBS_GROUP).add_child(mob)
+    get_tree().get_first_node_in_group(
+        GameState.MOBS_GROUP
+    ).add_child(mob)
 
 func _on_spawn_timer_timeout() -> void:
     emit_signal(spawn_mob.get_name())
