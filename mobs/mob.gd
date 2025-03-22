@@ -1,6 +1,8 @@
 class_name Mob
 extends Area2D
 
+signal mob_killed
+
 @export var SPEED: float
 
 @onready var HEALTH_BAR: HpBar = $HpBar
@@ -23,4 +25,5 @@ func _on_hit(projectile: Projectile) -> void:
     projectile.queue_free()
 
 func _on_death():
+    emit_signal(mob_killed.get_name())
     queue_free()
