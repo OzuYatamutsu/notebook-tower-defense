@@ -8,16 +8,22 @@ signal spawn_mob
 @onready var SpawnTimer = $SpawnTimer
 
 func _ready() -> void:
-    SpawnTimer.timeout = SPAWN_TIMER_SECS
+    SpawnTimer.wait_time = SPAWN_TIMER_SECS
     
     # On level load, register to the global spawner
-    add_to_group(GameState.LEVEL_SPAWNER_GROUP)
+    add_to_group(Level.LEVEL_SPAWNER_GROUP)
+
+func activate() -> void:
+    SpawnTimer.start()
+
+func deactivate() -> void:
+    SpawnTimer.stop()
 
 func spawn(mob: Mob):
-    mob.global_position = global_position
     get_tree().get_first_node_in_group(
         GameState.MOBS_GROUP
     ).add_child(mob)
+    mob.global_position = global_position
 
 func _on_spawn_timer_timeout() -> void:
     emit_signal(spawn_mob.get_name())

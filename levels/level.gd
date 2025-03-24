@@ -17,11 +17,21 @@ func _ready() -> void:
     GameState.PLAYER_LIVES_START = 5  # TODO
     for wave_contents in WAVE_CONTENTS:
         WAVES.append(Wave.new(wave_contents))
+    CURRENT_WAVE = WAVES.pop_front()
     GameState._on_level_load()
+
+func start_wave() -> void:
+    CURRENT_WAVE.start()
+    SPAWNER.activate()
+
+func end_wave() -> void:
+    CURRENT_WAVE.stop()
+    SPAWNER.deactivate()
 
 func _on_spawn_signal() -> void:
     if CURRENT_WAVE.is_empty():
         return
+
     var mob_to_spawn: Mob = CURRENT_WAVE.pop()
 
     print("Spawning: " + str(mob_to_spawn))

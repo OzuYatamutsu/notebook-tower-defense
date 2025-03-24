@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=5 format=3 uid="uid://bmvftpnl3dmue"]
 
-[ext_resource type="PackedScene" uid="uid://gqhmvpyej27v" path="res://mobs/Basic.tscn" id="1_uhqc2"]
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://bg26ahjkoli5k" path="res://towers/ArrowTower.tscn" id="2_vsgju"]
 [ext_resource type="PackedScene" uid="uid://deg46c6o3hqg4" path="res://components/level_hitbox.tscn" id="3_gmgay"]
@@ -22,9 +21,6 @@ grow_vertical = 2
 [node name="mobs" type="Node2D" parent="viewport" groups=["mobs"]]
 scale = Vector2(0.1, 0.1)
 
-[node name="Basic" parent="viewport/mobs" instance=ExtResource("1_uhqc2")]
-position = Vector2(11340, 2340)
-
 [node name="towers" type="Node2D" parent="viewport" groups=["towers"]]
 scale = Vector2(0.1, 0.1)
 
@@ -39,4 +35,4 @@ position = Vector2(1255, 349)
 scale = Vector2(1, 19.35)
 
 [node name="LevelSpawn" parent="." instance=ExtResource("5_o6mel")]
-position = Vector2(320, 258)
+position = Vector2(44, 251)

@@ -3,11 +3,13 @@ extends Area2D
 
 signal mob_killed
 
+@export var MAX_HP: float
 @export var SPEED: float
 
 @onready var HEALTH_BAR: HpBar = $HpBar
 
 func _ready() -> void:
+    HEALTH_BAR.set_max_hp(MAX_HP)
     connect("area_entered", _on_hit)
     HEALTH_BAR.connect("no_hp", _on_death)
 
