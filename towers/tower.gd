@@ -34,9 +34,9 @@ func _init():
     add_child(TargetingRadius)
 
     # Hook up signals
-    ShootTimer.connect("timeout", _on_shoot_timer_timeout)
-    TargetingRadius.connect("area_entered", _on_targeting_radius_entered)
-    TargetingRadius.connect("area_exited", _on_targeting_radius_exited)
+    ShootTimer.timeout.connect(_on_shoot_timer_timeout)
+    TargetingRadius.area_entered.connect(_on_targeting_radius_entered)
+    TargetingRadius.area_exited.connect(_on_targeting_radius_exited)
 
 func ready_tower(projectile: PackedScene, targeting_radius_px: float, rate_of_fire_secs: float) -> void:
     # Call this when we're placing the tower

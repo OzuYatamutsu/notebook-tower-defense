@@ -13,8 +13,10 @@ var SPAWNER: LevelSpawn
 @export var CURRENT_WAVE_NUM = 0
 
 func _ready() -> void:
+    GameState.CURRENT_LEVEL = self
+
     SPAWNER = get_tree().get_first_node_in_group(LEVEL_SPAWNER_GROUP)
-    SPAWNER.connect(SPAWNER.spawn_mob.get_name(), _on_spawn_signal)
+    SPAWNER.spawn_mob.connect(_on_spawn_signal)
 
     CURRENT_WAVE_TIMER = Timer.new()
     CURRENT_WAVE_TIMER.wait_time = WAVE_TIMER_SECS
