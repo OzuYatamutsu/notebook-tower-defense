@@ -25,10 +25,13 @@ func _process(delta: float) -> void:
     if !IS_ACTIVE:
         return
 
-    global_position = Vector2(
-        move_toward(global_position.x, TARGET.global_position.x, SPEED * delta),
-        move_toward(global_position.y, TARGET.global_position.x, SPEED * delta),
-    )
+    if TARGET == null:
+        queue_free()
+    else:
+        global_position = Vector2(
+            move_toward(global_position.x, TARGET.global_position.x, SPEED * delta),
+            move_toward(global_position.y, TARGET.global_position.x, SPEED * delta),
+        )
 
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time
