@@ -21,6 +21,7 @@ func _ready() -> void:
     CURRENT_WAVE_TIMER = Timer.new()
     CURRENT_WAVE_TIMER.wait_time = WAVE_TIMER_SECS
     CURRENT_WAVE_TIMER.timeout.connect(next_wave)
+    add_child(CURRENT_WAVE_TIMER)
 
     GameState.PLAYER_LIVES_START = 5  # TODO
     for wave_contents in WAVE_CONTENTS:
@@ -29,11 +30,13 @@ func _ready() -> void:
     GameState._on_level_load()
 
 func start_wave() -> void:
+    CURRENT_WAVE_TIMER.start()
     CURRENT_WAVE.start()
     SPAWNER.activate()
 
 func end_wave() -> void:
-    CURRENT_WAVE.stop()
+    CURRENT_WAVE_TIMER.stop()
+    CURRENT_WAVE.end()
     SPAWNER.deactivate()
 
 func next_wave() -> void:

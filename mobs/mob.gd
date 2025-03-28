@@ -11,7 +11,7 @@ signal mob_killed
 func _ready() -> void:
     HEALTH_BAR.set_max_hp(MAX_HP)
     area_entered.connect(_on_hit)
-    mob_killed.connect(GameState.CURRENT_LEVEL._on_mob_killed)
+    # mob_killed.connect(GameState.CURRENT_LEVEL._on_mob_killed)
     HEALTH_BAR.no_hp.connect(_on_death)
 
 func _physics_process(delta: float) -> void:
