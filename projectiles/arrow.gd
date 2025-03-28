@@ -2,7 +2,7 @@ class_name Arrow
 extends Projectile
 
 func _ready() -> void:
-    self.SPEED = 100.0
+    self.SPEED = 300.0
     self.DAMAGE = 50.0
 
 func _physics_process(_delta: float) -> void:
