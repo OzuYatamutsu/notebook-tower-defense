@@ -11,6 +11,8 @@ extends Area2D
 @onready var TargetingRadius: Area2D
 @onready var ProjectileRoot: Node2D = get_tree().get_first_node_in_group("projectiles")
 
+var TargetingQueue: Array[Mob]
+
 func _init():
     # Every time the timer expires, spawn and fire
     # a projectile (create the timer here and set it
@@ -56,18 +58,29 @@ func disable():
     ShootTimer.wait_time = RATE_OF_FIRE_SECS
 
 func _on_targeting_radius_entered(body: Mob) -> void:
-    if !IS_ACTIVE or CURRENT_TARGET != null:
+    if !IS_ACTIVE:
+        return
+    if CURRENT_TARGET != null:
+        TargetingQueue.append(body)
         return
 
-    print(str(self) + ": Got a target, " + str(body))
+    print(str(self) + ": Switching targets: " + str(body))
     CURRENT_TARGET = body
 
 func _on_targeting_radius_exited(body: Mob) -> void:
     if !IS_ACTIVE:
         return
+    if body != CURRENT_TARGET:
+        TargetingQueue.erase(body)
+        return
 
-    print(str(self) + ": Lost my target, " + str(body))
-    CURRENT_TARGET = null
+    print(str(self) + ": Target out of range: " + str(body))
+    
+    if !TargetingQueue.is_empty():
+        CURRENT_TARGET = TargetingQueue.pop_front()
+        print(str(self) + ": Switching targets to: " + str(CURRENT_TARGET))
+    else:
+        CURRENT_TARGET = null
 
 func _on_shoot_timer_timeout() -> void:
     if !IS_ACTIVE or CURRENT_TARGET == null:
