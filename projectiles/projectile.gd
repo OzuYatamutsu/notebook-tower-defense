@@ -9,6 +9,8 @@ extends Area2D
 
 @onready var DespawnTimer = $DespawnTimer
 
+var direction: Vector2 = Vector2.ZERO
+
 func _init():
     self.collision_layer = 0x8  # projectiles
     self.collision_mask = 0x4  # mobs
@@ -26,12 +28,17 @@ func _process(delta: float) -> void:
         return
 
     if TARGET == null:
-        queue_free()
-    else:
         global_position = Vector2(
-            move_toward(global_position.x, TARGET.global_position.x, SPEED * delta),
-            move_toward(global_position.y, TARGET.global_position.x, SPEED * delta),
+            move_toward(global_position.x, global_position.x + direction.x, SPEED * delta),
+            move_toward(global_position.y, global_position.y + direction.y, SPEED * delta),
         )
+    else:
+        var target_position = Vector2(
+            move_toward(global_position.x, TARGET.global_position.x, SPEED * delta),
+            move_toward(global_position.y, TARGET.global_position.y, SPEED * delta),
+        )
+        direction = (target_position - global_position).normalized()
+        global_position = target_position
 
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time

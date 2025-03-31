@@ -1,0 +1,35 @@
+extends Node2D
+
+@export var TOWER_TO_PLACE: Tower
+@export var MOUSE_FOLLOW_SPEED: float = 10.0
+
+func _ready() -> void:
+    TOWER_TO_PLACE = preload("res://towers/BulletTower.tscn").instantiate()  # TODO
+    
+func _process(delta) -> void:
+    position = position.lerp(
+        get_global_mouse_position(),
+        MOUSE_FOLLOW_SPEED * delta
+    )
+
+func _input(event) -> void:
+    if !(
+        event is InputEventMouseButton
+        and event.is_pressed()
+        and event.button_index == MOUSE_BUTTON_LEFT
+    ):
+        return
+    
+    spawn()
+
+func spawn() -> void:
+    print("Creating tower! " + str(TOWER_TO_PLACE))
+    var new_tower = TOWER_TO_PLACE.duplicate()
+
+    get_tree().get_first_node_in_group(
+        GameState.TOWERS_GROUP
+    ).add_child(
+        new_tower
+    )
+
+    new_tower.global_position = get_global_mouse_position()

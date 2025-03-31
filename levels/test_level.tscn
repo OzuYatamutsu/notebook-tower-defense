@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
-[ext_resource type="PackedScene" uid="uid://bg26ahjkoli5k" path="res://towers/ArrowTower.tscn" id="2_vsgju"]
 [ext_resource type="PackedScene" uid="uid://deg46c6o3hqg4" path="res://components/level_hitbox.tscn" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="5_e7anx"]
 [ext_resource type="PackedScene" uid="uid://osxbwsluain5" path="res://components/level_spawn.tscn" id="5_o6mel"]
 
 [node name="test_level" type="Node2D"]
@@ -24,14 +24,12 @@ scale = Vector2(0.1, 0.1)
 [node name="towers" type="Node2D" parent="viewport" groups=["towers"]]
 scale = Vector2(0.1, 0.1)
 
-[node name="ArrowTower" parent="viewport/towers" instance=ExtResource("2_vsgju")]
-position = Vector2(4050, 1220)
-
-[node name="ArrowTower2" parent="viewport/towers" instance=ExtResource("2_vsgju")]
-position = Vector2(7350, 1190)
-
 [node name="projectiles" type="Node2D" parent="viewport" groups=["projectiles"]]
 scale = Vector2(0.07, 0.07)
+
+[node name="TowerPlacementShadow" parent="viewport" instance=ExtResource("5_e7anx")]
+position = Vector2(566, 331)
+scale = Vector2(0.1, 0.1)
 
 [node name="LevelHitbox" parent="." instance=ExtResource("3_gmgay")]
 position = Vector2(1255, 349)
