@@ -19,6 +19,8 @@ func fire_at(target: Mob) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")
 
     TARGET = target
+    direction = (TARGET.global_position - global_position).normalized()
+
     DespawnTimer.wait_time = DESPAWN_TIMER_SECS
     DespawnTimer.start()
     IS_ACTIVE = true
@@ -27,18 +29,10 @@ func _process(delta: float) -> void:
     if !IS_ACTIVE:
         return
 
-    if TARGET == null:
-        global_position = Vector2(
-            move_toward(global_position.x, global_position.x + direction.x, SPEED * delta),
-            move_toward(global_position.y, global_position.y + direction.y, SPEED * delta),
-        )
-    else:
-        var target_position = Vector2(
-            move_toward(global_position.x, TARGET.global_position.x, SPEED * delta),
-            move_toward(global_position.y, TARGET.global_position.y, SPEED * delta),
-        )
-        direction = (target_position - global_position).normalized()
-        global_position = target_position
+    global_position = Vector2(
+        move_toward(global_position.x, global_position.x + direction.x, SPEED * delta),
+        move_toward(global_position.y, global_position.y + direction.y, SPEED * delta),
+    )
 
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time
