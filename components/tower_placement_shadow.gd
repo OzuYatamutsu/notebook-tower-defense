@@ -66,14 +66,14 @@ func set_is_ok() -> void:
         OK_SHADOW.visible = false
         NG_SHADOW.visible = true
 
-func _on_area_entered(tower: Tower) -> void:
+func _on_area_entered(_tower: Tower) -> void:
     # Intersected with an Area2D corresponding to a Tower.
     # This means we can't place a new tower here;
     # it would overlap an existing tower.
 
     current_state = ShadowState.NG_OVERLAPPING
 
-func _on_area_exited(tower: Tower) -> void:
+func _on_area_exited(_tower: Tower) -> void:
     # No longer intersecting with an Area2D corresponding to a Tower.
     # We're able to place towers if we have enough money.
     
