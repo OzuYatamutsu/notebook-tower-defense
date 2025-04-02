@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=6 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
-[ext_resource type="Texture2D" uid="uid://byi56orrign7m" path="res://sprites/money_label.png" id="2_o6mel"]
+[ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="2_o6mel"]
 [ext_resource type="PackedScene" uid="uid://deg46c6o3hqg4" path="res://components/level_hitbox.tscn" id="3_gmgay"]
-[ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="3_ur00s"]
-[ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="4_wndkh"]
 [ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="5_e7anx"]
 [ext_resource type="PackedScene" uid="uid://osxbwsluain5" path="res://components/level_spawn.tscn" id="5_o6mel"]
 
@@ -13,46 +11,14 @@ script = ExtResource("1_w7r7j")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="UI"]
+[node name="MoneyMeter" parent="UI" instance=ExtResource("2_o6mel")]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -332.0
-offset_top = -126.0
-offset_right = 168.0
-offset_bottom = 374.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
-size_flags_horizontal = 8
-size_flags_vertical = 8
-texture = ExtResource("2_o6mel")
-
-[node name="TextureRect2" type="TextureRect" parent="UI"]
-offset_left = 1042.0
-offset_top = 599.0
-offset_right = 1542.0
-offset_bottom = 1099.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_ur00s")
-
-[node name="TextureRect3" type="TextureRect" parent="UI"]
-offset_left = 1076.0
-offset_top = 599.0
-offset_right = 1576.0
-offset_bottom = 1099.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_wndkh")
-
-[node name="TextureRect4" type="TextureRect" parent="UI"]
-offset_left = 1116.0
-offset_top = 599.0
-offset_right = 1616.0
-offset_bottom = 1099.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_wndkh")
+pivot_offset = Vector2(-585.3, -166.79)
 
 [node name="viewport" type="CanvasLayer" parent="."]
 

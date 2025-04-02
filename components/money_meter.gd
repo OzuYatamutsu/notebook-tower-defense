@@ -17,17 +17,19 @@ func set_value(value: int):
     digit5.frame = CLEAR_DIGIT
     
     if value <= 0:
-        value = 0  # prevent negative values
+        value = 0
 
     var str_value = str(value)
     var length = str_value.length()
 
-    # Place digits from left to right
+    # Alignment
+    var start_index = 5 - length
+
     for i in range(length):
         var digit = int(str_value[i])
-        match i:
-            0: digit5.frame = digit
-            1: digit4.frame = digit
+        match start_index + i:
+            0: digit1.frame = digit
+            1: digit2.frame = digit
             2: digit3.frame = digit
-            3: digit2.frame = digit
-            4: digit1.frame = digit
+            3: digit4.frame = digit
+            4: digit5.frame = digit

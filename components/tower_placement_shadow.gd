@@ -54,7 +54,7 @@ func spawn() -> void:
     )
 
     new_tower.global_position = get_global_mouse_position()
-    GameState.PLAYER_MONEY_REMAINING -= TOWER_TO_PLACE.VALUE
+    GameState.deduct_money(TOWER_TO_PLACE.VALUE)
 
 func set_is_ok() -> void:
     if current_state == ShadowState.OK:

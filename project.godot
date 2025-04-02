@@ -24,6 +24,10 @@ GameState="*res://components/game_state.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[global_group]
+
+money_meter=""
+
 [layer_names]
 
 2d_physics/layer_1="towers"

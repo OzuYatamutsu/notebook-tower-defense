@@ -55,7 +55,7 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="MoneyMeter" type="Control"]
+[node name="MoneyMeter" type="Control" groups=["money_meter"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
