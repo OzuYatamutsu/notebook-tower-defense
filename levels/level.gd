@@ -24,6 +24,8 @@ func _ready() -> void:
     add_child(CURRENT_WAVE_TIMER)
 
     GameState.PLAYER_LIVES_START = 5  # TODO
+    GameState.PLAYER_MONEY_REMAINING = 100  # TODO
+
     for wave_contents in WAVE_CONTENTS:
         WAVES.append(Wave.new(wave_contents))
     CURRENT_WAVE = WAVES.pop_front()

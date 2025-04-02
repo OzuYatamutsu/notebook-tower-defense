@@ -6,6 +6,7 @@ extends Area2D
 @export var TARGETING_RADIUS_PX: float
 @export var RATE_OF_FIRE_SECS: float
 @export var IS_ACTIVE = false
+@export var VALUE: int
 
 @onready var ShootTimer: Timer
 @onready var TargetingRadius: Area2D

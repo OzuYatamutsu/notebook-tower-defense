@@ -8,6 +8,7 @@ const PROJECTILES_GROUP = "projectiles"
 
 @export var PLAYER_LIVES_START: int
 @export var PLAYER_LIVES_REMAINING: int
+@export var PLAYER_MONEY_REMAINING: int
 
 var CURRENT_LEVEL: Level
 
