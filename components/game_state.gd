@@ -30,7 +30,11 @@ func _on_level_load() -> void:
     assert(get_tree().get_first_node_in_group(GameState.PROJECTILES_GROUP), "Missing a projectiles node!")
     assert(CURRENT_LEVEL != null)
 
-func deduct_money(value: int):
+func add_money(value: int) -> void:
+    PLAYER_MONEY_REMAINING += value
+    MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
+
+func deduct_money(value: int) -> void:
     PLAYER_MONEY_REMAINING -= value
     if PLAYER_MONEY_REMAINING <= 0:
         PLAYER_MONEY_REMAINING = 0

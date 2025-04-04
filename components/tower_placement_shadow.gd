@@ -57,6 +57,12 @@ func spawn() -> void:
     GameState.deduct_money(TOWER_TO_PLACE.VALUE)
 
 func set_is_ok() -> void:
+    if (
+        current_state == ShadowState.NG_INSUFFICIENT_FUNDS
+        and GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
+    ):
+        current_state = ShadowState.OK
+    
     if current_state == ShadowState.OK:
         is_ok = true
         OK_SHADOW.visible = true

@@ -5,6 +5,7 @@ signal mob_killed
 
 @export var MAX_HP: float
 @export var SPEED: float
+@export var VALUE: int
 
 @onready var HEALTH_BAR: HpBar = $HpBar
 
@@ -28,5 +29,6 @@ func _on_hit(projectile: Projectile) -> void:
     projectile.queue_free()
 
 func _on_death():
+    GameState.add_money(VALUE)
     emit_signal(mob_killed.get_name())
     queue_free()
