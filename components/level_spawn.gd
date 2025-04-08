@@ -3,7 +3,7 @@ extends Area2D
 
 signal spawn_mob
 
-@export var SPAWN_TIMER_SECS: float = 0.5
+@export var SPAWN_TIMER_SECS: float = 1.0
 
 @onready var SpawnTimer = $SpawnTimer
 

@@ -20,4 +20,5 @@ position = Vector2(-2, -11)
 shape = SubResource("RectangleShape2D_g6odd")
 
 [node name="HpBar" parent="." instance=ExtResource("3_iie2i")]
-position = Vector2(0, -320)
+position = Vector2(0, -379)
+scale = Vector2(1.6, 1.6)
