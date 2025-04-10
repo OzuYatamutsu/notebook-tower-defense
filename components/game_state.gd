@@ -5,6 +5,7 @@ const LEVEL_HITBOX_GROUP = "level_hitbox"
 const MOBS_GROUP = "mobs"
 const TOWERS_GROUP = "towers"
 const PROJECTILES_GROUP = "projectiles"
+
 const MONEY_METER_GROUP = "money_meter"
 const LIVES_METER_GROUP = "lives_meter"
 
@@ -13,8 +14,10 @@ const LIVES_METER_GROUP = "lives_meter"
 @export var PLAYER_MONEY_REMAINING: int
 
 var CURRENT_LEVEL: Level
+
 var MONEY_METER: MoneyMeter
 var LIVES_METER: LivesMeter
+var WAVE_METER: WaveMeter
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded

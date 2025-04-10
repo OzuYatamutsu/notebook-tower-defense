@@ -2,12 +2,15 @@ class_name Level
 extends Node
 
 const LEVEL_SPAWNER_GROUP = "level_spawner"
+const WAVE_METER_GROUP = "wave_meter"
+
 const WAVE_TIMER_SECS = 15.0
 
 var WAVE_CONTENTS: Array[Dictionary]
 var WAVES: Array[Wave] = []
 var CURRENT_WAVE: Wave
 var CURRENT_WAVE_TIMER: Timer
+var WAVE_METER: WaveMeter
 var SPAWNER: LevelSpawn
 
 @export var CURRENT_WAVE_NUM = 0
@@ -17,6 +20,8 @@ func _ready() -> void:
 
     SPAWNER = get_tree().get_first_node_in_group(LEVEL_SPAWNER_GROUP)
     SPAWNER.spawn_mob.connect(_on_spawn_signal)
+
+    WAVE_METER = get_tree().get_first_node_in_group(WAVE_METER_GROUP)
 
     CURRENT_WAVE_TIMER = Timer.new()
     CURRENT_WAVE_TIMER.wait_time = WAVE_TIMER_SECS

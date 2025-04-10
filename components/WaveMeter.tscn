@@ -1,0 +1,107 @@
+[gd_scene load_steps=16 format=3 uid="uid://bud4ymw0n8vf8"]
+
+[ext_resource type="Script" uid="uid://bba6nvl5wvwys" path="res://components/wave_meter.gd" id="1_euupa"]
+[ext_resource type="Texture2D" uid="uid://c55awvfsfogwj" path="res://sprites/wave_label.png" id="1_qaemf"]
+[ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="3_52fhu"]
+[ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="4_lx001"]
+[ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="5_n3po7"]
+[ext_resource type="Texture2D" uid="uid://binpecfwik3ji" path="res://sprites/num3.png" id="6_68v1r"]
+[ext_resource type="Texture2D" uid="uid://bq4bbj7gjudud" path="res://sprites/num4.png" id="7_4g8aq"]
+[ext_resource type="Texture2D" uid="uid://ctyktknbbe3jt" path="res://sprites/num5.png" id="8_b88cu"]
+[ext_resource type="Texture2D" uid="uid://bx50aqogqvvjg" path="res://sprites/num6.png" id="9_xbueo"]
+[ext_resource type="Texture2D" uid="uid://88sj41v71jb" path="res://sprites/num7.png" id="10_755ow"]
+[ext_resource type="Texture2D" uid="uid://bmler41lapjay" path="res://sprites/num8.png" id="11_atprf"]
+[ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="12_cksb2"]
+[ext_resource type="Texture2D" uid="uid://dgm6mxbsaplku" path="res://sprites/null_digit.png" id="13_xe15v"]
+[ext_resource type="Texture2D" uid="uid://twr02whjyqt8" path="res://sprites/slash_label.png" id="14_7j6pc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4f5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_52fhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lx001")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n3po7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_68v1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4g8aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b88cu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xbueo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_755ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_atprf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cksb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xe15v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="WaveMeter" type="Control" groups=["wave_meter"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_euupa")
+
+[node name="WaveLabel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_qaemf")
+
+[node name="one_digit" type="Node2D" parent="."]
+
+[node name="digit1" type="AnimatedSprite2D" parent="one_digit"]
+position = Vector2(250, 388)
+sprite_frames = SubResource("SpriteFrames_f4f5w")
+
+[node name="two_digit" type="Node2D" parent="."]
+
+[node name="digit1" type="AnimatedSprite2D" parent="two_digit"]
+position = Vector2(180, 390)
+sprite_frames = SubResource("SpriteFrames_f4f5w")
+
+[node name="digit2" type="AnimatedSprite2D" parent="two_digit"]
+position = Vector2(320, 390)
+sprite_frames = SubResource("SpriteFrames_f4f5w")
+
+[node name="of_total" type="Node2D" parent="."]
+position = Vector2(40, 210)
+scale = Vector2(0.5, 0.5)
+
+[node name="Slash" type="TextureRect" parent="of_total"]
+offset_left = 115.0
+offset_top = 388.0
+offset_right = 615.0
+offset_bottom = 888.0
+texture = ExtResource("14_7j6pc")
+
+[node name="digit1" type="AnimatedSprite2D" parent="of_total"]
+position = Vector2(458, 634)
+sprite_frames = SubResource("SpriteFrames_f4f5w")
+
+[node name="digit2" type="AnimatedSprite2D" parent="of_total"]
+position = Vector2(592, 628)
+sprite_frames = SubResource("SpriteFrames_f4f5w")

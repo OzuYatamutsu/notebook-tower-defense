@@ -19,7 +19,7 @@ anchor_top = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.3, 0.3)
-pivot_offset = Vector2(-575, -165)
+pivot_offset = Vector2(-515, -165)
 
 [node name="LivesMeter" parent="UI" instance=ExtResource("3_e7anx")]
 anchors_preset = 2
@@ -55,7 +55,7 @@ scale = Vector2(0.1, 0.1)
 
 [node name="LevelHitbox" parent="." instance=ExtResource("3_gmgay")]
 position = Vector2(1255, 349)
-scale = Vector2(1, 19.35)
+scale = Vector2(1, 13.6)
 
 [node name="LevelSpawn" parent="." instance=ExtResource("5_o6mel")]
 position = Vector2(44, 251)

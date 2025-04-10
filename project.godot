@@ -29,6 +29,7 @@ window/stretch/mode="canvas_items"
 
 money_meter=""
 lives_meter=""
+wave_meter=""
 
 [layer_names]
 
