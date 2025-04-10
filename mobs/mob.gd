@@ -8,6 +8,7 @@ signal mob_killed
 @export var VALUE: int
 
 @onready var HEALTH_BAR: HpBar = $HpBar
+@onready var SPRITE: Sprite2D = $Sprite
 
 func _ready() -> void:
     HEALTH_BAR.set_max_hp(MAX_HP)

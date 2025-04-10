@@ -11,6 +11,7 @@ extends Area2D
 @onready var ShootTimer: Timer
 @onready var TargetingRadius: Area2D
 @onready var ProjectileRoot: Node2D = get_tree().get_first_node_in_group("projectiles")
+@onready var Sprite: Sprite2D = $Sprite
 
 var TargetingQueue: Array[Mob]
 

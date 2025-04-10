@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=9 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="2_o6mel"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="4_ur00s"]
 [ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="5_e7anx"]
 [ext_resource type="PackedScene" uid="uid://osxbwsluain5" path="res://components/level_spawn.tscn" id="5_o6mel"]
+[ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="5_wndkh"]
 
 [node name="test_level" type="Node2D"]
 script = ExtResource("1_w7r7j")
@@ -37,6 +38,17 @@ offset_top = -40.0
 offset_right = -17.0
 offset_bottom = -40.0
 scale = Vector2(0.3, 0.3)
+
+[node name="SelectedTowerMeter" parent="UI" instance=ExtResource("5_wndkh")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(-230, -60)
 
 [node name="viewport" type="CanvasLayer" parent="."]
 
