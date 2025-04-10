@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xblr"]
 size = Vector2(510, 486)
 
-[node name="TowerPlacementShadow" type="Area2D"]
+[node name="TowerPlacementShadow" type="Area2D" groups=["tower_placement_shadow"]]
 collision_layer = 0
 script = ExtResource("1_2xblr")
 

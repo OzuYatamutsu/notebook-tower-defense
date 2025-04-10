@@ -1,3 +1,4 @@
+class_name TowerPlacementShadow
 extends Node2D
 
 @export var TOWER_TO_PLACE: Tower
