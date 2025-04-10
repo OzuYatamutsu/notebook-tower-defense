@@ -82,7 +82,6 @@ position = Vector2(250, 388)
 sprite_frames = SubResource("SpriteFrames_f4f5w")
 
 [node name="two_digit" type="Node2D" parent="."]
-visible = false
 
 [node name="digit1" type="AnimatedSprite2D" parent="two_digit"]
 position = Vector2(180, 390)
