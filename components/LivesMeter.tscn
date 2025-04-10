@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=3 uid="uid://djugbukw7mfia"]
+
+[ext_resource type="Texture2D" uid="uid://drswpom8y128y" path="res://sprites/lives_label.png" id="1_6mpr1"]
+[ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="3_2yc48"]
+[ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="4_rh70m"]
+[ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="5_g2lfy"]
+[ext_resource type="Texture2D" uid="uid://binpecfwik3ji" path="res://sprites/num3.png" id="6_g44wx"]
+[ext_resource type="Texture2D" uid="uid://bq4bbj7gjudud" path="res://sprites/num4.png" id="7_lm2uf"]
+[ext_resource type="Texture2D" uid="uid://ctyktknbbe3jt" path="res://sprites/num5.png" id="8_edlit"]
+[ext_resource type="Texture2D" uid="uid://bx50aqogqvvjg" path="res://sprites/num6.png" id="9_h7l2q"]
+[ext_resource type="Texture2D" uid="uid://88sj41v71jb" path="res://sprites/num7.png" id="10_rl2qo"]
+[ext_resource type="Texture2D" uid="uid://bmler41lapjay" path="res://sprites/num8.png" id="11_tbgkj"]
+[ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="12_kgind"]
+[ext_resource type="Texture2D" uid="uid://dgm6mxbsaplku" path="res://sprites/null_digit.png" id="13_6wyno"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4f5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2yc48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rh70m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g2lfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g44wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lm2uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_edlit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h7l2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rl2qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tbgkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kgind")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6wyno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="LivesMeter" type="Control" groups=["money_meter"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6mpr1")
+
+[node name="digit1" type="AnimatedSprite2D" parent="."]
+position = Vector2(570, 254)
+sprite_frames = SubResource("SpriteFrames_f4f5w")
+
+[node name="digit2" type="AnimatedSprite2D" parent="."]
+position = Vector2(696, 254)
+sprite_frames = SubResource("SpriteFrames_f4f5w")
