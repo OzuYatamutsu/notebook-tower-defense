@@ -6,6 +6,7 @@ const MOBS_GROUP = "mobs"
 const TOWERS_GROUP = "towers"
 const PROJECTILES_GROUP = "projectiles"
 const MONEY_METER_GROUP = "money_meter"
+const LIVES_METER_GROUP = "lives_meter"
 
 @export var PLAYER_LIVES_START: int
 @export var PLAYER_LIVES_REMAINING: int
@@ -13,6 +14,7 @@ const MONEY_METER_GROUP = "money_meter"
 
 var CURRENT_LEVEL: Level
 var MONEY_METER: MoneyMeter
+var LIVES_METER: LivesMeter
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -23,6 +25,9 @@ func _on_level_load() -> void:
 
     MONEY_METER = get_tree().get_first_node_in_group(MONEY_METER_GROUP)
     MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
+    
+    LIVES_METER = get_tree().get_first_node_in_group(LIVES_METER_GROUP)
+    LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
 
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")
@@ -45,6 +50,7 @@ func _on_mob_killed() -> void:
 
 func _on_mob_slipped_through() -> void:
     PLAYER_LIVES_REMAINING -= 1
+    LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
     print(
         "Took damage! Remaining health: " 
         + str(PLAYER_LIVES_REMAINING)

@@ -28,6 +28,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 money_meter=""
+lives_meter=""
 
 [layer_names]
 
