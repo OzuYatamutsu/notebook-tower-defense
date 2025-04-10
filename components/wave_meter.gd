@@ -23,21 +23,22 @@ func set_value(value: int) -> void:
         value = 99
     
     if value < 10:
-        _set_value_one_digit(str(value))
+        _set_value_one_digit(value)
     else:
-        _set_value_two_digit(str(value))
+        _set_value_two_digit(value)
 
-func _set_value_one_digit(value: String) -> void:
+func _set_value_one_digit(value: int) -> void:
     one_digit_digit1.frame = value
 
-func _set_value_two_digit(value: String) -> void:
-    var length = value.length()
+func _set_value_two_digit(value: int) -> void:
+    var str_value = str(value)
+    var length = str_value.length()
 
     # Alignment
     var start_index = 2 - length
 
     for i in range(length):
-        var digit = int(value[i])
+        var digit = int(str_value[i])
         match start_index + i:
             0: two_digit_digit1.frame = digit
             1: two_digit_digit2.frame = digit
