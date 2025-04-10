@@ -18,7 +18,7 @@ var current_state: ShadowState = ShadowState.OK
 
 func _ready() -> void:
     TOWER_TO_PLACE = preload("res://towers/BulletTower.tscn").instantiate()  # TODO
-    
+
 func _process(delta) -> void:
     position = position.lerp(
         get_global_mouse_position(),

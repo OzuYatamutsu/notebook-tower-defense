@@ -39,6 +39,7 @@ func _on_level_load() -> void:
     TOWER_PLACEMENT_SHADOW = get_tree().get_first_node_in_group(TOWER_PLACEMENT_SHADOW_GROUP)
 
     SELECTED_TOWER_METER = get_tree().get_first_node_in_group(SELECTED_TOWER_METER_GROUP)
+    SELECTED_TOWER_METER.update_sprite()
 
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")
