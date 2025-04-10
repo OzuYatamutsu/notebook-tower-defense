@@ -18,6 +18,8 @@ func set_value(value: int):
     
     if value <= 0:
         value = 0
+    elif value >= 99999:
+        value = 99999
 
     var str_value = str(value)
     var length = str_value.length()
