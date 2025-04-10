@@ -61,6 +61,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -323.0
+offset_right = -259.0
+offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_euupa")
@@ -78,6 +82,7 @@ position = Vector2(250, 388)
 sprite_frames = SubResource("SpriteFrames_f4f5w")
 
 [node name="two_digit" type="Node2D" parent="."]
+visible = false
 
 [node name="digit1" type="AnimatedSprite2D" parent="two_digit"]
 position = Vector2(180, 390)
