@@ -6,9 +6,10 @@ const MOBS_GROUP = "mobs"
 const TOWERS_GROUP = "towers"
 const PROJECTILES_GROUP = "projectiles"
 
+const TOWER_PLACEMENT_SHADOW_GROUP = "tower_placement_shadow"
 const MONEY_METER_GROUP = "money_meter"
 const LIVES_METER_GROUP = "lives_meter"
-const TOWER_PLACEMENT_SHADOW_GROUP = "tower_placement_shadow"
+const SELECTED_TOWER_METER_GROUP = "selected_tower_meter"
 
 @export var PLAYER_LIVES_START: int
 @export var PLAYER_LIVES_REMAINING: int
@@ -16,10 +17,11 @@ const TOWER_PLACEMENT_SHADOW_GROUP = "tower_placement_shadow"
 
 var CURRENT_LEVEL: Level
 
+var TOWER_PLACEMENT_SHADOW: TowerPlacementShadow
 var MONEY_METER: MoneyMeter
 var LIVES_METER: LivesMeter
 var WAVE_METER: WaveMeter
-var TOWER_PLACEMENT_SHADOW: TowerPlacementShadow
+var SELECTED_TOWER_METER: SelectedTowerMeter
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -35,6 +37,8 @@ func _on_level_load() -> void:
     LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
 
     TOWER_PLACEMENT_SHADOW = get_tree().get_first_node_in_group(TOWER_PLACEMENT_SHADOW_GROUP)
+
+    SELECTED_TOWER_METER = get_tree().get_first_node_in_group(SELECTED_TOWER_METER_GROUP)
 
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")
