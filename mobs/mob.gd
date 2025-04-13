@@ -2,6 +2,7 @@ class_name Mob
 extends Area2D
 
 signal mob_killed
+signal mob_despawned
 
 @export var MAX_HP: float
 @export var SPEED: float
@@ -9,22 +10,13 @@ signal mob_killed
 
 @onready var HEALTH_BAR: HpBar = $HpBar
 @onready var SPRITE: Sprite2D = $Sprite
+@onready var DESPAWN_TIMER: Timer = $DespawnTimer
 
 func _ready() -> void:
     HEALTH_BAR.set_max_hp(MAX_HP)
     area_entered.connect(_on_hit)
-    # mob_killed.connect(GameState.CURRENT_LEVEL._on_mob_killed)
     HEALTH_BAR.no_hp.connect(_on_death)
-
-func _physics_process(delta: float) -> void:
-    # position += get_next_direction() * delta * SPEED
-    return  # TODO
-
-func get_next_direction() -> Vector2:
-    # TODO for now just goes from left to right
-    var direction = Vector2(1, 0)
-
-    return direction
+    DESPAWN_TIMER.timeout.connect(_on_despawn_timer_timeout)
 
 func _on_hit(projectile: Projectile) -> void:
     HEALTH_BAR.damage_by(projectile.DAMAGE)
@@ -32,5 +24,12 @@ func _on_hit(projectile: Projectile) -> void:
 
 func _on_death():
     GameState.add_money(VALUE)
-    emit_signal(mob_killed.get_name())
+    mob_killed.emit()
+    queue_free()
+
+func delayed_despawn() -> void:
+    DESPAWN_TIMER.start()
+
+func _on_despawn_timer_timeout() -> void:
+    mob_despawned.emit()
     queue_free()

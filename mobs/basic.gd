@@ -1,8 +1,7 @@
 class_name Basic
 extends Mob
 
-func _ready():
+func _init():
     self.MAX_HP = 100.0
-    self.SPEED = 1000.0
+    self.SPEED = 0.05
     self.VALUE = 100
-    super._ready()
