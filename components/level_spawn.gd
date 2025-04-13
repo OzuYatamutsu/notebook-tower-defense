@@ -3,6 +3,11 @@ extends Area2D
 
 signal spawn_mob
 
+# How far off from global_position can we spawn the enemy?
+# 0 = on spawn, enemy position = our global_position
+# 1 = on spawn, enemy position = anywhere *up to* 2x global_position
+const WIGGLE_ROOM_PERCENT: float = 0.05
+
 @export var SPAWN_TIMER_SECS: float = 1.0
 
 @onready var SpawnTimer = $SpawnTimer
@@ -23,7 +28,15 @@ func spawn(mob: Mob):
     get_tree().get_first_node_in_group(
         GameState.MOBS_GROUP
     ).add_child(mob)
-    mob.global_position = global_position
+    mob.global_position = (
+        global_position + Vector2(randf_range(
+            -WIGGLE_ROOM_PERCENT * global_position.x,
+            WIGGLE_ROOM_PERCENT * global_position.x,
+        ), randf_range(
+            -WIGGLE_ROOM_PERCENT * global_position.y,
+            WIGGLE_ROOM_PERCENT * global_position.y,
+        ))
+    )
 
 func _on_spawn_timer_timeout() -> void:
     emit_signal(spawn_mob.get_name())
