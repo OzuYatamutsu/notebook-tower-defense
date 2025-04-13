@@ -8,7 +8,7 @@ signal spawn_mob
 # 1 = on spawn, enemy position = anywhere *up to* 2x global_position
 const WIGGLE_ROOM_PERCENT: float = 0.05
 
-@export var SPAWN_TIMER_SECS: float = 1.0
+@export var SPAWN_TIMER_SECS: float = 0.5
 
 @onready var SpawnTimer = $SpawnTimer
 
@@ -25,9 +25,16 @@ func deactivate() -> void:
     SpawnTimer.stop()
 
 func spawn(mob: Mob):
-    get_tree().get_first_node_in_group(
+    var target: mobs_parent = get_tree().get_first_node_in_group(
         GameState.MOBS_GROUP
-    ).add_child(mob)
+    )
+    var pathing_helper: MobPather = MobPather.new(mob.SPEED)
+
+    pathing_helper.add_child(mob)
+    mob.mob_killed.connect(pathing_helper._on_mob_despawn)
+    mob.mob_despawned.connect(pathing_helper._on_mob_despawn)
+    target.get_random_mob_path().add_child(pathing_helper)
+
     mob.global_position = (
         global_position + Vector2(randf_range(
             -WIGGLE_ROOM_PERCENT * global_position.x,

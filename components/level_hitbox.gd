@@ -1,7 +1,7 @@
 class_name LevelHitbox
 extends Area2D
 
-signal mob_slipped_through
+signal mob_slipped_through(Mob)
 
 func _ready() -> void:
     # On level load, register hits to the global hitbox
@@ -9,4 +9,4 @@ func _ready() -> void:
 
 func _on_area_entered(mob: Mob) -> void:
     print(str(mob) + " slipped through!")
-    emit_signal("mob_slipped_through")
+    emit_signal("mob_slipped_through", mob)

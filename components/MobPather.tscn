@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c14nna6iflnfd"]
+
+[ext_resource type="Script" uid="uid://bjel4nhdjmjav" path="res://components/mob_pather.gd" id="1_n5kjj"]
+
+[node name="MobPather" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_n5kjj")

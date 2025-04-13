@@ -60,7 +60,9 @@ func deduct_money(value: int) -> void:
 func _on_mob_killed() -> void:
     print(str(get_tree().get_node_count_in_group(GameState.MOBS_GROUP)) + " mobs left in current wave!")
 
-func _on_mob_slipped_through() -> void:
+func _on_mob_slipped_through(mob: Mob) -> void:
+    mob.delayed_despawn()
+
     PLAYER_LIVES_REMAINING -= 1
     LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
     print(
