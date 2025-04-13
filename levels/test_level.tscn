@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=19 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="2_o6mel"]
@@ -8,11 +8,39 @@
 [ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="5_e7anx"]
 [ext_resource type="PackedScene" uid="uid://osxbwsluain5" path="res://components/level_spawn.tscn" id="5_o6mel"]
 [ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="5_wndkh"]
+[ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="7_ly3hx"]
+
+[sub_resource type="Curve2D" id="Curve2D_ly3hx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n8tn"]
+size = Vector2(673.125, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkb0e"]
+size = Vector2(846.562, 30.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paa45"]
+size = Vector2(74.4417, 12.3359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axl34"]
+size = Vector2(452.562, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hjdj"]
+size = Vector2(43, 233)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vv12"]
+size = Vector2(43, 54.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5yuq"]
+size = Vector2(691.281, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjuib"]
+size = Vector2(63.6406, 289.875)
 
 [node name="test_level" type="Node2D"]
 script = ExtResource("1_w7r7j")
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="MoneyMeter" parent="UI" instance=ExtResource("2_o6mel")]
 anchors_preset = 3
@@ -60,8 +88,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="mobs" type="Node2D" parent="viewport" groups=["mobs"]]
+[node name="mobs" type="Path2D" parent="viewport" groups=["mobs"]]
 scale = Vector2(0.05, 0.05)
+curve = SubResource("Curve2D_ly3hx")
 
 [node name="towers" type="Node2D" parent="viewport" groups=["towers"]]
 scale = Vector2(0.1, 0.1)
@@ -73,9 +102,54 @@ scale = Vector2(0.07, 0.07)
 position = Vector2(566, 331)
 scale = Vector2(0.1, 0.1)
 
+[node name="map" type="Sprite2D" parent="viewport"]
+position = Vector2(638.5, 360)
+scale = Vector2(1.277, 1.1757)
+texture = ExtResource("7_ly3hx")
+
+[node name="walls" type="Area2D" parent="viewport/map"]
+position = Vector2(-500, -477.987)
+scale = Vector2(0.783085, 1.19646)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(338.438, 211.875)
+shape = SubResource("RectangleShape2D_4n8tn")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(858, 639.562)
+shape = SubResource("RectangleShape2D_wkb0e")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(676.171, 498.036)
+rotation = -0.0436332
+shape = SubResource("RectangleShape2D_paa45")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(223.719, 362)
+shape = SubResource("RectangleShape2D_axl34")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(439.5, 497.5)
+shape = SubResource("RectangleShape2D_8hjdj")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(617, 518.812)
+shape = SubResource("RectangleShape2D_0vv12")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(936, 566)
+shape = SubResource("RectangleShape2D_o5yuq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="viewport/map/walls"]
+position = Vector2(718, 354)
+rotation = -0.191986
+shape = SubResource("RectangleShape2D_wjuib")
+
 [node name="LevelHitbox" parent="." instance=ExtResource("3_gmgay")]
-position = Vector2(1255, 349)
-scale = Vector2(1, 13.6)
+position = Vector2(1301, 645)
+scale = Vector2(1, 1.08)
 
 [node name="LevelSpawn" parent="." instance=ExtResource("5_o6mel")]
-position = Vector2(44, 251)
+position = Vector2(20, 279)

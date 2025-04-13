@@ -17,7 +17,8 @@ func _ready() -> void:
     HEALTH_BAR.no_hp.connect(_on_death)
 
 func _physics_process(delta: float) -> void:
-    position += get_next_direction() * delta * SPEED
+    # position += get_next_direction() * delta * SPEED
+    return  # TODO
 
 func get_next_direction() -> Vector2:
     # TODO for now just goes from left to right

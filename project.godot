@@ -32,6 +32,7 @@ lives_meter=""
 wave_meter=""
 selected_tower_meter=""
 tower_placement_shadow=""
+tower_select_panel=""
 
 [layer_names]
 

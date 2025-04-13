@@ -69,6 +69,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_euupa")
 
+[node name="BgRect" type="ColorRect" parent="."]
+offset_left = 95.0
+offset_top = 160.0
+offset_right = 533.0
+offset_bottom = 618.0
+color = Color(1, 1, 1, 0.588235)
+
 [node name="WaveLabel" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -89,7 +96,7 @@ sprite_frames = SubResource("SpriteFrames_f4f5w")
 frame = 10
 
 [node name="digit2" type="AnimatedSprite2D" parent="two_digit"]
-position = Vector2(320, 390)
+position = Vector2(264, 389)
 sprite_frames = SubResource("SpriteFrames_f4f5w")
 frame = 10
 
