@@ -70,6 +70,7 @@ grow_vertical = 2
 script = ExtResource("1_euupa")
 
 [node name="BgRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 95.0
 offset_top = 160.0
 offset_right = 533.0

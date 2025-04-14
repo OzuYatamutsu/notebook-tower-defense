@@ -65,6 +65,7 @@ grow_vertical = 2
 script = ExtResource("1_mg8pk")
 
 [node name="BgRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 101.0
 offset_right = 839.0
