@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://o1i4jsdysgqk"]
+[gd_scene load_steps=10 format=3 uid="uid://o1i4jsdysgqk"]
 
 [ext_resource type="Texture2D" uid="uid://c8jgksime7lxd" path="res://sprites/ui_towers_buy_icon.png" id="1_6i1ck"]
 [ext_resource type="Script" uid="uid://bs1ssl8t8e2y5" path="res://components/tower_buy_panel.gd" id="1_iuxfk"]
 [ext_resource type="Texture2D" uid="uid://chg8jf6qcar3g" path="res://sprites/ui_arrow_left.png" id="2_iuxfk"]
 [ext_resource type="Texture2D" uid="uid://6qanl1kbmlkm" path="res://sprites/ui_arrow_right.png" id="3_kgcwn"]
+[ext_resource type="Texture2D" uid="uid://m68mead284tv" path="res://sprites/ui_towers_label.png" id="5_kgcwn"]
 
 [sub_resource type="Animation" id="Animation_kgcwn"]
 resource_name = "open"
@@ -252,7 +253,18 @@ disabled = true
 icon = ExtResource("3_kgcwn")
 flat = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="TowersLabel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = -232.0
+offset_right = 946.0
+offset_bottom = 468.0
+texture = ExtResource("5_kgcwn")
+
+[node name="PanelAnims" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_vrjho")
 }
+
+[connection signal="pressed" from="ButtonExpandLeft" to="." method="_on_button_expand_left_pressed"]
+[connection signal="pressed" from="ButtonContractRight" to="." method="_on_button_contract_right_pressed"]

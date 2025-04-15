@@ -8,6 +8,7 @@ extends Node2D
 @onready var NG_SHADOW = $ColorRectNG
 
 enum ShadowState {
+    DISABLED,  # Don't show the shadow at all
     NG_OVERLAPPING,  # Can't place the tower due to overlap
     NG_INSUFFICIENT_FUNDS,  # Can't place the tower due to not enough money
     OK  # Can place the tower
@@ -35,6 +36,9 @@ func _input(event) -> void:
     ):
         return
 
+    if current_state == ShadowState.DISABLED:
+        return
+
     if !is_ok and current_state == ShadowState.NG_OVERLAPPING:
         print("Not spawning tower; overlapping another tower")
         return
@@ -58,6 +62,12 @@ func spawn() -> void:
     GameState.deduct_money(TOWER_TO_PLACE.VALUE)
 
 func set_is_ok() -> void:
+    # Don't show the shadow if we're hovering over a button
+    if is_hovering_over_button():
+        current_state = ShadowState.DISABLED
+    else:
+        current_state = reeval_current_state()
+
     if (
         current_state == ShadowState.NG_INSUFFICIENT_FUNDS
         and GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
@@ -68,10 +78,19 @@ func set_is_ok() -> void:
         is_ok = true
         OK_SHADOW.visible = true
         NG_SHADOW.visible = false
-    else:
+    elif current_state in [
+        ShadowState.NG_OVERLAPPING,
+        ShadowState.NG_INSUFFICIENT_FUNDS
+    ]:
         is_ok = false
         OK_SHADOW.visible = false
         NG_SHADOW.visible = true
+    else:
+        OK_SHADOW.visible = false
+        NG_SHADOW.visible = false
+
+func is_hovering_over_button() -> bool:
+    return get_viewport().gui_get_hovered_control() is Button
 
 func _on_area_entered(_tower: Tower) -> void:
     # Intersected with an Area2D corresponding to a Tower.
@@ -84,7 +103,10 @@ func _on_area_exited(_tower: Tower) -> void:
     # No longer intersecting with an Area2D corresponding to a Tower.
     # We're able to place towers if we have enough money.
     
-    current_state = (
+    current_state = reeval_current_state()
+
+func reeval_current_state() -> ShadowState:
+    return (
         ShadowState.OK
         if GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
         else ShadowState.NG_INSUFFICIENT_FUNDS
