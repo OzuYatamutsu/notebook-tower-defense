@@ -6,70 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://6qanl1kbmlkm" path="res://sprites/ui_arrow_right.png" id="3_kgcwn"]
 [ext_resource type="Texture2D" uid="uid://m68mead284tv" path="res://sprites/ui_towers_label.png" id="5_kgcwn"]
 
-[sub_resource type="Animation" id="Animation_kgcwn"]
-resource_name = "open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-300, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonExpandLeft:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonExpandLeft:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ButtonContractRight:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ButtonContractRight:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_ayuvl"]
 length = 0.001
 tracks/0/type = "value"
@@ -82,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(1280, 120)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -146,7 +82,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.0333333, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-300, 0), Vector2(0, 0)]
+"values": [Vector2(955, 120), Vector2(1280, 120)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -197,6 +133,70 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_kgcwn"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 120), Vector2(955, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonExpandLeft:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonExpandLeft:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ButtonContractRight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ButtonContractRight:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vrjho"]
 _data = {
 &"RESET": SubResource("Animation_ayuvl"),
@@ -204,62 +204,74 @@ _data = {
 &"open": SubResource("Animation_kgcwn")
 }
 
-[node name="TowerBuyPanel" type="Control"]
+[node name="TowerBuyPanel" type="Control" groups=["tower_buy_panel"]]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 120.0
+offset_bottom = 120.0
+grow_horizontal = 0
+size_flags_horizontal = 8
 script = ExtResource("1_iuxfk")
+
+[node name="ButtonTowerBuy" type="Button" parent="."]
+z_index = 1
+layout_mode = 1
+offset_left = -112.0
+offset_top = -33.0
+offset_right = 396.0
+offset_bottom = 475.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("1_6i1ck")
+flat = true
+
+[node name="ButtonExpandLeft" type="Button" parent="."]
+z_index = 1
+layout_mode = 1
+offset_left = -158.0
+offset_top = -35.0
+offset_right = 367.0
+offset_bottom = 490.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("2_iuxfk")
+flat = true
+
+[node name="ButtonContractRight" type="Button" parent="."]
+visible = false
+z_index = 2
+layout_mode = 1
+offset_left = -58.0
+offset_top = -33.0
+offset_right = 450.0
+offset_bottom = 475.0
+scale = Vector2(0.3, 0.3)
+disabled = true
+icon = ExtResource("3_kgcwn")
+flat = true
+
+[node name="TowersLabel" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = -55.0
+offset_right = 775.0
+offset_bottom = 645.0
+rotation = -0.0575959
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_kgcwn")
 
 [node name="BgRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1089.0
-offset_bottom = 843.0
+offset_left = 54.0
+offset_right = 326.0
+offset_bottom = 602.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.588235)
-
-[node name="ButtonTowerBuy" type="Button" parent="."]
-layout_mode = 1
-offset_left = -337.0
-offset_top = -157.0
-offset_right = 163.0
-offset_bottom = 343.0
-icon = ExtResource("1_6i1ck")
-flat = true
-
-[node name="ButtonExpandLeft" type="Button" parent="."]
-layout_mode = 1
-offset_left = -518.0
-offset_top = -163.0
-offset_right = 7.0
-offset_bottom = 362.0
-icon = ExtResource("2_iuxfk")
-flat = true
-
-[node name="ButtonContractRight" type="Button" parent="."]
-visible = false
-layout_mode = 1
-offset_left = -154.0
-offset_top = -163.0
-offset_right = 354.0
-offset_bottom = 345.0
-disabled = true
-icon = ExtResource("3_kgcwn")
-flat = true
-
-[node name="TowersLabel" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 246.0
-offset_top = -232.0
-offset_right = 946.0
-offset_bottom = 468.0
-texture = ExtResource("5_kgcwn")
 
 [node name="PanelAnims" type="AnimationPlayer" parent="."]
 libraries = {

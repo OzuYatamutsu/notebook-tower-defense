@@ -85,14 +85,6 @@ scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(-230, -60)
 
 [node name="TowerBuyPanel" parent="UI" instance=ExtResource("6_wkb0e")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_bottom = 0.0
-offset_top = 137.0
-offset_bottom = 137.0
-grow_horizontal = 0
-grow_vertical = 1
-scale = Vector2(0.3, 0.3)
 
 [node name="viewport" type="CanvasLayer" parent="."]
 

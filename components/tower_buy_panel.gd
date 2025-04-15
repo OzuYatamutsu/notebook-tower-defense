@@ -7,4 +7,4 @@ func _on_button_expand_left_pressed() -> void:
     PanelAnims.play("open")
 
 func _on_button_contract_right_pressed() -> void:
-    PanelAnims.play("closed")
+    PanelAnims.play("close")
