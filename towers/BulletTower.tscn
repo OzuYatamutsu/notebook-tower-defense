@@ -6,12 +6,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr7tm"]
 size = Vector2(517, 461)
 
-[node name="ArrowTower" type="Area2D"]
+[node name="BulletTower" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_fa7qg")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
 texture = ExtResource("2_g3ayy")
+
+[node name="Bg" type="ColorRect" parent="Sprite"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -250.0
+offset_right = -250.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BuildRadius" type="CollisionShape2D" parent="."]
 visible = false
