@@ -4,25 +4,24 @@ extends Control
 const CLEAR_DIGIT = 10
 
 @export var Cost: int
-@export var TowerPath: String
 
-@onready var TowerSprite: TextureRect = $TowerSprite
+@onready var TowerSprite: Sprite2D = $TowerSprite
 
 @onready var digit1 = $NumericLabel/digit1
 @onready var digit2 = $NumericLabel/digit2
 @onready var digit3 = $NumericLabel/digit3
 @onready var digit4 = $NumericLabel/digit4
 
-func _init(towerPath: String) -> void:
-    TowerPath = towerPath
+func setup(TowerPath: String) -> void:
+    var tower = load(TowerPath).instantiate()
+
+    Cost = tower.VALUE
+    TowerSprite = tower.get_node("Sprite")
+    tower.queue_free()
+    set_anchors_preset(Control.PRESET_FULL_RECT)
 
 func _ready() -> void:
-    var tower = load(TowerPath).instantiate()
-    
-    Cost = tower.VALUE
-    TowerSprite.texture = tower.get_node("Sprite").texture
     _set_numeric_label()
-    tower.queue_free()
 
 func _set_numeric_label() -> void:
     digit1.frame = CLEAR_DIGIT

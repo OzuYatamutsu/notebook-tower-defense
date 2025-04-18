@@ -64,15 +64,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xrjt3")
-cost = null
-TowerPath = null
 
-[node name="TowerSprite" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TowerSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_yv4s5")
+centered = false
 
 [node name="CostLabel" type="TextureRect" parent="."]
 layout_mode = 0

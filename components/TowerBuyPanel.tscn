@@ -279,14 +279,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_vrjho")
 }
 
-[node name="BuyItemList" type="Control" parent="."]
-anchors_preset = 0
+[node name="BuyItemList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 68.0
 offset_top = 88.0
-offset_right = 40.0
+offset_right = 108.0
 offset_bottom = 128.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 110
 
-[node name="TowerBuyItem" parent="BuyItemList" instance=ExtResource("6_ayuvl")]
-layout_mode = 1
+[node name="TestItem" parent="BuyItemList" instance=ExtResource("6_ayuvl")]
+layout_mode = 2
 
 [connection signal="pressed" from="ButtonExpandLeft" to="." method="_on_button_expand_left_pressed"]
 [connection signal="pressed" from="ButtonContractRight" to="." method="_on_button_contract_right_pressed"]

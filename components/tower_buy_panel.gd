@@ -8,9 +8,15 @@ const TOWERS_TO_BUY_LIST: Array = [
     "res://towers/BulletTower.tscn"
 ]
 
+const _buyItem = preload("res://components/TowerBuyItem.tscn")
+
 func _ready() -> void:
+    BuyItemList.remove_child(BuyItemList.get_child(0))
+
     for tower in TOWERS_TO_BUY_LIST:
-        BuyItemList.add_child(TowerBuyItem.new(tower))
+        var _item = _buyItem.instantiate()
+        _item.setup(tower)
+        BuyItemList.add_child(_item)
 
 func _on_button_expand_left_pressed() -> void:
     PanelAnims.play("open")
