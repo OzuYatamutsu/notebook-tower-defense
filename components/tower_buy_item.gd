@@ -4,6 +4,7 @@ extends Control
 const CLEAR_DIGIT = 10
 
 @export var Cost: int
+@export var TowerPath: String
 
 @onready var TowerSprite: Sprite2D = $TowerSprite
 
@@ -12,10 +13,12 @@ const CLEAR_DIGIT = 10
 @onready var digit3 = $NumericLabel/digit3
 @onready var digit4 = $NumericLabel/digit4
 
-func setup(TowerPath: String) -> void:
-    var tower = load(TowerPath).instantiate()
+func setup(towerPath: String) -> void:
+    var tower = load(towerPath).instantiate()
 
     Cost = tower.VALUE
+    TowerPath = towerPath
+
     TowerSprite = tower.get_node("Sprite")
     tower.queue_free()
     set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -47,3 +50,8 @@ func _set_numeric_label() -> void:
             1: digit2.frame = digit
             2: digit3.frame = digit
             3: digit4.frame = digit
+
+func _on_button_pressed() -> void:
+    GameState.TOWER_PLACEMENT_SHADOW.set_tower(TowerPath)
+    GameState.SELECTED_TOWER_METER.update_sprite()
+    GameState.TOWER_BUY_PANEL.close()

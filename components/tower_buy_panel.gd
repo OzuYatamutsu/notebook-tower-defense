@@ -1,6 +1,8 @@
 class_name TowerBuyPanel
 extends Control
 
+@export var IsOpened: bool = false
+
 @onready var PanelAnims: AnimationPlayer = $PanelAnims
 @onready var BuyItemList: Control = $BuyItemList
 
@@ -18,8 +20,20 @@ func _ready() -> void:
         _item.setup(tower)
         BuyItemList.add_child(_item)
 
+func open():
+    if IsOpened:
+        return
+    _on_button_expand_left_pressed()
+
+func close():
+    if !IsOpened:
+        return
+    _on_button_contract_right_pressed()
+
 func _on_button_expand_left_pressed() -> void:
+    IsOpened = true
     PanelAnims.play("open")
 
 func _on_button_contract_right_pressed() -> void:
+    IsOpened = false
     PanelAnims.play("close")

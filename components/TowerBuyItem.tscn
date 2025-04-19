@@ -70,6 +70,11 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_yv4s5")
 centered = false
 
+[node name="Button" type="Button" parent="TowerSprite"]
+offset_right = 505.0
+offset_bottom = 455.0
+flat = true
+
 [node name="CostLabel" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 96.0
@@ -105,3 +110,5 @@ sprite_frames = SubResource("SpriteFrames_m3sua")
 position = Vector2(101, 17)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_m3sua")
+
+[connection signal="pressed" from="TowerSprite/Button" to="." method="_on_button_pressed"]

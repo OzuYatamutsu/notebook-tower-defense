@@ -18,7 +18,10 @@ var is_ok: bool = false
 var current_state: ShadowState = ShadowState.OK
 
 func _ready() -> void:
-    TOWER_TO_PLACE = preload("res://towers/BulletTower.tscn").instantiate()  # TODO
+    set_tower("res://towers/BulletTower.tscn")  # TODO
+
+func set_tower(scene_path: String) -> void:
+    TOWER_TO_PLACE = load(scene_path).instantiate()
 
 func _process(delta) -> void:
     position = position.lerp(
