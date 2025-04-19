@@ -73,6 +73,7 @@ centered = false
 [node name="Button" type="Button" parent="TowerSprite"]
 offset_right = 505.0
 offset_bottom = 455.0
+mouse_default_cursor_shape = 2
 flat = true
 
 [node name="CostLabel" type="TextureRect" parent="."]

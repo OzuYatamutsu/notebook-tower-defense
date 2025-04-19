@@ -224,6 +224,7 @@ offset_top = -33.0
 offset_right = 396.0
 offset_bottom = 475.0
 scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
 icon = ExtResource("1_6i1ck")
 flat = true
 
@@ -235,6 +236,7 @@ offset_top = -35.0
 offset_right = 367.0
 offset_bottom = 490.0
 scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
 icon = ExtResource("2_iuxfk")
 flat = true
 
@@ -247,6 +249,7 @@ offset_top = -33.0
 offset_right = 450.0
 offset_bottom = 475.0
 scale = Vector2(0.3, 0.3)
+mouse_default_cursor_shape = 2
 disabled = true
 icon = ExtResource("3_kgcwn")
 flat = true

@@ -41,7 +41,7 @@ func _set_numeric_label() -> void:
     var length = str_value.length()
 
     # Alignment
-    var start_index = 5 - length
+    var start_index = 4 - length
 
     for i in range(length):
         var digit = int(str_value[i])
