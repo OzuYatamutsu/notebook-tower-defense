@@ -43,6 +43,9 @@ func start_wave() -> void:
     CURRENT_WAVE_TIMER.start()
     CURRENT_WAVE.start()
     SPAWNER.activate()
+    
+    if !WAVES.is_empty():
+        GameState.NEXT_WAVE_METER.set_next_mob_types(WAVES[0])
 
 func end_wave() -> void:
     CURRENT_WAVE_TIMER.stop()
