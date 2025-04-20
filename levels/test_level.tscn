@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=18 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="2_o6mel"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddjempya4tffr" path="res://components/mobs_parent.tscn" id="6_4n8tn"]
 [ext_resource type="PackedScene" uid="uid://o1i4jsdysgqk" path="res://components/TowerBuyPanel.tscn" id="6_wkb0e"]
 [ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="7_ly3hx"]
+[ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="7_paa45"]
 
 [sub_resource type="Curve2D" id="Curve2D_4n8tn"]
 _data = {
@@ -85,6 +86,13 @@ scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(-230, -60)
 
 [node name="TowerBuyPanel" parent="UI" instance=ExtResource("6_wkb0e")]
+
+[node name="NextWaveMeter" parent="UI" instance=ExtResource("7_paa45")]
+offset_left = 146.0
+offset_top = 8.0
+offset_right = 146.0
+offset_bottom = 8.0
+scale = Vector2(0.15, 0.15)
 
 [node name="viewport" type="CanvasLayer" parent="."]
 
