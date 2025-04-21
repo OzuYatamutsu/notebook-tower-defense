@@ -16,6 +16,8 @@ const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
 @export var PLAYER_LIVES_START: int
 @export var PLAYER_LIVES_REMAINING: int
 @export var PLAYER_MONEY_REMAINING: int
+@export var SCORE: int
+@export var IS_GAME_OVER: bool = false
 
 var CURRENT_LEVEL: Level
 
@@ -26,6 +28,8 @@ var WAVE_METER: WaveMeter
 var SELECTED_TOWER_METER: SelectedTowerMeter
 var NEXT_WAVE_METER: NextWaveMeter
 var TOWER_BUY_PANEL: TowerBuyPanel
+
+var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -65,11 +69,21 @@ func deduct_money(value: int) -> void:
         PLAYER_MONEY_REMAINING = 0
     MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
 
+func restart_game() -> void:
+    IS_GAME_OVER = false
+    get_tree().change_scene_to_file("res://levels/StartScreen.tscn")
+
+func quit_game() -> void:
+    get_tree().quit()
+
 func _on_mob_killed() -> void:
     print(str(get_tree().get_node_count_in_group(GameState.MOBS_GROUP)) + " mobs left in current wave!")
 
 func _on_mob_slipped_through(mob: Mob) -> void:
     mob.delayed_despawn()
+
+    if IS_GAME_OVER:
+        return
 
     PLAYER_LIVES_REMAINING -= 1
     LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
@@ -82,4 +96,12 @@ func _on_mob_slipped_through(mob: Mob) -> void:
         _on_no_lives_remaining()
 
 func _on_no_lives_remaining() -> void:
-    get_tree().quit()  # TODO
+    IS_GAME_OVER = true
+    TOWER_PLACEMENT_SHADOW.queue_free()
+
+    var game_over_screen = GAME_OVER_OVERLAY.instantiate()
+    CURRENT_LEVEL.get_node("UI").add_child(game_over_screen)
+    CURRENT_LEVEL.get_node("UI").move_child(
+        game_over_screen,
+        0
+    )

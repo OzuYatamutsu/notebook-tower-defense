@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=3 uid="uid://q1uf7k233op3"]
+
+[ext_resource type="Script" uid="uid://to4eypaj1ean" path="res://levels/game_over.gd" id="1_eqtkp"]
+[ext_resource type="Texture2D" uid="uid://baflraqnn10y0" path="res://sprites/restart_label.png" id="2_54nqy"]
+[ext_resource type="Texture2D" uid="uid://bugjw7n6fojo6" path="res://sprites/game_over_label.png" id="2_h1ksd"]
+[ext_resource type="Texture2D" uid="uid://cf0d70h2mo3of" path="res://sprites/score_label.png" id="3_d516h"]
+[ext_resource type="Texture2D" uid="uid://uf67w20tpij3" path="res://sprites/quit_label.png" id="3_ugwg6"]
+[ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="4_4cv7s"]
+[ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="5_54nqy"]
+[ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="6_ugwg6"]
+[ext_resource type="Texture2D" uid="uid://binpecfwik3ji" path="res://sprites/num3.png" id="7_7lega"]
+[ext_resource type="Texture2D" uid="uid://bq4bbj7gjudud" path="res://sprites/num4.png" id="8_wavq5"]
+[ext_resource type="Texture2D" uid="uid://ctyktknbbe3jt" path="res://sprites/num5.png" id="9_65y7u"]
+[ext_resource type="Texture2D" uid="uid://bx50aqogqvvjg" path="res://sprites/num6.png" id="10_y7wvi"]
+[ext_resource type="Texture2D" uid="uid://88sj41v71jb" path="res://sprites/num7.png" id="11_8qabp"]
+[ext_resource type="Texture2D" uid="uid://bmler41lapjay" path="res://sprites/num8.png" id="12_nrgow"]
+[ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="13_a78qq"]
+[ext_resource type="Texture2D" uid="uid://dgm6mxbsaplku" path="res://sprites/null_digit.png" id="14_me7oc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgm4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4cv7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_54nqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ugwg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7lega")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wavq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_65y7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_y7wvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8qabp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nrgow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a78qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_me7oc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="GameOver" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eqtkp")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.823529)
+
+[node name="RestartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(308, 84)
+layout_mode = 0
+offset_left = 198.0
+offset_top = 532.0
+offset_right = 506.0
+offset_bottom = 616.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_54nqy")
+flat = true
+
+[node name="QuitButton" type="Button" parent="."]
+custom_minimum_size = Vector2(308, 84)
+layout_mode = 0
+offset_left = 677.0
+offset_top = 532.0
+offset_right = 985.0
+offset_bottom = 616.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_ugwg6")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -263.0
+offset_right = 500.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_h1ksd")
+stretch_mode = 5
+
+[node name="ScoreLabel" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(241, 331)
+scale = Vector2(0.513, 0.517)
+texture = ExtResource("3_d516h")
+
+[node name="Score" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="digit1" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(371, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[node name="digit2" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(450, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[node name="digit3" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(526, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[node name="digit4" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(669, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[node name="digit5" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(597, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
