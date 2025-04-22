@@ -3,6 +3,7 @@ extends Node
 const CURRENT_LEVEL_GROUP = "level"
 const LEVEL_HITBOX_GROUP = "level_hitbox"
 const MOBS_GROUP = "mobs"
+const MOB_MEMBERS_GROUP = "mob_members"
 const TOWERS_GROUP = "towers"
 const PROJECTILES_GROUP = "projectiles"
 
@@ -30,6 +31,7 @@ var NEXT_WAVE_METER: NextWaveMeter
 var TOWER_BUY_PANEL: TowerBuyPanel
 
 var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
+var WIN_OVERLAY = load("res://levels/Win.tscn")
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -76,9 +78,6 @@ func restart_game() -> void:
 func quit_game() -> void:
     get_tree().quit()
 
-func _on_mob_killed() -> void:
-    print(str(get_tree().get_node_count_in_group(GameState.MOBS_GROUP)) + " mobs left in current wave!")
-
 func _on_mob_slipped_through(mob: Mob) -> void:
     mob.delayed_despawn()
 
@@ -96,6 +95,8 @@ func _on_mob_slipped_through(mob: Mob) -> void:
         _on_no_lives_remaining()
 
 func _on_no_lives_remaining() -> void:
+    print("Lose...")
+
     IS_GAME_OVER = true
     TOWER_PLACEMENT_SHADOW.queue_free()
 
@@ -103,5 +104,30 @@ func _on_no_lives_remaining() -> void:
     CURRENT_LEVEL.get_node("UI").add_child(game_over_screen)
     CURRENT_LEVEL.get_node("UI").move_child(
         game_over_screen,
+        0
+    )
+
+func _on_mob_despawn() -> void:
+    var mob_count = get_tree().get_node_count_in_group(GameState.MOB_MEMBERS_GROUP)
+    print(str(mob_count) + " mobs left in current wave!")
+
+    if !CURRENT_LEVEL.WAITING_FOR_LAST_MOB_FLAG:
+        return
+    if mob_count == 0:
+        _on_win()
+
+func _on_win() -> void:
+    if IS_GAME_OVER:
+        return
+
+    print("Win!")
+
+    IS_GAME_OVER = true
+    TOWER_PLACEMENT_SHADOW.queue_free()
+
+    var win_screen = WIN_OVERLAY.instantiate()
+    CURRENT_LEVEL.get_node("UI").add_child(win_screen)
+    CURRENT_LEVEL.get_node("UI").move_child(
+        win_screen,
         0
     )

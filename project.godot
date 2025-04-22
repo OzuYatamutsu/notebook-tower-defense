@@ -35,6 +35,7 @@ tower_placement_shadow=""
 tower_select_panel=""
 tower_buy_panel=""
 next_wave_meter=""
+mob_members=""
 
 [layer_names]
 

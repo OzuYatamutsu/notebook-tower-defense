@@ -12,6 +12,7 @@ var CURRENT_WAVE: Wave
 var CURRENT_WAVE_TIMER: Timer
 var WAVE_METER: WaveMeter
 var SPAWNER: LevelSpawn
+var WAITING_FOR_LAST_MOB_FLAG: bool = false
 
 @export var CURRENT_WAVE_NUM = 0
 
@@ -62,8 +63,12 @@ func next_wave() -> void:
         CURRENT_WAVE = WAVES.pop_front()
     else:
         print("No more waves!")
+        WAITING_FOR_LAST_MOB_FLAG = true
         return
     start_wave()
+
+func no_waves_remaining() -> bool:
+    return WAVES.is_empty()
 
 func _on_spawn_signal() -> void:
     if CURRENT_WAVE.is_empty():

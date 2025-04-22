@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6odd"]
 size = Vector2(412, 428)
 
-[node name="Basic" type="Area2D"]
+[node name="Basic" type="Area2D" groups=["mob_members"]]
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_gq4ol")

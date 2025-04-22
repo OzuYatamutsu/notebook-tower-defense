@@ -23,6 +23,8 @@ func _on_hit(projectile: Projectile) -> void:
     projectile.queue_free()
 
 func _on_death():
+    remove_from_group(GameState.MOB_MEMBERS_GROUP)
+
     GameState.add_money(VALUE)
     mob_killed.emit()
     queue_free()
@@ -31,5 +33,7 @@ func delayed_despawn() -> void:
     DESPAWN_TIMER.start()
 
 func _on_despawn_timer_timeout() -> void:
+    remove_from_group(GameState.MOB_MEMBERS_GROUP)
+
     mob_despawned.emit()
     queue_free()
