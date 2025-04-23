@@ -107,7 +107,11 @@ func _on_no_lives_remaining() -> void:
         0
     )
 
-func _on_mob_despawn() -> void:
+func _on_mob_killed(mob: Mob) -> void:
+    SCORE += mob.MAX_HP
+    _on_mob_despawn(mob)
+
+func _on_mob_despawn(_mob) -> void:
     var mob_count = get_tree().get_node_count_in_group(GameState.MOB_MEMBERS_GROUP)
     print(str(mob_count) + " mobs left in current wave!")
 

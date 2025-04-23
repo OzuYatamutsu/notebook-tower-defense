@@ -11,5 +11,5 @@ func _init(speed: float):
 func _physics_process(delta: float) -> void:
     progress_ratio += SPEED * delta
 
-func _on_mob_despawn() -> void:
+func _on_mob_despawn(_mob) -> void:
     queue_free()

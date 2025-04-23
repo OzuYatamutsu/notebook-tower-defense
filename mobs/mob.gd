@@ -1,8 +1,8 @@
 class_name Mob
 extends Area2D
 
-signal mob_killed
-signal mob_despawned
+signal mob_killed(Mob)
+signal mob_despawned(Mob)
 
 @export var MAX_HP: float
 @export var SPEED: float
@@ -26,7 +26,7 @@ func _on_death():
     remove_from_group(GameState.MOB_MEMBERS_GROUP)
 
     GameState.add_money(VALUE)
-    mob_killed.emit()
+    mob_killed.emit(self)
     queue_free()
 
 func delayed_despawn() -> void:
@@ -35,5 +35,5 @@ func delayed_despawn() -> void:
 func _on_despawn_timer_timeout() -> void:
     remove_from_group(GameState.MOB_MEMBERS_GROUP)
 
-    mob_despawned.emit()
+    mob_despawned.emit(self)
     queue_free()

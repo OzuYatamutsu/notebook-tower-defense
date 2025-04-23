@@ -32,7 +32,7 @@ func spawn(mob: Mob):
 
     pathing_helper.add_child(mob)
     mob.mob_killed.connect(pathing_helper._on_mob_despawn)
-    mob.mob_killed.connect(GameState._on_mob_despawn)
+    mob.mob_killed.connect(GameState._on_mob_killed)
     mob.mob_despawned.connect(pathing_helper._on_mob_despawn)
     mob.mob_despawned.connect(GameState._on_mob_despawn)
     target.get_random_mob_path().add_child(pathing_helper)
