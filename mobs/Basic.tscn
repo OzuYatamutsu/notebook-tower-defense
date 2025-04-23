@@ -25,4 +25,4 @@ position = Vector2(0, -379)
 scale = Vector2(1.6, 1.6)
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.25

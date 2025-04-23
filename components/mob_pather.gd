@@ -9,6 +9,9 @@ func _init(speed: float):
     rotates = false  # hack
 
 func _physics_process(delta: float) -> void:
+    if progress_ratio >= 100.0:
+        progress_ratio = 100.0
+        return
     progress_ratio += SPEED * delta
 
 func _on_mob_despawn(_mob) -> void:
