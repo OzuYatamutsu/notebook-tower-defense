@@ -143,12 +143,22 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_xgm4t")
 
 [node name="digit4" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(669, 28)
+position = Vector2(604, 28)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_xgm4t")
 
 [node name="digit5" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(597, 28)
+position = Vector2(684, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[node name="digit6" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(766, 28)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xgm4t")
+
+[node name="digit7" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
+position = Vector2(843, 28)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_xgm4t")
 
