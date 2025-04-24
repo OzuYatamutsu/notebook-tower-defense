@@ -1,8 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmvftpnl3dmue"]
+[gd_scene load_steps=10 format=3 uid="uid://bmvftpnl3dmue"]
 
 [ext_resource type="Script" uid="uid://bmk50h27nnoqd" path="res://levels/test_level.gd" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_ur00s"]
 [ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_gmgay"]
+[ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="7_ly3hx"]
+
+[sub_resource type="Curve2D" id="Curve2D_gmgay"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 420, 3980, 0, 0, 0, 0, 2200, 3420, 0, 0, 0, 0, 4260, 3160, 0, 0, 0, 0, 6240, 3100, 0, 0, 0, 0, 8080, 3120, 0, 0, 0, 0, 9460, 3300, 0, 0, 0, 0, 11560, 3340, 0, 0, 0, 0, 12720, 3940, 0, 0, 0, 0, 12980, 5120, 0, 0, 0, 0, 13200, 6620, 0, 0, 0, 0, 12720, 7920, 0, 0, 0, 0, 11820, 8760, 0, 0, 0, 0, 10840, 9960, 0, 0, 0, 0, 10820, 11360, 0, 0, 0, 0, 11100, 12140, 0, 0, 0, 0, 11900, 12740, 0, 0, 0, 0, 13620, 12760, 0, 0, 0, 0, 15640, 12960, 0, 0, 0, 0, 17880, 12920, 0, 0, 0, 0, 20340, 12920, 0, 0, 0, 0, 22380, 13060, 0, 0, 0, 0, 24120, 13120, 0, 0, 0, 0, 25160, 12960, 0, 0, 0, 0, 25980, 12960, 0, 0, 0, 0, 26780, 13020)
+}
+point_count = 25
+
+[sub_resource type="Curve2D" id="Curve2D_w7r7j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 300, 4020, 0, 0, 0, 0, 1220, 4440, 0, 0, 0, 0, 2840, 4760, 0, 0, 0, 0, 4540, 4840, 0, 0, 0, 0, 6040, 4560, 0, 0, 0, 0, 8140, 4540, 0, 0, 0, 0, 9400, 4780, 0, 0, 0, 0, 10040, 5460, 0, 0, 0, 0, 10180, 6960, 0, 0, 0, 0, 10000, 8500, 0, 0, 0, 0, 9980, 10280, 0, 0, 0, 0, 10140, 11940, 0, 0, 0, 0, 10520, 12540, 0, 0, 0, 0, 12880, 12780, 0, 0, 0, 0, 14800, 12760, 0, 0, 0, 0, 17940, 12980, 0, 0, 0, 0, 19700, 12900, 0, 0, 0, 0, 22740, 13000, 0, 0, 0, 0, 24560, 13080, 0, 0, 0, 0, 26140, 12920)
+}
+point_count = 20
+
+[sub_resource type="Curve2D" id="Curve2D_o6mel"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 300, 4140, 0, 0, 0, 0, 920, 4940, 0, 0, 0, 0, 1880, 4960, 0, 0, 0, 0, 2840, 5040, 0, 0, 0, 0, 4380, 5120, 0, 0, 0, 0, 5380, 4740, 0, 0, 0, 0, 6940, 4440, 0, 0, 0, 0, 8820, 4680, 0, 0, 0, 0, 9900, 5200, 0, 0, 0, 0, 10180, 6380, 0, 0, 0, 0, 10040, 7740, 0, 0, 0, 0, 9940, 8720, 0, 0, 0, 0, 9940, 10040, 0, 0, 0, 0, 10100, 11080, 0, 0, 0, 0, 10380, 12040, 0, 0, 0, 0, 10720, 12440, 0, 0, 0, 0, 11320, 12600, 0, 0, 0, 0, 12000, 12900, 0, 0, 0, 0, 13240, 13020, 0, 0, 0, 0, 15600, 12920, 0, 0, 0, 0, 17880, 12980, 0, 0, 0, 0, 19720, 12940, 0, 0, 0, 0, 21620, 13040, 0, 0, 0, 0, 23600, 13040, 0, 0, 0, 0, 24920, 13020, 0, 0, 0, 0, 26060, 12940)
+}
+point_count = 26
+
+[sub_resource type="Curve2D" id="Curve2D_e7anx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 380, 3920, 0, 0, 0, 0, 1140, 3460, 0, 0, 0, 0, 2620, 4340, 0, 0, 0, 0, 4160, 4540, 0, 0, 0, 0, 5400, 3680, 0, 0, 0, 0, 7640, 3720, 0, 0, 0, 0, 8960, 3800, 0, 0, 0, 0, 10380, 4100, 0, 0, 0, 0, 11660, 5040, 0, 0, 0, 0, 12180, 6280, 0, 0, 0, 0, 12280, 7340, 0, 0, 0, 0, 11840, 8620, 0, 0, 0, 0, 10920, 9800, 0, 0, 0, 0, 10720, 11260, 0, 0, 0, 0, 11180, 12460, 0, 0, 0, 0, 12000, 12740, 0, 0, 0, 0, 14160, 13020, 0, 0, 0, 0, 17540, 12740, 0, 0, 0, 0, 21660, 13060, 0, 0, 0, 0, 24320, 13340, 0, 0, 0, 0, 26100, 13020)
+}
+point_count = 21
+
+[sub_resource type="Curve2D" id="Curve2D_ur00s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 300, 3940, 0, 0, 0, 0, 4940, 3440, 0, 0, 0, 0, 6940, 3440, 0, 0, 0, 0, 9060, 2980, 0, 0, 0, 0, 11720, 3760, 0, 0, 0, 0, 13100, 6680, 0, 0, 0, 0, 13560, 8460, 0, 0, 0, 0, 11300, 8960, 0, 0, 0, 0, 10340, 10780, 0, 0, 0, 0, 10440, 12620, 0, 0, 0, 0, 12080, 12920, 0, 0, 0, 0, 16540, 12800, 0, 0, 0, 0, 19980, 12660, 0, 0, 0, 0, 22340, 13040, 0, 0, 0, 0, 25260, 13020, 0, 0, 0, 0, 25960, 12960)
+}
+point_count = 16
 
 [node name="test_level" type="Node2D"]
 script = ExtResource("1_w7r7j")
@@ -10,5 +41,25 @@ script = ExtResource("1_w7r7j")
 [node name="UI" parent="." instance=ExtResource("2_ur00s")]
 
 [node name="LevelViewport" parent="." instance=ExtResource("3_gmgay")]
+
+[node name="Path2D6" type="Path2D" parent="LevelViewport/mobs" index="0"]
+curve = SubResource("Curve2D_gmgay")
+
+[node name="Path2D7" type="Path2D" parent="LevelViewport/mobs" index="1"]
+curve = SubResource("Curve2D_w7r7j")
+
+[node name="Path2D8" type="Path2D" parent="LevelViewport/mobs" index="2"]
+curve = SubResource("Curve2D_o6mel")
+
+[node name="Path2D9" type="Path2D" parent="LevelViewport/mobs" index="3"]
+curve = SubResource("Curve2D_e7anx")
+
+[node name="Path2D10" type="Path2D" parent="LevelViewport/mobs" index="4"]
+curve = SubResource("Curve2D_ur00s")
+
+[node name="map" type="Sprite2D" parent="LevelViewport"]
+position = Vector2(637.5, 359.05)
+scale = Vector2(1.275, 1.17882)
+texture = ExtResource("7_ly3hx")
 
 [editable path="LevelViewport"]
