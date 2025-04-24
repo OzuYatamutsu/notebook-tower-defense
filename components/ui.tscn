@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhs0soxiwf4lb"]
+
+[ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
+[ext_resource type="PackedScene" uid="uid://djugbukw7mfia" path="res://components/LivesMeter.tscn" id="2_k05k2"]
+[ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="3_0eatc"]
+[ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="4_24715"]
+[ext_resource type="PackedScene" uid="uid://o1i4jsdysgqk" path="res://components/TowerBuyPanel.tscn" id="5_451mt"]
+[ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
+
+[node name="UI" type="CanvasLayer"]
+layer = 2
+
+[node name="MoneyMeter" parent="." instance=ExtResource("1_34iyr")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(-515, -165)
+
+[node name="LivesMeter" parent="." instance=ExtResource("2_k05k2")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(0, -165)
+
+[node name="WaveMeter" parent="." instance=ExtResource("3_0eatc")]
+offset_left = -17.0
+offset_top = -40.0
+offset_right = -17.0
+offset_bottom = -40.0
+scale = Vector2(0.3, 0.3)
+
+[node name="SelectedTowerMeter" parent="." instance=ExtResource("4_24715")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(-230, -60)
+
+[node name="TowerBuyPanel" parent="." instance=ExtResource("5_451mt")]
+
+[node name="NextWaveMeter" parent="." instance=ExtResource("6_23jcn")]
+offset_left = 146.0
+offset_top = 8.0
+offset_right = 146.0
+offset_bottom = 8.0
+scale = Vector2(0.15, 0.15)
