@@ -1,17 +1,98 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctct4jwr72ikm"]
+[gd_scene load_steps=14 format=3 uid="uid://ctct4jwr72ikm"]
 
-[ext_resource type="Script" uid="uid://0wwxleyefwme" path="res://levels/level.gd" id="1_sjb42"]
+[ext_resource type="Script" uid="uid://bmv021flryrl5" path="res://levels/level_1.gd" id="1_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_b3oru"]
 [ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_ua5ty"]
 [ext_resource type="Texture2D" uid="uid://br3mtwwd8roqd" path="res://levels/level1_layout.png" id="4_ua5ty"]
 
+[sub_resource type="Curve2D" id="Curve2D_ua5ty"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 420, 3040, 0, 0, 0, 0, 6740, 2440, 0, 0, 0, 0, 10920, 2200, 0, 0, 0, 0, 15180, 2340, 0, 0, 0, 0, 18200, 2220, 0, 0, 0, 0, 19920, 2020, 0, 0, 0, 0, 21100, 3100, 0, 0, 0, 0, 21100, 4960, 0, 0, 0, 0, 20320, 6360, 0, 0, 0, 0, 15440, 6680, 0, 0, 0, 0, 8500, 7180, 0, 0, 0, 0, 5080, 6700, 0, 0, 0, 0, 2040, 7180, 0, 0, 0, 0, 1540, 9400, 0, 0, 0, 0, 2360, 10720, 0, 0, 0, 0, 7720, 11040, 0, 0, 0, 0, 14440, 11300, 0, 0, 0, 0, 19720, 11200, 0, 0, 0, 0, 22220, 11940, 0, 0, 0, 0, 21840, 13880, 0, 0, 0, 0, 21920, 14840)
+}
+point_count = 21
+
+[sub_resource type="Curve2D" id="Curve2D_61w3m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 440, 3140, 0, 0, 0, 0, 4880, 3520, 0, 0, 0, 0, 7380, 3520, 0, 0, 0, 0, 11820, 3520, 0, 0, 0, 0, 15040, 3200, 0, 0, 0, 0, 17600, 2840, 0, 0, 0, 0, 19700, 2680, 0, 0, 0, 0, 20220, 3140, 0, 0, 0, 0, 20580, 4240, 0, 0, 0, 0, 20020, 5980, 0, 0, 0, 0, 14020, 6860, 0, 0, 0, 0, 3760, 7260, 0, 0, 0, 0, 1600, 6820, 0, 0, 0, 0, 2020, 10080, 0, 0, 0, 0, 6600, 10900, 0, 0, 0, 0, 11200, 10880, 0, 0, 0, 0, 16480, 11200, 0, 0, 0, 0, 19900, 11160, 0, 0, 0, 0, 22620, 12080, 0, 0, 0, 0, 22640, 14720)
+}
+point_count = 20
+
+[sub_resource type="Curve2D" id="Curve2D_pdpul"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 420, 3020, 0, 0, 0, 0, 4440, 2840, 0, 0, 0, 0, 5900, 3140, 0, 0, 0, 0, 8760, 3040, 0, 0, 0, 0, 11920, 2200, 0, 0, 0, 0, 14320, 2480, 0, 0, 0, 0, 17180, 3080, 0, 0, 0, 0, 21400, 3040, 0, 0, 0, 0, 22620, 4900, 0, 0, 0, 0, 20900, 6860, 0, 0, 0, 0, 16960, 6760, 0, 0, 0, 0, 12720, 6380, 0, 0, 0, 0, 8080, 6780, 0, 0, 0, 0, 2780, 7080, 0, 0, 0, 0, 1640, 8200, 0, 0, 0, 0, 1520, 9600, 0, 0, 0, 0, 1520, 10900, 0, 0, 0, 0, 7960, 11020, 0, 0, 0, 0, 13840, 10460, 0, 0, 0, 0, 19560, 11120, 0, 0, 0, 0, 21400, 11900, 0, 0, 0, 0, 21400, 13580, 0, 0, 0, 0, 21280, 14200)
+}
+point_count = 23
+
+[sub_resource type="Curve2D" id="Curve2D_8hd6v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 540, 3100, 0, 0, 0, 0, 5360, 2740, 0, 0, 0, 0, 7380, 2740, 0, 0, 0, 0, 10540, 2800, 0, 0, 0, 0, 14980, 2380, 0, 0, 0, 0, 18080, 2740, 0, 0, 0, 0, 20220, 2700, 0, 0, 0, 0, 20540, 3340, 0, 0, 0, 0, 20620, 4620, 0, 0, 0, 0, 20620, 6340, 0, 0, 0, 0, 13340, 6820, 0, 0, 0, 0, 8560, 6760, 0, 0, 0, 0, 3280, 6980, 0, 0, 0, 0, 2060, 7680, 0, 0, 0, 0, 2360, 9980, 0, 0, 0, 0, 4180, 10920, 0, 0, 0, 0, 9280, 10960, 0, 0, 0, 0, 14040, 10960, 0, 0, 0, 0, 18280, 10700, 0, 0, 0, 0, 21340, 10980, 0, 0, 0, 0, 21300, 12620, 0, 0, 0, 0, 21620, 14140, 0, 0, 0, 0, 21940, 16120)
+}
+point_count = 23
+
+[sub_resource type="Curve2D" id="Curve2D_045es"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 400, 3040, 0, 0, 0, 0, 6740, 2840, 0, 0, 0, 0, 9700, 2880, 0, 0, 0, 0, 16200, 2920, 0, 0, 0, 0, 19200, 2500, 0, 0, 0, 0, 19520, 3620, 0, 0, 0, 0, 19420, 4720, 0, 0, 0, 0, 19280, 5700, 0, 0, 0, 0, 18200, 5960, 0, 0, 0, 0, 15760, 6060, 0, 0, 0, 0, 9140, 6240, 0, 0, 0, 0, 7120, 6860, 0, 0, 0, 0, 4060, 7220, 0, 0, 0, 0, 3340, 7680, 0, 0, 0, 0, 3340, 8260, 0, 0, 0, 0, 3280, 10100, 0, 0, 0, 0, 4120, 10960, 0, 0, 0, 0, 8380, 10960, 0, 0, 0, 0, 16180, 10860, 0, 0, 0, 0, 19920, 11260, 0, 0, 0, 0, 20000, 12180, 0, 0, 0, 0, 19880, 13100, 0, 0, 0, 0, 19880, 13780, 0, 0, 0, 0, 19880, 14860)
+}
+point_count = 24
+
+[sub_resource type="Curve2D" id="Curve2D_omn1t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 340, 3080, 0, 0, 0, 0, 4840, 3040, 0, 0, 0, 0, 6880, 3040, 0, 0, 0, 0, 12840, 3000, 0, 0, 0, 0, 17340, 2400, 0, 0, 0, 0, 20480, 3040, 0, 0, 0, 0, 22000, 4440, 0, 0, 0, 0, 20380, 5960, 0, 0, 0, 0, 16200, 6840, 0, 0, 0, 0, 9600, 6720, 0, 0, 0, 0, 4260, 6560, 0, 0, 0, 0, 1620, 7380, 0, 0, 0, 0, 2220, 10580, 0, 0, 0, 0, 8960, 11380, 0, 0, 0, 0, 15320, 11060, 0, 0, 0, 0, 18260, 10420, 0, 0, 0, 0, 21380, 10920, 0, 0, 0, 0, 21580, 12400, 0, 0, 0, 0, 22320, 13420, 0, 0, 0, 0, 22560, 15560)
+}
+point_count = 20
+
+[sub_resource type="Curve2D" id="Curve2D_lf3p4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 380, 3100, 0, 0, 0, 0, 6860, 2680, 0, 0, 0, 0, 10180, 3180, 0, 0, 0, 0, 18620, 2440, 0, 0, 0, 0, 22020, 3700, 0, 0, 0, 0, 21420, 6180, 0, 0, 0, 0, 18220, 6960, 0, 0, 0, 0, 11100, 7040, 0, 0, 0, 0, 5600, 6560, 0, 0, 0, 0, 1740, 7380, 0, 0, 0, 0, 1820, 10400, 0, 0, 0, 0, 6040, 10860, 0, 0, 0, 0, 14560, 10980, 0, 0, 0, 0, 20520, 11160, 0, 0, 0, 0, 23400, 12580, 0, 0, 0, 0, 21820, 14340)
+}
+point_count = 16
+
+[sub_resource type="Curve2D" id="Curve2D_yydhl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 420, 2940, 0, 0, 0, 0, 6300, 3000, 0, 0, 0, 0, 11600, 2380, 0, 0, 0, 0, 15120, 2920, 0, 0, 0, 0, 19480, 2500, 0, 0, 0, 0, 21320, 4200, 0, 0, 0, 0, 20840, 6180, 0, 0, 0, 0, 15560, 6460, 0, 0, 0, 0, 12300, 6760, 0, 0, 0, 0, 4540, 7120, 0, 0, 0, 0, 1520, 7060, 0, 0, 0, 0, 2040, 9360, 0, 0, 0, 0, 5340, 11180, 0, 0, 0, 0, 14720, 10080, 0, 0, 0, 0, 20640, 10920, 0, 0, 0, 0, 22040, 13240, 0, 0, 0, 0, 22020, 15840)
+}
+point_count = 17
+
+[sub_resource type="Curve2D" id="Curve2D_bekh1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 500, 2920, 0, 0, 0, 0, 5740, 3120, 0, 0, 0, 0, 11720, 2400, 0, 0, 0, 0, 18780, 2480, 0, 0, 0, 0, 21280, 2620, 0, 0, 0, 0, 21280, 4700, 0, 0, 0, 0, 19600, 6260, 0, 0, 0, 0, 15360, 6280, 0, 0, 0, 0, 6580, 7240, 0, 0, 0, 0, 2260, 6820, 0, 0, 0, 0, 2460, 10320, 0, 0, 0, 0, 6800, 10880, 0, 0, 0, 0, 13380, 10900, 0, 0, 0, 0, 20280, 11220, 0, 0, 0, 0, 21720, 12380, 0, 0, 0, 0, 21940, 15320)
+}
+point_count = 16
+
 [node name="Level1" type="Node"]
-script = ExtResource("1_sjb42")
+script = ExtResource("1_ua5ty")
 metadata/_custom_type_script = "uid://0wwxleyefwme"
 
 [node name="UI" parent="." instance=ExtResource("2_b3oru")]
 
 [node name="LevelViewport" parent="." instance=ExtResource("3_ua5ty")]
+
+[node name="Path2D" type="Path2D" parent="LevelViewport/mobs" index="0"]
+curve = SubResource("Curve2D_ua5ty")
+
+[node name="Path2D2" type="Path2D" parent="LevelViewport/mobs" index="1"]
+curve = SubResource("Curve2D_61w3m")
+
+[node name="Path2D3" type="Path2D" parent="LevelViewport/mobs" index="2"]
+curve = SubResource("Curve2D_pdpul")
+
+[node name="Path2D4" type="Path2D" parent="LevelViewport/mobs" index="3"]
+curve = SubResource("Curve2D_8hd6v")
+
+[node name="Path2D5" type="Path2D" parent="LevelViewport/mobs" index="4"]
+curve = SubResource("Curve2D_045es")
+
+[node name="Path2D6" type="Path2D" parent="LevelViewport/mobs" index="5"]
+curve = SubResource("Curve2D_omn1t")
+
+[node name="Path2D7" type="Path2D" parent="LevelViewport/mobs" index="6"]
+curve = SubResource("Curve2D_lf3p4")
+
+[node name="Path2D8" type="Path2D" parent="LevelViewport/mobs" index="7"]
+curve = SubResource("Curve2D_yydhl")
+
+[node name="Path2D9" type="Path2D" parent="LevelViewport/mobs" index="8"]
+curve = SubResource("Curve2D_bekh1")
 
 [node name="LevelHitbox" parent="LevelViewport" index="4"]
 position = Vector2(1089, 716)
