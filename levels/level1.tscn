@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctct4jwr72ikm"]
+[gd_scene load_steps=5 format=3 uid="uid://ctct4jwr72ikm"]
 
 [ext_resource type="Script" uid="uid://0wwxleyefwme" path="res://levels/level.gd" id="1_sjb42"]
 [ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_b3oru"]
 [ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_ua5ty"]
+[ext_resource type="Texture2D" uid="uid://br3mtwwd8roqd" path="res://levels/level1_layout.png" id="4_ua5ty"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_sjb42")
@@ -11,6 +12,18 @@ metadata/_custom_type_script = "uid://0wwxleyefwme"
 [node name="UI" parent="." instance=ExtResource("2_b3oru")]
 
 [node name="LevelViewport" parent="." instance=ExtResource("3_ua5ty")]
+
+[node name="LevelHitbox" parent="LevelViewport" index="4"]
+position = Vector2(1089, 716)
+scale = Vector2(8.15, 0.34)
+
+[node name="LevelSpawn" parent="LevelViewport" index="5"]
+position = Vector2(22, 152)
+
+[node name="map" type="Sprite2D" parent="LevelViewport"]
+scale = Vector2(1, 0.883005)
+texture = ExtResource("4_ua5ty")
+centered = false
 
 [editable path="LevelViewport"]
 [editable path="LevelViewport/mobs"]
