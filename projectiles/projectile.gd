@@ -6,6 +6,7 @@ extends Area2D
 @export var TARGET: Mob
 @export var IS_ACTIVE = false
 @export var DAMAGE: float
+var EFFECTS: Array[Effect]
 
 @onready var DespawnTimer = $DespawnTimer
 
@@ -24,6 +25,12 @@ func fire_at(target: Mob) -> void:
     DespawnTimer.wait_time = DESPAWN_TIMER_SECS
     DespawnTimer.start()
     IS_ACTIVE = true
+
+func has_unapplied_effect() -> bool:
+    return EFFECTS != null and !EFFECTS.is_empty()
+
+func pop_next_effect() -> Effect:
+    return EFFECTS.pop_front()
 
 func _process(delta: float) -> void:
     if !IS_ACTIVE:
