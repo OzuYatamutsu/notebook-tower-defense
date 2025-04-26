@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cosg182s8ovcx" path="res://sprites/slow_projectile_blue.png" id="2_aulqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6doq"]
-size = Vector2(47, 46)
+size = Vector2(157, 167)
 
 [node name="Slow" type="Area2D"]
 collision_layer = 8
@@ -12,11 +12,11 @@ collision_mask = 4
 script = ExtResource("1_nllsf")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.15, 0.152)
+scale = Vector2(0.5, 0.507)
 texture = ExtResource("2_aulqc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+position = Vector2(1.5, -6.5)
 shape = SubResource("RectangleShape2D_v6doq")
 
 [node name="DespawnTimer" type="Timer" parent="."]
