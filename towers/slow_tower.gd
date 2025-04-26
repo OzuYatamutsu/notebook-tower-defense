@@ -2,7 +2,7 @@ class_name SlowTower
 extends Tower
 
 func _init() -> void:
-    VALUE = 100
+    VALUE = 200
     super._init()
 
 func _ready() -> void:

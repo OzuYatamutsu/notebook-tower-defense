@@ -7,7 +7,8 @@ extends Control
 @onready var BuyItemList: Control = $BuyItemList
 
 const TOWERS_TO_BUY_LIST: Array = [
-    "res://towers/BulletTower.tscn"
+    "res://towers/BulletTower.tscn",
+    "res://towers/SlowTower.tscn"
 ]
 
 const _buyItem = preload("res://components/TowerBuyItem.tscn")

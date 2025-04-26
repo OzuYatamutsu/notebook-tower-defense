@@ -19,7 +19,7 @@ func setup(towerPath: String) -> void:
     Cost = tower.VALUE
     TowerPath = towerPath
 
-    TowerSprite = tower.get_node("Sprite")
+    get_node("TowerSprite").texture = tower.get_node("Sprite").texture
     tower.queue_free()
     set_anchors_preset(Control.PRESET_FULL_RECT)
 
