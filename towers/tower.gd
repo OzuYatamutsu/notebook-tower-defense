@@ -87,7 +87,10 @@ func _on_targeting_radius_exited(body: Mob) -> void:
 func _on_shoot_timer_timeout() -> void:
     if !IS_ACTIVE or CURRENT_TARGET == null:
         return
+    
+    fire()
 
+func fire() -> void:
     # Spawn a new projectile
     var new_projectile: Projectile = PROJECTILE_REF.instantiate()
     ProjectileRoot.add_child(new_projectile)

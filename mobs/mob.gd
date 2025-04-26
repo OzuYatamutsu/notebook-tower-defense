@@ -21,7 +21,9 @@ func _ready() -> void:
 func _on_hit(projectile: Projectile) -> void:
     HEALTH_BAR.damage_by(projectile.DAMAGE)
     if projectile.has_unapplied_effect():
-        projectile.pop_next_effect().apply(self)
+        var effect = projectile.pop_next_effect()
+        print("Applying effect! " + str(effect))
+        effect.apply(self)
     projectile.queue_free()
 
 func _on_death():
