@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gqhmvpyej27v"]
+[gd_scene load_steps=6 format=3 uid="uid://gqhmvpyej27v"]
 
 [ext_resource type="Texture2D" uid="uid://bqmx3udvicsbi" path="res://sprites/basic_enemy.png" id="1_0bt6k"]
 [ext_resource type="Script" uid="uid://w0n3vxhpn1mv" path="res://mobs/basic.gd" id="1_gq4ol"]
 [ext_resource type="PackedScene" uid="uid://exhf822h2mmj" path="res://components/hp_bar.tscn" id="3_iie2i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w72wk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6odd"]
 size = Vector2(412, 428)
@@ -14,6 +16,7 @@ script = ExtResource("1_gq4ol")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 1
+material = SubResource("ShaderMaterial_w72wk")
 texture = ExtResource("1_0bt6k")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

@@ -9,7 +9,7 @@ func _ready() -> void:
     ready_tower(
         preload("res://projectiles/Slow.tscn"),
         2000.00,
-        1.0
+        0.75
     )
 
     # TODO

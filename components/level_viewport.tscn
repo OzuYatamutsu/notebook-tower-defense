@@ -26,3 +26,4 @@ scale = Vector2(1, 1.08)
 
 [node name="LevelSpawn" parent="." instance=ExtResource("4_q5kd3")]
 position = Vector2(19, 200)
+SPAWN_TIMER_SECS = null

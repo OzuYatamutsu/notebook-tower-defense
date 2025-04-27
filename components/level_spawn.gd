@@ -28,7 +28,7 @@ func spawn(mob: Mob):
     var target: mobs_parent = get_tree().get_first_node_in_group(
         GameState.MOBS_GROUP
     )
-    var pathing_helper: MobPather = MobPather.new(mob.SPEED)
+    var pathing_helper: MobPather = MobPather.new()
 
     pathing_helper.add_child(mob)
     mob.mob_killed.connect(pathing_helper._on_mob_despawn)
