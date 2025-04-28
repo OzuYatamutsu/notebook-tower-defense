@@ -50,7 +50,6 @@ func _on_level_load() -> void:
     TOWER_PLACEMENT_SHADOW = get_tree().get_first_node_in_group(TOWER_PLACEMENT_SHADOW_GROUP)
 
     SELECTED_TOWER_METER = get_tree().get_first_node_in_group(SELECTED_TOWER_METER_GROUP)
-    SELECTED_TOWER_METER.update_sprite()
 
     NEXT_WAVE_METER = get_tree().get_first_node_in_group(NEXT_WAVE_METER_GROUP)
 
