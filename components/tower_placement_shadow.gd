@@ -11,14 +11,15 @@ enum ShadowState {
     DISABLED,  # Don't show the shadow at all
     NG_OVERLAPPING,  # Can't place the tower due to overlap
     NG_INSUFFICIENT_FUNDS,  # Can't place the tower due to not enough money
+    NG_NOT_IN_WALLS_AREA,  # Can't place the tower due to not part of a wall
     OK  # Can place the tower
 }
 
 var is_ok: bool = false
-var current_state: ShadowState = ShadowState.OK
+var current_state: ShadowState = ShadowState.DISABLED
 
 func _ready() -> void:
-    set_tower("res://towers/BulletTower.tscn")  # TODO
+    set_tower("res://towers/BulletTower.tscn")
 
 func set_tower(scene_path: String) -> void:
     TOWER_TO_PLACE = load(scene_path).instantiate()
@@ -48,6 +49,9 @@ func _input(event) -> void:
     elif !is_ok and current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
         print("Not spawning tower; insufficient funds")
         return
+    elif !is_ok and current_state == ShadowState.NG_NOT_IN_WALLS_AREA:
+        print("Not spawning tower; not in a walls area")
+        return
     
     print("Spawning tower! " + str(TOWER_TO_PLACE))
     spawn()
@@ -68,8 +72,9 @@ func set_is_ok() -> void:
     # Don't show the shadow if we're hovering over a button
     if is_hovering_over_button():
         current_state = ShadowState.DISABLED
-    else:
+    elif current_state != ShadowState.NG_NOT_IN_WALLS_AREA:
         current_state = reeval_current_state()
+
 
     if (
         current_state == ShadowState.NG_INSUFFICIENT_FUNDS
@@ -83,7 +88,8 @@ func set_is_ok() -> void:
         NG_SHADOW.visible = false
     elif current_state in [
         ShadowState.NG_OVERLAPPING,
-        ShadowState.NG_INSUFFICIENT_FUNDS
+        ShadowState.NG_INSUFFICIENT_FUNDS,
+        ShadowState.NG_NOT_IN_WALLS_AREA
     ]:
         is_ok = false
         OK_SHADOW.visible = false
@@ -95,18 +101,24 @@ func set_is_ok() -> void:
 func is_hovering_over_button() -> bool:
     return get_viewport().gui_get_hovered_control() is Button
 
-func _on_area_entered(_tower: Tower) -> void:
+func _on_area_entered(tower_or_wall: Area2D) -> void:
     # Intersected with an Area2D corresponding to a Tower.
     # This means we can't place a new tower here;
     # it would overlap an existing tower.
 
-    current_state = ShadowState.NG_OVERLAPPING
+    if tower_or_wall is Tower:
+        current_state = ShadowState.NG_OVERLAPPING
+    elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
+        current_state = reeval_current_state()
 
-func _on_area_exited(_tower: Tower) -> void:
+func _on_area_exited(tower_or_wall: Area2D) -> void:
     # No longer intersecting with an Area2D corresponding to a Tower.
     # We're able to place towers if we have enough money.
     
-    current_state = reeval_current_state()
+    if tower_or_wall.is_in_group(GameState.WALLS_GROUP):
+        current_state = ShadowState.NG_NOT_IN_WALLS_AREA
+    else:
+        current_state = reeval_current_state()
 
 func reeval_current_state() -> ShadowState:
     return (

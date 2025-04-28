@@ -94,13 +94,12 @@ curve = SubResource("Curve2D_yydhl")
 [node name="Path2D9" type="Path2D" parent="LevelViewport/mobs" index="8"]
 curve = SubResource("Curve2D_bekh1")
 
-[node name="LevelHitbox" parent="LevelViewport" index="4"]
+[node name="LevelHitbox" parent="LevelViewport" index="5"]
 position = Vector2(1089, 716)
 scale = Vector2(8.15, 0.34)
 
-[node name="LevelSpawn" parent="LevelViewport" index="5"]
+[node name="LevelSpawn" parent="LevelViewport" index="6"]
 position = Vector2(22, 152)
-SPAWN_TIMER_SECS = null
 
 [node name="map" type="Sprite2D" parent="LevelViewport"]
 scale = Vector2(1, 0.883005)

@@ -6,6 +6,7 @@ const MOBS_GROUP = "mobs"
 const MOB_MEMBERS_GROUP = "mob_members"
 const TOWERS_GROUP = "towers"
 const PROJECTILES_GROUP = "projectiles"
+const WALLS_GROUP = "walls"
 
 const TOWER_PLACEMENT_SHADOW_GROUP = "tower_placement_shadow"
 const MONEY_METER_GROUP = "money_meter"

@@ -58,8 +58,11 @@ curve = SubResource("Curve2D_e7anx")
 [node name="Path2D10" type="Path2D" parent="LevelViewport/mobs" index="4"]
 curve = SubResource("Curve2D_ur00s")
 
-[node name="LevelSpawn" parent="LevelViewport" index="5"]
-SPAWN_TIMER_SECS = null
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelViewport/walls" index="0"]
+polygon = PackedVector2Array(1, 0, 1278, 2, 1278, 615, 582, 605, 604, 496, 719, 482, 656, 103, 657, 117, 422, 118, 373, 127, 201, 118, 0, 111)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
+polygon = PackedVector2Array(5, 287, 444, 277, 455, 376, 460, 569, 455, 668, 588, 673, 781, 684, 992, 679, 1280, 673, 1281, 722, -3, 724)
 
 [node name="map" type="Sprite2D" parent="LevelViewport"]
 position = Vector2(637.5, 359.05)
