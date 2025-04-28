@@ -2,6 +2,7 @@ class_name TowerPlacementShadow
 extends Node2D
 
 @export var TOWER_TO_PLACE: Tower
+@export var TOWER_TO_PLACE_PATH: String
 @export var MOUSE_FOLLOW_SPEED: float = 10.0
 
 @onready var OK_SHADOW = $ColorRectOK
@@ -18,12 +19,11 @@ enum ShadowState {
 var is_ok: bool = false
 var current_state: ShadowState = ShadowState.DISABLED
 
-func _ready() -> void:
-    # set_tower("res://towers/BulletTower.tscn")
-    pass
-
 func set_tower(scene_path: String) -> void:
+    if TOWER_TO_PLACE:
+        TOWER_TO_PLACE.queue_free()
     TOWER_TO_PLACE = load(scene_path).instantiate()
+    TOWER_TO_PLACE_PATH = scene_path
 
 func _process(delta) -> void:
     position = position.lerp(
@@ -58,7 +58,7 @@ func _input(event) -> void:
     spawn()
 
 func spawn() -> void:
-    var new_tower = TOWER_TO_PLACE.duplicate()
+    var new_tower = load(TOWER_TO_PLACE_PATH).instantiate()
 
     get_tree().get_first_node_in_group(
         GameState.TOWERS_GROUP

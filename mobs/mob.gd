@@ -4,7 +4,7 @@ extends Area2D
 signal mob_killed(Mob)
 signal mob_despawned(Mob)
 
-@export var MAX_HP: float
+@export var MAX_HP: int
 @export var SPEED: float
 @export var VALUE: int
 
