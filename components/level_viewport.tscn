@@ -16,6 +16,10 @@ scale = Vector2(0.1, 0.1)
 [node name="projectiles" type="Node2D" parent="." groups=["projectiles"]]
 scale = Vector2(0.07, 0.07)
 
+[node name="walls" type="Area2D" parent="." groups=["walls"]]
+collision_layer = 64
+collision_mask = 0
+
 [node name="TowerPlacementShadow" parent="." instance=ExtResource("2_tl311")]
 position = Vector2(566, 331)
 scale = Vector2(0.1, 0.1)
