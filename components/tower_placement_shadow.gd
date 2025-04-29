@@ -82,9 +82,6 @@ func set_is_ok() -> void:
     elif current_state != ShadowState.NG_NOT_IN_WALLS_AREA:
         current_state = reeval_current_state()
 
-    # TODO: fix not disabled if hovering not over a wall
-    # TODO: when the game is started.
-
     if (
         current_state == ShadowState.NG_INSUFFICIENT_FUNDS
         and GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
