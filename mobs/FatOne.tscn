@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://uidfp6raew1x"]
+
+[ext_resource type="Script" uid="uid://ccwbw8t3trcon" path="res://mobs/fat_one.gd" id="1_l87yh"]
+[ext_resource type="Texture2D" uid="uid://8nawajobdllu" path="res://sprites/mob_fat_one.png" id="2_l87yh"]
+[ext_resource type="PackedScene" uid="uid://exhf822h2mmj" path="res://components/hp_bar.tscn" id="3_4qpqn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w72wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6odd"]
+size = Vector2(390, 324)
+
+[node name="FatOne" type="Area2D" groups=["mob_members"]]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_l87yh")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_w72wk")
+texture = ExtResource("2_l87yh")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_g6odd")
+
+[node name="HpBar" parent="." instance=ExtResource("3_4qpqn")]
+position = Vector2(0, -345)
+scale = Vector2(1.6, 1.6)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 0.25

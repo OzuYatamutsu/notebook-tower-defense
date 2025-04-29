@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://by7c485lii63d"]
+
+[ext_resource type="Script" uid="uid://dq63bts27ars3" path="res://mobs/nyoom.gd" id="1_5sca0"]
+[ext_resource type="Texture2D" uid="uid://dvn682aakyaey" path="res://sprites/mob_nyoom.png" id="2_3x2yx"]
+[ext_resource type="PackedScene" uid="uid://exhf822h2mmj" path="res://components/hp_bar.tscn" id="3_0pboa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w72wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6odd"]
+size = Vector2(339, 108)
+
+[node name="Nyoom" type="Area2D" groups=["mob_members"]]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_5sca0")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_w72wk")
+texture = ExtResource("2_3x2yx")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(3, -5)
+shape = SubResource("RectangleShape2D_g6odd")
+
+[node name="HpBar" parent="." instance=ExtResource("3_0pboa")]
+position = Vector2(0, -249)
+scale = Vector2(1.6, 1.6)
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 0.25
