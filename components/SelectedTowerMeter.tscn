@@ -21,7 +21,7 @@ offset_left = 39.0
 offset_top = 101.0
 offset_right = 579.0
 offset_bottom = 656.0
-color = Color(1, 1, 1, 0.588235)
+color = Color(1, 1, 1, 0.784314)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
