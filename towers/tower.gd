@@ -2,7 +2,7 @@ class_name Tower
 extends Area2D
 
 @export var PROJECTILE_REF: PackedScene
-@export var CURRENT_TARGET: Basic
+@export var CURRENT_TARGET: Mob
 @export var TARGETING_RADIUS_PX: float
 @export var RATE_OF_FIRE_SECS: float
 @export var IS_ACTIVE = false
