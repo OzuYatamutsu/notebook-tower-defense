@@ -42,6 +42,8 @@ func start_wave() -> void:
     CURRENT_WAVE_NUM += 1
     WAVE_METER.set_value(CURRENT_WAVE_NUM)
     CURRENT_WAVE_TIMER.start()
+    WAVE_METER.WaveTimerUI.set_max_time(CURRENT_WAVE_TIMER.wait_time)
+    WAVE_METER.WaveTimerUI.enable()
     CURRENT_WAVE.start()
     SPAWNER.activate()
     
@@ -52,6 +54,7 @@ func start_wave() -> void:
 
 func end_wave() -> void:
     CURRENT_WAVE_TIMER.stop()
+    WAVE_METER.WaveTimerUI.disable()
     CURRENT_WAVE.end()
     SPAWNER.deactivate()
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://caapeiewaemnb"]
+
+[ext_resource type="Script" uid="uid://b6sxmpd3c6vt" path="res://components/time_bar.gd" id="1_ypmy4"]
+[ext_resource type="Texture2D" uid="uid://dv26n7yliswpf" path="res://sprites/hp_bar_full.png" id="2_ifxj4"]
+[ext_resource type="Texture2D" uid="uid://bymp2t64a0wo" path="res://sprites/hp_bar_empty.png" id="3_omgcb"]
+
+[node name="TimeBar" type="Node2D"]
+script = ExtResource("1_ypmy4")
+
+[node name="TimeBarFullSprite" type="Sprite2D" parent="."]
+position = Vector2(-184, -34)
+texture = ExtResource("2_ifxj4")
+centered = false
+region_enabled = true
+region_rect = Rect2(63.5, 216.75, 400, 65)
+
+[node name="TimeBarEmptySprite" type="Sprite2D" parent="."]
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("3_omgcb")
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

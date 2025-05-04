@@ -10,6 +10,8 @@ extends Control
 @onready var total_digit1 = $of_total/digit1
 @onready var total_digit2 = $of_total/digit2
 
+@onready var WaveTimerUI: TimeBar = $WaveTimerUI
+
 const CLEAR_DIGIT = 10
 
 func set_value(value: int) -> void:
