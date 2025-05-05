@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj8dl22g5mvxh"]
+
+[ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="1_4cnvf"]
+[ext_resource type="Script" uid="uid://bk4ramqv4g64h" path="res://levels/map_select.gd" id="1_54y5f"]
+
+[node name="MapSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54y5f")
+
+[node name="Selector" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BgRect" type="ColorRect" parent="Selector"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -269.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 0.784314)
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Selector"]
+z_index = 1
+layout_mode = 0
+offset_left = -256.0
+offset_top = 17.0
+offset_right = -13.0
+offset_bottom = 57.0
+
+[node name="TestLevel" type="Button" parent="Selector/ButtonContainer"]
+layout_mode = 2
+text = "test test"
+
+[node name="Level1" type="Button" parent="Selector/ButtonContainer"]
+layout_mode = 2
+text = "test test"
+
+[node name="LoadMapButton" type="Button" parent="Selector"]
+z_index = 1
+layout_mode = 0
+offset_left = -267.0
+offset_top = 611.0
+offset_right = 1.0
+offset_bottom = 718.0
+text = "Load map"
+
+[node name="map" type="Sprite2D" parent="."]
+scale = Vector2(1.28, 1.18062)
+texture = ExtResource("1_4cnvf")
+centered = false
+
+[connection signal="pressed" from="Selector/ButtonContainer/TestLevel" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Selector/ButtonContainer/Level1" to="." method="_on_button_pressed"]
