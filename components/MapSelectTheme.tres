@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8vctxp5w606s"]
+
+[ext_resource type="FontFile" uid="uid://gg8s1xc4jyl8" path="res://components/Cheese Potato.otf" id="1_w3stf"]
+
+[resource]
+default_font = ExtResource("1_w3stf")
+default_font_size = 30

@@ -11,7 +11,7 @@ var LABEL_LEVEL_MAP = {
 var CurrentSelectedLevel: String
 
 @onready var MapPreview: Sprite2D = $map
-@onready var LoadLevelButton: Button = $Selector/LoadLevelButton
+@onready var LoadLevelButton: Button = $Selector/LoadMapButton
 
 func _ready() -> void:
     LoadLevelButton.disabled = true
