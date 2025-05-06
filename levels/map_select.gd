@@ -28,8 +28,16 @@ func load_level_preview(path_to_level: String) -> void:
 
     var level: Level = load(CurrentSelectedLevel).instantiate()
     var level_map: Sprite2D = level.get_node("LevelViewport/map")
+    var viewport_size: Vector2 = get_viewport_rect().size
+    var level_map_size: Vector2 = level_map.texture.get_size()
     
     MapPreview.texture = level_map.texture
+    
+    # Scale map to fit viewport
+    MapPreview.scale = Vector2(
+        viewport_size.x / level_map_size.x,
+        viewport_size.y / level_map_size.y
+    )
 
 func load_selected_level() -> void:
     assert(CurrentSelectedLevel != null)
@@ -40,9 +48,9 @@ func _on_button_pressed(button_name: String) -> void:
     if CurrentSelectedLevel != null and button_name == LOAD_MAP_NAME:
         load_selected_level()
         return
-    
+
     load_level_preview(LABEL_LEVEL_MAP[button_name])
-    
+
     # Unset all other buttons
     for _button in find_children("", "Button", true, true):
         if _button.name == button_name:
