@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Notebook Tower Defense"
-run/main_scene="uid://i7ifmy5nq12p"
+run/main_scene="uid://dj8dl22g5mvxh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
