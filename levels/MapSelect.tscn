@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj8dl22g5mvxh"]
+[gd_scene load_steps=7 format=3 uid="uid://dj8dl22g5mvxh"]
 
 [ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="1_4cnvf"]
 [ext_resource type="Script" uid="uid://bk4ramqv4g64h" path="res://levels/map_select.gd" id="1_54y5f"]
 [ext_resource type="Texture2D" uid="uid://c3nvtklv4dry8" path="res://sprites/map_select_header.png" id="2_sqyih"]
 [ext_resource type="Texture2D" uid="uid://yhg5iutnvtlw" path="res://sprites/button_small.png" id="3_8a0mh"]
 [ext_resource type="Theme" uid="uid://c8vctxp5w606s" path="res://components/MapSelectTheme.tres" id="3_ytd17"]
+[ext_resource type="Texture2D" uid="uid://cuuch6k1hq4wj" path="res://sprites/title_screen_title.png" id="6_ky6rc"]
 
 [node name="MapSelect" type="Control"]
 layout_mode = 3
@@ -86,3 +87,33 @@ icon_alignment = 1
 scale = Vector2(1.28, 1.18062)
 texture = ExtResource("1_4cnvf")
 centered = false
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="BgRect" type="ColorRect" parent="Title"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -132.75
+offset_right = 125.0
+offset_bottom = -95.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.58508, 2.23351)
+color = Color(1, 1, 1, 0.784314)
+
+[node name="Sprite2D" type="Sprite2D" parent="Title"]
+z_index = 1
+position = Vector2(200, -47.75)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ky6rc")
