@@ -15,6 +15,13 @@ var CurrentSelectedLevel: String
 
 func _ready() -> void:
     LoadLevelButton.disabled = true
+    
+    for _button in find_children("", "Button", true, true):
+        if _button.name == LOAD_MAP_NAME:
+            _button.disabled = true
+            continue
+        _button.disabled = false
+        _button.pressed.connect(_on_button_pressed.bind(_button.name))
 
 func load_level_preview(path_to_level: String) -> void:
     CurrentSelectedLevel = path_to_level
@@ -29,15 +36,18 @@ func load_selected_level() -> void:
     
     get_tree().change_scene_to_file(CurrentSelectedLevel)
 
-func _on_button_pressed(button: Button) -> void:
-    if CurrentSelectedLevel != null and button.name == LOAD_MAP_NAME:
+func _on_button_pressed(button_name: String) -> void:
+    if CurrentSelectedLevel != null and button_name == LOAD_MAP_NAME:
         load_selected_level()
         return
     
-    load_level_preview(LABEL_LEVEL_MAP[button.name])
+    load_level_preview(LABEL_LEVEL_MAP[button_name])
     
     # Unset all other buttons
     for _button in find_children("", "Button", true, true):
+        if _button.name == button_name:
+            _button.disabled = true
+            continue
         _button.disabled = false
-    button.disabled = true
+
     LoadLevelButton.disabled = false
