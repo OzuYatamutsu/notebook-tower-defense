@@ -6,6 +6,11 @@ const WAVE_METER_GROUP = "wave_meter"
 
 const WAVE_TIMER_SECS = 15.0
 
+# Formula which determines how fast a Mob hp's grows over
+# progressive waves.
+var WAVE_HEALTH_MULTIPLIER: Callable = func(wave_num):
+    return 1 + (wave_num * 0.05)
+
 var WAVE_CONTENTS: Array[Dictionary]
 var WAVES: Array[Wave] = []
 var CURRENT_WAVE: Wave
@@ -60,7 +65,7 @@ func end_wave() -> void:
 
 func next_wave() -> void:
     end_wave()
-    
+
     if !WAVES.is_empty():
         print("Starting next wave!")
         CURRENT_WAVE = WAVES.pop_front()
@@ -78,6 +83,7 @@ func _on_spawn_signal() -> void:
         return
 
     var mob_to_spawn: Mob = CURRENT_WAVE.pop()
+    mob_to_spawn.MAX_HP *= WAVE_HEALTH_MULTIPLIER.call(CURRENT_WAVE_NUM)
 
-    print("Spawning: " + str(mob_to_spawn))
     SPAWNER.spawn(mob_to_spawn)
+    print("Spawning: " + str(mob_to_spawn.name) + " with " + str(mob_to_spawn.HEALTH_BAR.MAX_HP) + " health")
