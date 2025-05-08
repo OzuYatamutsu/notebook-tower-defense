@@ -41,3 +41,6 @@ func _on_despawn_timer_timeout() -> void:
 
     mob_despawned.emit(self)
     queue_free()
+
+func _to_string() -> String:
+    return "%s: hp=%s" % [name, str(HEALTH_BAR.HP)]

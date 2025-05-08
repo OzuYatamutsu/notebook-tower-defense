@@ -86,4 +86,4 @@ func _on_spawn_signal() -> void:
     mob_to_spawn.MAX_HP *= WAVE_HEALTH_MULTIPLIER.call(CURRENT_WAVE_NUM)
 
     SPAWNER.spawn(mob_to_spawn)
-    print("Spawning: " + str(mob_to_spawn.name) + " with " + str(mob_to_spawn.HEALTH_BAR.MAX_HP) + " health")
+    print("Spawning: " + str(mob_to_spawn))

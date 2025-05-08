@@ -7,6 +7,7 @@ extends Area2D
 @export var IS_ACTIVE = false
 @export var DAMAGE: float
 var EFFECTS: Array[Effect]
+var AVERAGE_DELTA: float
 
 @onready var DespawnTimer = $DespawnTimer
 
@@ -20,11 +21,37 @@ func fire_at(target: Mob) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")
 
     TARGET = target
-    direction = (TARGET.global_position - global_position).normalized()
-
     DespawnTimer.wait_time = DESPAWN_TIMER_SECS
     DespawnTimer.start()
     IS_ACTIVE = true
+    
+    var maybe_pather = target.get_parent()
+    if maybe_pather is MobPather:
+        return _fire_at_target_leading(maybe_pather)
+    
+    # Otherwise, just fire at the mob's current position
+    direction = (
+        TARGET.global_position - global_position
+    ).normalized()
+
+func _fire_at_target_leading(pather: MobPather) -> void:
+    var path: Path2D = pather.get_parent()
+
+    var predicted_future_progress_ratio = (
+        pather.progress_ratio
+        + (TARGET.SPEED * AVERAGE_DELTA)
+    )
+
+    var predicted_future_position = path.to_global(
+        path.curve.sample_baked(
+            path.curve.get_baked_length()
+            * predicted_future_progress_ratio
+        )
+    )
+
+    direction = (
+        predicted_future_position - global_position
+    ).normalized()
 
 func has_unapplied_effect() -> bool:
     return EFFECTS != null and !EFFECTS.is_empty()
@@ -35,11 +62,9 @@ func pop_next_effect() -> Effect:
 func _process(delta: float) -> void:
     if !IS_ACTIVE:
         return
+    AVERAGE_DELTA = (AVERAGE_DELTA + delta) / 2
 
-    global_position = Vector2(
-        move_toward(global_position.x, global_position.x + direction.x, SPEED * delta),
-        move_toward(global_position.y, global_position.y + direction.y, SPEED * delta),
-    )
+    global_position += direction * SPEED * delta
 
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time
