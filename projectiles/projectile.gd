@@ -37,12 +37,17 @@ func fire_at(target: Mob) -> void:
 func _fire_at_target_leading(pather: MobPather) -> void:
     var path: Path2D = pather.get_parent()
 
-    var predicted_future_progress_ratio = (
-        pather.progress_ratio
-        + (TARGET.SPEED * AVERAGE_DELTA)
+    var time_to_hit: float = (
+        TARGET.global_position.distance_to(global_position)
+        / (SPEED * GameState.AVG_FRAME_TIME)
     )
 
-    var predicted_future_position = path.to_global(
+    var predicted_future_progress_ratio: float = (
+        pather.progress_ratio
+        + (TARGET.SPEED * GameState.AVG_FRAME_TIME * time_to_hit)
+    )
+
+    var predicted_future_position: Vector2 = path.to_global(
         path.curve.sample_baked(
             path.curve.get_baked_length()
             * predicted_future_progress_ratio
@@ -62,7 +67,6 @@ func pop_next_effect() -> Effect:
 func _process(delta: float) -> void:
     if !IS_ACTIVE:
         return
-    AVERAGE_DELTA = (AVERAGE_DELTA + delta) / 2
 
     global_position += direction * SPEED * delta
 

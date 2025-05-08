@@ -33,6 +33,7 @@ var TOWER_BUY_PANEL: TowerBuyPanel
 
 var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
 var WIN_OVERLAY = load("res://levels/Win.tscn")
+var AVG_FRAME_TIME: float
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -135,3 +136,6 @@ func _on_win() -> void:
         win_screen,
         0
     )
+
+func _process(delta: float) -> void:
+    AVG_FRAME_TIME = (AVG_FRAME_TIME + delta) / 2
