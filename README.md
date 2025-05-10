@@ -14,3 +14,12 @@ See the Releases section for the latest build of the game.
 
 Pull the repository and open `project.godot` in Godot 4.x or higher.
 
+## Changelog
+
+### 1.0.0 (2025-05-10)
+
+- Initial release. (Game is technically playable).
+- Includes 2 levels (1 proof of concept).
+- Includes 2 enemy types.
+- Includes 2 tower types.
+
