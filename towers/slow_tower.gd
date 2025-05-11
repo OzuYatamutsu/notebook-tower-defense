@@ -1,7 +1,7 @@
 class_name SlowTower
 extends Tower
 
-const NUM_PROJECTILES_TO_FIRE: int = 5
+const NUM_PROJECTILES_TO_FIRE: int = 10
 
 func _init() -> void:
     VALUE = 200
