@@ -45,7 +45,6 @@ mob_members=""
 2d_physics/layer_4="projectiles"
 2d_physics/layer_5="player_hitbox"
 2d_physics/layer_6="level_spawn"
-2d_physics/layer_7="walls"
 
 [rendering]
 

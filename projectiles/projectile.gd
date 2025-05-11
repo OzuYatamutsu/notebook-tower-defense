@@ -1,7 +1,8 @@
 class_name Projectile
 extends Area2D
 
-@export var DESPAWN_TIMER_SECS = 10.0
+const DESPAWN_TIMER_SECS = 10.0
+
 @export var SPEED: float
 @export var TARGET: Mob
 @export var IS_ACTIVE = false
@@ -15,7 +16,8 @@ var direction: Vector2 = Vector2.ZERO
 
 func _init():
     self.collision_layer = 0x8  # projectiles
-    self.collision_mask = 0x4  # mobs
+    self.collision_mask = 0x2  # walls
+    area_entered.connect(_on_hit_wall)
 
 func fire(at_direction: Vector2) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")
@@ -82,4 +84,7 @@ func _process(delta: float) -> void:
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time
     # so clean this up
+    queue_free()
+
+func _on_hit_wall(_wall: Area2D) -> void:
     queue_free()
