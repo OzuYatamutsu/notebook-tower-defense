@@ -17,10 +17,10 @@ script = ExtResource("1_0ypj4")
 
 [node name="BgRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 101.0
-offset_right = 579.0
-offset_bottom = 656.0
+offset_left = 29.0
+offset_top = 141.0
+offset_right = 538.0
+offset_bottom = 580.0
 color = Color(1, 1, 1, 0.784314)
 
 [node name="TextureRect" type="TextureRect" parent="."]
