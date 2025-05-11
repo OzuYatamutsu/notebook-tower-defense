@@ -94,6 +94,12 @@ curve = SubResource("Curve2D_yydhl")
 [node name="Path2D9" type="Path2D" parent="LevelViewport/mobs" index="8"]
 curve = SubResource("Curve2D_bekh1")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelViewport/walls" index="0"]
+polygon = PackedVector2Array(213, 5, 856, 4, 1281, 2, 1281, 724, 1178, 724, 1183, 491, 181, 484, 192, 384, 1166, 357, 1179, 304, 1179, 53, 589, 88, 397, 81, 7, 99, 1, 4)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
+polygon = PackedVector2Array(7, 201, 451, 201, 780, 189, 952, 165, 942, 275, 593, 300, 294, 312, 57, 311, 43, 469, 43, 578, 481, 594, 983, 590, 972, 724, -2, 719)
+
 [node name="LevelHitbox" parent="LevelViewport" index="5"]
 position = Vector2(1089, 716)
 scale = Vector2(8.15, 0.34)
