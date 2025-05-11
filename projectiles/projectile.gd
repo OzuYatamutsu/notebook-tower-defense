@@ -17,6 +17,15 @@ func _init():
     self.collision_layer = 0x8  # projectiles
     self.collision_mask = 0x4  # mobs
 
+func fire(at_direction: Vector2) -> void:
+    assert(SPEED != 0.0, "Projectiles must have a speed set!")
+    
+    DespawnTimer.wait_time = DESPAWN_TIMER_SECS
+    DespawnTimer.start()
+    IS_ACTIVE = true
+    
+    direction = at_direction
+
 func fire_at(target: Mob) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")
 

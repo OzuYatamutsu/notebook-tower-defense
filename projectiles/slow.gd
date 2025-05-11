@@ -5,7 +5,7 @@ var SLOW_COLOR_SHADER = load("res://components/tint_blue.gdshader")
 var SLOW_COLOR_SHADER_MATERIAL = ShaderMaterial.new()
 
 func _ready() -> void:
-    self.SPEED = 2000.0
+    self.SPEED = 150.0
     self.DAMAGE = 1.0
     self.EFFECTS.append(Effect.new(self.effect))
     SLOW_COLOR_SHADER_MATERIAL.shader = SLOW_COLOR_SHADER
