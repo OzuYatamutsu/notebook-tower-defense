@@ -12,5 +12,4 @@ func _ready() -> void:
         1.0
     )
 
-    # TODO
     enable()

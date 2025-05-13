@@ -14,6 +14,7 @@ extends Area2D
 @onready var Sprite: Sprite2D = $Sprite
 
 var TargetingQueue: Array[Mob]
+var _InitialFireImmediately: bool = false
 
 func _init():
     # Every time the timer expires, spawn and fire
@@ -68,6 +69,13 @@ func _on_targeting_radius_entered(body: Mob) -> void:
 
     print(str(self) + ": Switching targets: " + str(body))
     CURRENT_TARGET = body
+    
+    # When we spawn a tower, we want it to fire
+    # as soon as possible, but then reset the timer. 
+    if !_InitialFireImmediately:
+        _InitialFireImmediately = true
+        fire()
+        enable()
 
 func _on_targeting_radius_exited(body: Mob) -> void:
     if !IS_ACTIVE:
