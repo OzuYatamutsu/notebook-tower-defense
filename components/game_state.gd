@@ -74,7 +74,7 @@ func deduct_money(value: int) -> void:
 
 func restart_game() -> void:
     IS_GAME_OVER = false
-    get_tree().change_scene_to_file("res://levels/StartScreen.tscn")
+    get_tree().change_scene_to_file("res://levels/MapSelect.tscn")
 
 func quit_game() -> void:
     get_tree().quit()
