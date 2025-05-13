@@ -2,7 +2,7 @@ class_name Projectile
 extends Area2D
 
 const DESPAWN_TIMER_SECS = 10.0
-const INITIAL_IGNORE_WALLS_RECALC_GRACE_PERIOD_SECS = 0.1
+const INITIAL_IGNORE_WALLS_RECALC_GRACE_PERIOD_SECS = 0.5
 @export var SPEED: float
 @export var TARGET: Mob
 @export var IS_ACTIVE = false
