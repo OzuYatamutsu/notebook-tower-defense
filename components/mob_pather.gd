@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
         progress_ratio = 100.0
         return
     progress_ratio += (child.SPEED * delta)
-    
 
 func _on_mob_despawn(_mob) -> void:
     queue_free()
