@@ -22,4 +22,7 @@ shape = SubResource("RectangleShape2D_v6doq")
 [node name="DespawnTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DamageEveryTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="DamageEveryTimer" to="." method="_on_damage_tick"]
