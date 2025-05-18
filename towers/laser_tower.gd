@@ -21,3 +21,7 @@ func fire() -> void:
         return
     super.fire()
     IS_ACTIVELY_FIRING = true
+
+func _on_targeting_radius_exited(body: Mob) -> void:
+    super._on_targeting_radius_exited(body)
+    IS_ACTIVELY_FIRING = false
