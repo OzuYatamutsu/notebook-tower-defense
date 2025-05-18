@@ -1,13 +1,13 @@
 class_name Laser
 extends Projectile
 
-const DAMAGE_EVERY_SECS: float = 0.01
+const DAMAGE_EVERY_SECS: float = 0.05
 
 @onready var DamageEveryTimer: Timer = $DamageEveryTimer
 
 func _ready() -> void:
     self.SPEED = 1000.0
-    self.DAMAGE = 1.0
+    self.DAMAGE = 5.0
     
     DamageEveryTimer.wait_time = DAMAGE_EVERY_SECS
     DamageEveryTimer.start()
