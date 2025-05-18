@@ -1,6 +1,8 @@
 class_name LaserTower
 extends Tower
 
+var IS_ACTIVELY_FIRING: bool = false
+
 func _init() -> void:
     VALUE = 200
     super._init()
@@ -15,4 +17,7 @@ func _ready() -> void:
     enable()
 
 func fire() -> void:
-    pass  # TODO
+    if IS_ACTIVELY_FIRING:
+        return
+    super.fire()
+    IS_ACTIVELY_FIRING = true

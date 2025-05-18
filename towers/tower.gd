@@ -106,4 +106,4 @@ func fire() -> void:
 
     # ...and fire it at our target!
     new_projectile.fire_at(CURRENT_TARGET)
-    print(str(self) + ": Shooting at: " + str(new_projectile))
+    print(str(self) + ": Shooting at: " + str(CURRENT_TARGET))

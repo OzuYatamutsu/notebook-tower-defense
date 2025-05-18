@@ -24,7 +24,8 @@ func _on_hit(projectile: Projectile) -> void:
         var effect = projectile.pop_next_effect()
         print("Applying effect! " + str(effect))
         effect.apply(self)
-    projectile.queue_free()
+    if projectile is not Laser:
+        projectile.queue_free()
 
 func _on_death():
     remove_from_group(GameState.MOB_MEMBERS_GROUP)
