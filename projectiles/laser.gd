@@ -24,7 +24,7 @@ func _process(_delta) -> void:
 
         scale.x = (
             TARGET.global_position - global_position
-        ).length()
+        ).length() / 5
         rotation = direction.angle()
 
 func fire_at(target: Mob) -> void:
