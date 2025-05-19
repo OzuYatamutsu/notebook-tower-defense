@@ -69,6 +69,15 @@ icon = ExtResource("3_8a0mh")
 flat = true
 icon_alignment = 1
 
+[node name="SwitchbackVTD" type="Button" parent="Selector/ButtonContainer"]
+layout_mode = 2
+theme = ExtResource("3_ytd17")
+theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
+text = "Switchback (VTD)"
+icon = ExtResource("3_8a0mh")
+flat = true
+icon_alignment = 1
+
 [node name="LoadMapButton" type="Button" parent="Selector"]
 z_index = 1
 layout_mode = 0
