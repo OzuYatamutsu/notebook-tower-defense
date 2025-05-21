@@ -5,7 +5,7 @@ const LOAD_MAP_NAME = "LoadMapButton"
 
 var LABEL_LEVEL_MAP = {
     "TestLevel": "res://levels/test_level.tscn",
-    "Level1": "res://levels/level1.tscn",
+    "CoolS": "res://levels/level_cools.tscn",
     "SwitchbackVTD": "res://levels/level_switchback.tscn",
 }
 

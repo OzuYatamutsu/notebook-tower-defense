@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://ctct4jwr72ikm"]
 
-[ext_resource type="Script" uid="uid://bmv021flryrl5" path="res://levels/level_1.gd" id="1_ua5ty"]
-[ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_b3oru"]
-[ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_ua5ty"]
-[ext_resource type="Texture2D" uid="uid://br3mtwwd8roqd" path="res://levels/level1_layout.png" id="4_ua5ty"]
+[ext_resource type="Script" uid="uid://bmv021flryrl5" path="res://levels/level_1.gd" id="1_uh8lo"]
+[ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_r7tsd"]
+[ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_52n04"]
+[ext_resource type="Texture2D" uid="uid://br3mtwwd8roqd" path="res://levels/level1_layout.png" id="4_n0ulb"]
 
 [sub_resource type="Curve2D" id="Curve2D_ua5ty"]
 _data = {
@@ -59,13 +59,13 @@ _data = {
 }
 point_count = 16
 
-[node name="Level1" type="Node"]
-script = ExtResource("1_ua5ty")
+[node name="Level_CoolS" type="Node"]
+script = ExtResource("1_uh8lo")
 metadata/_custom_type_script = "uid://0wwxleyefwme"
 
-[node name="UI" parent="." instance=ExtResource("2_b3oru")]
+[node name="UI" parent="." instance=ExtResource("2_r7tsd")]
 
-[node name="LevelViewport" parent="." instance=ExtResource("3_ua5ty")]
+[node name="LevelViewport" parent="." instance=ExtResource("3_52n04")]
 
 [node name="Path2D" type="Path2D" parent="LevelViewport/mobs" index="0"]
 curve = SubResource("Curve2D_ua5ty")
@@ -109,7 +109,7 @@ position = Vector2(22, 152)
 
 [node name="map" type="Sprite2D" parent="LevelViewport"]
 scale = Vector2(1, 0.883005)
-texture = ExtResource("4_ua5ty")
+texture = ExtResource("4_n0ulb")
 centered = false
 
 [editable path="LevelViewport"]
