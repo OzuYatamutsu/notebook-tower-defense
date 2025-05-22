@@ -72,6 +72,12 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_bra6i")
 centered = false
 
+[node name="DisabledNoMoney" type="ColorRect" parent="TowerSprite"]
+visible = false
+offset_right = 515.0
+offset_bottom = 500.0
+color = Color(1, 1, 1, 0.882353)
+
 [node name="Button" type="Button" parent="TowerSprite"]
 offset_right = 505.0
 offset_bottom = 455.0
