@@ -14,6 +14,7 @@ const LIVES_METER_GROUP = "lives_meter"
 const NEXT_WAVE_METER_GROUP = "next_wave_meter"
 const SELECTED_TOWER_METER_GROUP = "selected_tower_meter"
 const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
+const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
 
 @export var PLAYER_LIVES_START: int
 @export var PLAYER_LIVES_REMAINING: int
@@ -30,6 +31,7 @@ var WAVE_METER: WaveMeter
 var SELECTED_TOWER_METER: SelectedTowerMeter
 var NEXT_WAVE_METER: NextWaveMeter
 var TOWER_BUY_PANEL: TowerBuyPanel
+var TOWER_UPGRADE_PANEL: TowerUpgradePanel
 
 var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
 var WIN_OVERLAY = load("res://levels/Win.tscn")
@@ -55,6 +57,7 @@ func _on_level_load() -> void:
     NEXT_WAVE_METER = get_tree().get_first_node_in_group(NEXT_WAVE_METER_GROUP)
 
     TOWER_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_BUY_PANEL_GROUP)
+    TOWER_UPGRADE_PANEL = get_tree().get_first_node_in_group(TOWER_UPGRADE_PANEL_GROUP)
 
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")

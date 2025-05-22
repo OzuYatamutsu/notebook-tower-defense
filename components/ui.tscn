@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=8 format=3 uid="uid://dhs0soxiwf4lb"]
 
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
 [ext_resource type="PackedScene" uid="uid://djugbukw7mfia" path="res://components/LivesMeter.tscn" id="2_k05k2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="4_24715"]
 [ext_resource type="PackedScene" uid="uid://o1i4jsdysgqk" path="res://components/TowerBuyPanel.tscn" id="5_451mt"]
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
+[ext_resource type="PackedScene" uid="uid://svkoe5vyyv51" path="res://components/TowerUpgradePanel.tscn" id="7_k05k2"]
 
 [node name="UI" type="CanvasLayer"]
 layer = 2
@@ -54,3 +55,6 @@ offset_top = 8.0
 offset_right = 146.0
 offset_bottom = 8.0
 scale = Vector2(0.15, 0.15)
+
+[node name="TowerUpgradePanel" parent="." instance=ExtResource("7_k05k2")]
+visible = false

@@ -36,6 +36,7 @@ tower_select_panel=""
 tower_buy_panel=""
 next_wave_meter=""
 mob_members=""
+tower_upgrade_panel=""
 
 [layer_names]
 

@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://svkoe5vyyv51"]
+
+[ext_resource type="Texture2D" uid="uid://dwkh4i05d7u0h" path="res://sprites/upgrades_header.png" id="1_rg2io"]
+[ext_resource type="Script" uid="uid://ctf4dsp1ls6u6" path="res://components/tower_upgrade_panel.gd" id="1_s3614"]
+[ext_resource type="PackedScene" uid="uid://4m883pvlq3rc" path="res://components/TowerBuyItem.tscn" id="6_h8wwj"]
+
+[node name="TowerUpgradePanel" type="Control" groups=["tower_upgrade_panel"]]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -325.0
+offset_right = -325.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+script = ExtResource("1_s3614")
+
+[node name="UpgradesLabel" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 115.0
+offset_top = 5.0
+offset_right = 615.0
+offset_bottom = 279.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_rg2io")
+
+[node name="BgRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_right = 326.0
+offset_bottom = 602.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 0.784314)
+
+[node name="UpgradeItemList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 102.0
+offset_right = 108.0
+offset_bottom = 142.0
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 110
+
+[node name="TestItem" parent="UpgradeItemList" instance=ExtResource("6_h8wwj")]
+layout_mode = 2
