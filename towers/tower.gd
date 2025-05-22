@@ -77,7 +77,7 @@ func _on_targeting_radius_entered(body: Mob) -> void:
     # as soon as possible, but then reset the timer. 
     if !_InitialFireImmediately:
         _InitialFireImmediately = true
-        fire()
+        fire.call_deferred()
         enable()
 
 func _on_targeting_radius_exited(body: Mob) -> void:
