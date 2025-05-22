@@ -11,4 +11,5 @@ func _physics_process(_delta: float) -> void:
     
     # We want to point the head of the bullet at
     # what we're firing
-    look_at(TARGET.global_position)
+    if TARGET:
+        look_at(TARGET.global_position)

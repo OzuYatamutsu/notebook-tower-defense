@@ -2,7 +2,7 @@ class_name SniperTower
 extends Tower
 
 func _init() -> void:
-    VALUE = 100
+    VALUE = 500
     IsUpgraded = true
     UpgradeEffects = [
         "+DAMAGE",
