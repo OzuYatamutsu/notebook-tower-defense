@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://idi34qw0sspr"]
+
+[ext_resource type="FontFile" uid="uid://gg8s1xc4jyl8" path="res://components/Cheese Potato.otf" id="1_eenbn"]
+
+[resource]
+default_font = ExtResource("1_eenbn")
+default_font_size = 20
+Label/colors/font_color = Color(0.633197, 0.818458, 1.54018e-06, 1)
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("1_eenbn")
