@@ -7,6 +7,7 @@ func _init() -> void:
     UpgradeEffects = [
         "+DAMAGE",
         "+SPEED",
+        "+RANGE",
         "-FIRE RATE"
     ]
 
@@ -14,9 +15,9 @@ func _init() -> void:
 
 func _ready() -> void:
     ready_tower(
-        preload("res://projectiles/Bullet.tscn"),
-        2000.00,
-        1.0
+        preload("res://projectiles/SniperBullet.tscn"),
+        4000.0,
+        5.0
     )
 
     enable()

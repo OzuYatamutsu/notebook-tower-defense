@@ -1,9 +1,9 @@
-class_name Bullet
+class_name SniperBullet
 extends Projectile
 
 func _ready() -> void:
-    self.SPEED = 300.0
-    self.DAMAGE = 50.0
+    self.SPEED = 500.0
+    self.DAMAGE = 150.0
 
 func _physics_process(_delta: float) -> void:
     if !IS_ACTIVE:
