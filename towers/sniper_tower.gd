@@ -2,7 +2,7 @@ class_name SniperTower
 extends Tower
 
 func _init() -> void:
-    VALUE = 500
+    VALUE = 100
     IsUpgraded = true
     UpgradeEffects = [
         "+DAMAGE",
@@ -17,7 +17,7 @@ func _ready() -> void:
     ready_tower(
         preload("res://projectiles/SniperBullet.tscn"),
         4000.0,
-        5.0
+        3.50
     )
 
     enable()
