@@ -3,6 +3,9 @@ extends Control
 
 const CLEAR_DIGIT = 10
 
+var THEME_POSITIVE_EFFECT: Theme = load("res://components/UpgradeItemEffectPositive.tres")
+var THEME_NEGATIVE_EFFECT: Theme = load("res://components/UpgradeItemEffectNegative.tres")
+
 @export var Cost: int
 @export var TowerPath: String
 
@@ -15,18 +18,32 @@ const CLEAR_DIGIT = 10
 @onready var digit4 = $NumericLabel/digit4
 
 func setup(towerPath: String) -> void:
-    var tower = load(towerPath).instantiate()
+    var tower: Tower = load(towerPath).instantiate()
 
     Cost = tower.VALUE
     TowerPath = towerPath
 
     get_node("TowerSprite").texture = tower.get_node("Sprite").texture
+    clear_upgrade_effects()
+    for upgrade_effect in tower.UpgradeEffects:
+        add_upgrade_effect(upgrade_effect)
 
     tower.queue_free()
     set_anchors_preset(Control.PRESET_FULL_RECT)
-
-func _ready() -> void:
     _set_numeric_label()
+
+func clear_upgrade_effects() -> void:
+    for _upgradeEffect in UpgradeEffects.get_children():
+        UpgradeEffects.remove_child(_upgradeEffect)
+
+func add_upgrade_effect(effect: String) -> void:
+    var upgrade_effect_label = Label.new()
+    upgrade_effect_label.text = effect
+    if effect[0] == "+":
+        upgrade_effect_label.theme = THEME_POSITIVE_EFFECT
+    elif effect[0] == "-":
+        upgrade_effect_label.theme = THEME_NEGATIVE_EFFECT
+    UpgradeEffects.add_child(upgrade_effect_label)
 
 func _set_numeric_label() -> void:
     digit1.frame = CLEAR_DIGIT

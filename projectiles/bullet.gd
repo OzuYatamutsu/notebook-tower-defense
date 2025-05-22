@@ -1,4 +1,4 @@
-class_name Arrow
+class_name Bullet
 extends Projectile
 
 func _ready() -> void:

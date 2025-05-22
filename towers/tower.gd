@@ -17,7 +17,7 @@ var TargetingQueue: Array[Mob]
 var _InitialFireImmediately: bool = false
 var IsUpgraded: bool
 var UpgradeEffects: Array[String]
-var UpgradesTo: Array[Tower]
+var UpgradesTo: Array[String]  # Array of paths
 
 func _init():
     # Every time the timer expires, spawn and fire

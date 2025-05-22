@@ -1,12 +1,15 @@
-class_name BulletTower
+class_name SniperTower
 extends Tower
 
 func _init() -> void:
-    VALUE = 100
-    UpgradesTo = [
-        "res://towers/SniperTower.tscn"
+    VALUE = 500
+    IsUpgraded = true
+    UpgradeEffects = [
+        "+DAMAGE",
+        "+SPEED",
+        "-FIRE RATE"
     ]
-    IsUpgraded = false
+
     super._init()
 
 func _ready() -> void:

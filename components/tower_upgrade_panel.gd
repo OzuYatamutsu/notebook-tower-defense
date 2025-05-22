@@ -45,17 +45,10 @@ func set_current_tower(tower: Tower):
         UpgradedComponent.hide()
         ToUpgradeComponent.show()
 
-func add_tower_upgrade_path_element(tower: Tower) -> void:
-    if !tower.IsUpgraded:
-        print(
-            "Warning: attempted to add upgrade path to " +
-            "a non-upgraded tower, stubbing"
-        )
-        return
-    
+func add_tower_upgrade_path_element(path_to_tower: String) -> void:    
     var _item = _upgradeItem.instantiate()
-    _item.setup(tower)
     UpgradeItemList.add_child(_item)
+    _item.setup(path_to_tower)
 
 func _on_close_button_pressed() -> void:
     disable()
