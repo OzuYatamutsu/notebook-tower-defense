@@ -3,6 +3,7 @@ extends Tower
 
 func _init() -> void:
     VALUE = 100
+    IsUpgraded = false
     super._init()
 
 func _ready() -> void:

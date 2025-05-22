@@ -15,6 +15,9 @@ extends Area2D
 
 var TargetingQueue: Array[Mob]
 var _InitialFireImmediately: bool = false
+var IsUpgraded: bool
+var UpgradeEffects: Array[String]
+var UpgradesTo: Array[Tower]
 
 func _init():
     # Every time the timer expires, spawn and fire

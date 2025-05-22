@@ -5,6 +5,7 @@ const NUM_PROJECTILES_TO_FIRE: int = 10
 
 func _init() -> void:
     VALUE = 200
+    IsUpgraded = false
     super._init()
 
 func _ready() -> void:

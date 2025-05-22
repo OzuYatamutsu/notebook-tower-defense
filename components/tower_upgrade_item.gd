@@ -21,6 +21,7 @@ func setup(towerPath: String) -> void:
     TowerPath = towerPath
 
     get_node("TowerSprite").texture = tower.get_node("Sprite").texture
+
     tower.queue_free()
     set_anchors_preset(Control.PRESET_FULL_RECT)
 

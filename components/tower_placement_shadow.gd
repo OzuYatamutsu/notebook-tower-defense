@@ -8,6 +8,8 @@ extends Node2D
 @onready var OK_SHADOW = $ColorRectOK
 @onready var NG_SHADOW = $ColorRectNG
 
+var HoveringOverTower: Tower
+
 enum ShadowState {
     DISABLED,  # Don't show the shadow at all
     NG_OVERLAPPING,  # Can't place the tower due to overlap
@@ -45,7 +47,9 @@ func _input(event) -> void:
         return
 
     if !is_ok and current_state == ShadowState.NG_OVERLAPPING:
-        print("Not spawning tower; overlapping another tower")
+        print("Overlapping another tower, opening upgrade panel!")
+        GameState.TOWER_UPGRADE_PANEL.set_current_tower(HoveringOverTower)
+        GameState.TOWER_UPGRADE_PANEL.enable()
         return
     elif !is_ok and current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
         print("Not spawning tower; insufficient funds")
@@ -68,6 +72,11 @@ func spawn() -> void:
 
     new_tower.global_position = get_global_mouse_position()
     GameState.deduct_money(TOWER_TO_PLACE.VALUE)
+    
+    # Force hovering over tower state
+    current_state = ShadowState.NG_OVERLAPPING
+    HoveringOverTower = new_tower
+    set_is_ok()
 
 func set_is_ok() -> void:
     if TOWER_TO_PLACE == null:
@@ -112,6 +121,7 @@ func _on_area_entered(tower_or_wall: Area2D) -> void:
         return
     if tower_or_wall is Tower:
         current_state = ShadowState.NG_OVERLAPPING
+        HoveringOverTower = tower_or_wall
     elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
         current_state = reeval_current_state()
 
@@ -122,8 +132,12 @@ func _on_area_exited(tower_or_wall: Area2D) -> void:
         current_state = ShadowState.NG_NOT_IN_WALLS_AREA
     else:
         current_state = reeval_current_state()
+    HoveringOverTower = null
 
 func reeval_current_state() -> ShadowState:
+    if HoveringOverTower != null:
+        return ShadowState.NG_OVERLAPPING
+
     return (
         ShadowState.OK
         if GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE

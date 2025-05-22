@@ -7,7 +7,7 @@ size = Vector2(510, 486)
 
 [node name="TowerPlacementShadow" type="Area2D" groups=["tower_placement_shadow"]]
 collision_layer = 0
-collision_mask = 65
+collision_mask = 3
 script = ExtResource("1_2xblr")
 
 [node name="ColorRectOK" type="ColorRect" parent="."]

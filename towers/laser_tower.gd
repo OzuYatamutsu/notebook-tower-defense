@@ -5,6 +5,7 @@ var IS_ACTIVELY_FIRING: bool = false
 
 func _init() -> void:
     VALUE = 200
+    IsUpgraded = false
     super._init()
 
 func _ready() -> void:
