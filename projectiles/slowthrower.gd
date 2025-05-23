@@ -11,5 +11,5 @@ func _ready() -> void:
     SLOW_COLOR_SHADER_MATERIAL.shader = SLOW_COLOR_SHADER
 
 func effect(mob: Mob) -> void:
-    mob.SPEED *= 0.95
+    mob.SPEED *= 0.98
     mob.SPRITE.material = SLOW_COLOR_SHADER_MATERIAL
