@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhgayraukmqfa"]
+
+[ext_resource type="Script" uid="uid://dyrig851mynrl" path="res://projectiles/slowthrower.gd" id="1_7pwx5"]
+[ext_resource type="Texture2D" uid="uid://cosg182s8ovcx" path="res://sprites/slow_projectile_blue.png" id="2_8k411"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6doq"]
+size = Vector2(157, 167)
+
+[node name="Slowthrower" type="Area2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_7pwx5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.507)
+texture = ExtResource("2_8k411")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -6.5)
+shape = SubResource("RectangleShape2D_v6doq")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

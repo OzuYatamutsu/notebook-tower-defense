@@ -11,6 +11,8 @@ func _init() -> void:
         {"res://mobs/Basic.tscn": 30, "res://mobs/FatOne.tscn": 10},
         {"res://mobs/Basic.tscn": 30, "res://mobs/Nyoom.tscn": 10, "res://mobs/FatOne.tscn": 5}
     ]
+    
+    GameState.PLAYER_MONEY_REMAINING = 1000
 
 func _ready():
     super._ready()

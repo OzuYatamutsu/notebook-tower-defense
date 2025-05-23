@@ -5,6 +5,9 @@ const NUM_PROJECTILES_TO_FIRE: int = 10
 
 func _init() -> void:
     VALUE = 200
+    UpgradesTo = [
+        "res://towers/SlowthrowerTower.tscn"
+    ]
     IsUpgraded = false
     super._init()
 
