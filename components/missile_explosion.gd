@@ -1,8 +1,8 @@
 class_name MissileExplosion
 extends Area2D
 
-const EXPLOSION_GROW_SPEED: float = 175.0
-const MAX_EXPLOSION_RADIUS: float = 100.0
+const EXPLOSION_GROW_SPEED: float = 2500.0
+const MAX_EXPLOSION_RADIUS: float = 750.0
 const EXPLOSION_COLOR: Color = Color(1.0, 0.4, 0.4)
 const DAMAGE: float = 50.0
 
@@ -20,7 +20,7 @@ func _on_max_explosion_radius() -> void:
     queue_free()
 
 func _draw() -> void:
-    draw_circle(position, radius, EXPLOSION_COLOR)
+    draw_circle(global_position, radius, EXPLOSION_COLOR)
     ExplosionCollider.shape.radius = radius
 
 func _on_area_entered(mob: Mob) -> void:
