@@ -2,6 +2,9 @@ class_name Missile
 extends Projectile
 
 const EXPLOSION_TIMER_SECS: float = 3.0
+const EXPLOSION_EFFECT_SCENE: PackedScene = preload("res://components/MissileExplosion.tscn")
+
+var CurrentlyExploding: bool = false
 
 @onready var ExplosionTimer: Timer = $ExplosionTimer
 
@@ -16,7 +19,11 @@ func fire_at(mob: Mob) -> void:
     ExplosionTimer.start()
 
 func _explode() -> void:
-    pass
+    if CurrentlyExploding:
+        return
+    CurrentlyExploding = true
+    get_tree().add_child(EXPLOSION_EFFECT_SCENE.instantiate())
+    queue_free()
 
 func effect(_mob: Mob) -> void:
     _explode()
