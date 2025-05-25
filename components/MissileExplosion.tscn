@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhg8bul2xvv6d"]
+
+[ext_resource type="Script" uid="uid://dfmmsilx50nox" path="res://components/missile_explosion.gd" id="1_f1nsn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1nsn"]
+radius = 1.0
+
+[node name="MissileExplosion" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_f1nsn")
+
+[node name="ExplosionCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f1nsn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
