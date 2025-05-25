@@ -15,13 +15,9 @@ func _ready() -> void:
     self.EFFECTS.append(Effect.new(self.effect))
     ExplosionTimer.wait_time = EXPLOSION_TIMER_SECS
 
-func _process(delta: float) -> void:
-    super._process(delta)
-    if TARGET:
-        look_at(TARGET.global_position)
-
 func fire_at(mob: Mob) -> void:
     super.fire_at(mob)
+    look_at(direction)
     ExplosionTimer.start()
 
 func _explode() -> void:
