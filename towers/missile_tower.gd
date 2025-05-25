@@ -16,7 +16,7 @@ func _ready() -> void:
     ready_tower(
         preload("res://projectiles/Missile.tscn"),
         1000.00,  # Range
-        3.5  # Rate of fire
+        1.5  # Rate of fire
     )
 
     enable()

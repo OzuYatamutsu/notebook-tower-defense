@@ -11,13 +11,13 @@ var CurrentlyExploding: bool = false
 
 func _ready() -> void:
     self.SPEED = 100.0
-    self.DAMAGE = 100.0
+    self.DAMAGE = 200.0
     self.EFFECTS.append(Effect.new(self.effect))
     ExplosionTimer.wait_time = EXPLOSION_TIMER_SECS
 
 func fire_at(mob: Mob) -> void:
     super.fire_at(mob)
-    look_at(direction)
+    rotation = direction.angle() + PI/2
     ExplosionTimer.start()
 
 func _explode() -> void:

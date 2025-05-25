@@ -14,7 +14,7 @@ extends Area2D
 @onready var Sprite: Sprite2D = $Sprite
 
 var TargetingQueue: Array[Mob]
-var _InitialFireImmediately: bool = false
+var ShouldFireImmediately: bool = true
 var IsUpgraded: bool
 var UpgradeEffects: Array[String]
 var UpgradesTo: Array[String]  # Array of paths
@@ -75,8 +75,8 @@ func _on_targeting_radius_entered(body: Mob) -> void:
     
     # When we spawn a tower, we want it to fire
     # as soon as possible, but then reset the timer. 
-    if !_InitialFireImmediately:
-        _InitialFireImmediately = true
+    if ShouldFireImmediately:
+        ShouldFireImmediately = false
         fire.call_deferred()
         enable()
 
@@ -96,9 +96,12 @@ func _on_targeting_radius_exited(body: Mob) -> void:
         CURRENT_TARGET = null
 
 func _on_shoot_timer_timeout() -> void:
-    if !IS_ACTIVE or CURRENT_TARGET == null:
+    if !IS_ACTIVE:
         return
-    
+    if CURRENT_TARGET == null:
+        ShouldFireImmediately = true
+        return
+
     fire()
 
 func fire() -> void:

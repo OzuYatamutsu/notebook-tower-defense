@@ -2,9 +2,9 @@ class_name MissileExplosion
 extends Area2D
 
 const EXPLOSION_GROW_SPEED: float = 2500.0
-const MAX_EXPLOSION_RADIUS: float = 750.0
+const MAX_EXPLOSION_RADIUS: float = 1050.0
 const EXPLOSION_COLOR: Color = Color(1.0, 0.4, 0.4)
-const DAMAGE: float = 50.0
+const DAMAGE: float = 75.0
 
 var radius: float = 1.0
 
