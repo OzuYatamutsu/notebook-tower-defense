@@ -4,7 +4,8 @@ extends Tower
 func _init() -> void:
     VALUE = 100
     UpgradesTo = [
-        "res://towers/SniperTower.tscn"
+        "res://towers/SniperTower.tscn",
+        "res://towers/MissileTower.tscn"
     ]
     IsUpgraded = false
     super._init()

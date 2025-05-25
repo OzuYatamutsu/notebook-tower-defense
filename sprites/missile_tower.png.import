@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bosnkotrfix0u"
-path="res://.godot/imported/arrow_tower.png-631641a25949a7d1c7b028a03a1fb9d8.ctex"
+uid="uid://deirl265idbr4"
+path="res://.godot/imported/missile_tower.png-58203f09f6ccca9d957bdba7da509549.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/arrow_tower.png"
-dest_files=["res://.godot/imported/arrow_tower.png-631641a25949a7d1c7b028a03a1fb9d8.ctex"]
+source_file="res://sprites/missile_tower.png"
+dest_files=["res://.godot/imported/missile_tower.png-58203f09f6ccca9d957bdba7da509549.ctex"]
 
 [params]
 

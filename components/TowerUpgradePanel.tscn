@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dwdvvx4kp6d4y" path="res://sprites/label_upgrade_to.png" id="4_imgx7"]
 [ext_resource type="Texture2D" uid="uid://dhnudksxs4hsf" path="res://sprites/label_upgraded.png" id="5_ccpje"]
 [ext_resource type="PackedScene" uid="uid://bw7qj5m5fen6i" path="res://components/TowerUpgradeItem.tscn" id="8_ccpje"]
-[ext_resource type="Texture2D" uid="uid://bosnkotrfix0u" path="res://sprites/arrow_tower.png" id="8_u1cv1"]
+[ext_resource type="Texture2D" path="res://sprites/arrow_tower.png" id="8_u1cv1"]
 
 [node name="TowerUpgradePanel" type="Control" groups=["tower_upgrade_panel"]]
 layout_mode = 3
