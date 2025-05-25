@@ -1,22 +1,23 @@
-class_name SlowTower
+class_name SlowflakeTower
 extends Tower
 
-const NUM_PROJECTILES_TO_FIRE: int = 10
+const NUM_PROJECTILES_TO_FIRE: int = 25
 
 func _init() -> void:
-    VALUE = 200
-    UpgradesTo = [
-        "res://towers/SlowthrowerTower.tscn",
-        "res://towers/SlowflakeTower.tscn"
+    VALUE = 500
+    IsUpgraded = true
+    UpgradeEffects = [
+        "++FIRE RATE",
+        "+PROJECTILES",
+        "+RANGE"
     ]
-    IsUpgraded = false
     super._init()
 
 func _ready() -> void:
     ready_tower(
         preload("res://projectiles/Slow.tscn"),
-        1000.00,  # Range
-        3.5  # Rate of fire
+        2000.00,  # Range
+        2.5  # Rate of fire
     )
 
     enable()
