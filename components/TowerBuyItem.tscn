@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://4m883pvlq3rc"]
 
 [ext_resource type="Script" uid="uid://ugfejwiy50va" path="res://components/tower_buy_item.gd" id="1_xrjt3"]
-[ext_resource type="Texture2D" path="res://sprites/arrow_tower.png" id="1_yv4s5"]
 [ext_resource type="Texture2D" uid="uid://bghi8x4v6tpbf" path="res://sprites/ui_cost_label.png" id="2_kos4v"]
+[ext_resource type="Texture2D" uid="uid://deirl265idbr4" path="res://sprites/missile_tower.png" id="2_xrjt3"]
 [ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="3_alkav"]
 [ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="4_xrjt3"]
 [ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="5_8151x"]
@@ -67,7 +67,7 @@ script = ExtResource("1_xrjt3")
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_yv4s5")
+texture = ExtResource("2_xrjt3")
 centered = false
 
 [node name="Button" type="Button" parent="TowerSprite"]
