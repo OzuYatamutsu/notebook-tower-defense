@@ -5,6 +5,10 @@ var IS_ACTIVELY_FIRING: bool = false
 
 func _init() -> void:
     VALUE = 200
+    UpgradesTo = [
+        "res://towers/HeavyLaserTower.tscn",
+        "res://towers/FastLaserTower.tscn"
+    ]
     IsUpgraded = false
     super._init()
 
