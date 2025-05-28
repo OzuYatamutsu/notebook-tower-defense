@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w72wk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6odd"]
-size = Vector2(452, 397)
+size = Vector2(613.5, 527)
 
 [node name="BigBoss" type="Area2D" groups=["mob_members"]]
 collision_layer = 4
@@ -18,16 +18,16 @@ script = ExtResource("1_sdn15")
 z_index = 1
 material = SubResource("ShaderMaterial_w72wk")
 position = Vector2(1, -2)
-scale = Vector2(1.27536, 1.27536)
+scale = Vector2(2, 2)
 texture = ExtResource("1_6uexj")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-13, -10.5)
+position = Vector2(-30.75, -8.5)
 shape = SubResource("RectangleShape2D_g6odd")
 
 [node name="HpBar" parent="." instance=ExtResource("3_vvluc")]
-position = Vector2(0, -345)
-scale = Vector2(1.6, 1.6)
+position = Vector2(0, -526)
+scale = Vector2(2, 2)
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 0.25
