@@ -29,6 +29,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BuildRadius" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1.5, -7.5)
 shape = SubResource("RectangleShape2D_xr7tm")
+
+[node name="RetargetingTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RetargetingTimer" to="." method="_on_retargeting_timer_timeout"]

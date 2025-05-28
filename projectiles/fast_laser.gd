@@ -4,4 +4,4 @@ extends Laser
 func _ready() -> void:
     super._ready()
     
-    self.DAMAGE = 2.5
+    self.DAMAGE = 1.0
