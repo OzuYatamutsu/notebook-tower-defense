@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c53ltns1mqw1j"]
+
+[ext_resource type="Script" uid="uid://yn3kuqsupa3s" path="res://projectiles/heavy_laser.gd" id="1_he15p"]
+[ext_resource type="Texture2D" uid="uid://d1djayejqkp84" path="res://sprites/laser_projectile.png" id="2_x0wm0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6doq"]
+size = Vector2(75, 9.14286)
+
+[node name="HeavyLaser" type="Area2D"]
+scale = Vector2(1, 3.5)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_he15p")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_x0wm0")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 3
+position = Vector2(39, 6.85714)
+shape = SubResource("RectangleShape2D_v6doq")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DamageEveryTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="DamageEveryTimer" to="." method="_on_damage_tick"]
