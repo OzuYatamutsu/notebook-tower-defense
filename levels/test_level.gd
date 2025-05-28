@@ -1,3 +1,4 @@
+class_name Test_Level
 extends Level
 
 func _init() -> void:
@@ -7,6 +8,7 @@ func _init() -> void:
         {"res://mobs/Basic.tscn": 15},
         {"res://mobs/FatOne.tscn": 10},
         {"res://mobs/Basic.tscn": 15, "res://mobs/FatOne.tscn": 5},
+        {"res://mobs/BigBoss.tscn": 1},
         {"res://mobs/Nyoom.tscn": 5},
         {"res://mobs/Basic.tscn": 30, "res://mobs/FatOne.tscn": 10},
         {"res://mobs/Basic.tscn": 30, "res://mobs/Nyoom.tscn": 10, "res://mobs/FatOne.tscn": 5}

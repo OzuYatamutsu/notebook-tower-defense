@@ -1,4 +1,4 @@
-class_name Level1
+class_name CoolS
 extends Level
 
 func _init() -> void:
