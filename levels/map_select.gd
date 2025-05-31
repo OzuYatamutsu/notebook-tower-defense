@@ -7,6 +7,7 @@ var LABEL_LEVEL_MAP = {
     "TestLevel": "res://levels/test_level.tscn",
     "CoolS": "res://levels/level_cools.tscn",
     "SwitchbackVTD": "res://levels/level_switchback.tscn",
+    "FELite": "res://levels/level_fe_lite.tscn"
 }
 
 var CurrentSelectedLevel: String = LABEL_LEVEL_MAP["TestLevel"]
