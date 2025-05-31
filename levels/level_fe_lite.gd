@@ -1,4 +1,4 @@
-class_name Level_Switchback
+class_name Level_Fe_Lite
 extends Level
 
 func _init() -> void:

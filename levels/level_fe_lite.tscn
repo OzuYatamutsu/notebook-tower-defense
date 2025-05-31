@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfeat0ken1c8k"]
+
+[ext_resource type="Script" uid="uid://cq748cqifrgty" path="res://levels/level_fe_lite.gd" id="1_ebeyy"]
+[ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_6huok"]
+[ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_36f1o"]
+[ext_resource type="Texture2D" uid="uid://cxidpfgncx6ck" path="res://levels/map_flash_element_lite_layout.png" id="4_ebeyy"]
+
+[node name="level_fe_lite" type="Node"]
+script = ExtResource("1_ebeyy")
+metadata/_custom_type_script = "uid://0wwxleyefwme"
+
+[node name="UI" parent="." instance=ExtResource("2_6huok")]
+
+[node name="LevelViewport" parent="." instance=ExtResource("3_36f1o")]
+
+[node name="TowerPlacementShadow" parent="LevelViewport" index="4"]
+position = Vector2(518, 141)
+
+[node name="LevelHitbox" parent="LevelViewport" index="5"]
+position = Vector2(689, 21.0001)
+
+[node name="LevelSpawn" parent="LevelViewport" index="6"]
+position = Vector2(302, 18)
+
+[node name="map" type="Sprite2D" parent="LevelViewport"]
+position = Vector2(640, 360)
+scale = Vector2(1, 0.843091)
+texture = ExtResource("4_ebeyy")
+
+[editable path="LevelViewport"]
