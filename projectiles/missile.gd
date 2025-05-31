@@ -11,7 +11,7 @@ var CurrentlyExploding: bool = false
 
 func _ready() -> void:
     self.SPEED = 100.0
-    self.DAMAGE = 200.0
+    self.DAMAGE = 100.0
     self.EFFECTS.append(Effect.new(self.effect))
     ExplosionTimer.wait_time = EXPLOSION_TIMER_SECS
 
