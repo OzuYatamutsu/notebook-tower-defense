@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkmvgd11hhdph"]
+
+[ext_resource type="Script" uid="uid://cb87xlw8p2oq7" path="res://towers/poison_spike_tower.gd" id="1_y1hmx"]
+[ext_resource type="Texture2D" uid="uid://dsq2r4xqxamwy" path="res://sprites/poison_spike_tower.png" id="2_afsu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr7tm"]
+size = Vector2(517, 461)
+
+[node name="PoisonSpikeTower" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_y1hmx")
+TARGETING_RADIUS_PX = null
+RATE_OF_FIRE_SECS = null
+IS_ACTIVE = null
+VALUE = null
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+texture = ExtResource("2_afsu4")
+
+[node name="Bg" type="ColorRect" parent="Sprite"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -250.0
+offset_right = -250.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildRadius" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, -7.5)
+shape = SubResource("RectangleShape2D_xr7tm")

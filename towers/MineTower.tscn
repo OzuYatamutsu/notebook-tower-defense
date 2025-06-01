@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://mlysu30wv3rx"]
+
+[ext_resource type="Script" uid="uid://bx5p1nteu806r" path="res://towers/mine_tower.gd" id="1_1485m"]
+[ext_resource type="Texture2D" uid="uid://d2vhwo8ocr5ss" path="res://sprites/minelayer_tower.png" id="2_bn5ss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr7tm"]
+size = Vector2(517, 461)
+
+[node name="MineTower" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_1485m")
+TARGETING_RADIUS_PX = null
+RATE_OF_FIRE_SECS = null
+IS_ACTIVE = null
+VALUE = null
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+texture = ExtResource("2_bn5ss")
+
+[node name="Bg" type="ColorRect" parent="Sprite"]
+z_index = 1
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -250.0
+offset_right = -250.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildRadius" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.5, -7.5)
+shape = SubResource("RectangleShape2D_xr7tm")
