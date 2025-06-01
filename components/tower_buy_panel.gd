@@ -9,7 +9,8 @@ extends Control
 const TOWERS_TO_BUY_LIST: Array = [
     "res://towers/BulletTower.tscn",
     "res://towers/SlowTower.tscn",
-    "res://towers/LaserTower.tscn"
+    "res://towers/LaserTower.tscn",
+    "res://towers/SpikeTower.tscn"
 ]
 
 const _buyItem = preload("res://components/TowerBuyItem.tscn")
