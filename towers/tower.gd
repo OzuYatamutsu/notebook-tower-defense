@@ -1,6 +1,8 @@
 class_name Tower
 extends Area2D
 
+const MAX_CIRCLE_SELECTION_ATTEMPTS = 50
+
 @export var PROJECTILE_REF: PackedScene
 @export var CURRENT_TARGET: Mob
 @export var TARGETING_RADIUS_PX: float
@@ -103,6 +105,29 @@ func _on_shoot_timer_timeout() -> void:
         return
 
     fire()
+
+func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
+    var space_state = get_world_2d().direct_space_state
+
+    for i in MAX_CIRCLE_SELECTION_ATTEMPTS:
+        # Attempt to generate a random point by generating
+        # a random angle from our position and shooting 
+        # a ray of random length
+        var angle = randf() * TAU
+        var distance = randf() * TARGETING_RADIUS_PX
+        var attempted_point: Vector2 = (
+            Vector2(cos(angle), sin(angle)) * distance
+        ) + global_position
+        
+        # Verify that the point isn't in a wall
+        var query = PhysicsPointQueryParameters2D.new()
+        query.position = attempted_point
+        query.collision_mask = 0x2  # walls
+        query.collide_with_areas = true
+        query.collide_with_bodies = false
+        if space_state.intersect_point(query, 1).is_empty():
+            return attempted_point
+    return Vector2.ZERO
 
 func fire() -> void:
     # Spawn a new projectile
