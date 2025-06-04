@@ -119,15 +119,15 @@ func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
             Vector2(cos(angle), sin(angle)) * distance
         ) + global_position
         
-        # Verify that we're within our circle
-        
-        
         # Verify that the point isn't in a wall
         var query = PhysicsPointQueryParameters2D.new()
         query.position = attempted_point
         query.collision_mask = 0x2  # walls
         query.collide_with_areas = true
         query.collide_with_bodies = false
+        # TODO: this doesn't work, because walls are annotated
+        # TODO: with CollisionPolygon2D, which intersect_point
+        # TODO: doesn't support!!
         if space_state.intersect_point(query, 1).is_empty():
             return attempted_point
     return Vector2.ZERO
