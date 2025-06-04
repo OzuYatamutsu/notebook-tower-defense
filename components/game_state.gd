@@ -1,3 +1,4 @@
+# GlobalSingleton: GameState
 extends Node
 
 const CURRENT_LEVEL_GROUP = "level"

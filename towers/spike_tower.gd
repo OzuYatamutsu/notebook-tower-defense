@@ -1,6 +1,8 @@
 class_name SpikeTower
 extends Tower
 
+const NUM_MINES: int = 10
+
 func _init() -> void:
     VALUE = 250
     UpgradesTo = [
@@ -10,11 +12,45 @@ func _init() -> void:
     IsUpgraded = false
     super._init()
 
+
 func _ready() -> void:
     ready_tower(
         preload("res://projectiles/Spike.tscn"),
-        2000.00,  # Range
-        1.0  # Rate of fire
+        2000.0,
+        60.0  # timer isn't used
+    )
+
+    GameState.CURRENT_LEVEL.CURRENT_WAVE_TIMER.timeout.connect(
+        fire
     )
 
     enable()
+
+func fire() -> void:
+    for i in NUM_MINES:
+        # Spawn a new projectile
+        var new_mine: Mineable = PROJECTILE_REF.instantiate()
+        ProjectileRoot.add_child(new_mine)
+        new_mine.global_position = global_position
+
+        # ...and fire it at a randomly generated position
+        new_mine.TARGET_LOCATION = _get_random_non_wall_point_within_targeting_radius()
+        new_mine.fire()
+        print(str(self) + ": Shooting at: " + str(new_mine.TARGET_LOCATION))
+
+func enable() -> void:
+    # Noop
+    IS_ACTIVE = true
+
+func disable() -> void:
+    # Noop
+    IS_ACTIVE = false
+
+func _on_targeting_radius_entered(body: Mob) -> void:
+    pass  # noop
+
+func _on_targeting_radius_exited(body: Mob) -> void:
+    pass  # noop
+
+func _on_shoot_timer_timeout() -> void:
+    pass  # noop
