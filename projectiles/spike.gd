@@ -1,6 +1,6 @@
 class_name Spike
-extends Projectile
+extends Mineable
 
 func _ready() -> void:
-    self.SPEED = 0.1  # TODO
-    pass  # TODO
+    self.DAMAGE = 100.0
+    self.IS_ACTIVE = true
