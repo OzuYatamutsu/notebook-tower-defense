@@ -4,14 +4,37 @@ extends Area2D
 # (i.e., a thing which acts like a mine)
 # (the ones that explode. not a, like, coal mine)
 
+const SPEED = 200.0
+
 @export var IS_ACTIVE = false
 @export var DAMAGE: float
+@export var TARGET_LOCATION: Vector2
+
 var EFFECTS: Array[Effect]
+var IS_MOVING = false
+var _target_direction: Vector2
 
 func _init():
     self.collision_layer = 0x8  # projectiles
     self.collision_mask = 0x4  # mobs
     area_entered.connect(_on_hit_mob)
+
+func _physics_process(delta: float) -> void:
+    if !IS_MOVING:
+        return
+
+    global_position += _target_direction * SPEED * delta
+    if _more_or_less_at_target_position():
+        IS_MOVING = false
+
+func fire() -> void:
+    assert(TARGET_LOCATION != null)
+
+    _target_direction = (
+        TARGET_LOCATION - global_position
+    ).normalized()
+
+    IS_MOVING = true
 
 func has_unapplied_effect() -> bool:
     return EFFECTS != null and !EFFECTS.is_empty()
@@ -30,3 +53,6 @@ func _on_hit_mob(mob: Mob) -> void:
     if !IS_ACTIVE:
         return
     queue_free()
+
+func _more_or_less_at_target_position() -> bool:
+    return global_position == TARGET_LOCATION  # TODO add wiggle room
