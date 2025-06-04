@@ -46,10 +46,10 @@ func disable() -> void:
     # Noop
     IS_ACTIVE = false
 
-func _on_targeting_radius_entered(body: Mob) -> void:
+func _on_targeting_radius_entered(_body: Mob) -> void:
     pass  # noop
 
-func _on_targeting_radius_exited(body: Mob) -> void:
+func _on_targeting_radius_exited(_body: Mob) -> void:
     pass  # noop
 
 func _on_shoot_timer_timeout() -> void:

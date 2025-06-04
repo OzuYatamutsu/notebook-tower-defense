@@ -48,7 +48,7 @@ func _on_despawn_timer_timeout() -> void:
     # so clean this up
     queue_free()
 
-func _on_hit_mob(mob: Mob) -> void:
+func _on_hit_mob(_mob: Mob) -> void:
     # Collisions with mobs are handled
     # in the mob collision handler
     if !IS_ACTIVE:
