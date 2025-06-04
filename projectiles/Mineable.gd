@@ -1,22 +1,19 @@
 class_name Mineable
-extends Area2D
+extends Projectile
 
 # (i.e., a thing which acts like a mine)
 # (the ones that explode. not a, like, coal mine)
 
-const SPEED = 200.0
-
-@export var IS_ACTIVE = false
-@export var DAMAGE: float
 @export var TARGET_LOCATION: Vector2
 
-var EFFECTS: Array[Effect]
 var IS_MOVING = false
 var _target_direction: Vector2
 
 func _init():
     self.collision_layer = 0x8  # projectiles
     self.collision_mask = 0x4  # mobs
+    SPEED = 200.0
+    IS_ACTIVE = false
     area_entered.connect(_on_hit_mob)
 
 func _physics_process(delta: float) -> void:
@@ -28,7 +25,7 @@ func _physics_process(delta: float) -> void:
         IS_MOVING = false
         IS_ACTIVE = true
 
-func fire() -> void:
+func fire_mine() -> void:
     assert(TARGET_LOCATION != null)
 
     _target_direction = (
@@ -53,7 +50,6 @@ func _on_hit_mob(_mob: Mob) -> void:
     # in the mob collision handler
     if !IS_ACTIVE:
         return
-    queue_free()
 
 func _more_or_less_at_target_position() -> bool:
     var relative_distance: float = (
