@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
     global_position += _target_direction * SPEED * delta
     if _more_or_less_at_target_position():
         IS_MOVING = false
+        IS_ACTIVE = true
 
 func fire() -> void:
     assert(TARGET_LOCATION != null)
@@ -55,4 +56,12 @@ func _on_hit_mob(mob: Mob) -> void:
     queue_free()
 
 func _more_or_less_at_target_position() -> bool:
-    return global_position == TARGET_LOCATION  # TODO add wiggle room
+    var relative_distance: float = (
+        abs(global_position.x - TARGET_LOCATION.x)
+        + abs(global_position.y - TARGET_LOCATION.y)
+    )
+    
+    return (
+        -1.0 < relative_distance
+        and relative_distance < 1.0
+    )
