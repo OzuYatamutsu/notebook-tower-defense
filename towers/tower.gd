@@ -114,7 +114,7 @@ func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
         # a random angle from our position and shooting 
         # a ray of random length
         var angle = randf() * TAU
-        var distance = randf() * TARGETING_RADIUS_PX
+        var distance = randf() * TARGETING_RADIUS_PX * scale.x
         var attempted_point: Vector2 = (
             Vector2(cos(angle), sin(angle)) * distance
         ) + global_position
