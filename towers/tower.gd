@@ -119,6 +119,9 @@ func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
             Vector2(cos(angle), sin(angle)) * distance
         ) + global_position
         
+        # Verify that we're within our circle
+        
+        
         # Verify that the point isn't in a wall
         var query = PhysicsPointQueryParameters2D.new()
         query.position = attempted_point

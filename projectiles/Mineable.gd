@@ -60,5 +60,5 @@ func _more_or_less_at_target_position() -> bool:
         abs(global_position.x - TARGET_LOCATION.x)
         + abs(global_position.y - TARGET_LOCATION.y)
     )
-    
-    return (relative_distance < 5.0)
+
+    return (relative_distance < 10.0)

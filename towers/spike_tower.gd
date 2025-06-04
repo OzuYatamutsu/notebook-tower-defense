@@ -16,7 +16,7 @@ func _init() -> void:
 func _ready() -> void:
     ready_tower(
         preload("res://projectiles/Spike.tscn"),
-        2000.0,
+        250.0,
         60.0  # timer isn't used
     )
 
