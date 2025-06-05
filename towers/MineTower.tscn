@@ -9,10 +9,6 @@ size = Vector2(517, 461)
 [node name="MineTower" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_1485m")
-TARGETING_RADIUS_PX = null
-RATE_OF_FIRE_SECS = null
-IS_ACTIVE = null
-VALUE = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 2

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bod23q4ibqtwr"]
+
+[ext_resource type="Script" uid="uid://dr2a7w43mr541" path="res://components/mine_explosion.gd" id="1_8lmqx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1nsn"]
+radius = 1.0
+
+[node name="MineExplosion" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_8lmqx")
+
+[node name="ExplosionCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f1nsn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
