@@ -9,6 +9,7 @@ func _init() -> void:
         "-DAMAGE",
         "-MINES"
     ]
+    NUM_MINES = 7
 
     super._init()
 

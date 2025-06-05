@@ -1,7 +1,7 @@
 class_name SpikeTower
 extends Tower
 
-const NUM_MINES: int = 10
+var NUM_MINES: int = 10
 
 func _init() -> void:
     VALUE = 250
