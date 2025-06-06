@@ -21,7 +21,7 @@ func _ready() -> void:
 func _on_hit(projectile: Projectile) -> void:
     HEALTH_BAR.damage_by(projectile.DAMAGE)
     print("DEBUG: damaged by " + str(projectile.name) + "/" + str(projectile.DAMAGE))
-    if projectile.has_unapplied_effect():
+    while projectile.has_unapplied_effect():
         var effect = projectile.pop_next_effect()
         print("Applying effect! " + str(effect))
         effect.apply(self)
