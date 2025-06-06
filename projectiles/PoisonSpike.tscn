@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkljx5dsmwc11" path="res://sprites/poison_spike.png" id="2_rm8kd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6doq"]
-size = Vector2(91, 90)
+size = Vector2(147, 239)
 
 [node name="PoisonSpike" type="Area2D"]
 collision_layer = 8
@@ -12,11 +12,11 @@ collision_mask = 3
 script = ExtResource("1_rm8kd")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.421, 0.427)
+scale = Vector2(1.3, 1.319)
 texture = ExtResource("2_rm8kd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, -2)
+position = Vector2(-1.5, -1.5)
 shape = SubResource("RectangleShape2D_v6doq")
 
 [node name="DespawnTimer" type="Timer" parent="."]
