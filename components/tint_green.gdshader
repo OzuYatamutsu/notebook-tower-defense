@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform vec4 dark_color = vec4(0.18, 0.55, 0.34, 1.0); // sea green
+uniform vec4 dark_color = vec4(0.3, 0.9, 0.4, 1.0); // bright green
 uniform vec4 light_color = vec4(1.0, 1.0, 1.0, 1.0); // white
 uniform float dark_threshold = 0.3; // threshold value
 
