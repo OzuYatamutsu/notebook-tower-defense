@@ -1,5 +1,5 @@
 class_name PoisonSpikeTower
-extends Tower
+extends SpikeTower
 
 func _init() -> void:
     VALUE = 500
@@ -15,8 +15,12 @@ func _init() -> void:
 func _ready() -> void:
     ready_tower(
         preload("res://projectiles/PoisonSpike.tscn"),
-        4000.0,
-        3.50
+        250.0,
+        60.0  # timer isn't used
+    )
+
+    GameState.CURRENT_LEVEL.CURRENT_WAVE_TIMER.timeout.connect(
+        fire
     )
 
     enable()
