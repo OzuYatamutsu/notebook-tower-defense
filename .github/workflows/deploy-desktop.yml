@@ -10,7 +10,7 @@ on:
       - ci
 
 jobs:
-  deploy-windows:
+  deploy-windows-x86_64:
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
@@ -28,7 +28,7 @@ jobs:
         run: |
           EXPORT_DIR="$(readlink -f build)"
           ls  # DEBUG
-          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
+          godot --headless --verbose --export-release "windows-x86_64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
