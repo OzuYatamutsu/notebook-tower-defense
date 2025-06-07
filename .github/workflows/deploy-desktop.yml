@@ -31,6 +31,7 @@ jobs:
           cd $PROJECT_PATH
           echo "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"  # DEBUG
           stat "$EXPORT_DIR/windows"  # DEBUG
+          ls  # DEBUG
           godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
