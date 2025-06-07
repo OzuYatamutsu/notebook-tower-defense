@@ -20,6 +20,14 @@ Pull the repository and open `project.godot` in Godot 4.x or higher.
 
 ## Changelog
 
+### 1.1.140 (2025-06-08)
+
+- Add 2 new levels.
+- Add 2 new enemy types.
+- Add 8 new tower types.
+- Add tower upgrade path functionality.
+- Automate build and release (game is playable in browser).
+
 ### 1.0.0 (2025-05-10)
 
 - Initial release. (Game is technically playable).
