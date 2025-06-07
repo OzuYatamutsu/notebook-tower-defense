@@ -26,12 +26,7 @@ jobs:
           mkdir -v -p ~/.local/share/godot/export_templates
       - name: Windows Build
         run: |
-          mkdir -v -p build/windows
           EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          echo $PROJECT_PATH  # DEBUG
-          echo "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"  # DEBUG
-          stat "$EXPORT_DIR/windows"  # DEBUG
           ls  # DEBUG
           godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
       - name: Upload Artifact
