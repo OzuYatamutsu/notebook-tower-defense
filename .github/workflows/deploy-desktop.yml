@@ -29,6 +29,7 @@ jobs:
           mkdir -v -p build/windows
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
+          echo $PROJECT_PATH  # DEBUG
           echo "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"  # DEBUG
           stat "$EXPORT_DIR/windows"  # DEBUG
           ls  # DEBUG
