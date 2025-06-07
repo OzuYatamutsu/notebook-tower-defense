@@ -11,6 +11,7 @@ on:
 
 jobs:
   deploy-windows-x86_64:
+    name: Windows (x86-64)
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
@@ -34,6 +35,7 @@ jobs:
           name: windows-x86_64
           path: build/windows
   deploy-windows-arm64:
+    name: Windows (arm64)
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
@@ -47,7 +49,7 @@ jobs:
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
-      - name: Build 
+      - name: Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "windows-arm64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-arm64.exe"
@@ -57,6 +59,7 @@ jobs:
           name: windows-arm64
           path: build/windows
   deploy-macos:
+    name: MacOS
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
@@ -70,7 +73,7 @@ jobs:
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
-      - name: Build 
+      - name: Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "macos" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.dmg"
