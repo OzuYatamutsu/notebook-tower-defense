@@ -64,19 +64,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install Godot
+        run: brew install --cask godot
+      - name: Install Godot MacOS export templates
+        run: |
+          curl -L -o templates.tpz "https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz"
+          mkdir -p ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
+          unzip -q templates.tpz -d ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mkdir -v -p ~/.config/
           mv /root/.config/godot ~/.config/godot
+          cp ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable 
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
-      - name: Install Godot
-        run: brew install --cask godot
       - name: Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
-          godot --headless --verbose --export-release "macos" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.dmg"
+          godot --headless --verbose --export-release "macos" "$EXPORT_DIR/macos/${GITHUB_REPOSITORY##*/}.dmg"
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
