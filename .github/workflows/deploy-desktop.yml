@@ -29,7 +29,9 @@ jobs:
           mkdir -v -p build/windows
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" "build/windows/${GITHUB_REPOSITORY##*/}.exe"
+          echo "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"  # DEBUG
+          stat "$EXPORT_DIR/windows"  # DEBUG
+          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
