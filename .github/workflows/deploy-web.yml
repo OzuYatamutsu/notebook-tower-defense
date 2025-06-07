@@ -10,7 +10,7 @@ on:
       - ci
 
 jobs:
-  deploy:
+  deploy-web:
     runs-on: ubuntu-latest
     permissions:
       contents: write
