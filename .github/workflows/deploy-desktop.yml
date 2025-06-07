@@ -72,7 +72,6 @@ jobs:
           mkdir -p ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
           unzip -q templates.tpz -d ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
           mv ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable/templates/* ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
-          ls ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable  # DEBUG
       - name: Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
