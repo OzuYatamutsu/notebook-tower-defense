@@ -8,8 +8,11 @@ _All the game assets are scribbled by me! In a notebook! (And I can’t draw!)_
 ![](readme_assets/screenshot1.png)
 
 ## Playing the game
+Play the game in your browser [here](https://ozuyatamutsu.github.io/notebook-tower-defense/).
 
-See the Releases section for the latest build of the game.
+See [Releases](https://github.com/OzuYatamutsu/notebook-tower-defense/releases) for the latest desktop release of the game,
+or [the actions section](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy-desktop.yml)
+for the latest development build.
 
 ## Building
 
