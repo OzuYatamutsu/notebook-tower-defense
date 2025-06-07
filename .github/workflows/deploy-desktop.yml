@@ -68,7 +68,7 @@ jobs:
         run: brew install --cask godot
       - name: Install Godot MacOS export templates
         run: |
-          curl -L -o templates.tpz "https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz"
+          curl -L -o templates.tpz "https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
           mkdir -p ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
           unzip -q templates.tpz -d ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable
       - name: Setup
@@ -76,7 +76,7 @@ jobs:
           mkdir -v -p ~/.local/share/godot/export_templates/
           mkdir -v -p ~/.config/
           mv /root/.config/godot ~/.config/godot
-          cp ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable 
+          cp ~/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
       - name: Build
