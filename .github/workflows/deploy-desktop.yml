@@ -1,7 +1,7 @@
 name: "Build & Deploy: Desktop"
 
 env:
-  GODOT_VERSION: 4.4
+  GODOT_VERSION: 4.4.1
 
 on:
   workflow_dispatch:
@@ -13,11 +13,11 @@ jobs:
   deploy-windows:
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.4
+      image: barichello/godot-ci:4.4.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup 
+      - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mkdir -v -p ~/.config/
