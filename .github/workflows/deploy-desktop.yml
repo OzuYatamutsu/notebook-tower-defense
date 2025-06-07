@@ -10,15 +10,10 @@ on:
       - ci
 
 jobs:
-  deploy-desktop:
+  deploy-windows-x86_64:
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
-    strategy:
-      matrix:
-        target:
-          - windows-x86_64
-          - windows-arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,13 +24,36 @@ jobs:
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
-      - name: Build ${{ matrix.target }}
+      - name: Windows Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
-          godot --headless --verbose --export-release "${{ matrix.target }}" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-${{ matrix.target }}.exe"
+          godot --headless --verbose --export-release "windows-x86_64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-x86_64.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.target }}"
+          name: windows
+          path: build/windows
+  deploy-windows-arm64:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.4.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.config/
+          mv /root/.config/godot ~/.config/godot
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          mkdir -v -p ~/.local/share/godot/export_templates
+      - name: Windows Build
+        run: |
+          EXPORT_DIR="$(readlink -f build)"
+          godot --headless --verbose --export-release "windows-arm64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-arm64.exe"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows
           path: build/windows
 
