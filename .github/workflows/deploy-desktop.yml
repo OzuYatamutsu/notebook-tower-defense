@@ -27,7 +27,7 @@ jobs:
       - name: Windows Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
-          godot --headless --verbose --export-release "windows-x86_64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
+          godot --headless --verbose --export-release "windows-x86_64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-x86_64.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -50,7 +50,7 @@ jobs:
       - name: Windows Build
         run: |
           EXPORT_DIR="$(readlink -f build)"
-          godot --headless --verbose --export-release "windows-arm64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}.exe"
+          godot --headless --verbose --export-release "windows-arm64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-arm64.exe"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
