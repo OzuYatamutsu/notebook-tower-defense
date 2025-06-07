@@ -24,14 +24,14 @@ jobs:
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
-      - name: Windows Build
+      - name: Build 
         run: |
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "windows-x86_64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-x86_64.exe"
-      - name: Upload Artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows
+          name: windows-x86_64
           path: build/windows
   deploy-windows-arm64:
     runs-on: ubuntu-latest
@@ -47,13 +47,13 @@ jobs:
           mv /root/.config/godot ~/.config/godot
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
           mkdir -v -p ~/.local/share/godot/export_templates
-      - name: Windows Build
+      - name: Build 
         run: |
           EXPORT_DIR="$(readlink -f build)"
           godot --headless --verbose --export-release "windows-arm64" "$EXPORT_DIR/windows/${GITHUB_REPOSITORY##*/}-arm64.exe"
-      - name: Upload Artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows
+          name: windows-arm64
           path: build/windows
 
