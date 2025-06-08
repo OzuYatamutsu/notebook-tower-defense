@@ -1,5 +1,5 @@
 # Notebook Tower Defense
-[![Build & Deploy: Desktop](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy-desktop.yml/badge.svg)](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy-desktop.yml) [![Build & Deploy: Web](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy.yml/badge.svg)](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy.yml)
+[![Build & Deploy: Desktop](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy-desktop.yml/badge.svg)](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy-desktop.yml) [![Build & Deploy: Web](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy.yml/badge.svg)](https://github.com/OzuYatamutsu/notebook-tower-defense/actions/workflows/deploy-web.yml)
 
 A tower defense game made in the Godot game engine.
 
