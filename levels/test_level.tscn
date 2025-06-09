@@ -35,7 +35,7 @@ _data = {
 }
 point_count = 16
 
-[node name="test_level" type="Node"]
+[node name="EasyStreet" type="Node"]
 script = ExtResource("1_w7r7j")
 metadata/_custom_type_script = "uid://0wwxleyefwme"
 

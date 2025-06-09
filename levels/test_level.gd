@@ -1,4 +1,4 @@
-class_name Test_Level
+class_name Easy_Street
 extends Level
 
 func _init() -> void:

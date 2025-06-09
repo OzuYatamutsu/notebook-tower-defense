@@ -50,12 +50,12 @@ offset_top = 73.0
 offset_right = -13.0
 offset_bottom = 139.0
 
-[node name="TestLevel" type="Button" parent="Selector/ButtonContainer"]
+[node name="EasyStreet" type="Button" parent="Selector/ButtonContainer"]
 layout_mode = 2
 theme = ExtResource("3_ytd17")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.231373, 0.231373, 0.231373, 1)
-text = "Test Level"
+text = "Easy Street"
 icon = ExtResource("3_8a0mh")
 flat = true
 icon_alignment = 1
