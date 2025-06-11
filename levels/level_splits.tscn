@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhhyopnrvl8dt"]
+
+[ext_resource type="Script" uid="uid://djnrcdurf7tu" path="res://levels/level_splits.gd" id="1_k8t1y"]
+[ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_ka6gn"]
+[ext_resource type="PackedScene" uid="uid://d4lsbppo6u3fq" path="res://components/level_viewport.tscn" id="3_s65yq"]
+[ext_resource type="Texture2D" uid="uid://y4wudm7jc41m" path="res://levels/map_splits_layout.png" id="4_k8t1y"]
+
+[node name="Level_Splits" type="Node"]
+script = ExtResource("1_k8t1y")
+metadata/_custom_type_script = "uid://0wwxleyefwme"
+
+[node name="UI" parent="." instance=ExtResource("2_ka6gn")]
+
+[node name="LevelViewport" parent="." instance=ExtResource("3_s65yq")]
+
+[node name="LevelHitbox" parent="LevelViewport" index="5"]
+position = Vector2(1283, 640)
+scale = Vector2(0.56, 1.03)
+
+[node name="LevelSpawn" parent="LevelViewport" index="6"]
+position = Vector2(544, 16)
+
+[node name="map" type="Sprite2D" parent="LevelViewport"]
+scale = Vector2(1, 1.03)
+texture = ExtResource("4_k8t1y")
+centered = false
+
+[editable path="LevelViewport"]
+[editable path="LevelViewport/mobs"]

@@ -9,6 +9,7 @@ var LABEL_LEVEL_MAP = {
     "SwitchbackVTD": "res://levels/level_switchback.tscn",
     "FELite": "res://levels/level_fe_lite.tscn",
     "Digestion": "res://levels/level_digestion.tscn",
+    "Splits": "res://levels/level_splits.tscn"
 }
 
 var CurrentSelectedLevel: String = LABEL_LEVEL_MAP["EasyStreet"]
