@@ -7,9 +7,9 @@ func _init() -> void:
     VALUE = 500
     IsUpgraded = true
     UpgradeEffects = [
-        "++FIRE RATE",
         "+PROJECTILES",
-        "+RANGE"
+        "+RANGE",
+        "-FIRE RATE"
     ]
     super._init()
 
@@ -17,7 +17,7 @@ func _ready() -> void:
     ready_tower(
         preload("res://projectiles/Slow.tscn"),
         2000.00,  # Range
-        2.5  # Rate of fire
+        4.0  # Rate of fire
     )
 
     enable()
