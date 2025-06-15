@@ -64,6 +64,9 @@ polygon = PackedVector2Array(1, 0, 1278, 2, 1278, 615, 582, 605, 604, 496, 719, 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
 polygon = PackedVector2Array(5, 287, 444, 277, 455, 376, 460, 569, 455, 668, 588, 673, 781, 684, 992, 679, 1280, 673, 1281, 722, -3, 724)
 
+[node name="LevelSpawn" parent="LevelViewport" index="6"]
+SPAWN_TIMER_SECS = 0.5
+
 [node name="map" type="Sprite2D" parent="LevelViewport"]
 position = Vector2(637.5, 359.05)
 scale = Vector2(1.275, 1.17882)

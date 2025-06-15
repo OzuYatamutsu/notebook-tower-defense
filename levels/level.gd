@@ -6,6 +6,9 @@ const WAVE_METER_GROUP = "wave_meter"
 
 const WAVE_TIMER_SECS = 15.0
 
+# How many mobs should the spawner spawn at once?
+const MOBS_TO_SPAWN_AT_ONCE: int = 2
+
 # Formula which determines how fast a Mob hp's grows over
 # progressive waves.
 var WAVE_HEALTH_MULTIPLIER: Callable = func(wave_num):
@@ -76,11 +79,12 @@ func no_waves_remaining() -> bool:
     return WAVES.is_empty()
 
 func _on_spawn_signal() -> void:
-    if CURRENT_WAVE.is_empty():
-        return
+    for i in range(MOBS_TO_SPAWN_AT_ONCE):
+        if CURRENT_WAVE.is_empty():
+            return
 
-    var mob_to_spawn: Mob = CURRENT_WAVE.pop()
-    mob_to_spawn.MAX_HP *= WAVE_HEALTH_MULTIPLIER.call(CURRENT_WAVE_NUM)
+        var mob_to_spawn: Mob = CURRENT_WAVE.pop()
+        mob_to_spawn.MAX_HP *= WAVE_HEALTH_MULTIPLIER.call(CURRENT_WAVE_NUM)
 
-    SPAWNER.spawn(mob_to_spawn)
-    print("Spawning: " + str(mob_to_spawn))
+        SPAWNER.spawn(mob_to_spawn)
+        print("Spawning: " + str(mob_to_spawn))

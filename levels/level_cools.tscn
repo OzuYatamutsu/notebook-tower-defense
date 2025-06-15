@@ -106,6 +106,7 @@ scale = Vector2(8.15, 0.34)
 
 [node name="LevelSpawn" parent="LevelViewport" index="6"]
 position = Vector2(22, 152)
+SPAWN_TIMER_SECS = 0.5
 
 [node name="map" type="Sprite2D" parent="LevelViewport"]
 scale = Vector2(1, 0.883005)
