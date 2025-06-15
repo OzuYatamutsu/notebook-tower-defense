@@ -19,7 +19,7 @@ const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
 
 @export var PLAYER_LIVES_START: int = 5
 @export var PLAYER_LIVES_REMAINING: int
-@export var PLAYER_MONEY_REMAINING: int = 200
+@export var PLAYER_MONEY_REMAINING: int = 400
 @export var SCORE: int
 @export var IS_GAME_OVER: bool = false
 
