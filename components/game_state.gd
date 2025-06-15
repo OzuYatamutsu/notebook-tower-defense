@@ -1,6 +1,8 @@
 # GlobalSingleton: GameState
 extends Node
 
+const PLAYER_STARTING_MONEY: int = 400
+
 const CURRENT_LEVEL_GROUP = "level"
 const LEVEL_HITBOX_GROUP = "level_hitbox"
 const MOBS_GROUP = "mobs"
@@ -45,9 +47,10 @@ func _on_level_load() -> void:
     var hitbox: LevelHitbox = get_tree().get_first_node_in_group(LEVEL_HITBOX_GROUP)
     hitbox.mob_slipped_through.connect(_on_mob_slipped_through)
 
+    PLAYER_MONEY_REMAINING = PLAYER_STARTING_MONEY
     MONEY_METER = get_tree().get_first_node_in_group(MONEY_METER_GROUP)
     MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
-    
+
     LIVES_METER = get_tree().get_first_node_in_group(LIVES_METER_GROUP)
     LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
 

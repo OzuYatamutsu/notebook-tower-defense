@@ -25,8 +25,6 @@ func _init() -> void:
         {"res://mobs/BigBoss.tscn": 5, "res://mobs/Basic.tscn": 100, "res://mobs/FatOne.tscn": 100, "res://mobs/Nyoom.tscn": 100}
     ]
 
-    GameState.PLAYER_MONEY_REMAINING = 200
-
 func _ready():
     super._ready()
     start_wave()
