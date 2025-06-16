@@ -7,7 +7,7 @@ const DAMAGE_EVERY_SECS: float = 0.05
 
 func _ready() -> void:
     self.SPEED = 1000.0
-    self.DAMAGE = 5.0
+    self.DAMAGE = 3.0
     
     DamageEveryTimer.wait_time = DAMAGE_EVERY_SECS
     DamageEveryTimer.start()
