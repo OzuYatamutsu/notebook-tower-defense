@@ -19,7 +19,7 @@ const SELECTED_TOWER_METER_GROUP = "selected_tower_meter"
 const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
 const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
 
-@export var PLAYER_LIVES_START: int = 5
+@export var PLAYER_LIVES_START: int = 20
 @export var PLAYER_LIVES_REMAINING: int
 @export var PLAYER_MONEY_REMAINING: int = 400
 @export var SCORE: int
