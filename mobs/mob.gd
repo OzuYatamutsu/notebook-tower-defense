@@ -4,6 +4,11 @@ extends Area2D
 signal mob_killed(Mob)
 signal mob_despawned(Mob)
 
+# How much should a mob type's starting health increase
+# during subsequent waves?
+# e.g. 1.03 = increase health by 3% (compounded)
+const WAVE_MULTIPLIER: float = 1.03
+
 @export var MAX_HP: int
 @export var SPEED: float
 @export var VALUE: int
@@ -11,9 +16,14 @@ signal mob_despawned(Mob)
 @onready var HEALTH_BAR: HpBar = $HpBar
 @onready var SPRITE: Sprite2D = $Sprite
 @onready var DESPAWN_TIMER: Timer = $DespawnTimer
+@onready var WAVE_NUM: int = GameState.CURRENT_LEVEL.CURRENT_WAVE_NUM
 
 func _ready() -> void:
-    HEALTH_BAR.set_max_hp(MAX_HP)
+    HEALTH_BAR.set_max_hp(
+        MAX_HP * (WAVE_MULTIPLIER ** WAVE_NUM)
+    )
+    SPEED *= (WAVE_MULTIPLIER ** WAVE_NUM)
+
     area_entered.connect(_on_hit)
     HEALTH_BAR.no_hp.connect(_on_death)
     DESPAWN_TIMER.timeout.connect(_on_despawn_timer_timeout)
