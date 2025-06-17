@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cn4j1tlw463r0" path="res://components/tower_placement_shadow.gd" id="1_2xblr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xblr"]
-size = Vector2(510, 486)
+size = Vector2(915, 881)
 
 [node name="TowerPlacementShadow" type="Area2D" groups=["tower_placement_shadow"]]
 collision_layer = 0
@@ -25,7 +25,7 @@ offset_bottom = 238.0
 color = Color(1, 0, 0, 0.156863)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -5)
+position = Vector2(-2.5, 2.5)
 shape = SubResource("RectangleShape2D_2xblr")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
