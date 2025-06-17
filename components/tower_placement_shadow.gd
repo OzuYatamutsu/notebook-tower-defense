@@ -1,8 +1,8 @@
 class_name TowerPlacementShadow
 extends Node2D
 
-@export var TOWER_TO_PLACE: Tower
-@export var TOWER_TO_PLACE_PATH: String
+@export var TOWER_TO_PLACE: Tower = preload("res://towers/BulletTower.tscn").instantiate()
+@export var TOWER_TO_PLACE_PATH: String = "res://towers/BulletTower.tscn"
 @export var MOUSE_FOLLOW_SPEED: float = 10.0
 
 @onready var OK_SHADOW = $ColorRectOK
