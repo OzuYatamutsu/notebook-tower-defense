@@ -4,6 +4,10 @@ extends Node2D
 signal wave_started
 signal wave_ended
 
+# How much money should we grant at the end of
+# each wave?
+const WAVE_END_MONEY_BONUS: int = 200
+
 # How many of each Mob should we spawn?
 @export var WAVE_CONTENTS: Dictionary  # [String, int]
 @export var CURRENT_WAVE_CONTENTS: Array  # [String]

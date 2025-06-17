@@ -67,6 +67,9 @@ func next_wave() -> void:
     end_wave()
 
     if !WAVES.is_empty():
+        GameState.add_money(
+            CURRENT_WAVE.WAVE_END_MONEY_BONUS
+        )
         print("Starting next wave!")
         CURRENT_WAVE = WAVES.pop_front()
     else:
