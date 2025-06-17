@@ -4,7 +4,7 @@ extends Tower
 var NUM_MINES: int = 10
 
 func _init() -> void:
-    VALUE = 250
+    VALUE = 500
     UpgradesTo = [
         "res://towers/MineTower.tscn",
         "res://towers/PoisonSpikeTower.tscn"

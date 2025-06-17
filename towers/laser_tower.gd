@@ -4,7 +4,7 @@ extends Tower
 var IS_ACTIVELY_FIRING: bool = false
 
 func _init() -> void:
-    VALUE = 200
+    VALUE = 750
     UpgradesTo = [
         "res://towers/HeavyLaserTower.tscn",
         "res://towers/FastLaserTower.tscn"

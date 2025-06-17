@@ -4,7 +4,7 @@ extends Tower
 const NUM_PROJECTILES_TO_FIRE: int = 10
 
 func _init() -> void:
-    VALUE = 200
+    VALUE = 500
     UpgradesTo = [
         "res://towers/SlowthrowerTower.tscn",
         "res://towers/SlowflakeTower.tscn"
