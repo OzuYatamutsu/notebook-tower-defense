@@ -4,7 +4,7 @@ extends Tower
 const SPEED_THRESHOLD: float = 0.025
 
 func _init() -> void:
-    VALUE = 500
+    VALUE = 750
     IsUpgraded = true
     UpgradeEffects = [
         "+RANGE",

@@ -4,7 +4,7 @@ extends Tower
 const NUM_PROJECTILES_TO_FIRE: int = 25
 
 func _init() -> void:
-    VALUE = 500
+    VALUE = 750
     IsUpgraded = true
     UpgradeEffects = [
         "+PROJECTILES",
