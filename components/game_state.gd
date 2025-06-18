@@ -98,12 +98,12 @@ func _input(event) -> void:
 
 func resume_game() -> void:
     PAUSE_SCREEN.visible = false
-    remove_child(PAUSE_SCREEN)
+    CURRENT_LEVEL.get_node("UI").remove_child(PAUSE_SCREEN)
     get_tree().paused = false
 
 func pause_game() -> void:
     PAUSE_SCREEN.visible = true
-    add_child(PAUSE_SCREEN)
+    CURRENT_LEVEL.get_node("UI").add_child(PAUSE_SCREEN)
     get_tree().paused = true
 
 func restart_game() -> void:

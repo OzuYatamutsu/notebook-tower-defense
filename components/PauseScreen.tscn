@@ -4,8 +4,7 @@
 
 [node name="PauseScreen" type="Control"]
 process_mode = 3
-z_index = -100
-z_as_relative = false
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.57, 0.57, 0.57, 0.941176)
+color = Color(0.96, 0.96, 0.96, 0.941176)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
