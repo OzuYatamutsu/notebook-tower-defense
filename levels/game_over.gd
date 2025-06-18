@@ -12,6 +12,7 @@ const CLEAR_DIGIT = 10
 @onready var digit7 = $VBoxContainer/Score/digit7
 
 func _ready() -> void:
+    GameState.SHOULDNT_PAUSE = true
     set_score(GameState.SCORE)
 
 func set_score(value: int):

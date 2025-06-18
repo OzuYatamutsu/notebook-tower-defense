@@ -26,6 +26,8 @@ func _ready() -> void:
         )
         _button.disabled = false
 
+    GameState.SHOULDNT_PAUSE = true
+
 func load_level_preview(path_to_level: String) -> void:
     CurrentSelectedLevel = path_to_level
 

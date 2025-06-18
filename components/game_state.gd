@@ -38,7 +38,12 @@ var TOWER_UPGRADE_PANEL: TowerUpgradePanel
 
 var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
 var WIN_OVERLAY = load("res://levels/Win.tscn")
+var PAUSE_SCREEN: Control = preload("res://components/PauseScreen.tscn").instantiate()
 var AVG_FRAME_TIME: float
+var SHOULDNT_PAUSE: bool = false
+
+func _init() -> void:
+    process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -69,6 +74,8 @@ func _on_level_load() -> void:
     assert(get_tree().get_first_node_in_group(GameState.TOWERS_GROUP), "Missing a towers node!")
     assert(get_tree().get_first_node_in_group(GameState.PROJECTILES_GROUP), "Missing a projectiles node!")
     assert(CURRENT_LEVEL != null)
+    
+    GameState.SHOULDNT_PAUSE = false
 
 func add_money(value: int) -> void:
     PLAYER_MONEY_REMAINING += value
@@ -79,6 +86,25 @@ func deduct_money(value: int) -> void:
     if PLAYER_MONEY_REMAINING <= 0:
         PLAYER_MONEY_REMAINING = 0
     MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
+
+func _input(event) -> void:
+    if event.is_action_pressed("ui_pause_resume"):
+        if SHOULDNT_PAUSE:
+            return
+        elif !get_tree().paused:
+            pause_game()
+        else:
+            resume_game()
+
+func resume_game() -> void:
+    PAUSE_SCREEN.visible = false
+    remove_child(PAUSE_SCREEN)
+    get_tree().paused = false
+
+func pause_game() -> void:
+    PAUSE_SCREEN.visible = true
+    add_child(PAUSE_SCREEN)
+    get_tree().paused = true
 
 func restart_game() -> void:
     IS_GAME_OVER = false
