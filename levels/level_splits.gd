@@ -10,7 +10,18 @@ func _init() -> void:
         {"res://mobs/BigBoss.tscn": 1},
         {"res://mobs/Basic.tscn": 20, "res://mobs/FatOne.tscn": 10},
         {"res://mobs/Nyoom.tscn": 10},
-        {"res://mobs/Basic.tscn": 10, "res://mobs/Nyoom.tscn": 10}
+        {"res://mobs/Basic.tscn": 10, "res://mobs/Nyoom.tscn": 10},
+        {"res://mobs/BigBoss.tscn": 3},
+        {"res://mobs/Nyoom.tscn": 25},
+        {"res://mobs/Basic.tscn": 100},
+        {"res://mobs/FatOne.tscn": 50},
+        {"res://mobs/Nyoom.tscn": 50, "res://mobs/FatOne.tscn": 50},
+        {"res://mobs/Basic.tscn": 50, "res://mobs/Nyoom.tscn": 50, "res://mobs/FatOne.tscn": 50},
+        {"res://mobs/Basic.tscn": 100},
+        {"res://mobs/Nyoom.tscn": 100},
+        {"res://mobs/FatOne.tscn": 100},
+        {"res://mobs/Basic.tscn": 100, "res://mobs/Nyoom.tscn": 100, "res://mobs/FatOne.tscn": 100},
+        {"res://mobs/BigBoss.tscn": 5, "res://mobs/Basic.tscn": 100, "res://mobs/Nyoom.tscn": 100, "res://mobs/FatOne.tscn": 100}
     ]
 
 func _ready():
