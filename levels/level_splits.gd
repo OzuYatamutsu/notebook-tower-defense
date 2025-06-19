@@ -21,7 +21,8 @@ func _init() -> void:
         {"res://mobs/Nyoom.tscn": 100},
         {"res://mobs/FatOne.tscn": 100},
         {"res://mobs/Basic.tscn": 100, "res://mobs/Nyoom.tscn": 100, "res://mobs/FatOne.tscn": 100},
-        {"res://mobs/BigBoss.tscn": 5, "res://mobs/Basic.tscn": 100, "res://mobs/Nyoom.tscn": 100, "res://mobs/FatOne.tscn": 100}
+        {"res://mobs/BigBoss.tscn": 5, "res://mobs/Basic.tscn": 100, "res://mobs/Nyoom.tscn": 100, "res://mobs/FatOne.tscn": 100},
+        {"res://mobs/BigBoss.tscn": 10}
     ]
 
 func _ready():
