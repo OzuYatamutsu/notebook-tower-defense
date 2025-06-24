@@ -59,10 +59,10 @@ curve = SubResource("Curve2D_e7anx")
 curve = SubResource("Curve2D_ur00s")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelViewport/walls" index="0"]
-polygon = PackedVector2Array(1, 0, 1278, 2, 1278, 615, 582, 605, 604, 496, 719, 482, 656, 103, 657, 117, 422, 118, 373, 127, 201, 118, 0, 111)
+polygon = PackedVector2Array(-1, 107, 331, 126, 424, 117, 659, 112, 716, 476, 717, 485, 602, 493, 595, 600, 786, 612, 875, 608, 1010, 622, 1167, 622, 1273, 618, 1275, 556, 793, 558, 783, 441, 741, 95, 727, 11, 699, 41, -4, 44)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
-polygon = PackedVector2Array(5, 287, 444, 277, 455, 376, 460, 569, 455, 668, 588, 673, 781, 684, 992, 679, 1280, 673, 1281, 722, -3, 724)
+polygon = PackedVector2Array(-1, 301, 17, 286, 444, 277, 458, 406, 455, 659, 538, 671, 783, 683, 1281, 674, 1281, 718, 367, 720, 357, 348, -2, 363)
 
 [node name="LevelSpawn" parent="LevelViewport" index="6"]
 SPAWN_TIMER_SECS = 0.5
