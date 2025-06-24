@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://5w0kriffqk6q"]
+[gd_scene load_steps=4 format=3 uid="uid://5w0kriffqk6q"]
 
 [ext_resource type="Script" uid="uid://cn4j1tlw463r0" path="res://components/tower_placement_shadow.gd" id="1_2xblr"]
+[ext_resource type="Theme" uid="uid://c8vctxp5w606s" path="res://components/MapSelectTheme.tres" id="2_x07tf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xblr"]
 size = Vector2(915, 881)
@@ -27,6 +28,16 @@ color = Color(1, 0, 0, 0.156863)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 2.5)
 shape = SubResource("RectangleShape2D_2xblr")
+
+[node name="NGMoney" type="Label" parent="."]
+offset_left = -145.0
+offset_top = -282.0
+offset_right = 127.0
+offset_bottom = 268.0
+theme = ExtResource("2_x07tf")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 500
+text = "$"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

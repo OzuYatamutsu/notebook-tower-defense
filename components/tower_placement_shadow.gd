@@ -5,8 +5,9 @@ extends Node2D
 @export var TOWER_TO_PLACE_PATH: String = "res://towers/BulletTower.tscn"
 @export var MOUSE_FOLLOW_SPEED: float = 10.0
 
-@onready var OK_SHADOW = $ColorRectOK
-@onready var NG_SHADOW = $ColorRectNG
+@onready var OK_SHADOW: ColorRect = $ColorRectOK
+@onready var NG_SHADOW: ColorRect = $ColorRectNG
+@onready var NG_MONEY: Label = $NGMoney
 
 var HoveringOverTower: Tower
 
@@ -112,6 +113,7 @@ func set_is_ok() -> void:
     else:
         OK_SHADOW.visible = false
         NG_SHADOW.visible = false
+    set_ng_label()
 
 func is_hovering_over_button() -> bool:
     return get_viewport().gui_get_hovered_control() is Button
@@ -124,6 +126,7 @@ func _on_area_entered(tower_or_wall: Area2D) -> void:
         HoveringOverTower = tower_or_wall
     elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
         current_state = reeval_current_state()
+        set_ng_label()
 
 func _on_area_exited(tower_or_wall: Area2D) -> void:
     if TOWER_TO_PLACE == null:
@@ -132,6 +135,7 @@ func _on_area_exited(tower_or_wall: Area2D) -> void:
         current_state = ShadowState.NG_NOT_IN_WALLS_AREA
     else:
         current_state = reeval_current_state()
+        set_ng_label()
     HoveringOverTower = null
 
 func reeval_current_state() -> ShadowState:
@@ -143,3 +147,9 @@ func reeval_current_state() -> ShadowState:
         if GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
         else ShadowState.NG_INSUFFICIENT_FUNDS
     )
+
+func set_ng_label() -> void:
+    NG_MONEY.visible = false
+
+    if current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
+        NG_MONEY.visible = true
