@@ -10,6 +10,7 @@ extends Node2D
 @onready var NG_MONEY: Label = $NGMoney
 
 var HoveringOverTower: Tower
+var IsHoveringOverWall: bool = false
 
 enum ShadowState {
     DISABLED,  # Don't show the shadow at all
@@ -19,7 +20,6 @@ enum ShadowState {
     OK  # Can place the tower
 }
 
-var is_ok: bool = false
 var current_state: ShadowState = ShadowState.DISABLED
 
 func set_tower(scene_path: String) -> void:
@@ -34,7 +34,29 @@ func _process(delta) -> void:
         MOUSE_FOLLOW_SPEED * delta
     )
 
-    set_is_ok()
+    set_shadow_state()
+    set_ng_label()
+
+func set_shadow_state() -> void:
+    # Evaluate rules in the following order:
+    # 0. We can't build anything if we have no tower selected.
+    # 1. We can't build anything if we're not over a wall.
+    # 2. If we're over a tower, we still can't build anything,
+    #    but a click should open the upgrade menu.
+    # 2. We can't build anything if we don't have enough money.
+
+    if is_hovering_over_button():
+        current_state = ShadowState.DISABLED
+    elif TOWER_TO_PLACE == null:
+        current_state = ShadowState.DISABLED
+    elif HoveringOverTower != null:
+        current_state = ShadowState.NG_OVERLAPPING
+    elif !IsHoveringOverWall:
+        current_state = ShadowState.NG_NOT_IN_WALLS_AREA
+    elif GameState.PLAYER_MONEY_REMAINING < TOWER_TO_PLACE.VALUE:
+        current_state = ShadowState.NG_INSUFFICIENT_FUNDS
+    else:
+        current_state = ShadowState.OK
 
 func _input(event) -> void:
     if !(
@@ -47,15 +69,15 @@ func _input(event) -> void:
     if current_state == ShadowState.DISABLED:
         return
 
-    if !is_ok and current_state == ShadowState.NG_OVERLAPPING:
+    if current_state == ShadowState.NG_OVERLAPPING:
         print("Overlapping another tower, opening upgrade panel!")
         GameState.TOWER_UPGRADE_PANEL.set_current_tower(HoveringOverTower)
         GameState.TOWER_UPGRADE_PANEL.enable()
         return
-    elif !is_ok and current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
+    elif current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
         print("Not spawning tower; insufficient funds")
         return
-    elif !is_ok and current_state == ShadowState.NG_NOT_IN_WALLS_AREA:
+    elif current_state == ShadowState.NG_NOT_IN_WALLS_AREA:
         print("Not spawning tower; not in a walls area")
         return
     
@@ -77,43 +99,6 @@ func spawn() -> void:
     # Force hovering over tower state
     current_state = ShadowState.NG_OVERLAPPING
     HoveringOverTower = new_tower
-    set_is_ok()
-
-func set_is_ok() -> void:
-    if TOWER_TO_PLACE == null:
-        current_state = ShadowState.DISABLED
-        OK_SHADOW.visible = false
-        NG_SHADOW.visible = false
-        return
-
-    # Don't show the shadow if we're hovering over a button
-    if is_hovering_over_button():
-        current_state = ShadowState.DISABLED
-    elif current_state != ShadowState.NG_NOT_IN_WALLS_AREA:
-        current_state = reeval_current_state()
-
-    if (
-        current_state == ShadowState.NG_INSUFFICIENT_FUNDS
-        and GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
-    ):
-        current_state = ShadowState.OK
-    
-    if current_state == ShadowState.OK:
-        is_ok = true
-        OK_SHADOW.visible = true
-        NG_SHADOW.visible = false
-    elif current_state in [
-        ShadowState.NG_OVERLAPPING,
-        ShadowState.NG_INSUFFICIENT_FUNDS,
-        ShadowState.NG_NOT_IN_WALLS_AREA
-    ]:
-        is_ok = false
-        OK_SHADOW.visible = false
-        NG_SHADOW.visible = true
-    else:
-        OK_SHADOW.visible = false
-        NG_SHADOW.visible = false
-    set_ng_label()
 
 func is_hovering_over_button() -> bool:
     return get_viewport().gui_get_hovered_control() is Button
@@ -122,34 +107,31 @@ func _on_area_entered(tower_or_wall: Area2D) -> void:
     if TOWER_TO_PLACE == null:
         return
     if tower_or_wall is Tower:
-        current_state = ShadowState.NG_OVERLAPPING
         HoveringOverTower = tower_or_wall
     elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
-        current_state = reeval_current_state()
-        set_ng_label()
+        IsHoveringOverWall = true
 
 func _on_area_exited(tower_or_wall: Area2D) -> void:
     if TOWER_TO_PLACE == null:
         return
-    if tower_or_wall.is_in_group(GameState.WALLS_GROUP):
-        current_state = ShadowState.NG_NOT_IN_WALLS_AREA
-    else:
-        current_state = reeval_current_state()
-        set_ng_label()
-    HoveringOverTower = null
-
-func reeval_current_state() -> ShadowState:
-    if HoveringOverTower != null:
-        return ShadowState.NG_OVERLAPPING
-
-    return (
-        ShadowState.OK
-        if GameState.PLAYER_MONEY_REMAINING >= TOWER_TO_PLACE.VALUE
-        else ShadowState.NG_INSUFFICIENT_FUNDS
-    )
+    if tower_or_wall is Tower:
+        HoveringOverTower = null
+    elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
+        IsHoveringOverWall = false
 
 func set_ng_label() -> void:
+    OK_SHADOW.visible = false
+    NG_SHADOW.visible = false
     NG_MONEY.visible = false
 
-    if current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
+    if current_state == ShadowState.OK:
+        OK_SHADOW.visible = true
+    elif current_state == ShadowState.DISABLED:
+        pass  # Don't show any shadow
+    elif current_state == ShadowState.NG_INSUFFICIENT_FUNDS:
+        NG_SHADOW.visible = true
         NG_MONEY.visible = true
+    elif current_state == ShadowState.NG_OVERLAPPING:
+        pass  # Don't show any shadow
+    elif current_state == ShadowState.NG_NOT_IN_WALLS_AREA:
+        NG_SHADOW.visible = true
