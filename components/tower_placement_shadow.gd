@@ -39,11 +39,12 @@ func _process(delta) -> void:
 
 func set_shadow_state() -> void:
     # Evaluate rules in the following order:
-    # 0. We can't build anything if we have no tower selected.
-    # 1. We can't build anything if we're not over a wall.
-    # 2. If we're over a tower, we still can't build anything,
+    # 0. We can't build anything if we're overlapping a UI element.
+    # 1. We can't build anything if we have no tower selected.
+    # 2. If we're over a tower, we can't build anything,
     #    but a click should open the upgrade menu.
-    # 2. We can't build anything if we don't have enough money.
+    # 3. Otherwise, we can't build anything if we're not over a wall.
+    # 4. We can't build anything if we don't have enough money.
 
     if is_hovering_over_button():
         current_state = ShadowState.DISABLED
