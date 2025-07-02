@@ -1,6 +1,8 @@
 # GlobalSingleton: GameState
 extends Node
 
+const STARTING_WINDOW_SIZE_PERCENT = 0.65
+
 const PLAYER_STARTING_MONEY: int = 400
 
 const CURRENT_LEVEL_GROUP = "level"
@@ -44,6 +46,14 @@ var SHOULDNT_PAUSE: bool = false
 
 func _init() -> void:
     process_mode = Node.PROCESS_MODE_ALWAYS
+
+func _ready() -> void:
+    # Expand window size dynamically
+    if get_window().get_mode() != Window.Mode.MODE_FULLSCREEN:
+        get_window().size = _get_target_init_window_size()
+        get_window().position = (
+            DisplayServer.screen_get_size() - get_window().size
+        ) / 2
 
 func _on_level_load() -> void:
     # Call this as a last step after the level is loaded
@@ -173,3 +183,18 @@ func _on_win() -> void:
 
 func _process(delta: float) -> void:
     AVG_FRAME_TIME = (AVG_FRAME_TIME + delta) / 2
+
+func _get_target_init_window_size() -> Vector2i:
+    var target_max_window_size: Vector2i = (
+        DisplayServer.screen_get_size()
+        * STARTING_WINDOW_SIZE_PERCENT
+    )
+    var current_max_window_size: Vector2i = get_window().size
+
+    while (current_max_window_size < target_max_window_size):
+        current_max_window_size = Vector2i(
+            current_max_window_size.x * 1.1,
+            current_max_window_size.y * 1.1,
+        )
+
+    return current_max_window_size
