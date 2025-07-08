@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
 
+[ext_resource type="FontFile" uid="uid://gg8s1xc4jyl8" path="res://components/Cheese Potato.otf" id="1_0eatc"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
 [ext_resource type="PackedScene" uid="uid://djugbukw7mfia" path="res://components/LivesMeter.tscn" id="2_k05k2"]
 [ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="3_0eatc"]
@@ -8,25 +9,40 @@
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
 [ext_resource type="PackedScene" uid="uid://svkoe5vyyv51" path="res://components/TowerUpgradePanel.tscn" id="7_k05k2"]
 
+[sub_resource type="Theme" id="Theme_24715"]
+default_font = ExtResource("1_0eatc")
+Control/colors/default_color = Color(0, 0, 0, 1)
+Control/font_sizes/normal_font_size = 20
+
 [node name="UI" type="CanvasLayer"]
 layer = 2
 
 [node name="TopBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 40.0
-offset_right = 643.0
-offset_bottom = 42.0
+offset_right = 505.0
+offset_bottom = 39.0
 scale = Vector2(1.9916, 1.09183)
 
-[node name="ColorRect" type="ColorRect" parent="TopBar"]
+[node name="Divider" type="ColorRect" parent="TopBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="NTBLabel" type="RichTextLabel" parent="TopBar"]
+layout_mode = 0
+offset_right = 201.0
+offset_bottom = 37.0
+theme = SubResource("Theme_24715")
+text = "Notebook Tower Defense!!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BottomBar" type="Control" parent="."]
 layout_mode = 3
@@ -37,11 +53,12 @@ offset_right = 644.0
 offset_bottom = 673.0
 scale = Vector2(1.9916, 1.09183)
 
-[node name="ColorRect" type="ColorRect" parent="BottomBar"]
+[node name="Divider" type="ColorRect" parent="BottomBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -138.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -98,4 +115,3 @@ offset_bottom = 8.0
 scale = Vector2(0.15, 0.15)
 
 [node name="TowerUpgradePanel" parent="." instance=ExtResource("7_k05k2")]
-visible = false
