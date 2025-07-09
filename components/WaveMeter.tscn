@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bud4ymw0n8vf8"]
+[gd_scene load_steps=15 format=3 uid="uid://bud4ymw0n8vf8"]
 
 [ext_resource type="Script" uid="uid://bba6nvl5wvwys" path="res://components/wave_meter.gd" id="1_euupa"]
-[ext_resource type="Texture2D" uid="uid://c55awvfsfogwj" path="res://sprites/wave_label.png" id="1_qaemf"]
 [ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="3_52fhu"]
 [ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="4_lx001"]
 [ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="5_n3po7"]
@@ -14,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="12_cksb2"]
 [ext_resource type="Texture2D" uid="uid://dgm6mxbsaplku" path="res://sprites/null_digit.png" id="13_xe15v"]
 [ext_resource type="Texture2D" uid="uid://twr02whjyqt8" path="res://sprites/slash_label.png" id="14_7j6pc"]
-[ext_resource type="PackedScene" uid="uid://caapeiewaemnb" path="res://components/time_bar.tscn" id="15_52fhu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f4f5w"]
 animations = [{
@@ -70,21 +68,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_euupa")
 
-[node name="BgRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 160.0
-offset_right = 526.0
-offset_bottom = 713.0
-color = Color(1, 1, 1, 0.784314)
-
-[node name="WaveLabel" type="TextureRect" parent="."]
-layout_mode = 0
-offset_top = 77.0
-offset_right = 500.0
-offset_bottom = 577.0
-texture = ExtResource("1_qaemf")
-
 [node name="one_digit" type="Node2D" parent="."]
 position = Vector2(0, 77)
 
@@ -110,19 +93,16 @@ position = Vector2(40, 307)
 scale = Vector2(0.5, 0.5)
 
 [node name="Slash" type="TextureRect" parent="of_total"]
-offset_left = 115.0
-offset_top = 388.0
-offset_right = 615.0
-offset_bottom = 888.0
+offset_left = 360.0
+offset_top = 108.0
+offset_right = 860.0
+offset_bottom = 608.0
 texture = ExtResource("14_7j6pc")
 
 [node name="digit1" type="AnimatedSprite2D" parent="of_total"]
-position = Vector2(458, 634)
+position = Vector2(738, 332)
 sprite_frames = SubResource("SpriteFrames_f4f5w")
 
 [node name="digit2" type="AnimatedSprite2D" parent="of_total"]
-position = Vector2(592, 628)
+position = Vector2(876, 328)
 sprite_frames = SubResource("SpriteFrames_f4f5w")
-
-[node name="WaveTimerUI" parent="." instance=ExtResource("15_52fhu")]
-position = Vector2(281, 215)
