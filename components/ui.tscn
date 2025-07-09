@@ -1,18 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
 
-[ext_resource type="FontFile" uid="uid://gg8s1xc4jyl8" path="res://components/Cheese Potato.otf" id="1_0eatc"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
+[ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="1_24715"]
+[ext_resource type="PackedScene" uid="uid://caapeiewaemnb" path="res://components/time_bar.tscn" id="2_24715"]
 [ext_resource type="PackedScene" uid="uid://djugbukw7mfia" path="res://components/LivesMeter.tscn" id="2_k05k2"]
 [ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="3_0eatc"]
 [ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="4_24715"]
 [ext_resource type="PackedScene" uid="uid://o1i4jsdysgqk" path="res://components/TowerBuyPanel.tscn" id="5_451mt"]
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
 [ext_resource type="PackedScene" uid="uid://svkoe5vyyv51" path="res://components/TowerUpgradePanel.tscn" id="7_k05k2"]
-
-[sub_resource type="Theme" id="Theme_24715"]
-default_font = ExtResource("1_0eatc")
-Control/colors/default_color = Color(0, 0, 0, 1)
-Control/font_sizes/normal_font_size = 20
 
 [node name="UI" type="CanvasLayer"]
 layer = 2
@@ -38,11 +34,29 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 201.0
 offset_bottom = 37.0
-theme = SubResource("Theme_24715")
+theme = ExtResource("1_24715")
 text = "Notebook Tower Defense!!"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicToggleButton" type="Button" parent="TopBar"]
+layout_mode = 0
+offset_left = 217.413
+offset_top = 4.57947
+offset_right = 287.413
+offset_bottom = 31.5795
+theme = ExtResource("1_24715")
+text = "Music: ON"
+
+[node name="SfxToggleButton" type="Button" parent="TopBar"]
+layout_mode = 0
+offset_left = 295.24
+offset_top = 4.57947
+offset_right = 365.24
+offset_bottom = 31.5795
+theme = ExtResource("1_24715")
+text = "SFX: ON"
 
 [node name="BottomBar" type="Control" parent="."]
 layout_mode = 3
@@ -62,6 +76,32 @@ offset_right = -138.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="WaveLabel" type="RichTextLabel" parent="BottomBar"]
+layout_mode = 0
+offset_left = 2.00844
+offset_top = 5.0
+offset_right = 50.0084
+offset_bottom = 42.0
+theme = ExtResource("1_24715")
+text = "Wave:"
+fit_content = true
+vertical_alignment = 1
+
+[node name="TimeBar" parent="BottomBar" instance=ExtResource("2_24715")]
+position = Vector2(121.008, 23.8132)
+scale = Vector2(0.37, 0.37)
+
+[node name="NextLabel" type="RichTextLabel" parent="BottomBar"]
+layout_mode = 0
+offset_left = 223.438
+offset_top = 5.0
+offset_right = 271.438
+offset_bottom = 42.0
+theme = ExtResource("1_24715")
+text = "Next:"
+fit_content = true
+vertical_alignment = 1
 
 [node name="MoneyMeter" parent="." instance=ExtResource("1_34iyr")]
 visible = false
@@ -107,11 +147,10 @@ pivot_offset = Vector2(-230, -60)
 visible = false
 
 [node name="NextWaveMeter" parent="." instance=ExtResource("6_23jcn")]
-visible = false
-offset_left = 146.0
-offset_top = 8.0
-offset_right = 146.0
-offset_bottom = 8.0
+offset_left = 542.0
+offset_top = 678.0
+offset_right = 1415.0
+offset_bottom = 218.0
 scale = Vector2(0.15, 0.15)
 
 [node name="TowerUpgradePanel" parent="." instance=ExtResource("7_k05k2")]
