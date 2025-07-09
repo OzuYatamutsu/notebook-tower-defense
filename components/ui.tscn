@@ -124,11 +124,10 @@ scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(0, -165)
 
 [node name="WaveMeter" parent="." instance=ExtResource("3_0eatc")]
-visible = false
-offset_left = -17.0
-offset_top = -40.0
-offset_right = -17.0
-offset_bottom = -40.0
+offset_left = 61.0
+offset_top = 553.0
+offset_right = 61.0
+offset_bottom = 553.0
 scale = Vector2(0.3, 0.3)
 
 [node name="SelectedTowerMeter" parent="." instance=ExtResource("4_24715")]
@@ -147,6 +146,7 @@ pivot_offset = Vector2(-230, -60)
 visible = false
 
 [node name="NextWaveMeter" parent="." instance=ExtResource("6_23jcn")]
+visible = false
 offset_left = 542.0
 offset_top = 678.0
 offset_right = 1415.0
