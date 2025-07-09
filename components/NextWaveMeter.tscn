@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://crh5ydle8qkpy"]
+[gd_scene load_steps=3 format=3 uid="uid://crh5ydle8qkpy"]
 
 [ext_resource type="Script" uid="uid://cmeghri4gm058" path="res://components/next_wave_meter.gd" id="1_ifmuv"]
-[ext_resource type="Texture2D" uid="uid://ct3d0l4kpji8r" path="res://sprites/next_label.png" id="2_ifmuv"]
 [ext_resource type="Texture2D" uid="uid://bqmx3udvicsbi" path="res://sprites/basic_enemy.png" id="3_ifmuv"]
 
 [node name="NextWaveMeter" type="Control" groups=["next_wave_meter"]]
@@ -15,26 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ifmuv")
 
-[node name="BgRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 101.0
-offset_right = 579.0
-offset_bottom = 656.0
-color = Color(1, 1, 1, 0.784314)
-
-[node name="NextLabel" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_ifmuv")
-
 [node name="NextMobSpriteContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 355.0
-offset_right = 1152.0
-offset_bottom = 855.0
+offset_right = 1004.0
+offset_bottom = 500.0
 scale = Vector2(0.5, 0.5)
 
 [node name="PlaceholderSprite" type="TextureRect" parent="NextMobSpriteContainer"]
