@@ -17,7 +17,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 505.0
 offset_bottom = 39.0
-scale = Vector2(1.9916, 1.09183)
 
 [node name="Divider" type="ColorRect" parent="TopBar"]
 layout_mode = 1
@@ -57,6 +56,19 @@ offset_bottom = 34.5795
 theme = ExtResource("1_24715")
 text = "SFX: ON"
 
+[node name="LivesMeter" parent="." instance=ExtResource("2_k05k2")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_left = 241.0
+offset_top = -34.0
+offset_right = 241.0
+offset_bottom = -34.0
+grow_horizontal = 1
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(0, -165)
+
 [node name="BottomBar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -64,7 +76,6 @@ offset_left = 1.0
 offset_top = 671.0
 offset_right = 644.0
 offset_bottom = 673.0
-scale = Vector2(1.9916, 1.09183)
 
 [node name="Divider" type="ColorRect" parent="BottomBar"]
 layout_mode = 1
@@ -87,11 +98,22 @@ text = "Wave:"
 fit_content = true
 vertical_alignment = 1
 
+[node name="LivesLabel" type="RichTextLabel" parent="BottomBar"]
+layout_mode = 0
+offset_left = 134.063
+offset_top = 5.0
+offset_right = 182.063
+offset_bottom = 42.0
+theme = ExtResource("1_24715")
+text = "Lives:"
+fit_content = true
+vertical_alignment = 1
+
 [node name="NextLabel" type="RichTextLabel" parent="BottomBar"]
 layout_mode = 0
-offset_left = 223.438
+offset_left = 240.008
 offset_top = 5.0
-offset_right = 271.438
+offset_right = 288.008
 offset_bottom = 42.0
 theme = ExtResource("1_24715")
 text = "Next:"
@@ -108,21 +130,11 @@ grow_vertical = 0
 scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(-515, -165)
 
-[node name="LivesMeter" parent="." instance=ExtResource("2_k05k2")]
-visible = false
-anchors_preset = 2
-anchor_top = 1.0
-anchor_right = 0.0
-grow_horizontal = 1
-grow_vertical = 0
-scale = Vector2(0.3, 0.3)
-pivot_offset = Vector2(0, -165)
-
 [node name="WaveMeter" parent="." instance=ExtResource("3_0eatc")]
 offset_left = 161.0
 offset_top = 698.0
-offset_right = 161.0
-offset_bottom = 698.0
+offset_right = -1119.0
+offset_bottom = -22.0
 scale = Vector2(0.3, 0.3)
 
 [node name="SelectedTowerMeter" parent="." instance=ExtResource("4_24715")]
@@ -141,10 +153,9 @@ pivot_offset = Vector2(-230, -60)
 visible = false
 
 [node name="NextWaveMeter" parent="." instance=ExtResource("6_23jcn")]
-visible = false
-offset_left = 542.0
+offset_left = 578.0
 offset_top = 678.0
-offset_right = 1415.0
+offset_right = 1451.0
 offset_bottom = 218.0
 scale = Vector2(0.15, 0.15)
 
