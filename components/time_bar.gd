@@ -22,7 +22,7 @@ func set_max_time(max_time_secs: float) -> void:
 
 func update_time_bar() -> void:
     TimeBarSprite.region_rect.size = Vector2(
-        TIME_BAR_MAX_WIDTH * (TIME_SECS / MAX_TIME_SECS),
+        TIME_BAR_MAX_WIDTH * get_timer_percent(),
         TIME_BAR_MAX_HEIGHT
     )
 
@@ -34,6 +34,9 @@ func enable() -> void:
 
 func disable() -> void:
     TickTimer.stop()
+
+func get_timer_percent() -> float:
+    return (TIME_SECS / MAX_TIME_SECS)
 
 func _on_tick_timer_timeout() -> void:
     TIME_SECS -= TIMER_TICK_SECS

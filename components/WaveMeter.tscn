@@ -1,108 +1,29 @@
-[gd_scene load_steps=15 format=3 uid="uid://bud4ymw0n8vf8"]
+[gd_scene load_steps=4 format=3 uid="uid://bud4ymw0n8vf8"]
 
 [ext_resource type="Script" uid="uid://bba6nvl5wvwys" path="res://components/wave_meter.gd" id="1_euupa"]
-[ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="3_52fhu"]
-[ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="4_lx001"]
-[ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="5_n3po7"]
-[ext_resource type="Texture2D" uid="uid://binpecfwik3ji" path="res://sprites/num3.png" id="6_68v1r"]
-[ext_resource type="Texture2D" uid="uid://bq4bbj7gjudud" path="res://sprites/num4.png" id="7_4g8aq"]
-[ext_resource type="Texture2D" uid="uid://ctyktknbbe3jt" path="res://sprites/num5.png" id="8_b88cu"]
-[ext_resource type="Texture2D" uid="uid://bx50aqogqvvjg" path="res://sprites/num6.png" id="9_xbueo"]
-[ext_resource type="Texture2D" uid="uid://88sj41v71jb" path="res://sprites/num7.png" id="10_755ow"]
-[ext_resource type="Texture2D" uid="uid://bmler41lapjay" path="res://sprites/num8.png" id="11_atprf"]
-[ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="12_cksb2"]
-[ext_resource type="Texture2D" uid="uid://dgm6mxbsaplku" path="res://sprites/null_digit.png" id="13_xe15v"]
-[ext_resource type="Texture2D" uid="uid://twr02whjyqt8" path="res://sprites/slash_label.png" id="14_7j6pc"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f4f5w"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_52fhu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_lx001")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_n3po7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_68v1r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_4g8aq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_b88cu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xbueo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_755ow")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_atprf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_cksb2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_xe15v")
-}],
-"loop": true,
-"name": &"default",
-"speed": 0.0
-}]
+[ext_resource type="PackedScene" uid="uid://caapeiewaemnb" path="res://components/time_bar.tscn" id="2_hdsfp"]
+[ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="2_jen57"]
 
 [node name="WaveMeter" type="Control" groups=["wave_meter"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -259.0
-offset_top = -323.0
-offset_right = -259.0
-offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_euupa")
 
-[node name="one_digit" type="Node2D" parent="."]
-position = Vector2(0, 77)
+[node name="TimeBar" parent="." instance=ExtResource("2_hdsfp")]
 
-[node name="digit1" type="AnimatedSprite2D" parent="one_digit"]
-position = Vector2(250, 388)
-sprite_frames = SubResource("SpriteFrames_f4f5w")
-
-[node name="two_digit" type="Node2D" parent="."]
-position = Vector2(0, 77)
-
-[node name="digit1" type="AnimatedSprite2D" parent="two_digit"]
-position = Vector2(180, 390)
-sprite_frames = SubResource("SpriteFrames_f4f5w")
-frame = 10
-
-[node name="digit2" type="AnimatedSprite2D" parent="two_digit"]
-position = Vector2(264, 389)
-sprite_frames = SubResource("SpriteFrames_f4f5w")
-frame = 10
-
-[node name="of_total" type="Node2D" parent="."]
-position = Vector2(40, 307)
-scale = Vector2(0.5, 0.5)
-
-[node name="Slash" type="TextureRect" parent="of_total"]
-offset_left = 360.0
-offset_top = 108.0
-offset_right = 860.0
-offset_bottom = 608.0
-texture = ExtResource("14_7j6pc")
-
-[node name="digit1" type="AnimatedSprite2D" parent="of_total"]
-position = Vector2(738, 332)
-sprite_frames = SubResource("SpriteFrames_f4f5w")
-
-[node name="digit2" type="AnimatedSprite2D" parent="of_total"]
-position = Vector2(876, 328)
-sprite_frames = SubResource("SpriteFrames_f4f5w")
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -68.0
+offset_top = -35.0
+offset_right = 63.0
+offset_bottom = 26.0
+theme = ExtResource("2_jen57")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "0/00"
+horizontal_alignment = 1
+vertical_alignment = 1

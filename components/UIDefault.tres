@@ -5,4 +5,5 @@
 [resource]
 default_font = ExtResource("1_oa8wa")
 Control/colors/default_color = Color(0, 0, 0, 1)
+Control/font_sizes/font_size = 20
 Control/font_sizes/normal_font_size = 20
