@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=9 format=3 uid="uid://dhs0soxiwf4lb"]
 
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
 [ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="1_24715"]
-[ext_resource type="PackedScene" uid="uid://caapeiewaemnb" path="res://components/time_bar.tscn" id="2_24715"]
 [ext_resource type="PackedScene" uid="uid://djugbukw7mfia" path="res://components/LivesMeter.tscn" id="2_k05k2"]
 [ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="3_0eatc"]
 [ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="4_24715"]
@@ -51,10 +50,10 @@ text = "Music: ON"
 
 [node name="SfxToggleButton" type="Button" parent="TopBar"]
 layout_mode = 0
-offset_left = 295.24
+offset_left = 310.303
 offset_top = 4.57947
-offset_right = 365.24
-offset_bottom = 31.5795
+offset_right = 382.303
+offset_bottom = 34.5795
 theme = ExtResource("1_24715")
 text = "SFX: ON"
 
@@ -88,10 +87,6 @@ text = "Wave:"
 fit_content = true
 vertical_alignment = 1
 
-[node name="TimeBar" parent="BottomBar" instance=ExtResource("2_24715")]
-position = Vector2(121.008, 23.8132)
-scale = Vector2(0.37, 0.37)
-
 [node name="NextLabel" type="RichTextLabel" parent="BottomBar"]
 layout_mode = 0
 offset_left = 223.438
@@ -124,10 +119,10 @@ scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(0, -165)
 
 [node name="WaveMeter" parent="." instance=ExtResource("3_0eatc")]
-offset_left = 61.0
-offset_top = 553.0
-offset_right = 61.0
-offset_bottom = 553.0
+offset_left = 161.0
+offset_top = 698.0
+offset_right = 161.0
+offset_bottom = 698.0
 scale = Vector2(0.3, 0.3)
 
 [node name="SelectedTowerMeter" parent="." instance=ExtResource("4_24715")]
