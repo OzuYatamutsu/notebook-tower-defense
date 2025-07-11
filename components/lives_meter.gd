@@ -1,28 +1,12 @@
 class_name LivesMeter
 extends Control
 
-@onready var digit1 = $digit1
-@onready var digit2 = $digit2
+var LivesNum: int = 0
 
-const CLEAR_DIGIT = 10
+@onready var LivesCountLabel: Label = $LivesCountLabel
 
-func set_value(value: int):
-    digit1.frame = CLEAR_DIGIT
-    digit2.frame = CLEAR_DIGIT
-    
-    if value <= 0:
-        value = 0
-    elif value >= 99:
-        value = 99
+func set_value(current_lives_num: int) -> void:
+    LivesNum = current_lives_num
 
-    var str_value = str(value)
-    var length = str_value.length()
-
-    # Alignment
-    var start_index = 2 - length
-
-    for i in range(length):
-        var digit = int(str_value[i])
-        match start_index + i:
-            0: digit1.frame = digit
-            1: digit2.frame = digit
+func _set_text() -> void:
+    LivesCountLabel.text = "{0}".format([LivesNum])
