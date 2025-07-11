@@ -1,24 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://crh5ydle8qkpy"]
+[gd_scene load_steps=4 format=3 uid="uid://crh5ydle8qkpy"]
 
 [ext_resource type="Script" uid="uid://cmeghri4gm058" path="res://components/next_wave_meter.gd" id="1_ifmuv"]
+[ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="2_ifmuv"]
 [ext_resource type="Texture2D" uid="uid://bqmx3udvicsbi" path="res://sprites/basic_enemy.png" id="3_ifmuv"]
 
 [node name="NextWaveMeter" type="Control" groups=["next_wave_meter"]]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -145.0
-offset_bottom = -145.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_ifmuv")
+
+[node name="NextWaveLabel" type="Label" parent="."]
+offset_right = 134.0
+offset_bottom = 66.0
+theme = ExtResource("2_ifmuv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Next:"
+vertical_alignment = 1
 
 [node name="NextMobSpriteContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1004.0
-offset_bottom = 500.0
-scale = Vector2(0.5, 0.5)
+offset_left = 162.0
+offset_top = -3.0
+offset_right = 1166.0
+offset_bottom = 497.0
+scale = Vector2(0.15, 0.15)
 
 [node name="PlaceholderSprite" type="TextureRect" parent="NextMobSpriteContainer"]
 layout_mode = 2
