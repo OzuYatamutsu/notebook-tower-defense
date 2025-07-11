@@ -6,21 +6,29 @@
 
 [node name="WaveMeter" type="Control" groups=["wave_meter"]]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_euupa")
 
-[node name="TimeBar" parent="." instance=ExtResource("2_hdsfp")]
-
-[node name="Label" type="Label" parent="."]
+[node name="WaveLabel" type="Label" parent="."]
 layout_mode = 0
+offset_right = 134.0
+offset_bottom = 66.0
+theme = ExtResource("2_jen57")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Wave:"
+vertical_alignment = 1
+
+[node name="TimeBar" parent="." instance=ExtResource("2_hdsfp")]
+position = Vector2(348, 39)
+
+[node name="WavesCountLabel" type="Label" parent="TimeBar"]
 offset_left = -68.0
 offset_top = -35.0
 offset_right = 63.0
-offset_bottom = 26.0
+offset_bottom = 33.0
 theme = ExtResource("2_jen57")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
