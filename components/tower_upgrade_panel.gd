@@ -49,6 +49,3 @@ func add_tower_upgrade_path_element(path_to_tower: String) -> void:
     var _item = _upgradeItem.instantiate()
     UpgradeItemList.add_child(_item)
     _item.setup(path_to_tower)
-
-func _on_close_button_pressed() -> void:
-    disable()

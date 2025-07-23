@@ -1,9 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://o1i4jsdysgqk"]
+[gd_scene load_steps=8 format=3 uid="uid://o1i4jsdysgqk"]
 
-[ext_resource type="Texture2D" uid="uid://c8jgksime7lxd" path="res://sprites/ui_towers_buy_icon.png" id="1_6i1ck"]
 [ext_resource type="Script" uid="uid://bs1ssl8t8e2y5" path="res://components/tower_buy_panel.gd" id="1_iuxfk"]
-[ext_resource type="Texture2D" uid="uid://chg8jf6qcar3g" path="res://sprites/ui_arrow_left.png" id="2_iuxfk"]
-[ext_resource type="Texture2D" uid="uid://6qanl1kbmlkm" path="res://sprites/ui_arrow_right.png" id="3_kgcwn"]
 [ext_resource type="Texture2D" uid="uid://m68mead284tv" path="res://sprites/ui_towers_label.png" id="5_kgcwn"]
 [ext_resource type="PackedScene" uid="uid://4m883pvlq3rc" path="res://components/TowerBuyItem.tscn" id="6_ayuvl"]
 
@@ -21,54 +18,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1280, 120)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonExpandLeft:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonExpandLeft:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ButtonContractRight:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ButtonContractRight:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_6tlop"]
 resource_name = "close"
@@ -85,54 +34,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(955, 120), Vector2(1280, 120)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonExpandLeft:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonExpandLeft:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ButtonContractRight:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ButtonContractRight:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_kgcwn"]
 resource_name = "open"
@@ -148,54 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1280, 120), Vector2(955, 120)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonExpandLeft:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonExpandLeft:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ButtonContractRight:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ButtonContractRight:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vrjho"]
@@ -215,56 +68,6 @@ offset_bottom = 120.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 script = ExtResource("1_iuxfk")
-
-[node name="ButtonBgRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = 12.0
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.784314)
-
-[node name="ButtonTowerBuy" type="Button" parent="."]
-z_index = 3
-layout_mode = 1
-offset_left = -52.0
-offset_top = 13.0
-offset_right = 119.0
-offset_bottom = 184.0
-scale = Vector2(0.3, 0.3)
-mouse_default_cursor_shape = 2
-icon = ExtResource("1_6i1ck")
-flat = true
-
-[node name="ButtonExpandLeft" type="Button" parent="."]
-z_index = 3
-layout_mode = 1
-offset_left = -100.0
-offset_top = 24.0
-offset_right = 46.0
-offset_bottom = 170.0
-scale = Vector2(0.3, 0.3)
-mouse_default_cursor_shape = 2
-icon = ExtResource("2_iuxfk")
-flat = true
-
-[node name="ButtonContractRight" type="Button" parent="."]
-visible = false
-z_index = 3
-layout_mode = 1
-offset_left = 13.0
-offset_top = 21.0
-offset_right = 159.0
-offset_bottom = 167.0
-scale = Vector2(0.3, 0.3)
-mouse_default_cursor_shape = 2
-disabled = true
-icon = ExtResource("3_kgcwn")
-flat = true
 
 [node name="TowersLabel" type="TextureRect" parent="."]
 z_index = 1
@@ -305,6 +108,3 @@ theme_override_constants/separation = 110
 
 [node name="TestItem" parent="BuyItemList" instance=ExtResource("6_ayuvl")]
 layout_mode = 2
-
-[connection signal="pressed" from="ButtonExpandLeft" to="." method="_on_button_expand_left_pressed"]
-[connection signal="pressed" from="ButtonContractRight" to="." method="_on_button_contract_right_pressed"]
