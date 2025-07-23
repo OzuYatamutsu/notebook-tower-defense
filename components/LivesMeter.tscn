@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_mg8pk")
 
 [node name="LivesLabel" type="Label" parent="."]
+layout_mode = 0
 offset_right = 134.0
 offset_bottom = 66.0
 theme = ExtResource("2_cvqci")
@@ -22,11 +23,12 @@ text = "Lives:"
 vertical_alignment = 1
 
 [node name="LivesCountLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 144.0
 offset_right = 278.0
 offset_bottom = 66.0
 theme = ExtResource("2_cvqci")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "0"
+text = "20"
 vertical_alignment = 1

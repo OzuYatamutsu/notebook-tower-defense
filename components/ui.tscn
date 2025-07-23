@@ -62,9 +62,9 @@ layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
-offset_left = 794.0
+offset_left = 748.0
 offset_top = 85.0
-offset_right = 794.0
+offset_right = 748.0
 offset_bottom = 85.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -101,9 +101,9 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_right = 0.0
-offset_left = 205.0
+offset_left = 948.0
 offset_top = 132.0
-offset_right = 205.0
+offset_right = 948.0
 offset_bottom = 132.0
 grow_horizontal = 1
 grow_vertical = 0
@@ -112,9 +112,9 @@ pivot_offset = Vector2(0, -165)
 
 [node name="NextWaveMeter" parent="BottomBar" instance=ExtResource("6_23jcn")]
 layout_mode = 1
-offset_left = 281.0
+offset_left = 205.0
 offset_top = 19.0
-offset_right = 1154.0
+offset_right = 1078.0
 offset_bottom = 19.0
 scale = Vector2(0.3, 0.3)
 
