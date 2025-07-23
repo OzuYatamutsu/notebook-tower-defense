@@ -32,6 +32,6 @@ offset_bottom = 33.0
 theme = ExtResource("2_jen57")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
-text = "0/00"
+text = "1/20"
 horizontal_alignment = 1
 vertical_alignment = 1
