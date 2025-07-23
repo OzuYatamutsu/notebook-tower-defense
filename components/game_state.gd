@@ -22,10 +22,13 @@ const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
 const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
 
 @export var PLAYER_LIVES_START: int = 20
-@export var PLAYER_LIVES_REMAINING: int
-@export var PLAYER_MONEY_REMAINING: int = 400
-@export var SCORE: int
 @export var IS_GAME_OVER: bool = false
+
+# Accessed via meters in UI
+@export var PLAYER_MONEY_REMAINING: int = 400
+@export var PLAYER_LIVES_REMAINING: int
+@export var SCORE: int
+# WaveMeter is accessed through CurrentLevel -> CURRENT_WAVE_NUM
 
 var CURRENT_LEVEL: Level
 
