@@ -1,23 +1,17 @@
 class_name WaveMeter
 extends Control
 
-var WaveNum: int = 0
-var MaxWaveNum: int = 0
-
 @onready var WavesCountLabel: Label = $TimeBar/WavesCountLabel
 @onready var WaveTimerUI: TimeBar = $WaveTimerUI
 
 func _process(_delta) -> void:
     _update_color()
 
-func set_value(current_wave_num: int) -> void:
-    WaveNum = current_wave_num
-
-func set_max_value(max_wave_num: int) -> void:
-    MaxWaveNum = max_wave_num
-
-func _set_text() -> void:
-    WavesCountLabel.text = "{0}/{1}".format([WaveNum, MaxWaveNum])
+func update_value_text() -> void:
+    WavesCountLabel.text = "{0}/{1}".format([
+        GameState.CURRENT_LEVEL.CURRENT_WAVE,
+        len(GameState.CURRENT_LEVEL.WAVE_CONTENTS)
+    ])
 
 func _update_color() -> void:
     # Set the color of the label based on what percentage of
