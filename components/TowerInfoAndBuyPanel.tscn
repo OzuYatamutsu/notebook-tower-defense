@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://un38oy2verh5"]
+[gd_scene load_steps=7 format=3 uid="uid://un38oy2verh5"]
 
 [ext_resource type="Script" uid="uid://byqgp13hiwix1" path="res://components/tower_info_and_buy_panel.gd" id="1_bgonm"]
+[ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="2_vr3bv"]
+[ext_resource type="Texture2D" uid="uid://cpu0cotgutjwu" path="res://sprites/bullet_tower.png" id="3_ufyar"]
+[ext_resource type="Texture2D" uid="uid://c4dkvwmi2ruas" path="res://sprites/slow_tower.png" id="4_opbea"]
+[ext_resource type="Texture2D" uid="uid://g87h1qmpfpbw" path="res://sprites/laser_tower.png" id="5_klabk"]
+[ext_resource type="Texture2D" uid="uid://cxaf3su3dtsko" path="res://sprites/spike_tower.png" id="6_b0dq2"]
 
 [node name="TowerInfoAndBuyPanel" type="Control" groups=["tower_info_and_buy_panel"]]
 layout_mode = 3
@@ -19,4 +24,87 @@ anchor_right = 1.0
 offset_left = -260.0
 offset_bottom = 720.0
 grow_horizontal = 0
-color = Color(1, 0, 1, 0.784314)
+color = Color(1, 1, 1, 0.784314)
+
+[node name="TowerSelectLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme = ExtResource("2_vr3bv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Tower select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TowerSelectRow1" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 68.0
+offset_right = 2067.0
+offset_bottom = 576.0
+scale = Vector2(0.2, 0.2)
+
+[node name="BulletTowerButton" type="Button" parent="TowerSelectRow1"]
+layout_mode = 2
+icon = ExtResource("3_ufyar")
+flat = true
+
+[node name="SlowTowerButton" type="Button" parent="TowerSelectRow1"]
+layout_mode = 2
+icon = ExtResource("4_opbea")
+flat = true
+
+[node name="TowerSelectRow2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 157.0
+offset_right = 2068.0
+offset_bottom = 665.0
+scale = Vector2(0.2, 0.2)
+
+[node name="LaserTowerButton" type="Button" parent="TowerSelectRow2"]
+layout_mode = 2
+icon = ExtResource("5_klabk")
+flat = true
+
+[node name="SpikeTowerButton" type="Button" parent="TowerSelectRow2"]
+layout_mode = 2
+icon = ExtResource("6_b0dq2")
+flat = true
+
+[node name="SelectedTowerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 264.0
+offset_right = -95.0
+offset_bottom = 330.0
+grow_horizontal = 0
+theme = ExtResource("2_vr3bv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Bullet Tower"
+vertical_alignment = 1
+
+[node name="SelectedTowerDescription" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 326.0
+offset_right = -11.0
+offset_bottom = 569.0
+grow_horizontal = 0
+theme = ExtResource("2_vr3bv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Tower description tower description tower description tower description tower description tower description tower description tower description tower description tower description "
+autowrap_mode = 3
