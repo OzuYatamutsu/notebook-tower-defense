@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://svkoe5vyyv51"]
+[gd_scene load_steps=8 format=3 uid="uid://svkoe5vyyv51"]
 
 [ext_resource type="Texture2D" uid="uid://dwkh4i05d7u0h" path="res://sprites/upgrades_header.png" id="1_rg2io"]
 [ext_resource type="Script" uid="uid://ctf4dsp1ls6u6" path="res://components/tower_upgrade_panel.gd" id="1_s3614"]
-[ext_resource type="Texture2D" uid="uid://cu7koxyph17me" path="res://sprites/symbol_x_small.png" id="2_ccpje"]
 [ext_resource type="Texture2D" uid="uid://bgrl8ls2d8hqq" path="res://sprites/label_current.png" id="3_xwlqe"]
 [ext_resource type="Texture2D" uid="uid://dwdvvx4kp6d4y" path="res://sprites/label_upgrade_to.png" id="4_imgx7"]
 [ext_resource type="Texture2D" uid="uid://dhnudksxs4hsf" path="res://sprites/label_upgraded.png" id="5_ccpje"]
@@ -31,16 +30,6 @@ offset_bottom = 602.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.784314)
-
-[node name="CloseButton" type="Button" parent="."]
-z_index = 1
-layout_mode = 0
-offset_left = 54.0
-offset_right = 87.0
-offset_bottom = 33.0
-mouse_default_cursor_shape = 2
-icon = ExtResource("2_ccpje")
-flat = true
 
 [node name="UpgradesLabel" type="TextureRect" parent="."]
 z_index = 1
@@ -116,5 +105,3 @@ layout_mode = 2
 
 [node name="TestItem2" parent="ToUpgradeComponent/UpgradeItemList" instance=ExtResource("8_ccpje")]
 layout_mode = 2
-
-[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
