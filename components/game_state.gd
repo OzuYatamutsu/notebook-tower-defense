@@ -18,6 +18,7 @@ const MONEY_METER_GROUP = "money_meter"
 const LIVES_METER_GROUP = "lives_meter"
 const NEXT_WAVE_METER_GROUP = "next_wave_meter"
 const SELECTED_TOWER_METER_GROUP = "selected_tower_meter"
+const TOWER_INFO_AND_BUY_PANEL_GROUP = "tower_info_and_buy_panel"
 const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
 const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
 
@@ -40,6 +41,7 @@ var SELECTED_TOWER_METER: SelectedTowerMeter
 var NEXT_WAVE_METER: NextWaveMeter
 var TOWER_BUY_PANEL: TowerBuyPanel
 var TOWER_UPGRADE_PANEL: TowerUpgradePanel
+var TOWER_INFO_AND_BUY_PANEL: TowerInfoAndBuyPanel
 
 var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
 var WIN_OVERLAY = load("res://levels/Win.tscn")
@@ -80,6 +82,7 @@ func _on_level_load() -> void:
 
     TOWER_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_BUY_PANEL_GROUP)
     TOWER_UPGRADE_PANEL = get_tree().get_first_node_in_group(TOWER_UPGRADE_PANEL_GROUP)
+    TOWER_INFO_AND_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_INFO_AND_BUY_PANEL_GROUP)
 
     TOWER_UPGRADE_PANEL.disable()
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
