@@ -1,110 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://un38oy2verh5"]
+[gd_scene load_steps=2 format=3 uid="uid://un38oy2verh5"]
 
 [ext_resource type="Script" uid="uid://byqgp13hiwix1" path="res://components/tower_info_and_buy_panel.gd" id="1_bgonm"]
-[ext_resource type="Texture2D" uid="uid://m68mead284tv" path="res://sprites/ui_towers_label.png" id="2_t01s0"]
-[ext_resource type="PackedScene" uid="uid://4m883pvlq3rc" path="res://components/TowerBuyItem.tscn" id="3_p60u3"]
-
-[sub_resource type="Animation" id="Animation_ayuvl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1280, 120)]
-}
-
-[sub_resource type="Animation" id="Animation_6tlop"]
-resource_name = "close"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(955, 120), Vector2(1280, 120)]
-}
-
-[sub_resource type="Animation" id="Animation_kgcwn"]
-resource_name = "open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1280, 120), Vector2(955, 120)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrjho"]
-_data = {
-&"RESET": SubResource("Animation_ayuvl"),
-&"close": SubResource("Animation_6tlop"),
-&"open": SubResource("Animation_kgcwn")
-}
 
 [node name="TowerInfoAndBuyPanel" type="Control" groups=["tower_info_and_buy_panel"]]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_top = 120.0
-offset_bottom = 120.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-script = ExtResource("1_bgonm")
-
-[node name="TowersLabel" type="TextureRect" parent="."]
-z_index = 1
-layout_mode = 0
-offset_left = 75.0
-offset_top = -55.0
-offset_right = 775.0
-offset_bottom = 645.0
-rotation = -0.0575959
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_t01s0")
-
-[node name="BgRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 54.0
-offset_right = 326.0
-offset_bottom = 602.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.784314)
+script = ExtResource("1_bgonm")
 
-[node name="PanelAnims" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vrjho")
-}
-
-[node name="BuyItemList" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 68.0
-offset_top = 88.0
-offset_right = 108.0
-offset_bottom = 128.0
-scale = Vector2(0.75, 0.75)
-theme_override_constants/separation = 110
-
-[node name="TestItem" parent="BuyItemList" instance=ExtResource("3_p60u3")]
-layout_mode = 2
+[node name="BgRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_bottom = 720.0
+grow_horizontal = 0
+color = Color(1, 0, 1, 0.784314)
