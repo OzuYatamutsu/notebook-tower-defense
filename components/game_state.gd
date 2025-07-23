@@ -67,10 +67,10 @@ func _on_level_load() -> void:
 
     PLAYER_MONEY_REMAINING = PLAYER_STARTING_MONEY
     MONEY_METER = get_tree().get_first_node_in_group(MONEY_METER_GROUP)
-    MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
+    MONEY_METER.update_value_text()
 
     LIVES_METER = get_tree().get_first_node_in_group(LIVES_METER_GROUP)
-    LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
+    LIVES_METER.update_value_text()
 
     TOWER_PLACEMENT_SHADOW = get_tree().get_first_node_in_group(TOWER_PLACEMENT_SHADOW_GROUP)
 
@@ -92,13 +92,13 @@ func _on_level_load() -> void:
 
 func add_money(value: int) -> void:
     PLAYER_MONEY_REMAINING += value
-    MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
+    MONEY_METER.update_value_text()
 
 func deduct_money(value: int) -> void:
     PLAYER_MONEY_REMAINING -= value
     if PLAYER_MONEY_REMAINING <= 0:
         PLAYER_MONEY_REMAINING = 0
-    MONEY_METER.set_value(PLAYER_MONEY_REMAINING)
+    MONEY_METER.update_value_text()
 
 func _input(event) -> void:
     if event.is_action_pressed("ui_pause_resume"):
@@ -133,7 +133,7 @@ func _on_mob_slipped_through(mob: Mob) -> void:
         return
 
     PLAYER_LIVES_REMAINING -= 1
-    LIVES_METER.set_value(PLAYER_LIVES_REMAINING)
+    LIVES_METER.update_value_text()
     print(
         "Took damage! Remaining health: " 
         + str(PLAYER_LIVES_REMAINING)

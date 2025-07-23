@@ -45,7 +45,7 @@ func _ready() -> void:
 
 func start_wave() -> void:
     CURRENT_WAVE_NUM += 1
-    WAVE_METER.set_value(CURRENT_WAVE_NUM)
+    WAVE_METER.update_value_text()
     CURRENT_WAVE_TIMER.start()
     WAVE_METER.WaveTimerUI.set_max_time(CURRENT_WAVE_TIMER.wait_time)
     WAVE_METER.WaveTimerUI.enable()
