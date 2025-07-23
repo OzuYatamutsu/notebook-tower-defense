@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_57elt")
 
 [node name="MoneyLabel" type="Label" parent="."]
+layout_mode = 0
 offset_right = 134.0
 offset_bottom = 66.0
 theme = ExtResource("2_uwqvo")
@@ -22,11 +23,12 @@ text = "Money: "
 vertical_alignment = 1
 
 [node name="MoneyCountLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 175.0
 offset_right = 309.0
 offset_bottom = 66.0
 theme = ExtResource("2_uwqvo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "0"
+text = "000000"
 vertical_alignment = 1
