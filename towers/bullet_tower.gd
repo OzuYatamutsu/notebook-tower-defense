@@ -4,7 +4,7 @@ extends Tower
 func _init() -> void:
     VALUE = 100
     Description = (
-        "Shoots a bullet at the target.\n" +
+        "Tower which shoots a bullet at the target.\n" +
         "\n" +
         "LOW DAMAGE\n" +
         "MEDIUM RATE OF FIRE\n" +
