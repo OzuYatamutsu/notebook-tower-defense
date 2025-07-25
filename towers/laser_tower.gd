@@ -5,6 +5,13 @@ var IS_ACTIVELY_FIRING: bool = false
 
 func _init() -> void:
     VALUE = 750
+    Description = (
+        "Tower which locks on to a target and deals continuous damage over time.\n" +
+        "\n" +
+        "LOW DAMAGE\n" +
+        "MEDIUM TARGET SWITCHING\n" +
+        "MEDIUM RANGE"
+    )
     UpgradesTo = [
         "res://towers/HeavyLaserTower.tscn",
         "res://towers/FastLaserTower.tscn"

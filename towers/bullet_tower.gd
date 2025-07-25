@@ -6,7 +6,7 @@ func _init() -> void:
     Description = (
         "Tower which shoots a bullet at the target.\n" +
         "\n" +
-        "LOW DAMAGE\n" +
+        "MEDIUM DAMAGE\n" +
         "MEDIUM RATE OF FIRE\n" +
         "MEDIUM RANGE"
     )
