@@ -6,6 +6,8 @@ var NUM_MINES: int = 10
 func _init() -> void:
     VALUE = 500
     Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
         "Tower which sprays damaging spikes on the ground at the start of each wave.\n" +
         "\n" +
         "MEDIUM DAMAGE\n" +

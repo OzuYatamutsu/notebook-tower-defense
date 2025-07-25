@@ -6,6 +6,8 @@ var IS_ACTIVELY_FIRING: bool = false
 func _init() -> void:
     VALUE = 750
     Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
         "Tower which locks on to a target and deals continuous damage over time.\n" +
         "\n" +
         "LOW DAMAGE\n" +
