@@ -41,43 +41,40 @@ text = "Tower select"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TowerSelectRow1" type="HBoxContainer" parent="."]
+[node name="TowerSelectPanel" type="FlowContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 0
 offset_left = 1047.0
 offset_top = 68.0
-offset_right = 2067.0
-offset_bottom = 576.0
+offset_right = 2162.0
+offset_bottom = 1088.0
 scale = Vector2(0.2, 0.2)
 
-[node name="BulletTowerButton" type="Button" parent="TowerSelectRow1"]
+[node name="BulletTower" type="Button" parent="TowerSelectPanel"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_ufyar")
 flat = true
 
-[node name="SlowTowerButton" type="Button" parent="TowerSelectRow1"]
+[node name="SlowTower" type="Button" parent="TowerSelectPanel"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("4_opbea")
 flat = true
 
-[node name="TowerSelectRow2" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 1048.0
-offset_top = 157.0
-offset_right = 2068.0
-offset_bottom = 665.0
-scale = Vector2(0.2, 0.2)
-
-[node name="LaserTowerButton" type="Button" parent="TowerSelectRow2"]
+[node name="LaserTower" type="Button" parent="TowerSelectPanel"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("5_klabk")
 flat = true
 
-[node name="SpikeTowerButton" type="Button" parent="TowerSelectRow2"]
+[node name="SpikeTower" type="Button" parent="TowerSelectPanel"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 icon = ExtResource("6_b0dq2")
 flat = true
 
-[node name="SelectedTowerLabel" type="Label" parent="."]
+[node name="DescriptionLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -90,18 +87,18 @@ grow_horizontal = 0
 theme = ExtResource("2_vr3bv")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Bullet Tower"
+text = "Description"
 vertical_alignment = 1
 
-[node name="SelectedTowerDescription" type="Label" parent="."]
+[node name="DescriptionPanel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -245.0
 offset_top = 326.0
-offset_right = -11.0
-offset_bottom = 569.0
+offset_right = -19.0
+offset_bottom = 573.0
 grow_horizontal = 0
 theme = ExtResource("2_vr3bv")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
