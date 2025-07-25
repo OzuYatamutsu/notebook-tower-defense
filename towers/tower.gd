@@ -20,6 +20,7 @@ var ShouldFireImmediately: bool = true
 var IsUpgraded: bool
 var UpgradeEffects: Array[String]
 var UpgradesTo: Array[String]  # Array of paths
+var Description: String
 
 func _init():
     # Every time the timer expires, spawn and fire

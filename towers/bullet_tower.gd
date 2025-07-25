@@ -3,6 +3,13 @@ extends Tower
 
 func _init() -> void:
     VALUE = 100
+    Description = (
+        "Shoots a bullet at the target.\n" +
+        "\n" +
+        "LOW DAMAGE\n" +
+        "MEDIUM RATE OF FIRE\n" +
+        "MEDIUM RANGE"
+    )
     UpgradesTo = [
         "res://towers/SniperTower.tscn",
         "res://towers/MissileTower.tscn"
