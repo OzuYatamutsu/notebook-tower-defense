@@ -6,6 +6,8 @@ const NUM_PROJECTILES_TO_FIRE: int = 10
 func _init() -> void:
     VALUE = 500
     Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
         "Tower which shoots a snowflake at the target, slowing them.\n" +
         "\n" +
         "MINISCULE DAMAGE\n" +

@@ -4,6 +4,8 @@ extends Tower
 func _init() -> void:
     VALUE = 100
     Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
         "Tower which shoots a bullet at the target.\n" +
         "\n" +
         "MEDIUM DAMAGE\n" +
