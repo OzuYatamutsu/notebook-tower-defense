@@ -2,7 +2,7 @@ class_name WaveMeter
 extends Control
 
 @onready var WavesCountLabel: Label = $TimeBar/WavesCountLabel
-@onready var WaveTimerUI: TimeBar = $WaveTimerUI
+@onready var WaveTimerUI: TimeBar = $TimeBar
 
 func _process(_delta) -> void:
     _update_color()
@@ -18,5 +18,9 @@ func _update_color() -> void:
     # the current wave has elapsed.
     WavesCountLabel.add_theme_color_override(
         "font_color",
-        clamp(WaveTimerUI.get_timer_percent(), 0.0, 1.0)
+        Color(
+            clamp(WaveTimerUI.get_timer_percent(), 0.0, 1.0),
+            clamp(WaveTimerUI.get_timer_percent(), 0.0, 1.0),
+            clamp(WaveTimerUI.get_timer_percent(), 0.0, 1.0),
+        )
     )
