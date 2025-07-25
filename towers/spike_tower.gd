@@ -5,6 +5,13 @@ var NUM_MINES: int = 10
 
 func _init() -> void:
     VALUE = 500
+    Description = (
+        "Tower which sprays damaging spikes on the ground at the start of each wave.\n" +
+        "\n" +
+        "MEDIUM DAMAGE\n" +
+        "NO SPECIAL EFFECTS\n" +
+        "MEDIUM RANGE"
+    )
     UpgradesTo = [
         "res://towers/MineTower.tscn",
         "res://towers/PoisonSpikeTower.tscn"

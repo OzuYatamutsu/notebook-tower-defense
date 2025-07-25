@@ -5,6 +5,13 @@ const NUM_PROJECTILES_TO_FIRE: int = 10
 
 func _init() -> void:
     VALUE = 500
+    Description = (
+        "Tower which shoots a snowflake at the target, slowing them.\n" +
+        "\n" +
+        "MINISCULE DAMAGE\n" +
+        "MEDIUM RATE OF FIRE\n" +
+        "MEDIUM RANGE"
+    )
     UpgradesTo = [
         "res://towers/SlowthrowerTower.tscn",
         "res://towers/SlowflakeTower.tscn"
