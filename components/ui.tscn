@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
 
 [ext_resource type="Script" uid="uid://10pdijbi8o1v" path="res://components/ui.gd" id="1_0eatc"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="4_24715"]
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
 [ext_resource type="PackedScene" uid="uid://un38oy2verh5" path="res://components/TowerInfoAndBuyPanel.tscn" id="7_k05k2"]
+[ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="9_24715"]
 
 [node name="UI" type="CanvasLayer"]
 layer = 2
@@ -132,6 +133,24 @@ scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(-230, -60)
 
 [node name="TowerInfoAndBuyPanel" parent="." instance=ExtResource("7_k05k2")]
+
+[node name="Map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 39.0
+offset_right = 1011.0
+offset_bottom = 671.0
+
+[node name="MapSprite" type="TextureRect" parent="Map"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_24715")
+expand_mode = 2
 
 [connection signal="pressed" from="TopBar/MusicToggleButton" to="." method="_on_music_toggle_button_pressed"]
 [connection signal="pressed" from="TopBar/SfxToggleButton" to="." method="_on_sfx_toggle_button_pressed"]
