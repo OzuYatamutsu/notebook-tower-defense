@@ -21,9 +21,13 @@ const SELECTED_TOWER_METER_GROUP = "selected_tower_meter"
 const TOWER_INFO_AND_BUY_PANEL_GROUP = "tower_info_and_buy_panel"
 const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
 const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
+const SFX_GROUP = "audio_sfx"
+const BGM_GROUP = "audio_bgm"
 
 @export var PLAYER_LIVES_START: int = 20
 @export var IS_GAME_OVER: bool = false
+@export var SFX_ENABLED: bool = true
+@export var BGM_ENABLED: bool = true
 
 # Accessed via meters in UI
 @export var PLAYER_MONEY_REMAINING: int = 400
@@ -128,6 +132,30 @@ func restart_game() -> void:
 
 func quit_game() -> void:
     get_tree().quit()
+
+func toggle_sfx() -> void:
+    if SFX_ENABLED:
+        print("Disabling sfx!")
+        SFX_ENABLED = false
+        for node in get_tree().get_nodes_in_group(SFX_GROUP):
+            node.disable()
+    else:
+        print("Enabling sfx!")
+        SFX_ENABLED = true
+        for node in get_tree().get_nodes_in_group(SFX_GROUP):
+            node.enable()
+
+func toggle_bgm() -> void:
+    if BGM_ENABLED:
+        print("Disabling bgm!")
+        BGM_ENABLED = false
+        for node in get_tree().get_nodes_in_group(BGM_GROUP):
+            node.disable()
+    else:
+        print("Enabling bgm!")
+        BGM_ENABLED = true
+        for node in get_tree().get_nodes_in_group(BGM_GROUP):
+            node.enable()
 
 func _on_mob_slipped_through(mob: Mob) -> void:
     mob.delayed_despawn()
