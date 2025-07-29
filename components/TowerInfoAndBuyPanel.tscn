@@ -103,5 +103,12 @@ grow_horizontal = 0
 theme = ExtResource("2_vr3bv")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "Tower description tower description tower description tower description tower description tower description tower description tower description tower description tower description "
+text = "COST: 100 MONEY
+
+Tower which shoots a bullet at the target.
+
+MEDIUM DAMAGE
+MEDIUM RATE OF FIRE
+MEDIUM RANGE
+"
 autowrap_mode = 3
