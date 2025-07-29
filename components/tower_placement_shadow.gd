@@ -8,6 +8,7 @@ extends Node2D
 @onready var OK_SHADOW: ColorRect = $ColorRectOK
 @onready var NG_SHADOW: ColorRect = $ColorRectNG
 @onready var NG_MONEY: Label = $NGMoney
+@onready var TowerSprite: Sprite = $TowerSprite
 
 func _process(delta) -> void:
     position = position.lerp(
