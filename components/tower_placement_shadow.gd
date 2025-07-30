@@ -8,7 +8,15 @@ extends Node2D
 @onready var OK_SHADOW: ColorRect = $ColorRectOK
 @onready var NG_SHADOW: ColorRect = $ColorRectNG
 @onready var NG_MONEY: Label = $NGMoney
-@onready var TowerSprite: Sprite = $TowerSprite
+@onready var TowerSprite: Sprite2D = $TowerSprite
+
+var IsActive: bool = false
+
+func _ready() -> void:
+    OK_SHADOW.visible = false
+    NG_SHADOW.visible = false
+    NG_MONEY.visible = false
+    TowerSprite.visible = false
 
 func _process(delta) -> void:
     position = position.lerp(
@@ -23,6 +31,12 @@ func _input(event) -> void:
         and event.button_index == MOUSE_BUTTON_LEFT
     ):
         return
+
+func activate(towerPath: String, tower: Tower) -> void:
+    TOWER_TO_PLACE_PATH = towerPath
+    TOWER_TO_PLACE = tower
+    TowerSprite.texture = tower.get_node("Sprite").texture
+    TowerSprite.visible = true
 
 func spawn() -> void:
     var new_tower = load(TOWER_TO_PLACE_PATH).instantiate()

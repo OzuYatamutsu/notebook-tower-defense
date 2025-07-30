@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=11 format=3 uid="uid://dhs0soxiwf4lb"]
 
 [ext_resource type="Script" uid="uid://10pdijbi8o1v" path="res://components/ui.gd" id="1_0eatc"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
 [ext_resource type="PackedScene" uid="uid://un38oy2verh5" path="res://components/TowerInfoAndBuyPanel.tscn" id="7_k05k2"]
 [ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="9_24715"]
+[ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="10_451mt"]
 
 [node name="UI" type="CanvasLayer"]
 layer = 2
@@ -151,6 +152,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_24715")
 expand_mode = 2
+
+[node name="TowerPlacementShadow" parent="." instance=ExtResource("10_451mt")]
+position = Vector2(640, 311)
+scale = Vector2(0.1, 0.1)
 
 [connection signal="pressed" from="TopBar/MusicToggleButton" to="." method="_on_music_toggle_button_pressed"]
 [connection signal="pressed" from="TopBar/SfxToggleButton" to="." method="_on_sfx_toggle_button_pressed"]
