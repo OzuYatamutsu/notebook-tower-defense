@@ -31,7 +31,6 @@ func _ready() -> void:
     SPAWNER.spawn_mob.connect(_on_spawn_signal)
 
     WAVE_METER = get_tree().get_first_node_in_group(WAVE_METER_GROUP)
-    WAVE_METER.set_max_value(len(WAVE_CONTENTS))
 
     CURRENT_WAVE_TIMER = Timer.new()
     CURRENT_WAVE_TIMER.wait_time = WAVE_TIMER_SECS

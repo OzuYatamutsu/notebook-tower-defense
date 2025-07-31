@@ -85,10 +85,8 @@ func _on_level_load() -> void:
     NEXT_WAVE_METER = get_tree().get_first_node_in_group(NEXT_WAVE_METER_GROUP)
 
     TOWER_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_BUY_PANEL_GROUP)
-    TOWER_UPGRADE_PANEL = get_tree().get_first_node_in_group(TOWER_UPGRADE_PANEL_GROUP)
     TOWER_INFO_AND_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_INFO_AND_BUY_PANEL_GROUP)
 
-    TOWER_UPGRADE_PANEL.disable()
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")
     assert(get_tree().get_first_node_in_group(GameState.TOWERS_GROUP), "Missing a towers node!")

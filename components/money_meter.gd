@@ -14,4 +14,4 @@ func _zero_pad(num_text: String) -> String:
     var num_digits_to_add = NUM_DIGITS - num_text.length()
     if num_digits_to_add <= 0:
         return num_text
-    return ('0' * num_digits_to_add) + num_text
+    return ('0'.repeat(num_digits_to_add)) + num_text
