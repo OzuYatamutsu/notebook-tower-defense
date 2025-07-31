@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4lsbppo6u3fq"]
+[gd_scene load_steps=4 format=3 uid="uid://d4lsbppo6u3fq"]
 
 [ext_resource type="PackedScene" uid="uid://ddjempya4tffr" path="res://components/mobs_parent.tscn" id="1_yx5pn"]
-[ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="2_tl311"]
 [ext_resource type="PackedScene" uid="uid://deg46c6o3hqg4" path="res://components/level_hitbox.tscn" id="3_v8bwf"]
 [ext_resource type="PackedScene" uid="uid://osxbwsluain5" path="res://components/level_spawn.tscn" id="4_q5kd3"]
 
@@ -19,10 +18,6 @@ scale = Vector2(0.07, 0.07)
 [node name="walls" type="Area2D" parent="." groups=["walls"]]
 collision_layer = 2
 collision_mask = 0
-
-[node name="TowerPlacementShadow" parent="." instance=ExtResource("2_tl311")]
-position = Vector2(566, 331)
-scale = Vector2(0.1, 0.1)
 
 [node name="LevelHitbox" parent="." instance=ExtResource("3_v8bwf")]
 position = Vector2(1301, 645)
