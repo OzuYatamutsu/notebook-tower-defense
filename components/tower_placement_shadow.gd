@@ -31,12 +31,18 @@ func _input(event) -> void:
         and event.button_index == MOUSE_BUTTON_LEFT
     ):
         return
+    
+    # We should create the tower at the current location,
+    # then deactivate the shadow.
+    spawn()
+    IsActive = false
 
 func activate(towerPath: String, tower: Tower) -> void:
     TOWER_TO_PLACE_PATH = towerPath
     TOWER_TO_PLACE = tower
     TowerSprite.texture = tower.get_node("Sprite").texture
     TowerSprite.visible = true
+    IsActive = true
 
 func spawn() -> void:
     var new_tower = load(TOWER_TO_PLACE_PATH).instantiate()
