@@ -225,8 +225,8 @@ func _get_target_init_window_size() -> Vector2i:
 
     while (current_max_window_size < target_max_window_size):
         current_max_window_size = Vector2i(
-            current_max_window_size.x * 1.1,
-            current_max_window_size.y * 1.1,
+            int(current_max_window_size.x * 1.1),
+            int(current_max_window_size.y * 1.1)
         )
 
     return current_max_window_size
