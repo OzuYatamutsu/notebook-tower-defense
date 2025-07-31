@@ -64,10 +64,6 @@ polygon = PackedVector2Array(-1, 107, 331, 126, 424, 117, 659, 112, 716, 476, 71
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
 polygon = PackedVector2Array(-1, 301, 17, 286, 444, 277, 458, 406, 455, 659, 538, 671, 783, 683, 1281, 674, 1281, 718, 367, 720, 357, 348, -2, 363)
 
-[node name="TowerPlacementShadow" parent="LevelViewport" index="4"]
-TOWER_TO_PLACE_PATH = "res://towers/BulletTower.tscn"
-MOUSE_FOLLOW_SPEED = 10.0
-
 [node name="LevelSpawn" parent="LevelViewport" index="6"]
 SPAWN_TIMER_SECS = 0.5
 
