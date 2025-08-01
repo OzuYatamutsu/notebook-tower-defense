@@ -9,7 +9,7 @@ func _process(_delta) -> void:
 
 func update_value_text() -> void:
     WavesCountLabel.text = "{0}/{1}".format([
-        GameState.CURRENT_LEVEL.CURRENT_WAVE,
+        GameState.CURRENT_LEVEL.CURRENT_WAVE_NUM,
         len(GameState.CURRENT_LEVEL.WAVE_CONTENTS)
     ])
 
