@@ -38,7 +38,7 @@ func _input(event) -> void:
     # We should create the tower at the current location,
     # then deactivate the shadow.
     spawn()
-    IsActive = false
+    deactivate()
 
 func activate(towerPath: String, tower: Tower) -> void:
     TOWER_TO_PLACE_PATH = towerPath
@@ -46,6 +46,10 @@ func activate(towerPath: String, tower: Tower) -> void:
     TowerSprite.texture = tower.get_node("Sprite").texture
     TowerSprite.visible = true
     IsActive = true
+
+func deactivate() -> void:
+    TowerSprite.visible = false
+    IsActive = false
 
 func spawn() -> void:
     var new_tower = load(TOWER_TO_PLACE_PATH).instantiate()
