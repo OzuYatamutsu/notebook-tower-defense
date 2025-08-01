@@ -31,7 +31,10 @@ func _input(event) -> void:
         and event.button_index == MOUSE_BUTTON_LEFT
     ):
         return
-    
+
+    if !IsActive:
+        return
+
     # We should create the tower at the current location,
     # then deactivate the shadow.
     spawn()
