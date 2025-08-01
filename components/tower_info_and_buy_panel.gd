@@ -49,3 +49,15 @@ func _on_button_click(button: Button) -> void:
         ButtonToTowerPathMap[button.name],
         ButtonToTowerMap[button.name]
     )
+
+func recalculate_money() -> void:
+    # Deactivate buttons if we can't afford them
+    # Active buttons if we can
+    for tower: String in ButtonToTowerMap:
+        if (
+            GameState.PLAYER_MONEY_REMAINING
+            < ButtonToTowerMap[tower].VALUE
+        ):
+            TowerSelectPanel.find_child(tower).disabled = true
+        else:
+            TowerSelectPanel.find_child(tower).disabled = false

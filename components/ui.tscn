@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
 
 [ext_resource type="Script" uid="uid://10pdijbi8o1v" path="res://components/ui.gd" id="1_0eatc"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
 [ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="1_24715"]
 [ext_resource type="PackedScene" uid="uid://djugbukw7mfia" path="res://components/LivesMeter.tscn" id="2_k05k2"]
 [ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="3_0eatc"]
-[ext_resource type="PackedScene" uid="uid://fr40caw6de22" path="res://components/SelectedTowerMeter.tscn" id="4_24715"]
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
 [ext_resource type="PackedScene" uid="uid://un38oy2verh5" path="res://components/TowerInfoAndBuyPanel.tscn" id="7_k05k2"]
 [ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="9_24715"]
@@ -120,18 +119,6 @@ offset_top = 19.0
 offset_right = 1078.0
 offset_bottom = 19.0
 scale = Vector2(0.3, 0.3)
-
-[node name="SelectedTowerMeter" parent="." instance=ExtResource("4_24715")]
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_bottom = 0.0
-offset_top = 0.0
-offset_bottom = 0.0
-grow_horizontal = 0
-grow_vertical = 1
-scale = Vector2(0.3, 0.3)
-pivot_offset = Vector2(-230, -60)
 
 [node name="TowerInfoAndBuyPanel" parent="." instance=ExtResource("7_k05k2")]
 

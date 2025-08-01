@@ -98,12 +98,14 @@ func _on_level_load() -> void:
 func add_money(value: int) -> void:
     PLAYER_MONEY_REMAINING += value
     MONEY_METER.update_value_text()
+    TOWER_INFO_AND_BUY_PANEL.recalculate_money()
 
 func deduct_money(value: int) -> void:
     PLAYER_MONEY_REMAINING -= value
     if PLAYER_MONEY_REMAINING <= 0:
         PLAYER_MONEY_REMAINING = 0
     MONEY_METER.update_value_text()
+    TOWER_INFO_AND_BUY_PANEL.recalculate_money()
 
 func _input(event) -> void:
     if event.is_action_pressed("ui_pause_resume"):
