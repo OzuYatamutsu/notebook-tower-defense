@@ -22,7 +22,7 @@ var WAVE_METER: WaveMeter
 var SPAWNER: LevelSpawn
 var WAITING_FOR_LAST_MOB_FLAG: bool = false
 
-@export var CURRENT_WAVE_NUM = 0
+@export var CURRENT_WAVE_NUM: int = 0
 
 func _ready() -> void:
     GameState.CURRENT_LEVEL = self
