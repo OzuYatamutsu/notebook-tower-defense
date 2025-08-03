@@ -3,14 +3,23 @@ extends SpikeTower
 
 func _init() -> void:
     VALUE = 750
+    Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
+        "Tower which sprays poison spikes on the ground at the " +
+        "start of each wave. Poison spikes deal constant damage " +
+        "over time to a monster.\n" +
+        "\n"
+    )
     IsUpgraded = true
     UpgradeEffects = [
         "+POISON",
         "+SLOW",
         "--DAMAGE"
     ]
-
-    super._init()
+    for effect in UpgradeEffects:
+        Description += effect + "\n"
+    self._superinit()
 
 func _ready() -> void:
     ready_tower(
