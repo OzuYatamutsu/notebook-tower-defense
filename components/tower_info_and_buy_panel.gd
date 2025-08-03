@@ -92,7 +92,6 @@ func recalculate_money() -> void:
             GameState.PLAYER_MONEY_REMAINING
             < ButtonToTowerMap[tower].VALUE
         ):
-
             target.disabled = true
         else:
             target.disabled = false
