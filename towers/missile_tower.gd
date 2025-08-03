@@ -3,6 +3,14 @@ extends Tower
 
 func _init() -> void:
     VALUE = 750
+    Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
+        "Tower which shoots a slow missile at the target. " +
+        "The missile explodes, dealing damage to all monsters " +
+        "nearby.\n" +
+        "\n"
+    )
     IsUpgraded = true
     UpgradeEffects = [
         "+DAMAGE",
@@ -10,6 +18,8 @@ func _init() -> void:
         "-FIRE RATE",
         "-SPEED"
     ]
+    for effect in UpgradeEffects:
+        Description += effect + "\n"
     super._init()
 
 func _ready() -> void:

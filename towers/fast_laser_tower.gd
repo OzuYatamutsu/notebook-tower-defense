@@ -9,6 +9,14 @@ var IS_ACTIVELY_FIRING: bool = false
 
 func _init() -> void:
     VALUE = 800
+    Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
+        "Tower which deals light continuous damage over time " +
+        "to the weakest target nearby, switching targets frequently. " +
+        "Can target multiple targets.\n" +
+        "\n"
+    )
     IsUpgraded = true
     UpgradeEffects = [
         "+Targets weakest",
@@ -16,7 +24,8 @@ func _init() -> void:
         "+RANGE",
         "-DAMAGE"
     ]
-
+    for effect in UpgradeEffects:
+        Description += effect + "\n"
     super._init()
 
 func _ready() -> void:

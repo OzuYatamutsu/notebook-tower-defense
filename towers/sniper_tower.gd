@@ -3,6 +3,12 @@ extends Tower
 
 func _init() -> void:
     VALUE = 750
+    Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
+        "Tower which targets far away monsters with high accuracy.\n" +
+        "\n"
+    )
     IsUpgraded = true
     UpgradeEffects = [
         "+DAMAGE",
@@ -10,6 +16,8 @@ func _init() -> void:
         "+RANGE",
         "-FIRE RATE"
     ]
+    for effect in UpgradeEffects:
+        Description += effect + "\n"
 
     super._init()
 

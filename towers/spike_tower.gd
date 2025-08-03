@@ -21,6 +21,8 @@ func _init() -> void:
     IsUpgraded = false
     super._init()
 
+func _superinit():
+    super._init()
 
 func _ready() -> void:
     ready_tower(

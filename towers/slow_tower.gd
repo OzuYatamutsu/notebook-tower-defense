@@ -8,7 +8,7 @@ func _init() -> void:
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +
-        "Tower which shoots a snowflake at the target, slowing them.\n" +
+        "Tower which shoots snowflakes at nearby targets, slowing them.\n" +
         "\n" +
         "MINISCULE DAMAGE\n" +
         "MEDIUM RATE OF FIRE\n" +

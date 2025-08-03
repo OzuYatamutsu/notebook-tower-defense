@@ -5,12 +5,20 @@ const NUM_PROJECTILES_TO_FIRE: int = 25
 
 func _init() -> void:
     VALUE = 750
+    Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
+        "Tower which shoots MANY snowflakes at nearby targets, slowing them.\n" +
+        "\n"
+    )
     IsUpgraded = true
     UpgradeEffects = [
         "+PROJECTILES",
         "+RANGE",
         "-FIRE RATE"
     ]
+    for effect in UpgradeEffects:
+        Description += effect + "\n"
     super._init()
 
 func _ready() -> void:

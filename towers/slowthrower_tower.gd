@@ -5,12 +5,21 @@ const SPEED_THRESHOLD: float = 0.025
 
 func _init() -> void:
     VALUE = 750
+    Description = (
+        "COST: {0} MONEY\n".format([VALUE]) +
+        "\n" +
+        "Tower which fires snowflakes at a target in a constant " +
+        "stream, slowing them.\n" +
+        "\n"
+    )
     IsUpgraded = true
     UpgradeEffects = [
         "+RANGE",
         "++FIRE RATE",
         "-DAMAGE"
     ]
+    for effect in UpgradeEffects:
+        Description += effect + "\n"
     super._init()
 
 func _ready() -> void:
