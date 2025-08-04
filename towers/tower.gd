@@ -46,6 +46,7 @@ func _init():
     ShootTimer.timeout.connect(_on_shoot_timer_timeout)
     TargetingRadius.area_entered.connect(_on_targeting_radius_entered)
     TargetingRadius.area_exited.connect(_on_targeting_radius_exited)
+    input_event.connect(_on_click)
 
 func ready_tower(projectile: PackedScene, targeting_radius_px: float, rate_of_fire_secs: float) -> void:
     # Call this when we're placing the tower
@@ -133,6 +134,14 @@ func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
             return attempted_point
         print("try again")
     return Vector2.ZERO
+
+func _on_click(_viewport, event, shape_idx) -> void:
+    # When a tower is clicked, we want to select it
+    # in the info panel.
+    if !(event is InputEventMouseButton and event.pressed):
+        return
+
+    GameState.TOWER_INFO_AND_BUY_PANEL.info_mode(self)
 
 func fire() -> void:
     # Spawn a new projectile

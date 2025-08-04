@@ -33,6 +33,8 @@ extends Control
 
 @onready var TowerBuySelectPanel: FlowContainer = $BuyPanel/TowerSelectPanel
 @onready var TowerUpgradeSelectPanel: FlowContainer = $UpgradePanel/TowerSelectPanel
+@onready var BuyPanel: Control = $BuyPanel
+@onready var UpgradePanel: Control = $UpgradePanel
 
 @onready var BulletTowerButton: Button = $BuyPanel/TowerSelectPanel/BulletTower
 @onready var SlowTowerButton: Button = $BuyPanel/TowerSelectPanel/SlowTower
@@ -51,6 +53,8 @@ extends Control
 @onready var SpawnShadow: TowerPlacementShadow = get_tree().get_first_node_in_group(
     GameState.TOWER_PLACEMENT_SHADOW_GROUP
 )
+
+@export var SelectedTower: Tower = null
 
 func _ready() -> void:
     DescriptionPanel.text = ""
@@ -95,3 +99,38 @@ func recalculate_money() -> void:
             target.disabled = true
         else:
             target.disabled = false
+
+func _towerNameIsInUpgradePaths(
+    towerName: String,
+    upgradePaths: Array[String]
+) -> bool:
+    for towerPath in upgradePaths:
+        if load(towerPath).get_class() == towerName:
+            return true
+    return false
+
+func info_mode(tower: Tower) -> void:
+    # We've selected a tower, activate the info panel
+    # and deactivate the tower select panel.
+    SelectedTower = tower
+    
+    # Based on the selected tower, activate and deactivate
+    # upgrade menu options.
+    for towerButton in TowerUpgradeSelectPanel:
+        if _towerNameIsInUpgradePaths(towerButton.name, SelectedTower.UpgradesTo):
+            towerButton.enabled = true
+            towerButton.visible = true
+        else:
+            towerButton.disabled = true
+            towerButton.visible = false
+
+    BuyPanel.visible = false
+    UpgradePanel.visible = true
+
+func _input(event: InputEvent) -> void:
+    if !(
+        event is InputEventMouseButton
+        and event.is_pressed()
+        and event.button_index == MOUSE_BUTTON_LEFT
+    ):
+        return
