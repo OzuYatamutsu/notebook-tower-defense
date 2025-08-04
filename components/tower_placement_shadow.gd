@@ -36,12 +36,18 @@ func _input(event) -> void:
 
     if !IsActive and HoveringOverTower != null:
         GameState.TOWER_INFO_AND_BUY_PANEL.info_mode(HoveringOverTower)
+    elif (
+        !IsActive
+        and HoveringOverTower == null
+        and !GameState.TOWER_INFO_AND_BUY_PANEL.InfoModeActive
+    ):
+        GameState.TOWER_INFO_AND_BUY_PANEL.buy_mode()
     elif !IsActive:
-        return
+        GameState.TOWER_INFO_AND_BUY_PANEL.buy_mode()
 
     # We should create the tower at the current location,
     # then deactivate the shadow.
-    if !HoveringOverTower and IsHoveringOverWall:
+    if !HoveringOverTower and IsHoveringOverWall and IsActive:
         spawn()
         hide_shadow()
         deactivate()

@@ -169,6 +169,22 @@ mouse_default_cursor_shape = 2
 icon = ExtResource("14_8tr6q")
 flat = true
 
+[node name="ReturnToSelectLabel" type="Label" parent="UpgradePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -12.0
+offset_top = 649.0
+offset_right = 201.0
+offset_bottom = 696.0
+grow_horizontal = 0
+theme = ExtResource("2_vr3bv")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Click anywhere to return to tower placement"
+autowrap_mode = 3
+
 [node name="DescriptionLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 1047.0
