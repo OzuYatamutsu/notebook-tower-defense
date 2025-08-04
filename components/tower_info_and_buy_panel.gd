@@ -124,6 +124,7 @@ func info_mode(tower: Tower) -> void:
             towerButton.disabled = true
             towerButton.visible = false
 
+    recalculate_money()
     BuyPanel.visible = false
     UpgradePanel.visible = true
 
