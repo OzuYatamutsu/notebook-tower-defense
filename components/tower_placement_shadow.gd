@@ -41,8 +41,12 @@ func _input(event) -> void:
 
     # We should create the tower at the current location,
     # then deactivate the shadow.
-    spawn()
-    deactivate()
+    if !HoveringOverTower and IsHoveringOverWall:
+        spawn()
+        hide_shadow()
+        deactivate()
+    elif !IsHoveringOverWall:
+        print("Can't place tower (invalid area)")
 
 func activate(towerPath: String, tower: Tower) -> void:
     TOWER_TO_PLACE_PATH = towerPath
@@ -70,11 +74,31 @@ func spawn() -> void:
 func _on_area_entered(tower_or_wall: Area2D) -> void:
     if tower_or_wall is Tower:
         HoveringOverTower = tower_or_wall
+        if IsActive:
+            set_ng_state()
     elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
         IsHoveringOverWall = true
+        if IsActive:
+            set_ok_state()
 
 func _on_area_exited(tower_or_wall: Area2D) -> void:
     if tower_or_wall is Tower:
         HoveringOverTower = null
+        if IsActive:
+            set_ok_state()
     elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
         IsHoveringOverWall = false
+        if IsActive:
+            set_ng_state()
+
+func set_ok_state() -> void:
+    OK_SHADOW.visible = true
+    NG_SHADOW.visible = false
+
+func set_ng_state() -> void:
+    OK_SHADOW.visible = false
+    NG_SHADOW.visible = true
+
+func hide_shadow() -> void:
+    OK_SHADOW.visible = false
+    NG_SHADOW.visible = false
