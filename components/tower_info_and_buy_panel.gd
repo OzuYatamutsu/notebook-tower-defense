@@ -105,7 +105,7 @@ func _towerNameIsInUpgradePaths(
     upgradePaths: Array[String]
 ) -> bool:
     for towerPath in upgradePaths:
-        if load(towerPath).get_class() == towerName:
+        if towerPath.split("/")[-1].replace(".tscn", "") == towerName:
             return true
     return false
 
@@ -116,9 +116,9 @@ func info_mode(tower: Tower) -> void:
     
     # Based on the selected tower, activate and deactivate
     # upgrade menu options.
-    for towerButton in TowerUpgradeSelectPanel:
+    for towerButton in TowerUpgradeSelectPanel.get_children():
         if _towerNameIsInUpgradePaths(towerButton.name, SelectedTower.UpgradesTo):
-            towerButton.enabled = true
+            towerButton.disabled = false
             towerButton.visible = true
         else:
             towerButton.disabled = true

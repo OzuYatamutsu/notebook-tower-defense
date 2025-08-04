@@ -170,7 +170,6 @@ icon = ExtResource("14_8tr6q")
 flat = true
 
 [node name="DescriptionLabel" type="Label" parent="."]
-visible = false
 layout_mode = 2
 offset_left = 1047.0
 offset_top = 272.8
