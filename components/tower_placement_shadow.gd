@@ -4,6 +4,8 @@ extends Node2D
 @export var TOWER_TO_PLACE: Tower = preload("res://towers/BulletTower.tscn").instantiate()
 @export var TOWER_TO_PLACE_PATH: String = "res://towers/BulletTower.tscn"
 @export var MOUSE_FOLLOW_SPEED: float = 10.0
+@export var HoveringOverTower: Tower = null
+@export var IsHoveringOverWall: bool = false
 
 @onready var OK_SHADOW: ColorRect = $ColorRectOK
 @onready var NG_SHADOW: ColorRect = $ColorRectNG
@@ -32,7 +34,9 @@ func _input(event) -> void:
     ):
         return
 
-    if !IsActive:
+    if !IsActive and HoveringOverTower != null:
+        GameState.TOWER_INFO_AND_BUY_PANEL.info_mode(HoveringOverTower)
+    elif !IsActive:
         return
 
     # We should create the tower at the current location,
@@ -62,3 +66,15 @@ func spawn() -> void:
 
     new_tower.global_position = get_global_mouse_position()
     GameState.deduct_money(TOWER_TO_PLACE.VALUE)
+
+func _on_area_entered(tower_or_wall: Area2D) -> void:
+    if tower_or_wall is Tower:
+        HoveringOverTower = tower_or_wall
+    elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
+        IsHoveringOverWall = true
+
+func _on_area_exited(tower_or_wall: Area2D) -> void:
+    if tower_or_wall is Tower:
+        HoveringOverTower = null
+    elif tower_or_wall.is_in_group(GameState.WALLS_GROUP):
+        IsHoveringOverWall = false

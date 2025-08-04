@@ -100,13 +100,10 @@ polygon = PackedVector2Array(249, 0, 250, 88, 16, 102, 29, 175, 26, 222, 31, 229
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
 polygon = PackedVector2Array(369, -2, 371, 88, 364, 177, 270, 187, 121, 189, 113, 262, 116, 276, 225, 278, 295, 282, 339, 281, 485, 266, 638, 261, 798, 255, 843, 257, 843, 295, 853, 370, 856, 482, 857, 528, 828, 529, 793, 527, 750, 533, 649, 538, 502, 542, 385, 559, 388, 591, 491, 591, 696, 582, 784, 581, 955, 577, 954, 509, 947, 392, 938, 324, 940, 265, 930, 134, 734, 146, 641, 140, 645, 2, 567, 3, 572, 139, 572, 208, 422, 217, 424, -4)
 
-[node name="TowerPlacementShadow" parent="LevelViewport" index="4"]
-position = Vector2(518, 141)
-
-[node name="LevelHitbox" parent="LevelViewport" index="5"]
+[node name="LevelHitbox" parent="LevelViewport" index="4"]
 position = Vector2(689, 21.0001)
 
-[node name="LevelSpawn" parent="LevelViewport" index="6"]
+[node name="LevelSpawn" parent="LevelViewport" index="5"]
 position = Vector2(302, 18)
 
 [node name="map" type="Sprite2D" parent="LevelViewport"]

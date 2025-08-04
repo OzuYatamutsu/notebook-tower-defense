@@ -42,3 +42,6 @@ text = "$"
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_selgh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
