@@ -55,6 +55,7 @@ extends Control
 )
 
 @export var SelectedTower: Tower = null
+@export var InfoModeActive: bool = false
 
 func _ready() -> void:
     DescriptionPanel.text = ""
@@ -70,6 +71,7 @@ func _ready() -> void:
         tower.pressed.connect(
             _on_button_click.bind(tower)
         )
+    buy_mode()
 
 func _on_button_rollover(button: Button) -> void:
     var tower: Tower = ButtonToTowerMap[button.name]
@@ -127,6 +129,13 @@ func info_mode(tower: Tower) -> void:
     recalculate_money()
     BuyPanel.visible = false
     UpgradePanel.visible = true
+    InfoModeActive = true
+
+func buy_mode() -> void:
+    recalculate_money()
+    BuyPanel.visible = true
+    UpgradePanel.visible = false
+    InfoModeActive = false
 
 func _input(event: InputEvent) -> void:
     if !(
