@@ -35,7 +35,6 @@ grow_horizontal = 0
 color = Color(1, 1, 1, 0.784314)
 
 [node name="BuyPanel" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 1020.0
 offset_right = 1060.0
@@ -91,6 +90,7 @@ icon = ExtResource("6_b0dq2")
 flat = true
 
 [node name="UpgradePanel" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 1020.0
 offset_right = 1060.0

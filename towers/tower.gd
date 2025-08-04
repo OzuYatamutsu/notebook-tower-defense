@@ -135,9 +135,10 @@ func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
         print("try again")
     return Vector2.ZERO
 
-func _on_click(_viewport, event, shape_idx) -> void:
+func _on_click(_viewport, event, _shape_idx) -> void:
     # When a tower is clicked, we want to select it
     # in the info panel.
+    # TODO: this event handle isn't being fired like we expect!
     if !(event is InputEventMouseButton and event.pressed):
         return
 
