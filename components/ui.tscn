@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="10_451mt"]
 
 [node name="UI" type="CanvasLayer"]
-layer = -1
+layer = 2
 script = ExtResource("1_0eatc")
 
 [node name="TopBar" type="Control" parent="."]
