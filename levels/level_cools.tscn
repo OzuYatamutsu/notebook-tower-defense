@@ -65,9 +65,6 @@ metadata/_custom_type_script = "uid://0wwxleyefwme"
 
 [node name="UI" parent="." instance=ExtResource("2_r7tsd")]
 
-[node name="MapSprite" parent="UI/Map" index="0"]
-texture = ExtResource("4_n0ulb")
-
 [node name="LevelViewport" parent="." instance=ExtResource("3_52n04")]
 
 [node name="Path2D" type="Path2D" parent="LevelViewport/mobs" index="0"]
@@ -110,6 +107,12 @@ scale = Vector2(8.15, 0.34)
 [node name="LevelSpawn" parent="LevelViewport" index="5"]
 position = Vector2(22, 152)
 SPAWN_TIMER_SECS = 0.5
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(0, 39)
+scale = Vector2(0.796875, 0.778325)
+texture = ExtResource("4_n0ulb")
+centered = false
 
 [editable path="UI"]
 [editable path="LevelViewport"]

@@ -64,9 +64,7 @@ script = ExtResource("1_ebeyy")
 metadata/_custom_type_script = "uid://0wwxleyefwme"
 
 [node name="UI" parent="." instance=ExtResource("2_6huok")]
-
-[node name="MapSprite" parent="UI/Map" index="0"]
-texture = ExtResource("4_ebeyy")
+layer = 0
 
 [node name="LevelViewport" parent="." instance=ExtResource("3_36f1o")]
 
@@ -108,6 +106,12 @@ position = Vector2(689, 21.0001)
 
 [node name="LevelSpawn" parent="LevelViewport" index="5"]
 position = Vector2(302, 18)
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(0, 39)
+scale = Vector2(0.796875, 0.740047)
+texture = ExtResource("4_ebeyy")
+centered = false
 
 [editable path="UI"]
 [editable path="LevelViewport"]
