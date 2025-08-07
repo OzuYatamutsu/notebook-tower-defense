@@ -14,7 +14,7 @@ var LABEL_LEVEL_MAP = {
 
 var CurrentSelectedLevel: String = LABEL_LEVEL_MAP["EasyStreet"]
 
-@onready var MapPreview: Sprite2D = $map
+@onready var MapPreview: TextureRect = $map
 @onready var LoadLevelButton: Button = $Selector/LoadMapButton
 
 func _ready() -> void:
@@ -32,10 +32,10 @@ func load_level_preview(path_to_level: String) -> void:
     CurrentSelectedLevel = path_to_level
 
     var level: Level = load(CurrentSelectedLevel).instantiate()
-    var level_map: Sprite2D = level.get_node("Ui/Map/MapSprite")
+    var level_map: TextureRect = level.get_node("UI/Map/MapSprite")
     var viewport_size: Vector2 = get_viewport_rect().size
     var level_map_size: Vector2 = level_map.texture.get_size()
-    
+
     MapPreview.texture = level_map.texture
     
     # Scale map to fit viewport
