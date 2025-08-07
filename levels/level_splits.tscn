@@ -65,6 +65,9 @@ metadata/_custom_type_script = "uid://0wwxleyefwme"
 
 [node name="UI" parent="." instance=ExtResource("2_ka6gn")]
 
+[node name="MapSprite" parent="UI/Map" index="0"]
+texture = ExtResource("4_k8t1y")
+
 [node name="LevelViewport" parent="." instance=ExtResource("3_s65yq")]
 
 [node name="Path2D" type="Path2D" parent="LevelViewport/mobs" index="0"]
@@ -106,17 +109,13 @@ polygon = PackedVector2Array(212, 391, 344, 193, 370, 141, 624, 92, 713, 152, 77
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="LevelViewport/walls" index="3"]
 polygon = PackedVector2Array(241, 438, 461, 300, 759, 271, 997, 486, 997, 532, 732, 531, 651, 471, 484, 392, 505, 360, 707, 420, 751, 470, 918, 480, 719, 334, 476, 391)
 
-[node name="LevelHitbox" parent="LevelViewport" index="5"]
+[node name="LevelHitbox" parent="LevelViewport" index="4"]
 position = Vector2(1045, 719)
 scale = Vector2(2.20002, 0.196928)
 
-[node name="LevelSpawn" parent="LevelViewport" index="6"]
+[node name="LevelSpawn" parent="LevelViewport" index="5"]
 position = Vector2(12, 611)
 
-[node name="map" type="Sprite2D" parent="LevelViewport"]
-scale = Vector2(1, 1.03)
-texture = ExtResource("4_k8t1y")
-centered = false
-
+[editable path="UI"]
 [editable path="LevelViewport"]
 [editable path="LevelViewport/mobs"]
