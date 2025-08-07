@@ -71,6 +71,9 @@ metadata/_custom_type_script = "uid://0wwxleyefwme"
 
 [node name="UI" parent="." instance=ExtResource("2_6wpsq")]
 
+[node name="MapSprite" parent="UI/Map" index="0"]
+texture = ExtResource("4_nm8an")
+
 [node name="LevelViewport" parent="." instance=ExtResource("3_v5msj")]
 
 [node name="Path2D" type="Path2D" parent="LevelViewport/mobs" index="0"]
@@ -109,17 +112,13 @@ polygon = PackedVector2Array(157, -1, 165, 96, 973, 86, 1135, 85, 1149, 82, 1172
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
 polygon = PackedVector2Array(61, 2, 62, 185, 62, 191, 158, 189, 201, 183, 250, 180, 315, 180, 398, 177, 449, 179, 558, 177, 689, 178, 819, 178, 973, 178, 1022, 181, 1096, 183, 1139, 185, 1121, 282, 1069, 285, 1048, 290, 1035, 287, 922, 299, 927, 224, 922, 221, 856, 217, 736, 213, 615, 215, 495, 217, 333, 223, 275, 226, 199, 232, 170, 231, 113, 234, 71, 232, 35, 232, 35, 277, 38, 325, 41, 347, 43, 415, 42, 499, 89, 492, 152, 489, 252, 485, 392, 479, 499, 474, 591, 472, 690, 474, 759, 474, 761, 524, 644, 526, 566, 528, 433, 533, 277, 542, 133, 548, 80, 552, 89, 547, 38, 558, 31, 635, 35, 704, 66, 698, 96, 699, 150, 697, 196, 697, 254, 696, 375, 693, 429, 694, 489, 697, 557, 697, 646, 697, 713, 699, 771, 703, 830, 706, 889, 707, 919, 707, 958, 702, 963, 614, 974, 563, 976, 502, 1093, 502, 1091, 566, 1093, 626, 1086, 688, 1150, 686, 1280, 688, 1280, 721, 1213, 721, 1070, 722, 896, 720, 692, 720, 501, 720, 264, 720, -1, 720, 1, 448, 1, 316, 0, 177, 0, 49, -1, -1, 61, 0)
 
-[node name="LevelHitbox" parent="LevelViewport" index="5"]
+[node name="LevelHitbox" parent="LevelViewport" index="4"]
 position = Vector2(1281, 646)
 scale = Vector2(0.36, 2.01)
 
-[node name="LevelSpawn" parent="LevelViewport" index="6"]
+[node name="LevelSpawn" parent="LevelViewport" index="5"]
 position = Vector2(110, 18)
 
-[node name="map" type="Sprite2D" parent="LevelViewport"]
-scale = Vector2(1, 0.828539)
-texture = ExtResource("4_nm8an")
-centered = false
-
+[editable path="UI"]
 [editable path="LevelViewport"]
 [editable path="LevelViewport/mobs"]
