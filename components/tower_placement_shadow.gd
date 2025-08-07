@@ -30,8 +30,14 @@ func _input(event) -> void:
     if !(
         event is InputEventMouseButton
         and event.is_pressed()
-        and event.button_index == MOUSE_BUTTON_LEFT
     ):
+        return
+
+    if event.button_index == MOUSE_BUTTON_RIGHT:
+        # Cancel input mode
+        hide_shadow()
+        deactivate()
+    elif event.button_index != MOUSE_BUTTON_LEFT:
         return
 
     if !IsActive and HoveringOverTower != null:
