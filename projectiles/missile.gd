@@ -31,7 +31,7 @@ func _explode() -> void:
     queue_free()
 
 func effect(_mob: Mob) -> void:
-    _explode()
+    call_deferred("_explode")
 
 func _on_explosion_timer_timeout() -> void:
-    _explode()
+    call_deferred("_explode")
