@@ -138,6 +138,11 @@ func info_mode(tower: Tower) -> void:
     # and deactivate the tower select panel.
     SelectedTower = tower
     
+    var tower_is_upgraded = (
+        SelectedTower.UpgradesTo == null
+        or SelectedTower.UpgradesTo.is_empty()
+    )
+    
     # Based on the selected tower, activate and deactivate
     # upgrade menu options.
     for towerButton in TowerUpgradeSelectPanel.get_children():
@@ -148,10 +153,12 @@ func info_mode(tower: Tower) -> void:
             towerButton.disabled = true
             towerButton.visible = false
     
-    UpgradedLabel.visible = (
-        SelectedTower.UpgradesTo == null
-        or SelectedTower.UpgradesTo.is_empty()
-    )
+    if tower_is_upgraded:
+        UpgradedLabel.visible = true
+        DescriptionPanel.text = SelectedTower.Description
+    else:
+        UpgradedLabel.visible = false
+        DescriptionPanel.text = ""
 
     recalculate_money()
     BuyPanel.visible = false
@@ -159,6 +166,8 @@ func info_mode(tower: Tower) -> void:
     InfoModeActive = true
 
 func buy_mode() -> void:
+    DescriptionPanel.text = ""
+
     recalculate_money()
     BuyPanel.visible = true
     UpgradePanel.visible = false
