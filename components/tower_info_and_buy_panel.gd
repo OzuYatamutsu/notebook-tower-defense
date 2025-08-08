@@ -105,6 +105,7 @@ func _on_upgrade_button_click(button: Button) -> void:
     newTower.position = SelectedTower.position
     GameState.deduct_money(newTower.VALUE)
     SelectedTower.queue_free()
+    buy_mode()
 
 func recalculate_money() -> void:
     # Deactivate buttons if we can't afford them
