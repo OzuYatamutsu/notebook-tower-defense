@@ -68,9 +68,17 @@ func _ready() -> void:
             _on_button_rollover.bind(tower)
         )
         tower.mouse_exited.connect(_on_button_exit)
+    
+    for tower: Button in TowerBuySelectPanel.get_children():
         tower.pressed.connect(
             _on_button_click.bind(tower)
         )
+    
+    for tower: Button in TowerUpgradeSelectPanel.get_children():
+        tower.pressed.connect(
+            _on_upgrade_button_click.bind(tower)
+        )
+
     buy_mode()
 
 func _on_button_rollover(button: Button) -> void:
@@ -85,6 +93,18 @@ func _on_button_click(button: Button) -> void:
         ButtonToTowerPathMap[button.name],
         ButtonToTowerMap[button.name]
     )
+
+func _on_upgrade_button_click(button: Button) -> void:
+    # Don't enter placement mode, just upgrade the selected tower
+    var newTower: Tower = load(ButtonToTowerPathMap[button.name]).instantiate()
+    get_tree().get_first_node_in_group(
+        GameState.TOWERS_GROUP
+    ).add_child(
+        newTower
+    )
+    newTower.position = SelectedTower.position
+    GameState.deduct_money(newTower.VALUE)
+    SelectedTower.queue_free()
 
 func recalculate_money() -> void:
     # Deactivate buttons if we can't afford them

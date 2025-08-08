@@ -92,7 +92,6 @@ icon = ExtResource("6_b0dq2")
 flat = true
 
 [node name="UpgradePanel" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = -267.0
 offset_right = -267.0
@@ -175,10 +174,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -12.0
-offset_top = 649.0
-offset_right = 201.0
-offset_bottom = 696.0
+offset_left = 37.0
+offset_top = 641.0
+offset_right = 250.0
+offset_bottom = 688.0
 grow_horizontal = 0
 theme = ExtResource("2_vr3bv")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
