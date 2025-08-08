@@ -123,7 +123,7 @@ scale = Vector2(0.834074, 1)
 polygon = PackedVector2Array(7, 201, 451, 201, 780, 189, 911.191, 176, 902.798, 274, 593, 300, 294, 312, 57, 311, 43, 469, 40.7638, 530, 484.37, 552, 943.562, 548, 923.18, 660, 1.19894, 662)
 
 [node name="LevelHitbox" parent="LevelViewport" index="4"]
-position = Vector2(1089, 716)
+position = Vector2(853, 674)
 scale = Vector2(8.15, 0.34)
 
 [node name="LevelSpawn" parent="LevelViewport" index="5"]

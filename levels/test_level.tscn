@@ -72,6 +72,9 @@ position = Vector2(61.4965, 278.45)
 scale = Vector2(0.795012, 0.90656)
 curve = SubResource("Curve2D_ur00s")
 
+[node name="LevelHitbox" parent="LevelViewport" index="4"]
+position = Vector2(1021, 605)
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelViewport"]
 position = Vector2(13, 22)
 scale = Vector2(0.978051, 1)
