@@ -32,6 +32,9 @@ func _input(event) -> void:
         and event.is_pressed()
     ):
         return
+    
+    if is_hovering_over_button():
+        return  # Let the signal handler handle it
 
     if event.button_index == MOUSE_BUTTON_RIGHT:
         # Cancel input mode
@@ -59,6 +62,9 @@ func _input(event) -> void:
         deactivate()
     elif !IsHoveringOverWall:
         print("Can't place tower (invalid area)")
+
+func is_hovering_over_button() -> bool:
+    return get_viewport().gui_get_hovered_control() is Button
 
 func activate(towerPath: String, tower: Tower) -> void:
     TOWER_TO_PLACE_PATH = towerPath

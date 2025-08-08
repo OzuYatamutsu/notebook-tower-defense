@@ -72,16 +72,16 @@ position = Vector2(61.4965, 278.45)
 scale = Vector2(0.795012, 0.90656)
 curve = SubResource("Curve2D_ur00s")
 
-[node name="LevelHitbox" parent="LevelViewport" index="4"]
-position = Vector2(1021, 605)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelViewport"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelViewport/walls" index="0"]
 position = Vector2(13, 22)
 scale = Vector2(0.978051, 1)
 polygon = PackedVector2Array(-1, 107, 331, 126, 424, 117, 527.58, 120, 569.5, 443, 471, 448, 466, 543, 603, 545, 789, 559, 881, 564, 1004, 558, 1033.41, 557, 1034.43, 558, 1035.45, 532, 897, 522, 783, 441, 741, 95, 699.069, 43, 699, 41, -4, 44)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LevelViewport/walls" index="1"]
 polygon = PackedVector2Array(-1, 301, 17, 286, 349, 282, 361, 399, 362, 623, 552, 640, 783, 638, 1009, 631, 1013, 673, 275, 670, 279, 349, -2, 363)
+
+[node name="LevelHitbox" parent="LevelViewport" index="4"]
+position = Vector2(1021, 605)
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(0, 39)
