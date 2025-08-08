@@ -35,6 +35,7 @@ extends Control
 @onready var TowerUpgradeSelectPanel: FlowContainer = $UpgradePanel/TowerSelectPanel
 @onready var BuyPanel: Control = $BuyPanel
 @onready var UpgradePanel: Control = $UpgradePanel
+@onready var UpgradedLabel: Label = $UpgradePanel/UpgradedLabel
 
 @onready var BulletTowerButton: Button = $BuyPanel/TowerSelectPanel/BulletTower
 @onready var SlowTowerButton: Button = $BuyPanel/TowerSelectPanel/SlowTower
@@ -146,6 +147,11 @@ func info_mode(tower: Tower) -> void:
         else:
             towerButton.disabled = true
             towerButton.visible = false
+    
+    UpgradedLabel.visible = (
+        SelectedTower.UpgradesTo == null
+        or SelectedTower.UpgradesTo.is_empty()
+    )
 
     recalculate_money()
     BuyPanel.visible = false
