@@ -41,20 +41,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MusicToggleButton" type="Button" parent="TopBar"]
+z_index = 1
 layout_mode = 0
 offset_left = 217.413
 offset_top = 4.57947
 offset_right = 287.413
 offset_bottom = 31.5795
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_24715")
 text = "Music: ON"
 
 [node name="SfxToggleButton" type="Button" parent="TopBar"]
+z_index = 1
 layout_mode = 0
 offset_left = 310.303
 offset_top = 4.57947
 offset_right = 382.303
 offset_bottom = 34.5795
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_24715")
 text = "SFX: ON"
 
