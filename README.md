@@ -20,6 +20,12 @@ Pull the repository and open `project.godot` in Godot 4.x or higher.
 
 ## Changelog
 
+### 2.0.387 (2025-08-11)
+
+- Overhaul the UI.
+- Adjust some tower costs.
+- Adjust some mob paths.
+
 ### 1.1.140 (2025-06-08)
 
 - Add 2 new levels.
