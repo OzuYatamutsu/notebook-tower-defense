@@ -32,7 +32,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="NTBLabel" type="RichTextLabel" parent="TopBar"]
 layout_mode = 0
-offset_right = 201.0
+offset_left = 8.0
+offset_right = 209.0
 offset_bottom = 37.0
 theme = ExtResource("1_24715")
 text = "Notebook Tower Defense!!"
@@ -43,10 +44,10 @@ vertical_alignment = 1
 [node name="MusicToggleButton" type="Button" parent="TopBar"]
 z_index = 1
 layout_mode = 0
-offset_left = 217.413
+offset_left = 224.0
 offset_top = 4.57947
-offset_right = 287.413
-offset_bottom = 31.5795
+offset_right = 310.0
+offset_bottom = 34.5795
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_24715")
 text = "Music: ON"
@@ -54,9 +55,9 @@ text = "Music: ON"
 [node name="SfxToggleButton" type="Button" parent="TopBar"]
 z_index = 1
 layout_mode = 0
-offset_left = 310.303
+offset_left = 316.89
 offset_top = 4.57947
-offset_right = 382.303
+offset_right = 388.89
 offset_bottom = 34.5795
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_24715")
