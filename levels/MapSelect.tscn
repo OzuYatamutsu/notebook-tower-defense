@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://uao5bdiyd7ug" path="res://levels/test_level_layout.png" id="1_4cnvf"]
 [ext_resource type="Script" uid="uid://bk4ramqv4g64h" path="res://levels/map_select.gd" id="1_54y5f"]
-[ext_resource type="Texture2D" uid="uid://c3nvtklv4dry8" path="res://sprites/map_select_header.png" id="2_sqyih"]
+[ext_resource type="PackedScene" uid="uid://dhs0soxiwf4lb" path="res://components/ui.tscn" id="2_ytd17"]
 [ext_resource type="Texture2D" uid="uid://yhg5iutnvtlw" path="res://sprites/button_small.png" id="3_8a0mh"]
 [ext_resource type="Theme" uid="uid://c8vctxp5w606s" path="res://components/MapSelectTheme.tres" id="3_ytd17"]
-[ext_resource type="Texture2D" uid="uid://cuuch6k1hq4wj" path="res://sprites/title_screen_title.png" id="6_ky6rc"]
+[ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="4_ky6rc"]
 
 [node name="MapSelect" type="Control"]
 layout_mode = 3
@@ -16,13 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_54y5f")
 
-[node name="map" type="TextureRect" parent="."]
+[node name="UI" parent="." instance=ExtResource("2_ytd17")]
+
+[node name="map" type="Sprite2D" parent="."]
 z_index = -1
-layout_mode = 0
-offset_right = 1000.0
-offset_bottom = 609.0
-scale = Vector2(1.28, 1.18062)
+position = Vector2(0, 39)
+scale = Vector2(1.02, 1.03777)
 texture = ExtResource("1_4cnvf")
+centered = false
 
 [node name="Selector" type="Control" parent="."]
 layout_mode = 1
@@ -34,21 +35,30 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="BgRect" type="ColorRect" parent="Selector"]
-z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -269.0
+offset_left = -260.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.784314)
 
-[node name="Sprite2D" type="Sprite2D" parent="Selector"]
-z_index = 1
-position = Vector2(-134, 34)
-scale = Vector2(0.135786, 0.135786)
-texture = ExtResource("2_sqyih")
+[node name="MapSelectLabel" type="Label" parent="Selector"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -271.0
+offset_right = -11.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme = ExtResource("4_ky6rc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Select map"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="Selector"]
 z_index = 1
@@ -126,33 +136,3 @@ text = "Load map"
 icon = ExtResource("3_8a0mh")
 flat = true
 icon_alignment = 1
-
-[node name="Title" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
-grow_vertical = 0
-
-[node name="BgRect" type="ColorRect" parent="Title"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -132.75
-offset_right = 125.0
-offset_bottom = -95.75
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.58508, 2.23351)
-color = Color(1, 1, 1, 0.784314)
-
-[node name="Sprite2D" type="Sprite2D" parent="Title"]
-z_index = 1
-position = Vector2(200, -47.75)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_ky6rc")
