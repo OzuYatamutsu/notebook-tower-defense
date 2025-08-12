@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var MusicToggleButton: Button = $TopBar/MusicToggleButton
 @onready var SfxToggleButton: Button = $TopBar/SfxToggleButton
 @onready var InfoPanel: TowerInfoAndBuyPanel = $TowerInfoAndBuyPanel
+@onready var PlacementShadow: TowerPlacementShadow = $TowerPlacementShadow
+ 
 var _isMapSelectScreen: bool = false
 
 func _ready() -> void:
@@ -13,6 +15,9 @@ func _ready() -> void:
     
     if _isMapSelectScreen:
         InfoPanel.visible = false
+        SfxToggleButton.visible = false
+        MusicToggleButton.visible = false
+        PlacementShadow.set_process_input(false)
 
 func _on_music_toggle_button_pressed() -> void:
     GameState.toggle_bgm()

@@ -34,9 +34,6 @@ func load_level_preview(path_to_level: String) -> void:
 
     var level: Level = load(CurrentSelectedLevel).instantiate()
     var level_map: Sprite2D = level.get_node("Map")
-    var viewport_size: Vector2 = get_viewport_rect().size
-    var level_map_size: Vector2 = level_map.texture.get_size()
-
     MapPreview.texture = level_map.texture
     
     # Scale map to fit viewport
