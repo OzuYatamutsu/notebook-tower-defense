@@ -130,5 +130,17 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(640, 311)
 scale = Vector2(0.1, 0.1)
 
+[node name="Audio" type="Control" parent="." groups=["audio"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_sfx" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="mob_sfx" type="AudioStreamPlayer" parent="Audio"]
+
+[node name="bgm" type="AudioStreamPlayer" parent="Audio"]
+
 [connection signal="pressed" from="TopBar/MusicToggleButton" to="." method="_on_music_toggle_button_pressed"]
 [connection signal="pressed" from="TopBar/SfxToggleButton" to="." method="_on_sfx_toggle_button_pressed"]

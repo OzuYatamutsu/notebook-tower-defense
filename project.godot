@@ -38,6 +38,7 @@ next_wave_meter=""
 mob_members=""
 tower_upgrade_panel=""
 tower_info_and_buy_panel=""
+audio=""
 
 [input]
 
