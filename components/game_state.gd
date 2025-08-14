@@ -21,8 +21,7 @@ const SELECTED_TOWER_METER_GROUP = "selected_tower_meter"
 const TOWER_INFO_AND_BUY_PANEL_GROUP = "tower_info_and_buy_panel"
 const TOWER_BUY_PANEL_GROUP = "tower_buy_panel"
 const TOWER_UPGRADE_PANEL_GROUP = "tower_upgrade_panel"
-const SFX_GROUP = "audio_sfx"
-const BGM_GROUP = "audio_bgm"
+const AUDIO_GROUP = "audio"
 
 @export var PLAYER_LIVES_START: int = 20
 @export var IS_GAME_OVER: bool = false
@@ -46,6 +45,7 @@ var NEXT_WAVE_METER: NextWaveMeter
 var TOWER_BUY_PANEL: TowerBuyPanel
 var TOWER_UPGRADE_PANEL: TowerUpgradePanel
 var TOWER_INFO_AND_BUY_PANEL: TowerInfoAndBuyPanel
+var AUDIO_CONTROL: Audio
 
 var GAME_OVER_OVERLAY = load("res://levels/GameOver.tscn")
 var WIN_OVERLAY = load("res://levels/Win.tscn")
@@ -86,6 +86,8 @@ func _on_level_load() -> void:
 
     TOWER_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_BUY_PANEL_GROUP)
     TOWER_INFO_AND_BUY_PANEL = get_tree().get_first_node_in_group(TOWER_INFO_AND_BUY_PANEL_GROUP)
+
+    AUDIO_CONTROL = get_tree().get_first_node_in_group(AUDIO_GROUP)
 
     assert(PLAYER_LIVES_REMAINING > 0, "Lives left on level start should be > 0!")
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")
@@ -135,27 +137,17 @@ func quit_game() -> void:
 
 func toggle_sfx() -> void:
     if SFX_ENABLED:
-        print("Disabling sfx!")
-        SFX_ENABLED = false
-        for node in get_tree().get_nodes_in_group(SFX_GROUP):
-            node.disable()
+        AUDIO_CONTROL.disable_sfx()
     else:
-        print("Enabling sfx!")
-        SFX_ENABLED = true
-        for node in get_tree().get_nodes_in_group(SFX_GROUP):
-            node.enable()
+        AUDIO_CONTROL.enable_sfx()
+    SFX_ENABLED = !SFX_ENABLED
 
 func toggle_bgm() -> void:
     if BGM_ENABLED:
-        print("Disabling bgm!")
-        BGM_ENABLED = false
-        for node in get_tree().get_nodes_in_group(BGM_GROUP):
-            node.disable()
+        AUDIO_CONTROL.disable_bgm()
     else:
-        print("Enabling bgm!")
-        BGM_ENABLED = true
-        for node in get_tree().get_nodes_in_group(BGM_GROUP):
-            node.enable()
+        AUDIO_CONTROL.enable_bgm()
+    BGM_ENABLED = !BGM_ENABLED
 
 func _on_mob_slipped_through(mob: Mob) -> void:
     mob.delayed_despawn()
