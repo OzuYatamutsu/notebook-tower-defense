@@ -5,6 +5,11 @@ extends Control
 @onready var MobSfx: AudioStreamPlayer = $mob_sfx
 @onready var Bgm: AudioStreamPlayer = $bgm
 
+const SFX_UI_CLICK: AudioStreamWAV = preload("res://sfx/ui_click.wav")
+const SFX_TOWER_PLACE: AudioStreamWAV = preload("res://sfx/ui_tower_place.wav")
+const SFX_BIGBOSS_DEATH: AudioStreamWAV = preload("res://sfx/mob_bigboss_death.wav")
+const SFX_FATONE_DEATH: AudioStreamWAV = preload("res://sfx/mob_fatone_death.wav")
+
 var _should_play_sfx: bool = true
 
 func enable_bgm() -> void:

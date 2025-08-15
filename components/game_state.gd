@@ -69,7 +69,8 @@ func _on_level_load() -> void:
     PLAYER_LIVES_REMAINING = PLAYER_LIVES_START
 
     var hitbox: LevelHitbox = get_tree().get_first_node_in_group(LEVEL_HITBOX_GROUP)
-    hitbox.mob_slipped_through.connect(_on_mob_slipped_through)
+    if hitbox:
+        hitbox.mob_slipped_through.connect(_on_mob_slipped_through)
 
     PLAYER_MONEY_REMAINING = PLAYER_STARTING_MONEY
     MONEY_METER = get_tree().get_first_node_in_group(MONEY_METER_GROUP)
@@ -93,8 +94,9 @@ func _on_level_load() -> void:
     assert(get_tree().get_first_node_in_group(GameState.MOBS_GROUP), "Missing a mobs node!")
     assert(get_tree().get_first_node_in_group(GameState.TOWERS_GROUP), "Missing a towers node!")
     assert(get_tree().get_first_node_in_group(GameState.PROJECTILES_GROUP), "Missing a projectiles node!")
-    assert(CURRENT_LEVEL != null)
-    
+    if !get_tree().current_scene.name.contains("MapSelect"):
+        assert(CURRENT_LEVEL != null)
+
     GameState.SHOULDNT_PAUSE = false
 
 func add_money(value: int) -> void:

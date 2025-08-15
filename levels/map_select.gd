@@ -27,6 +27,7 @@ func _ready() -> void:
         )
         _button.disabled = false
 
+    GameState._on_level_load()
     GameState.SHOULDNT_PAUSE = true
 
 func load_level_preview(path_to_level: String) -> void:
@@ -48,7 +49,11 @@ func load_selected_level() -> void:
     get_tree().change_scene_to_file(CurrentSelectedLevel)
 
 func _on_button_pressed(button_name: String) -> void:
+    if button_name != LOAD_MAP_NAME:
+        GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_UI_CLICK)
+
     if CurrentSelectedLevel != null and button_name == LOAD_MAP_NAME:
+        GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_TOWER_PLACE)
         load_selected_level()
         return
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://buj6qhjcj0h4a"
-path="res://.godot/imported/ui_fatone_death.wav-e503cdac09af2723fa0e7e14f8c64352.sample"
+path="res://.godot/imported/mob_fatone_death.wav-d5c4c3909f8c56387b621c027e465475.sample"
 
 [deps]
 
-source_file="res://sfx/ui_fatone_death.wav"
-dest_files=["res://.godot/imported/ui_fatone_death.wav-e503cdac09af2723fa0e7e14f8c64352.sample"]
+source_file="res://sfx/mob_fatone_death.wav"
+dest_files=["res://.godot/imported/mob_fatone_death.wav-d5c4c3909f8c56387b621c027e465475.sample"]
 
 [params]
 

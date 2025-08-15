@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bjsnhctfgphw8"
-path="res://.godot/imported/ui_bigboss_death.wav-085fc4595774151a0fff6a412d766bc5.sample"
+path="res://.godot/imported/mob_bigboss_death.wav-7103d0aca928482d416e3048da3653f2.sample"
 
 [deps]
 
-source_file="res://sfx/ui_bigboss_death.wav"
-dest_files=["res://.godot/imported/ui_bigboss_death.wav-085fc4595774151a0fff6a412d766bc5.sample"]
+source_file="res://sfx/mob_bigboss_death.wav"
+dest_files=["res://.godot/imported/mob_bigboss_death.wav-7103d0aca928482d416e3048da3653f2.sample"]
 
 [params]
 
