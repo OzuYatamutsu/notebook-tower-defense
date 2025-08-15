@@ -139,6 +139,7 @@ offset_bottom = 40.0
 script = ExtResource("9_24715")
 
 [node name="ui_sfx" type="AudioStreamPlayer" parent="Audio"]
+max_polyphony = 8
 
 [node name="mob_sfx" type="AudioStreamPlayer" parent="Audio"]
 

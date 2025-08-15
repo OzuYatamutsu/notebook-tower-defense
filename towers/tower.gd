@@ -151,5 +151,6 @@ func fire() -> void:
     new_projectile.global_position = global_position
 
     # ...and fire it at our target!
+    GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_PROJECTILE_FIRE_DEFAULT)
     new_projectile.fire_at(CURRENT_TARGET)
     print(str(self) + ": Shooting at: " + str(CURRENT_TARGET))
