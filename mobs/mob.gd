@@ -18,6 +18,8 @@ const WAVE_MULTIPLIER: float = 1.03
 @onready var DESPAWN_TIMER: Timer = $DespawnTimer
 @onready var WAVE_NUM: int = GameState.CURRENT_LEVEL.CURRENT_WAVE_NUM
 
+var DEATH_SFX = Audio.SFX_DEFAULT_DEATH
+
 func _ready() -> void:
     HEALTH_BAR.set_max_hp(
         MAX_HP * (WAVE_MULTIPLIER ** WAVE_NUM)
@@ -39,6 +41,7 @@ func _on_hit(projectile: Projectile) -> void:
         projectile.queue_free()
 
 func _on_death():
+    GameState.AUDIO_CONTROL.play_mob_sfx(DEATH_SFX)
     remove_from_group(GameState.MOB_MEMBERS_GROUP)
 
     GameState.add_money(VALUE)
