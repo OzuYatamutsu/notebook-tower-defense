@@ -90,6 +90,7 @@ func _on_button_exit() -> void:
     DescriptionPanel.text = ""
 
 func _on_button_click(button: Button) -> void:
+    GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_UI_CLICK)
     SpawnShadow.activate(
         ButtonToTowerPathMap[button.name],
         ButtonToTowerMap[button.name]
@@ -107,6 +108,7 @@ func _on_upgrade_button_click(button: Button) -> void:
     GameState.deduct_money(newTower.VALUE)
     SelectedTower.queue_free()
     buy_mode()
+    GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_TOWER_PLACE)
 
 func recalculate_money() -> void:
     # Deactivate buttons if we can't afford them

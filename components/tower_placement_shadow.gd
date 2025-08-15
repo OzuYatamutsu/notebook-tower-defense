@@ -57,6 +57,7 @@ func _input(event) -> void:
     # We should create the tower at the current location,
     # then deactivate the shadow.
     if !HoveringOverTower and IsHoveringOverWall and IsActive:
+        GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_TOWER_PLACE)
         spawn()
         hide_shadow()
         deactivate()
