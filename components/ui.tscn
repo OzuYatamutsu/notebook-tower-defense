@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhs0soxiwf4lb"]
+[gd_scene load_steps=9 format=3 uid="uid://dhs0soxiwf4lb"]
 
 [ext_resource type="Script" uid="uid://10pdijbi8o1v" path="res://components/ui.gd" id="1_0eatc"]
 [ext_resource type="PackedScene" uid="uid://cfnlgefdgcrs3" path="res://components/MoneyMeter.tscn" id="1_34iyr"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bud4ymw0n8vf8" path="res://components/WaveMeter.tscn" id="3_0eatc"]
 [ext_resource type="PackedScene" uid="uid://crh5ydle8qkpy" path="res://components/NextWaveMeter.tscn" id="6_23jcn"]
 [ext_resource type="PackedScene" uid="uid://un38oy2verh5" path="res://components/TowerInfoAndBuyPanel.tscn" id="7_k05k2"]
-[ext_resource type="Script" uid="uid://dhb5fm053lwoe" path="res://components/audio.gd" id="9_24715"]
 [ext_resource type="PackedScene" uid="uid://5w0kriffqk6q" path="res://components/TowerPlacementShadow.tscn" id="10_451mt"]
 
 [node name="UI" type="CanvasLayer"]
@@ -130,20 +129,6 @@ scale = Vector2(0.3, 0.3)
 [node name="TowerPlacementShadow" parent="." instance=ExtResource("10_451mt")]
 position = Vector2(640, 311)
 scale = Vector2(0.1, 0.1)
-
-[node name="Audio" type="Control" parent="." groups=["audio"]]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("9_24715")
-
-[node name="ui_sfx" type="AudioStreamPlayer" parent="Audio"]
-max_polyphony = 8
-
-[node name="mob_sfx" type="AudioStreamPlayer" parent="Audio"]
-
-[node name="bgm" type="AudioStreamPlayer" parent="Audio"]
 
 [connection signal="pressed" from="TopBar/MusicToggleButton" to="." method="_on_music_toggle_button_pressed"]
 [connection signal="pressed" from="TopBar/SfxToggleButton" to="." method="_on_sfx_toggle_button_pressed"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://1mmqrcbw5ik6"]
+
+[ext_resource type="Script" uid="uid://dhb5fm053lwoe" path="res://components/audio.gd" id="1_288qd"]
+
+[node name="AudioPlayer" type="Control" groups=["audio"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_288qd")
+
+[node name="ui_sfx" type="AudioStreamPlayer" parent="."]
+max_polyphony = 8
+
+[node name="mob_sfx" type="AudioStreamPlayer" parent="."]
+
+[node name="bgm_channel_1" type="AudioStreamPlayer" parent="."]
+
+[node name="bgm_channel_2" type="AudioStreamPlayer" parent="."]

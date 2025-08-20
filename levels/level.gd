@@ -41,6 +41,7 @@ func _ready() -> void:
         WAVES.append(Wave.new(wave_contents))
     CURRENT_WAVE = WAVES.pop_front()
     GameState._on_level_load()
+    select_and_play_music()
 
 func start_wave() -> void:
     CURRENT_WAVE_NUM += 1
@@ -90,3 +91,7 @@ func _on_spawn_signal() -> void:
 
         SPAWNER.spawn(mob_to_spawn)
         print("Spawning: " + str(mob_to_spawn))
+
+func select_and_play_music() -> void:
+    # TODO
+    AudioPlayer.play_bgm(Audio.BGM_WAVES_INITIAL)
