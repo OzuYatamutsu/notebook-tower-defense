@@ -14,8 +14,17 @@ const SFX_BIGBOSS_DEATH: AudioStreamWAV = preload("res://sfx/mob_bigboss_death.w
 const SFX_FATONE_DEATH: AudioStreamWAV = preload("res://sfx/mob_fatone_death.wav")
 
 const BGM_FADE_TIME_SECS: float = 0.5
-const BGM_INTRO_LOOP: AudioStreamMP3 = preload("res://bgm/bgm_intro_loop.mp3")
-const BGM_WAVES_INITIAL: AudioStreamMP3 = preload("res://bgm/bgm_waves_initial.mp3")
+
+const BGM_LOOP_0: AudioStreamMP3 = preload("res://bgm/1_loop_0.mp3")
+const BGM_LOOP_1: AudioStreamMP3 = preload("res://bgm/2_loop_1.mp3")
+const BGM_LOOP_2: AudioStreamMP3 = preload("res://bgm/3_loop_2.mp3")
+const BGM_LOOP_3: AudioStreamMP3 = preload("res://bgm/4_loop_3.mp3")
+const BGM_LOOP_4: AudioStreamMP3 = preload("res://bgm/5_loop_4.mp3")
+const BGM_LOOP_5: AudioStreamMP3 = preload("res://bgm/7_loop_5.mp3")
+const BGM_LOOP_6: AudioStreamMP3 = preload("res://bgm/9_loop_6.mp3")
+const BGM_LOOP_7: AudioStreamMP3 = preload("res://bgm/10_loop_7.mp3")
+const BGM_X_LOOP_4_TO_LOOP_5: AudioStreamMP3 = preload("res://bgm/6_x_l4_to_l5.mp3")
+const BGM_X_LOOP_5_TO_LOOP_6: AudioStreamMP3 = preload("res://bgm/8_x_l5_to_l6.mp3")
 
 var _should_play_sfx: bool = true
 var _should_play_bgm: bool = true
