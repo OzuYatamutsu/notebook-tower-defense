@@ -94,4 +94,4 @@ func _on_spawn_signal() -> void:
 
 func select_and_play_music() -> void:
     # TODO
-    AudioPlayer.play_bgm(Audio.BGM_WAVES_INITIAL)
+    AudioPlayer.play_bgm(Audio.BgmLevel.LEVEL_1)

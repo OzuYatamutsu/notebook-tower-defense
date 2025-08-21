@@ -52,7 +52,7 @@ var QueuedTrack: AudioStreamMP3
 var _should_play_sfx: bool = true
 var _should_play_bgm: bool = true
 
-func play_bgm(level: BgmLevel, immediate=false) -> void:
+func play_bgm(level: BgmLevel) -> void:
     if !_should_play_bgm:
         return
     

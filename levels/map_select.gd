@@ -29,7 +29,7 @@ func _ready() -> void:
 
     GameState._on_level_load()
     GameState.SHOULDNT_PAUSE = true
-    AudioPlayer.play_bgm(Audio.BGM_INTRO_LOOP)
+    AudioPlayer.play_bgm(Audio.BgmLevel.LEVEL_0)
 
 func load_level_preview(path_to_level: String) -> void:
     CurrentSelectedLevel = path_to_level
