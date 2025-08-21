@@ -25,16 +25,51 @@ const BGM_LOOP_7: AudioStreamMP3 = preload("res://bgm/10_loop_7.mp3")
 const BGM_X_LOOP_4_TO_LOOP_5: AudioStreamMP3 = preload("res://bgm/6_x_l4_to_l5.mp3")
 const BGM_X_LOOP_5_TO_LOOP_6: AudioStreamMP3 = preload("res://bgm/8_x_l5_to_l6.mp3")
 
+enum BgmLevel {
+    LEVEL_0,
+    LEVEL_1,
+    LEVEL_2,
+    LEVEL_3,
+    LEVEL_4,
+    LEVEL_5,
+    LEVEL_6,
+    LEVEL_7
+}
+const LevelToTrackMap = {
+    BgmLevel.LEVEL_0: BGM_LOOP_0,
+    BgmLevel.LEVEL_1: BGM_LOOP_1,
+    BgmLevel.LEVEL_2: BGM_LOOP_2,
+    BgmLevel.LEVEL_3: BGM_LOOP_3,
+    BgmLevel.LEVEL_4: BGM_LOOP_4,
+    BgmLevel.LEVEL_5: BGM_LOOP_5,
+    BgmLevel.LEVEL_6: BGM_LOOP_6,
+    BgmLevel.LEVEL_7: BGM_LOOP_7
+}
+
+var CurrentTrack: BgmLevel = BgmLevel.LEVEL_0
+var QueuedTrack: AudioStreamMP3
+
 var _should_play_sfx: bool = true
 var _should_play_bgm: bool = true
 
-# Plays BGM immediately.
-func play_bgm(stream: AudioStream) -> void:
+func play_bgm(level: BgmLevel, immediate=false) -> void:
     if !_should_play_bgm:
         return
+    
+    var targetTrack = LevelToTrackMap[level]
+    CurrentTrack = level
 
-    Bgm.stream = stream
-    Bgm.play()
+    # If not playing anything, play immediately.
+    if !Bgm.playing:
+        print("audio: playing bgm immediately!")
+        Bgm.stream = targetTrack
+        Bgm.play()
+        return
+
+    # Otherwise, queue play at the next transition point.
+    print("audio: bgm queued")
+    QueuedTrack = targetTrack
+    return
 
 func enable_bgm() -> void:
     print("audio: enabling bgm!")
@@ -65,3 +100,17 @@ func play_ui_sfx(stream: AudioStream) -> void:
         return
     UiSfx.stream = stream
     UiSfx.play()
+
+func _play_queued_track_if_needed() -> void:
+    if !QueuedTrack:
+        return
+
+    if true:  # TODO: check if we're at the end of the current loop
+        print("audio: queued bgm ready to go, playing")
+        Bgm.stream = QueuedTrack
+        
+        # TODO: instead of setting null, queue another track
+        # TODO: if we're between levels where transitions exist
+        QueuedTrack = null
+
+        Bgm.play()
