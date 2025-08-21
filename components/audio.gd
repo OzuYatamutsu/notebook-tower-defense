@@ -3,8 +3,7 @@ extends Control
 
 @onready var UiSfx: AudioStreamPlayer = $ui_sfx
 @onready var MobSfx: AudioStreamPlayer = $mob_sfx
-@onready var BgmChannel1: AudioStreamPlayer = $bgm_channel_1
-@onready var BgmChannel2: AudioStreamPlayer = $bgm_channel_2
+@onready var Bgm: AudioStreamPlayer = $bgm
 
 const SFX_UI_CLICK: AudioStreamWAV = preload("res://sfx/ui_click.wav")
 const SFX_PROJECTILE_FIRE_DEFAULT: AudioStreamWAV = preload("res://sfx/ui_projectile_fire_default.wav")
@@ -34,32 +33,18 @@ func play_bgm(stream: AudioStream) -> void:
     if !_should_play_bgm:
         return
 
-    if !BgmChannel1.playing:
-        BgmChannel1.stream = stream
-        BgmChannel1.stream.loop = true
-        BgmChannel2.stop()
-        BgmChannel1.play()
-    else:
-        BgmChannel2.stream = stream
-        BgmChannel2.stream.loop = true
-        BgmChannel1.stop()
-        BgmChannel2.play()
-
-func crossfade() -> void:
-    # TODO NOT IMPLEMENTED
-    var tween = create_tween()
-    tween.tween_property(BgmChannel1, "volume_db", -80, BGM_FADE_TIME_SECS)
-    tween.tween_property(BgmChannel2, "volume_db", 0, BGM_FADE_TIME_SECS)
+    Bgm.stream = stream
+    Bgm.play()
 
 func enable_bgm() -> void:
     print("audio: enabling bgm!")
     _should_play_bgm = true
-    # TODO: which audio track to play?
+    Bgm.play()
 
 func disable_bgm() -> void:
     print("audio: disabling bgm!")
     _should_play_bgm = false
-    # TODO: which audio track to play?
+    Bgm.stop()
 
 func enable_sfx() -> void:
     print("audio: enabling sfx!")
