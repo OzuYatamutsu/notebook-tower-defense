@@ -7,7 +7,7 @@ signal mob_despawned(Mob)
 # How much should a mob type's starting health increase
 # during subsequent waves?
 # e.g. 1.03 = increase health by 3% (compounded)
-const WAVE_MULTIPLIER: float = 1.03
+const WAVE_MULTIPLIER: float = 1.07
 
 @export var MAX_HP: int
 @export var SPEED: float
