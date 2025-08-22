@@ -3,7 +3,7 @@ extends Node
 
 const STARTING_WINDOW_SIZE_PERCENT = 0.65
 
-const PLAYER_STARTING_MONEY: int = 2000
+const PLAYER_STARTING_MONEY: int = 2550
 
 const CURRENT_LEVEL_GROUP = "level"
 const LEVEL_HITBOX_GROUP = "level_hitbox"
