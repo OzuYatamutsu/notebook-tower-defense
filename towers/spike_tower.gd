@@ -4,7 +4,7 @@ extends Tower
 var NUM_MINES: int = 10
 
 func _init() -> void:
-    VALUE = 750
+    VALUE = 600
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +
