@@ -9,6 +9,9 @@ signal mob_despawned(Mob)
 # e.g. 1.03 = increase health by 3% (compounded)
 const WAVE_MULTIPLIER: float = 1.07
 
+# A mob cannot be slowed below this speed.
+const MIN_SPEED: float = 0.010
+
 @export var MAX_HP: int
 @export var SPEED: float
 @export var VALUE: int
