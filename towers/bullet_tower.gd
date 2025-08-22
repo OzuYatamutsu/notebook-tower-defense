@@ -2,7 +2,7 @@ class_name BulletTower
 extends Tower
 
 func _init() -> void:
-    VALUE = 100
+    VALUE = 500
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +

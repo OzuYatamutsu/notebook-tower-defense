@@ -4,7 +4,7 @@ extends Tower
 const NUM_PROJECTILES_TO_FIRE: int = 10
 
 func _init() -> void:
-    VALUE = 500
+    VALUE = 750
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +

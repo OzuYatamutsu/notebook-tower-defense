@@ -3,7 +3,7 @@ extends Node
 
 const STARTING_WINDOW_SIZE_PERCENT = 0.65
 
-const PLAYER_STARTING_MONEY: int = 400
+const PLAYER_STARTING_MONEY: int = 2000
 
 const CURRENT_LEVEL_GROUP = "level"
 const LEVEL_HITBOX_GROUP = "level_hitbox"
@@ -29,7 +29,7 @@ const AUDIO_GROUP = "audio"
 @export var BGM_ENABLED: bool = true
 
 # Accessed via meters in UI
-@export var PLAYER_MONEY_REMAINING: int = 400
+@export var PLAYER_MONEY_REMAINING: int = 2000
 @export var PLAYER_LIVES_REMAINING: int
 @export var SCORE: int
 # WaveMeter is accessed through CurrentLevel -> CURRENT_WAVE_NUM

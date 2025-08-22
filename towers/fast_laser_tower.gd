@@ -8,7 +8,7 @@ const RETARGETING_PERIOD_SECS = 0.1
 var IS_ACTIVELY_FIRING: bool = false
 
 func _init() -> void:
-    VALUE = 800
+    VALUE = 1500
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +
