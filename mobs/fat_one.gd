@@ -4,5 +4,5 @@ extends Mob
 func _init():
     self.MAX_HP = 250
     self.SPEED = 0.02
-    self.VALUE = 250
+    self.VALUE = 200
     self.DEATH_SFX = Audio.SFX_FATONE_DEATH
