@@ -12,8 +12,6 @@ const SFX_DEFAULT_DEATH: AudioStreamWAV = preload("res://sfx/ui_default_mob_kill
 const SFX_BIGBOSS_DEATH: AudioStreamWAV = preload("res://sfx/mob_bigboss_death.wav")
 const SFX_FATONE_DEATH: AudioStreamWAV = preload("res://sfx/mob_fatone_death.wav")
 
-const BGM_FADE_TIME_SECS: float = 0.5
-
 const BGM_LOOP_0: AudioStreamMP3 = preload("res://bgm/1_loop_0.mp3")
 const BGM_LOOP_1: AudioStreamMP3 = preload("res://bgm/2_loop_1.mp3")
 const BGM_LOOP_2: AudioStreamMP3 = preload("res://bgm/3_loop_2.mp3")
@@ -51,12 +49,28 @@ var QueuedTrack: AudioStreamMP3
 
 var _should_play_sfx: bool = true
 var _should_play_bgm: bool = true
+var _is_transition_track: bool = false
 
 func play_bgm(level: BgmLevel) -> void:
     if !_should_play_bgm:
         return
     
+    # Check if we need to transition instead
     var targetTrack = LevelToTrackMap[level]
+
+    if (
+        CurrentTrack == BgmLevel.LEVEL_4
+        and level == BgmLevel.LEVEL_5
+    ):
+        targetTrack = BGM_X_LOOP_4_TO_LOOP_5
+        _is_transition_track = true
+    elif (
+        CurrentTrack == BgmLevel.LEVEL_5
+        and level == BgmLevel.LEVEL_6
+    ):
+        targetTrack = BGM_X_LOOP_5_TO_LOOP_6
+        _is_transition_track = true
+
     CurrentTrack = level
 
     # If not playing anything, play immediately.
@@ -101,16 +115,17 @@ func play_ui_sfx(stream: AudioStream) -> void:
     UiSfx.stream = stream
     UiSfx.play()
 
-func _play_queued_track_if_needed() -> void:
+func _on_bgm_finished() -> void:
     if !QueuedTrack:
-        return
-
-    if true:  # TODO: check if we're at the end of the current loop
-        print("audio: queued bgm ready to go, playing")
-        Bgm.stream = QueuedTrack
-        
-        # TODO: instead of setting null, queue another track
-        # TODO: if we're between levels where transitions exist
-        QueuedTrack = null
-
+        # If no track is queued, just repeat the current track
         Bgm.play()
+        return
+    
+    Bgm.stream = QueuedTrack
+    Bgm.play()
+    
+    if _is_transition_track:
+        QueuedTrack = LevelToTrackMap[CurrentTrack]
+        _is_transition_track = false
+    else:
+        QueuedTrack = null

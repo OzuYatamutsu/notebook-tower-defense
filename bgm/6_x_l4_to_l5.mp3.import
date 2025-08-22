@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/6_x_l4_to_l5.mp3-b879af0ce6ee430c29479c0aab63
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

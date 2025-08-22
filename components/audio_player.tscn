@@ -15,3 +15,5 @@ max_polyphony = 8
 [node name="mob_sfx" type="AudioStreamPlayer" parent="."]
 
 [node name="bgm" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="bgm" to="." method="_on_bgm_finished"]
