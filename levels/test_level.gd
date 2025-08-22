@@ -8,7 +8,7 @@ func _init() -> void:
         {"res://mobs/Basic.tscn": 15},
         {"res://mobs/FatOne.tscn": 10},
         {"res://mobs/Basic.tscn": 30},
-        {"res://mobs/Nyoom.tscn": 5},
+        {"res://mobs/Nyoom.tscn": 5, "res://mobs/Basic.tscn": 15},
         {"res://mobs/FatOne.tscn": 20},
         {"res://mobs/Basic.tscn": 20, "res://mobs/Nyoom.tscn": 20},
         {"res://mobs/Basic.tscn": 75},
