@@ -9,6 +9,16 @@ const WAVE_TIMER_SECS = 15.0
 # How many mobs should the spawner spawn at once?
 const MOBS_TO_SPAWN_AT_ONCE: int = 2
 
+const WAVE_NUM_TO_TRACK_LEVEL = {
+    1: Audio.BgmLevel.LEVEL_1,
+    4: Audio.BgmLevel.LEVEL_2,
+    7: Audio.BgmLevel.LEVEL_3,
+    10: Audio.BgmLevel.LEVEL_4,
+    13: Audio.BgmLevel.LEVEL_5,
+    15: Audio.BgmLevel.LEVEL_6,
+    18: Audio.BgmLevel.LEVEL_7
+}
+
 # Formula which determines how fast a Mob hp's grows over
 # progressive waves.
 var WAVE_HEALTH_MULTIPLIER: Callable = func(wave_num):
@@ -41,7 +51,6 @@ func _ready() -> void:
         WAVES.append(Wave.new(wave_contents))
     CURRENT_WAVE = WAVES.pop_front()
     GameState._on_level_load()
-    select_and_play_music()
 
 func start_wave() -> void:
     CURRENT_WAVE_NUM += 1
@@ -51,6 +60,7 @@ func start_wave() -> void:
     WAVE_METER.WaveTimerUI.enable()
     CURRENT_WAVE.start()
     SPAWNER.activate()
+    select_and_play_bgm()
     
     GameState.NEXT_WAVE_METER.reset_next_mob_types()
 
@@ -92,6 +102,6 @@ func _on_spawn_signal() -> void:
         SPAWNER.spawn(mob_to_spawn)
         print("Spawning: " + str(mob_to_spawn))
 
-func select_and_play_music() -> void:
-    # TODO
-    AudioPlayer.play_bgm(Audio.BgmLevel.LEVEL_1)
+func select_and_play_bgm() -> void:
+    if CURRENT_WAVE_NUM in WAVE_NUM_TO_TRACK_LEVEL:
+        AudioPlayer.play_bgm(WAVE_NUM_TO_TRACK_LEVEL[CURRENT_WAVE_NUM])
