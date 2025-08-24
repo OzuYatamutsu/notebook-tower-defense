@@ -2,7 +2,7 @@ class_name MissileTower
 extends Tower
 
 func _init() -> void:
-    VALUE = 1400
+    VALUE = 1300
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +
