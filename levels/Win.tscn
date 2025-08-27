@@ -1,62 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbqcl04om0kls"]
+[gd_scene load_steps=3 format=3 uid="uid://dbqcl04om0kls"]
 
 [ext_resource type="Script" uid="uid://cxn3u8kqfb05x" path="res://levels/win.gd" id="1_1mqau"]
-[ext_resource type="Texture2D" uid="uid://baflraqnn10y0" path="res://sprites/restart_label.png" id="2_nmd32"]
-[ext_resource type="Texture2D" uid="uid://uf67w20tpij3" path="res://sprites/quit_label.png" id="3_33h2o"]
-[ext_resource type="Texture2D" uid="uid://dtrcxg1y37tk6" path="res://sprites/win_label.png" id="4_1mqau"]
-[ext_resource type="Texture2D" uid="uid://cf0d70h2mo3of" path="res://sprites/score_label.png" id="5_24v5k"]
-[ext_resource type="Texture2D" uid="uid://cpx32kpmrfcov" path="res://sprites/num0.png" id="6_4jc8d"]
-[ext_resource type="Texture2D" uid="uid://cn6nqp74duu6q" path="res://sprites/num1.png" id="7_fewnj"]
-[ext_resource type="Texture2D" uid="uid://mmgdxhvjffud" path="res://sprites/num2.png" id="8_fagh2"]
-[ext_resource type="Texture2D" uid="uid://binpecfwik3ji" path="res://sprites/num3.png" id="9_w71n2"]
-[ext_resource type="Texture2D" uid="uid://bq4bbj7gjudud" path="res://sprites/num4.png" id="10_a8qn8"]
-[ext_resource type="Texture2D" uid="uid://ctyktknbbe3jt" path="res://sprites/num5.png" id="11_ycyke"]
-[ext_resource type="Texture2D" uid="uid://bx50aqogqvvjg" path="res://sprites/num6.png" id="12_5aqjw"]
-[ext_resource type="Texture2D" uid="uid://88sj41v71jb" path="res://sprites/num7.png" id="13_ynq37"]
-[ext_resource type="Texture2D" uid="uid://bmler41lapjay" path="res://sprites/num8.png" id="14_pt2hg"]
-[ext_resource type="Texture2D" uid="uid://dkdaoi6wuh32r" path="res://sprites/num9.png" id="15_tj70m"]
-[ext_resource type="Texture2D" uid="uid://dgm6mxbsaplku" path="res://sprites/null_digit.png" id="16_sh3mr"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xgm4t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_4jc8d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_fewnj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_fagh2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_w71n2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_a8qn8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ycyke")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_5aqjw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_ynq37")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_pt2hg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_tj70m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_sh3mr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 0.0
-}]
+[ext_resource type="Theme" uid="uid://dym7h64funxyg" path="res://components/UIDefault.tres" id="2_1j8er"]
 
 [node name="Win" type="Control"]
 z_index = 5
@@ -77,6 +22,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.823529)
 
+[node name="WinLabel" type="Label" parent="."]
+offset_left = 140.0
+offset_top = 97.0
+offset_right = 1140.0
+offset_bottom = 317.0
+grow_horizontal = 0
+theme = ExtResource("2_1j8er")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "Win!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCounter" type="Label" parent="."]
+offset_left = 213.0
+offset_top = 341.0
+offset_right = 1083.0
+offset_bottom = 429.0
+theme = ExtResource("2_1j8er")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RestartButton" type="Button" parent="."]
 custom_minimum_size = Vector2(308, 84)
 layout_mode = 0
@@ -85,82 +55,25 @@ offset_top = 555.0
 offset_right = 506.0
 offset_bottom = 639.0
 mouse_default_cursor_shape = 2
-icon = ExtResource("2_nmd32")
+theme = ExtResource("2_1j8er")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "RESTART"
 flat = true
 
 [node name="QuitButton" type="Button" parent="."]
 custom_minimum_size = Vector2(308, 84)
 layout_mode = 0
-offset_left = 677.0
+offset_left = 735.0
 offset_top = 555.0
-offset_right = 985.0
-offset_bottom = 639.0
+offset_right = 1043.0
+offset_bottom = 651.0
 mouse_default_cursor_shape = 2
-icon = ExtResource("3_33h2o")
+theme = ExtResource("2_1j8er")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "QUIT"
 flat = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -502.0
-offset_top = -262.0
-offset_right = 498.0
-offset_bottom = 152.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-
-[node name="TitleLabel" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("4_1mqau")
-stretch_mode = 5
-
-[node name="ScoreLabel" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(241, 363)
-scale = Vector2(0.513, 0.517)
-texture = ExtResource("5_24v5k")
-
-[node name="Score" type="Control" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="digit1" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(371, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
-
-[node name="digit2" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(450, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
-
-[node name="digit3" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(526, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
-
-[node name="digit4" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(604, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
-
-[node name="digit5" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(684, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
-
-[node name="digit6" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(766, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
-
-[node name="digit7" type="AnimatedSprite2D" parent="VBoxContainer/Score"]
-position = Vector2(843, 28)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_xgm4t")
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
