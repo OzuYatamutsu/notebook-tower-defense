@@ -96,7 +96,11 @@ func _on_button_exit() -> void:
     DescriptionPanel.text = ""
 
 func _on_button_click(button: Button) -> void:
+    if button.disabled:
+        return
+
     PlacementModeActive = true
+    DescriptionPanel.text = ButtonToTowerMap[button.name].Description
 
     GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_UI_CLICK)
     SpawnShadow.activate(
@@ -116,6 +120,7 @@ func _on_upgrade_button_click(button: Button) -> void:
     GameState.deduct_money(newTower.VALUE)
     SelectedTower.queue_free()
     buy_mode()
+    SelectedTower = null
     GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_TOWER_PLACE)
 
 func recalculate_money() -> void:
@@ -147,7 +152,7 @@ func info_mode(tower: Tower) -> void:
     # We've selected a tower, activate the info panel
     # and deactivate the tower select panel.
     SelectedTower = tower
-    
+
     var tower_is_upgraded = (
         SelectedTower.UpgradesTo == null
         or SelectedTower.UpgradesTo.is_empty()
@@ -165,10 +170,10 @@ func info_mode(tower: Tower) -> void:
     
     if tower_is_upgraded:
         UpgradedLabel.visible = true
-        DescriptionPanel.text = SelectedTower.Description
     else:
         UpgradedLabel.visible = false
-        DescriptionPanel.text = ""
+    
+    DescriptionPanel.text = SelectedTower.Description
 
     recalculate_money()
     BuyPanel.visible = false
@@ -206,25 +211,28 @@ func draw_button_hotkeys() -> void:
         TowerUpgradeSelectPanel.get_child(i).add_child(label)
 
 func _input(_event: InputEvent) -> void:
+    if SelectedTower != null and SelectedTower.IsUpgraded:
+        return
+
     if Input.is_action_just_pressed("hotkey_select_tower_1"):
-        if !InfoModeActive:
+        if !InfoModeActive and !TowerBuySelectPanel.get_child(0).disabled:
             _on_button_click(TowerBuySelectPanel.get_child(0))
-        else:
-            _on_button_click(TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(0)))
-        GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+            GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+        elif !TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(0)).disabled:
+            _on_upgrade_button_click(TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(0)))
     elif Input.is_action_just_pressed("hotkey_select_tower_2"):
-        if !InfoModeActive:
+        if !InfoModeActive and !TowerBuySelectPanel.get_child(1).disabled:
             _on_button_click(TowerBuySelectPanel.get_child(1))
-        else:
-            _on_button_click(TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(1)))
-        GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+            GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+        elif !TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(1)).disabled:
+            _on_upgrade_button_click(TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(1)))
     elif Input.is_action_just_pressed("hotkey_select_tower_3"):
-        if !InfoModeActive:
+        if !InfoModeActive and !TowerBuySelectPanel.get_child(2).disabled:
             _on_button_click(TowerBuySelectPanel.get_child(2))
             GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
         # Does nothing in upgrade mode; only two towers to choose from
     elif Input.is_action_just_pressed("hotkey_select_tower_4"):
-        if !InfoModeActive:
+        if !InfoModeActive and !TowerBuySelectPanel.get_child(3).disabled:
             _on_button_click(TowerBuySelectPanel.get_child(3))
             GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
         # Does nothing in upgrade mode; only two towers to choose from
