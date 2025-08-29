@@ -57,6 +57,7 @@ extends Control
 
 @export var SelectedTower: Tower = null
 @export var InfoModeActive: bool = false
+@export var PlacementModeActive: bool = false
 
 func _ready() -> void:
     DescriptionPanel.text = ""
@@ -83,13 +84,19 @@ func _ready() -> void:
     buy_mode()
 
 func _on_button_rollover(button: Button) -> void:
+    if PlacementModeActive:
+        return
     var tower: Tower = ButtonToTowerMap[button.name]
     DescriptionPanel.text = tower.Description
 
 func _on_button_exit() -> void:
+    if PlacementModeActive:
+        return
     DescriptionPanel.text = ""
 
 func _on_button_click(button: Button) -> void:
+    PlacementModeActive = true
+
     GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_UI_CLICK)
     SpawnShadow.activate(
         ButtonToTowerPathMap[button.name],
@@ -174,6 +181,10 @@ func buy_mode() -> void:
     BuyPanel.visible = true
     UpgradePanel.visible = false
     InfoModeActive = false
+
+func disable_placement_mode() -> void:
+    PlacementModeActive = false
+    DescriptionPanel.text = ""
 
 func _input(event: InputEvent) -> void:
     if !(

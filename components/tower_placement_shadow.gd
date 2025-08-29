@@ -59,6 +59,7 @@ func _input(event) -> void:
     if !HoveringOverTower and IsHoveringOverWall and IsActive:
         GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_TOWER_PLACE)
         spawn()
+        GameState.TOWER_INFO_AND_BUY_PANEL.disable_placement_mode()
         hide_shadow()
         deactivate()
     elif !IsHoveringOverWall:
