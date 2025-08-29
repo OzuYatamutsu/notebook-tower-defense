@@ -1,6 +1,8 @@
 class_name Win
 extends Control
 
+@onready var ScoreCounter = $ScoreCounter
+
 func _ready() -> void:
     GameState.SHOULDNT_PAUSE = true
     set_score(GameState.SCORE)

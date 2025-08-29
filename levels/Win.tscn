@@ -23,6 +23,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.823529)
 
 [node name="WinLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 140.0
 offset_top = 97.0
 offset_right = 1140.0
@@ -36,6 +37,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreCounter" type="Label" parent="."]
+layout_mode = 0
 offset_left = 213.0
 offset_top = 341.0
 offset_right = 1083.0
