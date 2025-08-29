@@ -186,10 +186,26 @@ func disable_placement_mode() -> void:
     PlacementModeActive = false
     DescriptionPanel.text = ""
 
-func _input(event: InputEvent) -> void:
-    if !(
-        event is InputEventMouseButton
-        and event.is_pressed()
-        and event.button_index == MOUSE_BUTTON_LEFT
-    ):
-        return
+func _input(_event: InputEvent) -> void:
+    if Input.is_action_just_pressed("hotkey_select_tower_1"):
+        if !InfoModeActive:
+            _on_button_click(TowerBuySelectPanel.get_child(0))
+        else:
+            _on_button_click(TowerUpgradeSelectPanel.get_child(0))
+        GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+    elif Input.is_action_just_pressed("hotkey_select_tower_2"):
+        if !InfoModeActive:
+            _on_button_click(TowerBuySelectPanel.get_child(1))
+        else:
+            _on_button_click(TowerUpgradeSelectPanel.get_child(1))
+        GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+    elif Input.is_action_just_pressed("hotkey_select_tower_3"):
+        if !InfoModeActive:
+            _on_button_click(TowerBuySelectPanel.get_child(2))
+            GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+        # Does nothing in upgrade mode; only two towers to choose from
+    elif Input.is_action_just_pressed("hotkey_select_tower_4"):
+        if !InfoModeActive:
+            _on_button_click(TowerBuySelectPanel.get_child(3))
+            GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
+        # Does nothing in upgrade mode; only two towers to choose from
