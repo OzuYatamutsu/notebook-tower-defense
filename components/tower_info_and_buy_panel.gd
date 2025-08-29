@@ -81,6 +81,7 @@ func _ready() -> void:
             _on_upgrade_button_click.bind(tower)
         )
 
+    draw_button_hotkeys()
     buy_mode()
 
 func _on_button_rollover(button: Button) -> void:
@@ -186,18 +187,36 @@ func disable_placement_mode() -> void:
     PlacementModeActive = false
     DescriptionPanel.text = ""
 
+func draw_button_hotkeys() -> void:
+    for i in range(TowerBuySelectPanel.get_children().size()):
+        var label = Label.new()
+        label.add_theme_font_size_override("font_size", 100)
+
+        label.text = ["Q", "W", "E", "R"][i]
+        label.add_theme_color_override("font_color", Color(0,0,0,0.75))
+        
+        TowerBuySelectPanel.get_child(i).add_child(label)
+    for i in range(TowerUpgradeSelectPanel.get_children().size()):
+        var label = Label.new()
+        label.add_theme_font_size_override("font_size", 100)
+
+        label.text = ["Q", "W", "E", "R"][i % 2]
+        label.add_theme_color_override("font_color", Color(0,0,0,0.75))
+        
+        TowerUpgradeSelectPanel.get_child(i).add_child(label)
+
 func _input(_event: InputEvent) -> void:
     if Input.is_action_just_pressed("hotkey_select_tower_1"):
         if !InfoModeActive:
             _on_button_click(TowerBuySelectPanel.get_child(0))
         else:
-            _on_button_click(TowerUpgradeSelectPanel.get_child(0))
+            _on_button_click(TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(0)))
         GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
     elif Input.is_action_just_pressed("hotkey_select_tower_2"):
         if !InfoModeActive:
             _on_button_click(TowerBuySelectPanel.get_child(1))
         else:
-            _on_button_click(TowerUpgradeSelectPanel.get_child(1))
+            _on_button_click(TowerUpgradeSelectPanel.get_child(_get_nth_visible_child_index(1)))
         GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
     elif Input.is_action_just_pressed("hotkey_select_tower_3"):
         if !InfoModeActive:
@@ -209,3 +228,16 @@ func _input(_event: InputEvent) -> void:
             _on_button_click(TowerBuySelectPanel.get_child(3))
             GameState.TOWER_PLACEMENT_SHADOW.set_ok_state()  # HACK
         # Does nothing in upgrade mode; only two towers to choose from
+
+func _get_nth_visible_child_index(n: int) -> int:
+    n += 1
+
+    for i in range(TowerUpgradeSelectPanel.get_children().size()):
+        if !TowerUpgradeSelectPanel.get_child(i).visible:
+            continue
+        n -= 1
+    
+        if n == 0:
+            return i
+
+    return TowerUpgradeSelectPanel.get_children().size() - 1
