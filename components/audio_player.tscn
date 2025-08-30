@@ -13,9 +13,9 @@ script = ExtResource("1_288qd")
 max_polyphony = 8
 
 [node name="mob_sfx" type="AudioStreamPlayer" parent="."]
-volume_db = -3.5
+volume_db = -4.0
 
 [node name="bgm" type="AudioStreamPlayer" parent="."]
-volume_db = -6.0
+volume_db = -8.0
 
 [connection signal="finished" from="bgm" to="." method="_on_bgm_finished"]
