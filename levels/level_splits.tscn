@@ -64,6 +64,7 @@ script = ExtResource("1_k8t1y")
 metadata/_custom_type_script = "uid://0wwxleyefwme"
 
 [node name="UI" parent="." instance=ExtResource("2_ka6gn")]
+layer = 2
 
 [node name="LevelViewport" parent="." instance=ExtResource("3_s65yq")]
 
