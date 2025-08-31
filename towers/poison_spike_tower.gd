@@ -2,7 +2,7 @@ class_name PoisonSpikeTower
 extends SpikeTower
 
 func _init() -> void:
-    VALUE = 1250
+    VALUE = 1500
     Description = (
         "COST: {0} MONEY\n".format([VALUE]) +
         "\n" +
