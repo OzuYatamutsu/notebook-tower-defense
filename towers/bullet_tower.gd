@@ -21,7 +21,7 @@ func _init() -> void:
 
 func _ready() -> void:
     ready_tower(
-        preload("res://projectiles/Bullet.tscn"),
+        Bullet,
         1000.00,  # Range
         1.0  # Rate of fire
     )

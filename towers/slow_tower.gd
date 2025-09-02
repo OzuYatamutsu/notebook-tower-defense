@@ -23,7 +23,7 @@ func _init() -> void:
 
 func _ready() -> void:
     ready_tower(
-        preload("res://projectiles/Slow.tscn"),
+        Slow,
         1000.00,  # Range
         3.5  # Rate of fire
     )
@@ -35,8 +35,7 @@ func fire() -> void:
 
     for i in range(NUM_PROJECTILES_TO_FIRE):
         # Spawn a new projectile
-        var new_projectile: Projectile = PROJECTILE_REF.instantiate()
-        ProjectileRoot.add_child(new_projectile)
+        var new_projectile: Projectile = Respawner.spawn_projectile(Slow)
         new_projectile.global_position = global_position
 
         # ...and fire and forget in a circle

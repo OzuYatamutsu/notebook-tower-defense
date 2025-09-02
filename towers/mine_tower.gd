@@ -24,7 +24,7 @@ func _init() -> void:
 
 func _ready() -> void:
     ready_tower(
-        preload("res://projectiles/Mine.tscn"),
+        Mine,
         250.0,
         60.0  # timer isn't used
     )

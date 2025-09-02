@@ -137,17 +137,8 @@ icon = ExtResource("3_8a0mh")
 flat = true
 icon_alignment = 1
 
-[node name="dummy_mobs" type="Control" parent="." groups=["mobs"]]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="dummy_mobs" type="Node2D" parent="." groups=["mobs"]]
 
-[node name="dummy_towers" type="Control" parent="." groups=["towers"]]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="dummy_towers" type="Node2D" parent="." groups=["towers"]]
 
-[node name="dummy_projectiles" type="Control" parent="." groups=["projectiles"]]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="dummy_projectiles" type="Node2D" parent="." groups=["projectiles"]]

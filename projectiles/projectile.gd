@@ -19,6 +19,14 @@ func _init():
     self.collision_layer = 0x8  # projectiles
     self.collision_mask = 0x3  # walls, towers
     area_entered.connect(_on_hit_wall)
+    visible = true
+
+func _deinit():
+    self.collision_layer = 0x0
+    self.collision_mask = 0x0
+    for connection in area_entered.get_connections():
+        connection["signal"].disconnect(connection["callable"])
+    visible = false
 
 func fire(at_direction: Vector2) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")
@@ -94,14 +102,17 @@ func _recalculate_should_ignore_walls() -> void:
 
 func _recalc_in_a_wall_despawn_if_necessary() -> void:
     if !get_overlapping_areas().is_empty():
-        queue_free()
+        recycle()
 
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time
     # so clean this up
-    queue_free()
+    recycle()
 
 func _on_hit_wall(_wall_or_tower: Area2D) -> void:
     if IgnoreWalls:
         return
-    queue_free()
+    recycle()
+
+func recycle():
+    Respawner.recycle_projectile(self.get_script(), self)

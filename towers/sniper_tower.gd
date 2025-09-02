@@ -23,7 +23,7 @@ func _init() -> void:
 
 func _ready() -> void:
     ready_tower(
-        preload("res://projectiles/SniperBullet.tscn"),
+        SniperBullet,
         4000.0,
         3.50
     )

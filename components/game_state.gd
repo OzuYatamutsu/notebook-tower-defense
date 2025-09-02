@@ -97,6 +97,7 @@ func _on_level_load() -> void:
     if !get_tree().current_scene.name.contains("MapSelect"):
         assert(CURRENT_LEVEL != null)
 
+    Respawner._on_level_load()
     GameState.SHOULDNT_PAUSE = false
 
 func add_money(value: int) -> void:
