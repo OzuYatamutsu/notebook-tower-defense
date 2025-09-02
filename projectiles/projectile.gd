@@ -18,7 +18,8 @@ var direction: Vector2 = Vector2.ZERO
 func _init():
     self.collision_layer = 0x8  # projectiles
     self.collision_mask = 0x3  # walls, towers
-    area_entered.connect(_on_hit_wall)
+    if !area_entered.has_connections():
+        area_entered.connect(_on_hit_wall)
     visible = true
 
 func _deinit():

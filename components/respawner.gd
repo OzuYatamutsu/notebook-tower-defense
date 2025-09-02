@@ -2,7 +2,7 @@
 extends Node
 
 const MOB_INSTANCE_LIMIT = 300
-const PROJECTILE_INSTANCE_LIMIT = 200
+const PROJECTILE_INSTANCE_LIMIT = 100
 
 var PROJECTILE_TYPES = {
     Bullet: preload("res://projectiles/Bullet.tscn"),
@@ -40,12 +40,15 @@ func _on_level_load():
 
 func spawn_projectile(projectile_type: GDScript) -> Projectile:
     var current_size = PROJECTILE_COUNTS.get(projectile_type, 0)
+    var inactive_size = INACTIVE_PROJECTILES.get(projectile_type, []).size()
     var projectile = null
 
     if current_size == 0:
         projectile = _new_spawn_projectile(projectile_type)
         ACTIVE_PROJECTILES[projectile_type] = [projectile]
         PROJECTILE_COUNTS[projectile_type] = 1
+    elif inactive_size >= PROJECTILE_INSTANCE_LIMIT:
+        projectile = _respawn_projectile(projectile_type)
     elif current_size < PROJECTILE_INSTANCE_LIMIT:
         projectile = _new_spawn_projectile(projectile_type)
         ACTIVE_PROJECTILES[projectile_type].append(projectile)
@@ -57,10 +60,14 @@ func spawn_projectile(projectile_type: GDScript) -> Projectile:
 func recycle_projectile(type: GDScript, projectile: Projectile) -> void:
     projectile._deinit()
 
+    var find_index = ACTIVE_PROJECTILES[type].find(projectile)
+    if find_index == -1:
+        return
+
     if type not in INACTIVE_PROJECTILES:
         INACTIVE_PROJECTILES[type] = []
     INACTIVE_PROJECTILES[type].append(
-        ACTIVE_PROJECTILES[type].find(projectile)
+        ACTIVE_PROJECTILES[type][find_index]
     )
     ACTIVE_PROJECTILES[type].erase(projectile)
 
