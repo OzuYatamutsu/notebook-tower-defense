@@ -47,4 +47,4 @@ func _on_damage_tick():
 
 func _despawn_if_target_destroyed():
     if not TARGET:
-        recycle()
+        queue_free()

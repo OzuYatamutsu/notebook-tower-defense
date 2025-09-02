@@ -39,7 +39,7 @@ func _on_hit(projectile: Projectile) -> void:
         var effect = projectile.pop_next_effect()
         effect.apply(self)
     if projectile is not Laser:
-        projectile.recycle()
+        projectile.queue_free()
 
 func _on_death():
     GameState.AUDIO_CONTROL.play_mob_sfx(DEATH_SFX)

@@ -43,7 +43,7 @@ func pop_next_effect() -> Effect:
 func _on_despawn_timer_timeout() -> void:
     # We didn't hit the target in time
     # so clean this up
-    recycle()
+    queue_free()
 
 func _on_hit_mob(_mob: Mob) -> void:
     # Collisions with mobs are handled

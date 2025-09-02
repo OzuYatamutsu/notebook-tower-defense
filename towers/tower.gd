@@ -3,7 +3,7 @@ extends Area2D
 
 const MAX_CIRCLE_SELECTION_ATTEMPTS = 50
 
-@export var PROJECTILE_REF: GDScript
+@export var PROJECTILE_REF: PackedScene
 @export var CURRENT_TARGET: Mob
 @export var TARGETING_RADIUS_PX: float
 @export var RATE_OF_FIRE_SECS: float
@@ -12,6 +12,7 @@ const MAX_CIRCLE_SELECTION_ATTEMPTS = 50
 
 @onready var ShootTimer: Timer
 @onready var TargetingRadius: Area2D
+@onready var ProjectileRoot: Node2D = get_tree().get_first_node_in_group(GameState.PROJECTILES_GROUP)
 @onready var Sprite: Sprite2D = $Sprite
 
 var TargetingQueue: Array[Mob]
@@ -47,7 +48,7 @@ func _init():
     TargetingRadius.area_exited.connect(_on_targeting_radius_exited)
     input_event.connect(_on_click)
 
-func ready_tower(projectile: GDScript, targeting_radius_px: float, rate_of_fire_secs: float) -> void:
+func ready_tower(projectile: PackedScene, targeting_radius_px: float, rate_of_fire_secs: float) -> void:
     # Call this when we're placing the tower
     PROJECTILE_REF = projectile
     TARGETING_RADIUS_PX = targeting_radius_px
@@ -140,7 +141,8 @@ func _on_click(_viewport, event, _shape_idx) -> void:
 
 func fire() -> void:
     # Spawn a new projectile
-    var new_projectile: Projectile = Respawner.spawn_projectile(PROJECTILE_REF)
+    var new_projectile: Projectile = PROJECTILE_REF.instantiate()
+    ProjectileRoot.add_child(new_projectile)
     new_projectile.global_position = global_position
 
     # ...and fire it at our target!

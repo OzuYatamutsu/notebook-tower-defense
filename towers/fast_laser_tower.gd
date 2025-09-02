@@ -30,7 +30,7 @@ func _init() -> void:
 
 func _ready() -> void:
     ready_tower(
-        FastLaser,
+        preload("res://projectiles/FastLaser.tscn"),
         1500.00,  # Range
         0.5  # Rate of fire
     )

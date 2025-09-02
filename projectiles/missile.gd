@@ -28,7 +28,7 @@ func _explode() -> void:
     var explosion: MissileExplosion = EXPLOSION_EFFECT_SCENE.instantiate()
     ProjectileRoot.add_child(explosion)
     explosion.global_position = global_position
-    recycle()
+    queue_free()
 
 func effect(_mob: Mob) -> void:
     call_deferred("_explode")

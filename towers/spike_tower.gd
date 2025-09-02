@@ -26,7 +26,7 @@ func _superinit():
 
 func _ready() -> void:
     ready_tower(
-        Spike,
+        preload("res://projectiles/Spike.tscn"),
         250.0,
         60.0  # timer isn't used
     )
@@ -40,7 +40,8 @@ func _ready() -> void:
 func fire() -> void:
     for i in NUM_MINES:
         # Spawn a new projectile
-        var new_mine: Mineable = Respawner.spawn_projectile(PROJECTILE_REF)
+        var new_mine: Mineable = PROJECTILE_REF.instantiate()
+        ProjectileRoot.add_child(new_mine)
         new_mine.global_position = global_position
 
         # ...and fire it at a randomly generated position
