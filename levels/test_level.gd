@@ -3,26 +3,26 @@ extends Level
 
 func _init() -> void:
     WAVE_CONTENTS = [
-        {"res://mobs/Basic.tscn": 5},
-        {"res://mobs/Basic.tscn": 10},
-        {"res://mobs/Basic.tscn": 15},
-        {"res://mobs/FatOne.tscn": 10},
-        {"res://mobs/Basic.tscn": 30},
-        {"res://mobs/Nyoom.tscn": 5, "res://mobs/Basic.tscn": 15},
-        {"res://mobs/FatOne.tscn": 20},
-        {"res://mobs/Basic.tscn": 20, "res://mobs/Nyoom.tscn": 20},
-        {"res://mobs/Basic.tscn": 75},
-        {"res://mobs/FatOne.tscn": 20, "res://mobs/BigBoss.tscn": 1},
-        {"res://mobs/Nyoom.tscn": 30},
-        {"res://mobs/FatOne.tscn": 50},
-        {"res://mobs/Basic.tscn": 100, "res://mobs/Nyoom.tscn": 30},
-        {"res://mobs/Basic.tscn": 100, "res://mobs/FatOne.tscn": 20},
-        {"res://mobs/Basic.tscn": 100, "res://mobs/FatOne.tscn": 30, "res://mobs/Nyoom.tscn": 20},
-        {"res://mobs/Basic.tscn": 150, "res://mobs/FatOne.tscn": 30, "res://mobs/Nyoom.tscn": 20},
-        {"res://mobs/Basic.tscn": 150, "res://mobs/FatOne.tscn": 30, "res://mobs/Nyoom.tscn": 20},
-        {"res://mobs/Basic.tscn": 200, "res://mobs/FatOne.tscn": 50, "res://mobs/Nyoom.tscn": 50},
-        {"res://mobs/BigBoss.tscn": 5},
-        {"res://mobs/BigBoss.tscn": 5, "res://mobs/Basic.tscn": 100, "res://mobs/FatOne.tscn": 100, "res://mobs/Nyoom.tscn": 100}
+        {Basic: 5},
+        {Basic: 10},
+        {Basic: 15},
+        {FatOne: 10},
+        {Basic: 30},
+        {Nyoom: 5, Basic: 15},
+        {FatOne: 20},
+        {Basic: 20, Nyoom: 20},
+        {Basic: 75},
+        {FatOne: 20, BigBoss: 1},
+        {Nyoom: 30},
+        {FatOne: 50},
+        {Basic: 100, Nyoom: 30},
+        {Basic: 100, FatOne: 20},
+        {Basic: 100, FatOne: 30, Nyoom: 20},
+        {Basic: 150, FatOne: 30, Nyoom: 20},
+        {Basic: 150, FatOne: 30, Nyoom: 20},
+        {Basic: 200, FatOne: 50, Nyoom: 50},
+        {BigBoss: 5},
+        {BigBoss: 5, Basic: 100, FatOne: 100, Nyoom: 100}
     ]
 
 func _ready():

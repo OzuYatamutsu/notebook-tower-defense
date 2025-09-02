@@ -25,18 +25,6 @@ func deactivate() -> void:
     SpawnTimer.stop()
 
 func spawn(mob: Mob):
-    var target: mobs_parent = get_tree().get_first_node_in_group(
-        GameState.MOBS_GROUP
-    )
-    var pathing_helper: MobPather = MobPather.new()
-
-    pathing_helper.add_child(mob)
-    mob.mob_killed.connect(pathing_helper._on_mob_despawn)
-    mob.mob_killed.connect(GameState._on_mob_killed)
-    mob.mob_despawned.connect(pathing_helper._on_mob_despawn)
-    mob.mob_despawned.connect(GameState._on_mob_despawn)
-    target.get_random_mob_path().add_child(pathing_helper)
-
     mob.global_position = (
         global_position + Vector2(randf_range(
             -WIGGLE_ROOM_PERCENT * global_position.x,

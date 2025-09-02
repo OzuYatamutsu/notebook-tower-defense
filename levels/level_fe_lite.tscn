@@ -79,6 +79,7 @@ position = Vector2(556, 59)
 
 [node name="LevelSpawn" parent="LevelViewport" index="5"]
 position = Vector2(251, 57)
+SPAWN_TIMER_SECS = 0.5
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(0, 39)

@@ -9,8 +9,8 @@ signal wave_ended
 const WAVE_END_MONEY_BONUS: int = 200
 
 # How many of each Mob should we spawn?
-@export var WAVE_CONTENTS: Dictionary  # [String, int]
-@export var CURRENT_WAVE_CONTENTS: Array  # [String]
+@export var WAVE_CONTENTS: Dictionary  # [GDScript, int]
+@export var CURRENT_WAVE_CONTENTS: Array[GDScript]
 
 func _init(wave_contents: Dictionary) -> void:
     WAVE_CONTENTS = wave_contents
@@ -26,8 +26,7 @@ func end() -> void:
     emit_signal(wave_ended.get_name())
 
 func pop() -> Mob:
-    var mob = CURRENT_WAVE_CONTENTS.pop_front()
-    return load(mob).instantiate()
+    return Respawner.spawn_mob(CURRENT_WAVE_CONTENTS.pop_front())
 
 func is_empty() -> bool:
     return CURRENT_WAVE_CONTENTS.is_empty()

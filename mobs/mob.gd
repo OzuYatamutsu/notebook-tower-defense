@@ -23,15 +23,47 @@ const MIN_SPEED: float = 0.010
 
 var DEATH_SFX = Audio.SFX_DEFAULT_DEATH
 
+func _reinit():
+    add_to_group(GameState.MOB_MEMBERS_GROUP)
+    if !mob_killed.has_connections():
+        mob_killed.connect(GameState._on_mob_killed)
+    if !mob_despawned.has_connections():
+        mob_despawned.connect(GameState._on_mob_despawn)
+    if !area_entered.has_connections():
+        area_entered.connect(_on_hit)
+    if HEALTH_BAR and !HEALTH_BAR.no_hp.is_connected(_on_death):
+        HEALTH_BAR.no_hp.connect(_on_death)
+    if HEALTH_BAR:
+        HEALTH_BAR.set_max_hp(
+            MAX_HP * (WAVE_MULTIPLIER ** WAVE_NUM)
+        )
+    if DESPAWN_TIMER and !DESPAWN_TIMER.timeout.is_connected(_on_despawn_timer_timeout):
+        DESPAWN_TIMER.timeout.connect(_on_despawn_timer_timeout)
+    visible = true
+
+func _deinit():
+    remove_from_group(GameState.MOB_MEMBERS_GROUP)
+    
+    if mob_killed.has_connections():
+        mob_killed.disconnect(GameState._on_mob_killed)
+    if mob_despawned.has_connections():
+        mob_despawned.disconnect(GameState._on_mob_despawn)
+    if area_entered.has_connections():
+        area_entered.disconnect(_on_hit)
+    if HEALTH_BAR:
+        HEALTH_BAR.no_hp.disconnect(_on_death)
+    if DESPAWN_TIMER:
+        DESPAWN_TIMER.timeout.disconnect(_on_despawn_timer_timeout)
+    visible = false
+
 func _ready() -> void:
+    HEALTH_BAR.no_hp.connect(_on_death)
+    DESPAWN_TIMER.timeout.connect(_on_despawn_timer_timeout)
+
     HEALTH_BAR.set_max_hp(
         MAX_HP * (WAVE_MULTIPLIER ** WAVE_NUM)
     )
     SPEED *= (WAVE_MULTIPLIER ** WAVE_NUM)
-
-    area_entered.connect(_on_hit)
-    HEALTH_BAR.no_hp.connect(_on_death)
-    DESPAWN_TIMER.timeout.connect(_on_despawn_timer_timeout)
 
 func _on_hit(projectile: Projectile) -> void:
     HEALTH_BAR.damage_by(projectile.DAMAGE)
@@ -43,20 +75,19 @@ func _on_hit(projectile: Projectile) -> void:
 
 func _on_death():
     GameState.AUDIO_CONTROL.play_mob_sfx(DEATH_SFX)
-    remove_from_group(GameState.MOB_MEMBERS_GROUP)
-
     GameState.add_money(VALUE)
     mob_killed.emit(self)
-    queue_free()
+    recycle()
 
 func delayed_despawn() -> void:
     DESPAWN_TIMER.start()
 
 func _on_despawn_timer_timeout() -> void:
-    remove_from_group(GameState.MOB_MEMBERS_GROUP)
-
     mob_despawned.emit(self)
-    queue_free()
+    recycle()
 
 func _to_string() -> String:
     return "%s: hp=%s" % [name, str(HEALTH_BAR.HP)]
+
+func recycle() -> void:
+    Respawner.recycle_mob(self.get_script(), self)

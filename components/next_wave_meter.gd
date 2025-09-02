@@ -14,7 +14,7 @@ func reset_next_mob_types() -> void:
         NextMobSpriteContainer.remove_child(child)
 
 func set_next_mob_types(for_wave: Wave) -> void:
-    var unique_mob_types: Array[String] = []
+    var unique_mob_types: Array[GDScript] = []
 
     for mob_type in for_wave.CURRENT_WAVE_CONTENTS:
         if mob_type in unique_mob_types:
@@ -22,7 +22,7 @@ func set_next_mob_types(for_wave: Wave) -> void:
         else:
             unique_mob_types.append(mob_type)
 
-        var prototype_mob: Mob = load(mob_type).instantiate()
+        var prototype_mob: Mob = Respawner.MOB_TYPES[mob_type].instantiate()
         var new_mob_sprite = TextureRect.new()
 
         new_mob_sprite.texture = prototype_mob.get_node("Sprite").texture

@@ -3,26 +3,26 @@ extends Level
 
 func _init() -> void:
     WAVE_CONTENTS = [
-        {"res://mobs/Basic.tscn": 5},
-        {"res://mobs/Basic.tscn": 10},
-        {"res://mobs/Basic.tscn": 15},
-        {"res://mobs/Basic.tscn": 15, "res://mobs/FatOne.tscn": 1},
-        {"res://mobs/Basic.tscn": 15, "res://mobs/FatOne.tscn": 2},
-        {"res://mobs/Basic.tscn": 20, "res://mobs/FatOne.tscn": 3},
-        {"res://mobs/Basic.tscn": 25, "res://mobs/FatOne.tscn": 4},
-        {"res://mobs/Basic.tscn": 30, "res://mobs/FatOne.tscn": 5},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/FatOne.tscn": 6},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/BigBoss.tscn": 1},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/Nyoom.tscn": 5, "res://mobs/FatOne.tscn": 6},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/Nyoom.tscn": 6, "res://mobs/FatOne.tscn": 7},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/Nyoom.tscn": 7, "res://mobs/FatOne.tscn": 8},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/Nyoom.tscn": 8, "res://mobs/FatOne.tscn": 9},
-        {"res://mobs/Basic.tscn": 35, "res://mobs/Nyoom.tscn": 9, "res://mobs/FatOne.tscn": 10},
-        {"res://mobs/Basic.tscn": 50, "res://mobs/Nyoom.tscn": 10, "res://mobs/FatOne.tscn": 11},
-        {"res://mobs/Basic.tscn": 50, "res://mobs/Nyoom.tscn": 11, "res://mobs/FatOne.tscn": 12},
-        {"res://mobs/Basic.tscn": 50, "res://mobs/Nyoom.tscn": 12, "res://mobs/FatOne.tscn": 13},
-        {"res://mobs/Basic.tscn": 50, "res://mobs/Nyoom.tscn": 13, "res://mobs/FatOne.tscn": 14},
-        {"res://mobs/Basic.tscn": 50, "res://mobs/Nyoom.tscn": 15, "res://mobs/FatOne.tscn": 15, "res://mobs/BigBoss.tscn": 1}
+        {Basic: 5},
+        {Basic: 10},
+        {Basic: 15},
+        {Basic: 15, FatOne: 1},
+        {Basic: 15, FatOne: 2},
+        {Basic: 20, FatOne: 3},
+        {Basic: 25, FatOne: 4},
+        {Basic: 30, FatOne: 5},
+        {Basic: 35, FatOne: 6},
+        {Basic: 35, BigBoss: 1},
+        {Basic: 35, Nyoom: 5, FatOne: 6},
+        {Basic: 35, Nyoom: 6, FatOne: 7},
+        {Basic: 35, Nyoom: 7, FatOne: 8},
+        {Basic: 35, Nyoom: 8, FatOne: 9},
+        {Basic: 35, Nyoom: 9, FatOne: 10},
+        {Basic: 50, Nyoom: 10, FatOne: 11},
+        {Basic: 50, Nyoom: 11, FatOne: 12},
+        {Basic: 50, Nyoom: 12, FatOne: 13},
+        {Basic: 50, Nyoom: 13, FatOne: 14},
+        {Basic: 50, Nyoom: 15, FatOne: 15, BigBoss: 1}
     ]
 
 func _ready():
