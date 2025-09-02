@@ -77,9 +77,6 @@ func _respawn_projectile(projectile_type: GDScript) -> Projectile:
         new_projectile = INACTIVE_PROJECTILES[projectile_type].pop_back()
     else:
         new_projectile = ACTIVE_PROJECTILES[projectile_type].pop_front()
-    
-    if new_projectile == null:
-        new_projectile = _new_spawn_projectile(projectile_type)
     ACTIVE_PROJECTILES[projectile_type].append(new_projectile)
 
     new_projectile._init()

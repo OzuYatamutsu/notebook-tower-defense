@@ -15,7 +15,6 @@ var HP: float
 func set_max_hp(max_hp: float) -> void:
     MAX_HP = max_hp
     HP = max_hp
-    update_health_bar()
 
 func damage_by(amount: float) -> void:
     HP -= amount

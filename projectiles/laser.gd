@@ -40,11 +40,11 @@ func fire_at(target: Mob) -> void:
     ).normalized()
 
 func _on_damage_tick():
-    if not TARGET or !TARGET.visible:
+    if not TARGET:
         return
     TARGET.HEALTH_BAR.damage_by(self.DAMAGE)
     _despawn_if_target_destroyed()
 
 func _despawn_if_target_destroyed():
-    if not TARGET or !TARGET.visible:
+    if not TARGET:
         recycle()
