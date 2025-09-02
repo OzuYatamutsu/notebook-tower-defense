@@ -107,6 +107,8 @@ func _on_button_click(button: Button) -> void:
         ButtonToTowerPathMap[button.name],
         ButtonToTowerMap[button.name]
     )
+    
+    SelectedTower = null
 
 func _on_upgrade_button_click(button: Button) -> void:
     # Don't enter placement mode, just upgrade the selected tower
@@ -120,8 +122,9 @@ func _on_upgrade_button_click(button: Button) -> void:
     GameState.deduct_money(newTower.VALUE)
     SelectedTower.queue_free()
     buy_mode()
-    SelectedTower = null
     GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_TOWER_PLACE)
+
+    SelectedTower = null
 
 func recalculate_money() -> void:
     # Deactivate buttons if we can't afford them
@@ -191,6 +194,7 @@ func buy_mode() -> void:
 func disable_placement_mode() -> void:
     PlacementModeActive = false
     DescriptionPanel.text = ""
+    SelectedTower = null
 
 func draw_button_hotkeys() -> void:
     for i in range(TowerBuySelectPanel.get_children().size()):
