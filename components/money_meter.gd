@@ -1,7 +1,7 @@
 class_name MoneyMeter
 extends Control
 
-const NUM_DIGITS = 6
+const NUM_DIGITS = 4
 
 @onready var MoneyCountLabel: Label = $MoneyCountLabel
 

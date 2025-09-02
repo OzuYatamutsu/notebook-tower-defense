@@ -4,7 +4,7 @@ extends Node
 const STARTING_WINDOW_SIZE_PERCENT = 0.65
 
 const PLAYER_STARTING_MONEY: int = 3000
-
+const PLAYER_MAX_MONEY = 9999
 const CURRENT_LEVEL_GROUP = "level"
 const LEVEL_HITBOX_GROUP = "level_hitbox"
 const MOBS_GROUP = "mobs"
@@ -101,6 +101,8 @@ func _on_level_load() -> void:
 
 func add_money(value: int) -> void:
     PLAYER_MONEY_REMAINING += value
+    if PLAYER_MONEY_REMAINING >= PLAYER_MAX_MONEY:
+        PLAYER_MONEY_REMAINING = PLAYER_MAX_MONEY
     MONEY_METER.update_value_text()
     TOWER_INFO_AND_BUY_PANEL.recalculate_money()
 
