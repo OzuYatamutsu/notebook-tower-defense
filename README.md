@@ -20,6 +20,13 @@ Pull the repository and open `project.godot` in Godot 4.x or higher.
 
 ## Changelog
 
+### 2.1.465 (2025-09-03)
+
+- Added background music.
+- Added sound effects.
+- Balanced all levels for difficulty.
+- Now able to place towers via hotkeys.
+
 ### 2.0.387 (2025-08-11)
 
 - Overhaul the UI.
