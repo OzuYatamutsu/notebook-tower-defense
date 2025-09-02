@@ -74,7 +74,6 @@ func _on_targeting_radius_entered(body: Mob) -> void:
         TargetingQueue.append(body)
         return
 
-    print(str(self) + ": Switching targets: " + str(body))
     CURRENT_TARGET = body
     
     # When we spawn a tower, we want it to fire
@@ -90,12 +89,9 @@ func _on_targeting_radius_exited(body: Mob) -> void:
     if body != CURRENT_TARGET:
         TargetingQueue.erase(body)
         return
-
-    print(str(self) + ": Target out of range: " + str(body))
     
     if !TargetingQueue.is_empty():
         CURRENT_TARGET = TargetingQueue.pop_front()
-        print(str(self) + ": Switching targets to: " + str(CURRENT_TARGET))
     else:
         CURRENT_TARGET = null
 
@@ -132,7 +128,6 @@ func _get_random_non_wall_point_within_targeting_radius() -> Vector2:
         query.collide_with_bodies = false
         if space_state.intersect_shape(query, 1).is_empty():
             return attempted_point
-        print("try again")
     return Vector2.ZERO
 
 func _on_click(_viewport, event, _shape_idx) -> void:
@@ -153,4 +148,3 @@ func fire() -> void:
     # ...and fire it at our target!
     GameState.AUDIO_CONTROL.play_ui_sfx(Audio.SFX_PROJECTILE_FIRE_DEFAULT)
     new_projectile.fire_at(CURRENT_TARGET)
-    print(str(self) + ": Shooting at: " + str(CURRENT_TARGET))

@@ -47,7 +47,6 @@ func fire() -> void:
         # ...and fire it at a randomly generated position
         new_mine.TARGET_LOCATION = _get_random_non_wall_point_within_targeting_radius()
         new_mine.fire_mine()
-        print(str(self) + ": Shooting at: " + str(new_mine.TARGET_LOCATION))
 
 func enable() -> void:
     # Noop

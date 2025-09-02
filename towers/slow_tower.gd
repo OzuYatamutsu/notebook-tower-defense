@@ -44,4 +44,3 @@ func fire() -> void:
             cos(segment_length * i),
             sin(segment_length * i)
         ))
-        print(str(self) + ": Shooting fof")

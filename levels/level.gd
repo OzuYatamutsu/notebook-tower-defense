@@ -100,7 +100,6 @@ func _on_spawn_signal() -> void:
         mob_to_spawn.MAX_HP *= WAVE_HEALTH_MULTIPLIER.call(CURRENT_WAVE_NUM)
 
         SPAWNER.spawn(mob_to_spawn)
-        print("Spawning: " + str(mob_to_spawn))
 
 func select_and_play_bgm() -> void:
     if CURRENT_WAVE_NUM in WAVE_NUM_TO_TRACK_LEVEL:

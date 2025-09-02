@@ -42,7 +42,6 @@ func fire_at(target: Mob) -> void:
 func _on_damage_tick():
     if not TARGET:
         return
-    print("Laser: damage tick")
     TARGET.HEALTH_BAR.damage_by(self.DAMAGE)
     _despawn_if_target_destroyed()
 

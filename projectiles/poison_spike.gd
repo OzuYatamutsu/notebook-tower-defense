@@ -20,14 +20,10 @@ func slow_effect(mob: Mob) -> void:
     call_deferred("_slow", mob)
 
 func _slow(mob: Mob) -> void:
-    print(mob.name + " was slowed!")
-
     mob.SPEED *= 0.60
     mob.SPRITE.material = SLOW_COLOR_SHADER_MATERIAL
 
 func _poison(mob: Mob) -> void:
-    print(mob.name + " was poisoned!")
-
     # Add a POISON TIMER to the mob
     var poison_timer = Timer.new()
     poison_timer.wait_time = POISON_TIMER_TICK_SECS

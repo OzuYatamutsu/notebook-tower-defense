@@ -8,5 +8,4 @@ func _ready() -> void:
     add_to_group(GameState.LEVEL_HITBOX_GROUP)
 
 func _on_area_entered(mob: Mob) -> void:
-    print(str(mob) + " slipped through!")
     emit_signal("mob_slipped_through", mob)
