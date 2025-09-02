@@ -11,7 +11,7 @@ var EFFECTS: Array[Effect]
 var AVERAGE_DELTA: float
 var IgnoreWalls: bool = true
 
-@onready var DespawnTimer = $DespawnTimer
+@onready var DespawnTimer: Timer = $DespawnTimer
 
 var direction: Vector2 = Vector2.ZERO
 
@@ -22,11 +22,16 @@ func _init():
     visible = true
 
 func _deinit():
+    position = Vector2.ZERO
+
     self.collision_layer = 0x0
     self.collision_mask = 0x0
     for connection in area_entered.get_connections():
         connection["signal"].disconnect(connection["callable"])
+    IgnoreWalls = true
+    DespawnTimer.stop()
     visible = false
+    IS_ACTIVE = false
 
 func fire(at_direction: Vector2) -> void:
     assert(SPEED != 0.0, "Projectiles must have a speed set!")

@@ -138,7 +138,17 @@ func _on_click(_viewport, event, _shape_idx) -> void:
 
     GameState.TOWER_INFO_AND_BUY_PANEL.info_mode(self)
 
+func _verify_target():
+    if !CURRENT_TARGET:
+        return
+    if !CURRENT_TARGET.visible:
+        _on_targeting_radius_exited(CURRENT_TARGET)
+
 func fire() -> void:
+    _verify_target()
+    if !CURRENT_TARGET:
+        return
+
     # Spawn a new projectile
     var new_projectile: Projectile = Respawner.spawn_projectile(PROJECTILE_REF)
     new_projectile.global_position = global_position
